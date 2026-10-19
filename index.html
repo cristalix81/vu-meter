@@ -5,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0c0e">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; media-src 'self' blob:; connect-src 'none'">
-  <title>AV PRO · Stereo Meters / 3D Waterfall</title>
+  <title>AV PRO · Reference Instrument Collection</title>
   <link rel="icon" href="assets/icon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="needle-3d.js" defer></script>
   <script src="reference-meters.js" defer></script>
+  <script src="vintage-kit.js" defer></script>
+  <script src="vintage-dark.js" defer></script>
+  <script src="vintage-round.js" defer></script>
+  <script src="vintage-classic.js" defer></script>
+  <script src="vintage-meters.js" defer></script>
   <script src="spectral-waterfall.js" defer></script>
   <script src="spectrum-engine.js" defer></script>
   <script src="audio-engine.js" defer></script>
@@ -21,12 +26,18 @@
       <canvas id="meter-canvas" role="img" aria-label="Золотой стереоиндикатор VU с двумя подвижными стрелками"></canvas>
       <div class="loading" id="loading" role="status">Подготовка приборов…</div>
     </div>
-    <nav class="control-deck" aria-label="Управление прибором">
-      <div class="theme-controls" role="group" aria-label="Оформление и тип измерения">
+      <nav class="theme-controls mode-bank" aria-label="Режимы приборов">
         <button class="theme-button" data-theme="gold" id="theme-gold" aria-pressed="true" title="Золотой VU (1)"><i class="theme-light"></i>GOLD <span>VU</span></button>
         <button class="theme-button" data-theme="blue" id="theme-blue" aria-pressed="false" title="Синий пиковый индикатор (2)"><i class="theme-light"></i>BLUE <span>PEAK</span></button>
         <button class="theme-button" data-theme="waterfall" id="theme-waterfall" aria-pressed="false" title="Объёмный спектральный водопад (3)"><i class="theme-light"></i>3D <span>WATERFALL</span></button>
-      </div>
+        <button class="theme-button" data-theme="teal" id="theme-teal" aria-pressed="false" title="Тёмный бирюзовый VU (4)"><i class="theme-light"></i>TEAL <span>STUDIO</span></button>
+        <button class="theme-button" data-theme="amber" id="theme-amber" aria-pressed="false" title="Янтарная стереоконсоль (5)"><i class="theme-light"></i>AMBER <span>CONSOLE</span></button>
+        <button class="theme-button" data-theme="heritage" id="theme-heritage" aria-pressed="false" title="Состаренные круглые приборы (6)"><i class="theme-light"></i>HERITAGE <span>ROUND</span></button>
+        <button class="theme-button" data-theme="steel" id="theme-steel" aria-pressed="false" title="Круглые приборы на стальной панели (7)"><i class="theme-light"></i>STEEL <span>ROUND</span></button>
+        <button class="theme-button" data-theme="deluxe" id="theme-deluxe" aria-pressed="false" title="Винтажный стереоиндикатор (8)"><i class="theme-light"></i>DELUXE <span>STEREO</span></button>
+        <button class="theme-button" data-theme="six" id="theme-six" aria-pressed="false" title="Шесть белых индикаторов (9)"><i class="theme-light"></i>SIX <span>WHITE</span></button>
+      </nav>
+    <nav class="control-deck" aria-label="Управление прибором">
       <div class="source-controls" role="group" aria-label="Источник звука">
         <span class="source-status" id="source-status" role="status"><i></i><span id="source-label">НЕТ СИГНАЛА</span></span>
         <button id="file" title="Воспроизвести аудиофайл">FILE</button>

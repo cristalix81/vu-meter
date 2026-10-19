@@ -4,8 +4,8 @@ const path = require('node:path');
 
 function createWindow(){
   const win = new BrowserWindow({
-    width: 1400, height: 650, minWidth: 700, minHeight: 350,
-    title: 'AV PRO — Stereo Meters / 3D Waterfall',
+    width: 1400, height: 840, minWidth: 700, minHeight: 480,
+    title: 'AV PRO — Reference Instrument Collection',
     backgroundColor: '#020711', autoHideMenuBar: true,
     webPreferences: {
       contextIsolation: true, nodeIntegration: false, sandbox: true,

@@ -1,8 +1,8 @@
 {
   "name": "audio-visualizer-pro-studio-reborn",
   "productName": "Audio Visualizer Pro",
-  "version": "4.1.0",
-  "description": "Photo-matched stereo instruments and a live WebGL 3D spectral waterfall",
+  "version": "4.2.0",
+  "description": "Nine audio instruments with six vintage VU panels, WebGL needles and a 3D spectral waterfall",
   "author": "Audio Visualizer Pro Studio",
   "license": "UNLICENSED",
   "private": true,
@@ -11,7 +11,7 @@
     "start": "electron .",
     "dist": "electron-builder --win portable zip",
     "dist:linux": "electron-builder --linux AppImage",
-    "check": "node --check main.js && node --check app.js && node --check audio-engine.js && node --check needle-3d.js && node --check reference-meters.js && node --check spectrum-engine.js && node --check spectral-waterfall.js",
+    "check": "node --check main.js && node --check app.js && node --check audio-engine.js && node --check needle-3d.js && node --check reference-meters.js && node --check spectrum-engine.js && node --check spectral-waterfall.js && node --check vintage-kit.js && node --check vintage-dark.js && node --check vintage-round.js && node --check vintage-classic.js && node --check vintage-meters.js",
     "test": "node --test tests/*.test.cjs",
     "serve": "python3 -m http.server 8000 --bind 0.0.0.0"
   },
@@ -34,6 +34,11 @@
       "spectral-waterfall.js",
       "needle-3d.js",
       "reference-meters.js",
+      "vintage-kit.js",
+      "vintage-dark.js",
+      "vintage-round.js",
+      "vintage-classic.js",
+      "vintage-meters.js",
       "main.js",
       "assets/**/*",
       "package.json"
@@ -44,7 +49,7 @@
         "portable",
         "zip"
       ],
-      "artifactName": "AudioVisualizerPro-3DWaterfall-4.1.0-${arch}.${ext}",
+      "artifactName": "AudioVisualizerPro-InstrumentCollection-4.2.0-${arch}.${ext}",
       "icon": "assets/icon.ico"
     },
     "linux": {

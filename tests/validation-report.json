@@ -1,411 +1,1276 @@
 {
-  "version": "4.1.0",
-  "validated_at": "2026-10-19T11:00:31.893783+00:00",
+  "version": "4.2.0",
+  "validated_at": "2026-10-19T17:25:50.835963+00:00",
   "passed": true,
   "audio_unit_tests": 31,
   "audio_test_command": "npm test",
   "syntax_command": "npm run check",
   "browser": "Chromium / Playwright",
-  "browser_checks_passed": 31,
+  "browser_checks_passed": 122,
+  "browser_skips": 0,
   "browser_integration": {
     "checks": [
       {
-        "name": "startup is GOLD, idle, exactly three selectable modes",
+        "name": "nine expected modes",
+        "passed": true,
+        "detail": [
+          "gold",
+          "blue",
+          "waterfall",
+          "teal",
+          "amber",
+          "heritage",
+          "steel",
+          "deluxe",
+          "six"
+        ]
+      },
+      {
+        "name": "select gold",
         "passed": true,
         "detail": {
           "mode": 0,
-          "source": "idle",
-          "modes": [
-            "gold",
-            "blue",
-            "waterfall"
-          ]
+          "theme": "gold",
+          "renderer": "webgl"
         }
       },
       {
-        "name": "new mode is actual WebGL surface, idle without history or fake peaks",
+        "name": "select blue",
         "passed": true,
         "detail": {
-          "source": "idle",
-          "active": false,
-          "label": "",
-          "sampleRate": 0,
-          "rms": [
-            0,
-            0
-          ],
-          "peak": [
-            0,
-            0
-          ],
-          "rawRms": [
-            0,
-            0
-          ],
-          "rawPeak": [
-            0,
-            0
-          ],
-          "mode": 2,
-          "theme": "waterfall",
-          "held": false,
-          "loaded": true,
-          "renderer": "WebGL 3D surface",
-          "target": {
-            "left": 0,
-            "right": 0
-          },
-          "needles": {
-            "left": 0,
-            "right": 0
-          },
-          "waterfall": {
-            "renderer": "WebGL 3D surface",
-            "historyRows": 0,
-            "historySeconds": 0,
-            "peakHz": null,
-            "peakDb": null,
-            "frameCount": 10,
-            "active": false,
-            "bins": 128,
-            "floorDb": -55,
-            "ceilingDb": 5,
-            "maxHz": 20000
-          }
+          "mode": 1,
+          "theme": "blue",
+          "renderer": "webgl"
         }
       },
       {
-        "name": "previous from GOLD wraps to waterfall",
+        "name": "select waterfall",
         "passed": true,
-        "detail": 2
+        "detail": {
+          "mode": 2,
+          "theme": "waterfall",
+          "renderer": "WebGL 3D surface"
+        }
       },
       {
-        "name": "next after waterfall wraps to GOLD",
+        "name": "select teal",
+        "passed": true,
+        "detail": {
+          "mode": 3,
+          "theme": "teal",
+          "renderer": "WebGL 3D needles"
+        }
+      },
+      {
+        "name": "select amber",
+        "passed": true,
+        "detail": {
+          "mode": 4,
+          "theme": "amber",
+          "renderer": "WebGL 3D needles"
+        }
+      },
+      {
+        "name": "select heritage",
+        "passed": true,
+        "detail": {
+          "mode": 5,
+          "theme": "heritage",
+          "renderer": "WebGL 3D needles"
+        }
+      },
+      {
+        "name": "select steel",
+        "passed": true,
+        "detail": {
+          "mode": 6,
+          "theme": "steel",
+          "renderer": "WebGL 3D needles"
+        }
+      },
+      {
+        "name": "select deluxe",
+        "passed": true,
+        "detail": {
+          "mode": 7,
+          "theme": "deluxe",
+          "renderer": "WebGL 3D needles"
+        }
+      },
+      {
+        "name": "select six",
+        "passed": true,
+        "detail": {
+          "mode": 8,
+          "theme": "six",
+          "renderer": "WebGL 3D needles"
+        }
+      },
+      {
+        "name": "left arrow wraps first to ninth",
+        "passed": true,
+        "detail": 8
+      },
+      {
+        "name": "right arrow wraps ninth to first",
         "passed": true,
         "detail": 0
       },
       {
-        "name": "silent file stays flat without invented peaks",
+        "name": "shortcut 1",
         "passed": true,
-        "detail": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 24,
-          "historySeconds": 1.4665999999999995,
-          "peakHz": null,
-          "peakDb": null,
-          "frameCount": 82,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
-        }
+        "detail": 0
       },
       {
-        "name": "silence chart pixels match idle grid exactly",
+        "name": "shortcut 2",
         "passed": true,
-        "detail": {
-          "idle": 3098785372,
-          "silence": 3098785372
-        }
+        "detail": 1
       },
       {
-        "name": "source replacement clears previous history before 100 Hz",
+        "name": "shortcut 3",
         "passed": true,
-        "detail": {
-          "before": 27,
-          "early": {
-            "renderer": "WebGL 3D surface",
-            "historyRows": 3,
-            "historySeconds": 0.11669999999999986,
-            "peakHz": 98.27345971841308,
-            "peakDb": -53.83707046508789,
-            "frameCount": 97,
-            "active": true,
-            "bins": 128,
-            "floorDb": -55,
-            "ceilingDb": 5,
-            "maxHz": 20000
-          }
-        }
+        "detail": 2
       },
       {
-        "name": "actual measured 100 Hz peak is in correct logarithmic band",
+        "name": "shortcut 4",
         "passed": true,
-        "detail": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 25,
-          "historySeconds": 1.5667,
-          "peakHz": 98.27345971841308,
-          "peakDb": -18.93494415283203,
-          "frameCount": 152,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
-        }
+        "detail": 3
       },
       {
-        "name": "source replacement clears previous history before 1000 Hz",
+        "name": "shortcut 5",
         "passed": true,
-        "detail": {
-          "before": 25,
-          "early": {
-            "renderer": "WebGL 3D surface",
-            "historyRows": 3,
-            "historySeconds": 0.13339999999999966,
-            "peakHz": null,
-            "peakDb": null,
-            "frameCount": 160,
-            "active": true,
-            "bins": 128,
-            "floorDb": -55,
-            "ceilingDb": 5,
-            "maxHz": 20000
-          }
-        }
+        "detail": 4
       },
       {
-        "name": "actual measured 1000 Hz peak is in correct logarithmic band",
+        "name": "shortcut 6",
         "passed": true,
-        "detail": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 25,
-          "historySeconds": 1.533299999999999,
-          "peakHz": 1000.5729221150466,
-          "peakDb": -17.99989891052246,
-          "frameCount": 215,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
-        }
+        "detail": 5
       },
       {
-        "name": "source replacement clears previous history before 5000 Hz",
+        "name": "shortcut 7",
         "passed": true,
-        "detail": {
-          "before": 25,
-          "early": {
-            "renderer": "WebGL 3D surface",
-            "historyRows": 3,
-            "historySeconds": 0.1333000000000002,
-            "peakHz": 5050.957865154758,
-            "peakDb": -46.64482498168945,
-            "frameCount": 223,
-            "active": true,
-            "bins": 128,
-            "floorDb": -55,
-            "ceilingDb": 5,
-            "maxHz": 20000
-          }
-        }
+        "detail": 6
       },
       {
-        "name": "actual measured 5000 Hz peak is in correct logarithmic band",
+        "name": "shortcut 8",
         "passed": true,
-        "detail": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 25,
-          "historySeconds": 1.549899999999999,
-          "peakHz": 5050.957865154758,
-          "peakDb": -18.00019073486328,
-          "frameCount": 276,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
-        }
+        "detail": 7
       },
       {
-        "name": "history advances in measured time while source is active",
+        "name": "shortcut 9",
+        "passed": true,
+        "detail": 8
+      },
+      {
+        "name": "teal measured nominal stereo reaches0VU",
         "passed": true,
         "detail": {
-          "before": {
-            "renderer": "WebGL 3D surface",
-            "historyRows": 25,
-            "historySeconds": 1.5665999999999998,
-            "peakHz": 5050.957865154758,
-            "peakDb": -18.00019073486328,
-            "frameCount": 277,
-            "active": true,
-            "bins": 128,
-            "floorDb": -55,
-            "ceilingDb": 5,
-            "maxHz": 20000
+          "target": [
+            0.6500749734544963,
+            0.6500749723797326
+          ],
+          "needles": [
+            0.6500442206313182,
+            0.6500442183918744
+          ],
+          "vintage": {
+            "theme": "teal",
+            "width": 1280,
+            "height": 500,
+            "aspect": 2.56,
+            "calibration": 18,
+            "marks": [
+              [
+                -20,
+                0
+              ],
+              [
+                -10,
+                0.16
+              ],
+              [
+                -7,
+                0.24
+              ],
+              [
+                -5,
+                0.32
+              ],
+              [
+                -3,
+                0.44
+              ],
+              [
+                -2,
+                0.5
+              ],
+              [
+                -1,
+                0.57
+              ],
+              [
+                0,
+                0.65
+              ],
+              [
+                1,
+                0.74
+              ],
+              [
+                2,
+                0.83
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "channels": [
+              0,
+              1
+            ],
+            "target": [
+              0.6500749734544963,
+              0.6500749723797326
+            ],
+            "positions": [
+              0.6500442206313182,
+              0.6500442183918744
+            ],
+            "renderer": "WebGL 3D needles"
           },
-          "after": {
-            "renderer": "WebGL 3D surface",
-            "historyRows": 37,
-            "historySeconds": 2.3665999999999983,
-            "peakHz": 5050.957865154758,
-            "peakDb": -18.000192642211914,
-            "frameCount": 310,
-            "active": true,
-            "bins": 128,
-            "floorDb": -55,
-            "ceilingDb": 5,
-            "maxHz": 20000
-          }
+          "renderer": "WebGL 3D needles"
         }
       },
       {
-        "name": "opposite-phase stereo retains measured power without cancellation",
+        "name": "teal actual GPU needles",
+        "passed": true,
+        "detail": "WebGL 3D needles"
+      },
+      {
+        "name": "teal mono retains equal stereo levels",
         "passed": true,
         "detail": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 24,
-          "historySeconds": 1.466700000000001,
-          "peakHz": 1000.5729221150466,
-          "peakDb": -17.99989891052246,
-          "frameCount": 371,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
+          "target": [
+            0.6499745883590055,
+            0.6499748257316094
+          ],
+          "needles": [
+            0.6499918489039463,
+            0.6499924153233946
+          ]
         }
       },
       {
-        "name": "one active stereo channel measures minus3dB mean power",
+        "name": "teal silent left has no invented signal",
         "passed": true,
         "detail": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 24,
-          "historySeconds": 1.4665999999999983,
-          "peakHz": 1000.5729221150466,
-          "peakDb": -21.01019859313965,
-          "frameCount": 429,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
+          "target": [
+            0,
+            0.649929889289804
+          ],
+          "rawRms": [
+            0,
+            0.08900101589863717
+          ],
+          "needles": [
+            0,
+            0.6499847871435855
+          ]
         }
       },
       {
-        "name": "HOLD freezes every waterfall pixel and history row",
+        "name": "teal silent right has no invented signal",
         "passed": true,
         "detail": {
-          "historyBefore": 24,
-          "historyAfter": 24,
-          "identical": true
+          "target": [
+            0.6501517266034434,
+            0
+          ],
+          "rawRms": [
+            0.08907104205599578,
+            0
+          ],
+          "needles": [
+            0.6499878072077071,
+            0
+          ]
         }
       },
       {
-        "name": "HOLD preserves spectral history and peak through resize",
+        "name": "teal HOLD freezes pixels",
         "passed": true,
         "detail": {
-          "before": {
-            "renderer": "WebGL 3D surface",
-            "historyRows": 24,
-            "historySeconds": 1.4998999999999993,
-            "peakHz": 1000.5729221150466,
-            "peakDb": -21.01019859313965,
-            "frameCount": 430,
-            "active": true,
-            "bins": 128,
-            "floorDb": -55,
-            "ceilingDb": 5,
-            "maxHz": 20000
+          "before": 2780167163,
+          "after": 2780167163
+        }
+      },
+      {
+        "name": "teal HOLD resize preserves needles",
+        "passed": true,
+        "detail": {
+          "before": [
+            0.6500652504255895,
+            0
+          ],
+          "after": [
+            0.6500652504255895,
+            0
+          ]
+        }
+      },
+      {
+        "name": "teal STOP zeroes targets and returns needles",
+        "passed": true,
+        "detail": {
+          "target": [
+            0,
+            0
+          ],
+          "needles": [
+            0,
+            0
+          ],
+          "source": "idle"
+        }
+      },
+      {
+        "name": "amber measured nominal stereo reaches0VU",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.6501008720155245,
+            0.650100872023433
+          ],
+          "needles": [
+            0.6501328216387757,
+            0.6501328216562112
+          ],
+          "vintage": {
+            "theme": "amber",
+            "width": 1280,
+            "height": 380,
+            "aspect": 3.3684210526315788,
+            "calibration": 18,
+            "marks": [
+              [
+                -20,
+                0
+              ],
+              [
+                -10,
+                0.16
+              ],
+              [
+                -7,
+                0.24
+              ],
+              [
+                -5,
+                0.32
+              ],
+              [
+                -3,
+                0.44
+              ],
+              [
+                -2,
+                0.5
+              ],
+              [
+                -1,
+                0.57
+              ],
+              [
+                0,
+                0.65
+              ],
+              [
+                1,
+                0.74
+              ],
+              [
+                2,
+                0.83
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "channels": [
+              0,
+              1
+            ],
+            "target": [
+              0.6501008720155245,
+              0.650100872023433
+            ],
+            "positions": [
+              0.6501328216387757,
+              0.6501328216562112
+            ],
+            "renderer": "WebGL 3D needles"
           },
-          "after": {
-            "renderer": "WebGL 3D surface",
-            "historyRows": 24,
-            "historySeconds": 1.4998999999999993,
-            "peakHz": 1000.5729221150466,
-            "peakDb": -21.01019859313965,
-            "frameCount": 431,
-            "active": true,
-            "bins": 128,
-            "floorDb": -55,
-            "ceilingDb": 5,
-            "maxHz": 20000
-          }
+          "renderer": "WebGL 3D needles"
         }
       },
       {
-        "name": "release HOLD resumes surface rendering",
+        "name": "amber actual GPU needles",
+        "passed": true,
+        "detail": "WebGL 3D needles"
+      },
+      {
+        "name": "amber mono retains equal stereo levels",
         "passed": true,
         "detail": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 28,
-          "historySeconds": 1.7664999999999995,
-          "peakHz": 1000.5729221150466,
-          "peakDb": -21.01019859313965,
-          "frameCount": 442,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
+          "target": [
+            0.6500885127218793,
+            0.6500884683205788
+          ],
+          "needles": [
+            0.6500798575775706,
+            0.6500797582057405
+          ]
         }
       },
       {
-        "name": "STOP clears history and returns idle without a peak",
+        "name": "amber silent left has no invented signal",
         "passed": true,
         "detail": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 0,
-          "historySeconds": 0,
-          "peakHz": null,
-          "peakDb": null,
-          "frameCount": 452,
-          "active": false,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
+          "target": [
+            0,
+            0.6501321602218179
+          ],
+          "rawRms": [
+            0,
+            0.08906937615885213
+          ],
+          "needles": [
+            0,
+            0.6500900947002578
+          ]
         }
       },
       {
-        "name": "explicit broadband DEMO builds substantial measured history",
+        "name": "amber silent right has no invented signal",
         "passed": true,
         "detail": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 68,
-          "historySeconds": 4.349800000000002,
-          "peakHz": 5938.629696404958,
-          "peakDb": -22.918121337890625,
-          "frameCount": 629,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
+          "target": [
+            0.6498880390622427,
+            0
+          ],
+          "rawRms": [
+            0.0890073493627314,
+            0
+          ],
+          "needles": [
+            0.6499746024273709,
+            0
+          ]
         }
       },
       {
-        "name": "timestamped history remains within real4.42second window",
+        "name": "amber HOLD freezes pixels",
         "passed": true,
         "detail": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 68,
-          "historySeconds": 4.349800000000002,
-          "peakHz": 5938.629696404958,
-          "peakDb": -22.918121337890625,
-          "frameCount": 629,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
+          "before": 943701978,
+          "after": 943701978
         }
       },
       {
-        "name": "8:3 instrument and nonoverlapping visible controls 1312x720",
+        "name": "amber HOLD resize preserves needles",
         "passed": true,
         "detail": {
+          "before": [
+            0.6499493747631597,
+            0
+          ],
+          "after": [
+            0.6499493747631597,
+            0
+          ]
+        }
+      },
+      {
+        "name": "amber STOP zeroes targets and returns needles",
+        "passed": true,
+        "detail": {
+          "target": [
+            0,
+            0
+          ],
+          "needles": [
+            0,
+            0
+          ],
+          "source": "idle"
+        }
+      },
+      {
+        "name": "heritage measured nominal stereo reaches0VU",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.6499298577801821,
+            0.6499298592356789
+          ],
+          "needles": [
+            0.6500162135372003,
+            0.650016216721221
+          ],
+          "vintage": {
+            "theme": "heritage",
+            "width": 1280,
+            "height": 610,
+            "aspect": 2.098360655737705,
+            "calibration": 18,
+            "marks": [
+              [
+                -20,
+                0
+              ],
+              [
+                -10,
+                0.16
+              ],
+              [
+                -7,
+                0.24
+              ],
+              [
+                -5,
+                0.32
+              ],
+              [
+                -3,
+                0.44
+              ],
+              [
+                -2,
+                0.5
+              ],
+              [
+                -1,
+                0.57
+              ],
+              [
+                0,
+                0.65
+              ],
+              [
+                1,
+                0.74
+              ],
+              [
+                2,
+                0.83
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "channels": [
+              0,
+              1
+            ],
+            "target": [
+              0.6499298577801821,
+              0.6499298592356789
+            ],
+            "positions": [
+              0.6500162135372003,
+              0.650016216721221
+            ],
+            "renderer": "WebGL 3D needles"
+          },
+          "renderer": "WebGL 3D needles"
+        }
+      },
+      {
+        "name": "heritage actual GPU needles",
+        "passed": true,
+        "detail": "WebGL 3D needles"
+      },
+      {
+        "name": "heritage mono retains equal stereo levels",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.6501611468909743,
+            0.6501589409158847
+          ],
+          "needles": [
+            0.6501045744140103,
+            0.6501000085481038
+          ]
+        }
+      },
+      {
+        "name": "heritage silent left has no invented signal",
+        "passed": true,
+        "detail": {
+          "target": [
+            0,
+            0.649956250491141
+          ],
+          "rawRms": [
+            0,
+            0.088999633354251
+          ],
+          "needles": [
+            0,
+            0.650111346632678
+          ]
+        }
+      },
+      {
+        "name": "heritage silent right has no invented signal",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.6499813153492247,
+            0
+          ],
+          "rawRms": [
+            0.08898358092552652,
+            0
+          ],
+          "needles": [
+            0.6500931891205166,
+            0
+          ]
+        }
+      },
+      {
+        "name": "heritage HOLD freezes pixels",
+        "passed": true,
+        "detail": {
+          "before": 48832015,
+          "after": 48832015
+        }
+      },
+      {
+        "name": "heritage HOLD resize preserves needles",
+        "passed": true,
+        "detail": {
+          "before": [
+            0.65015048813352,
+            0
+          ],
+          "after": [
+            0.65015048813352,
+            0
+          ]
+        }
+      },
+      {
+        "name": "heritage STOP zeroes targets and returns needles",
+        "passed": true,
+        "detail": {
+          "target": [
+            0,
+            0
+          ],
+          "needles": [
+            0,
+            0
+          ],
+          "source": "idle"
+        }
+      },
+      {
+        "name": "steel measured nominal stereo reaches0VU",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.649981188002421,
+            0.6499811868701143
+          ],
+          "needles": [
+            0.6499966901816584,
+            0.6499966876493145
+          ],
+          "vintage": {
+            "theme": "steel",
+            "width": 1280,
+            "height": 635,
+            "aspect": 2.015748031496063,
+            "calibration": 12,
+            "marks": [
+              [
+                -20,
+                0
+              ],
+              [
+                -10,
+                0.16
+              ],
+              [
+                -7,
+                0.24
+              ],
+              [
+                -5,
+                0.32
+              ],
+              [
+                -3,
+                0.44
+              ],
+              [
+                -2,
+                0.5
+              ],
+              [
+                -1,
+                0.57
+              ],
+              [
+                0,
+                0.65
+              ],
+              [
+                1,
+                0.74
+              ],
+              [
+                2,
+                0.83
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "channels": [
+              0,
+              1
+            ],
+            "target": [
+              0.649981188002421,
+              0.6499811868701143
+            ],
+            "positions": [
+              0.6499966901816584,
+              0.6499966876493145
+            ],
+            "renderer": "WebGL 3D needles"
+          },
+          "renderer": "WebGL 3D needles"
+        }
+      },
+      {
+        "name": "steel actual GPU needles",
+        "passed": true,
+        "detail": "WebGL 3D needles"
+      },
+      {
+        "name": "steel mono retains equal stereo levels",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.6499126130514807,
+            0.6499123939581923
+          ],
+          "needles": [
+            0.6500720919759239,
+            0.6500715747752291
+          ]
+        }
+      },
+      {
+        "name": "steel silent left has no invented signal",
+        "passed": true,
+        "detail": {
+          "target": [
+            0,
+            0.2798585998131618
+          ],
+          "rawRms": [
+            0,
+            0.08898467317005467
+          ],
+          "needles": [
+            0,
+            0.27988651538859477
+          ]
+        }
+      },
+      {
+        "name": "steel silent right has no invented signal",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.2799273307215779,
+            0
+          ],
+          "rawRms": [
+            0.0890483593734038,
+            0
+          ],
+          "needles": [
+            0.2798544580251315,
+            0
+          ]
+        }
+      },
+      {
+        "name": "steel HOLD freezes pixels",
+        "passed": true,
+        "detail": {
+          "before": 2187306739,
+          "after": 2187306739
+        }
+      },
+      {
+        "name": "steel HOLD resize preserves needles",
+        "passed": true,
+        "detail": {
+          "before": [
+            0.28005094949872955,
+            0
+          ],
+          "after": [
+            0.28005094949872955,
+            0
+          ]
+        }
+      },
+      {
+        "name": "steel STOP zeroes targets and returns needles",
+        "passed": true,
+        "detail": {
+          "target": [
+            0,
+            0
+          ],
+          "needles": [
+            0,
+            0
+          ],
+          "source": "idle"
+        }
+      },
+      {
+        "name": "deluxe measured nominal stereo reaches0VU",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.64993897409667,
+            0.6499389741131069
+          ],
+          "needles": [
+            0.6499941937124334,
+            0.6499941937697211
+          ],
+          "vintage": {
+            "theme": "deluxe",
+            "width": 1280,
+            "height": 430,
+            "aspect": 2.9767441860465116,
+            "calibration": 18,
+            "marks": [
+              [
+                -20,
+                0
+              ],
+              [
+                -10,
+                0.16
+              ],
+              [
+                -7,
+                0.24
+              ],
+              [
+                -5,
+                0.32
+              ],
+              [
+                -3,
+                0.44
+              ],
+              [
+                -2,
+                0.5
+              ],
+              [
+                -1,
+                0.57
+              ],
+              [
+                0,
+                0.65
+              ],
+              [
+                1,
+                0.74
+              ],
+              [
+                2,
+                0.83
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "channels": [
+              0,
+              1
+            ],
+            "target": [
+              0.64993897409667,
+              0.6499389741131069
+            ],
+            "positions": [
+              0.6499941937124334,
+              0.6499941937697211
+            ],
+            "renderer": "WebGL 3D needles"
+          },
+          "renderer": "WebGL 3D needles"
+        }
+      },
+      {
+        "name": "deluxe actual GPU needles",
+        "passed": true,
+        "detail": "WebGL 3D needles"
+      },
+      {
+        "name": "deluxe mono retains equal stereo levels",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.6501500309899299,
+            0.6501499901444784
+          ],
+          "needles": [
+            0.6500504202717886,
+            0.6500503345959462
+          ]
+        }
+      },
+      {
+        "name": "deluxe silent left has no invented signal",
+        "passed": true,
+        "detail": {
+          "target": [
+            0,
+            0.6500342484976162
+          ],
+          "rawRms": [
+            0,
+            0.08906545129766813
+          ],
+          "needles": [
+            0,
+            0.6500556556283275
+          ]
+        }
+      },
+      {
+        "name": "deluxe silent right has no invented signal",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.6499894807749133,
+            0
+          ],
+          "rawRms": [
+            0.08907083858076284,
+            0
+          ],
+          "needles": [
+            0.6499980430996214,
+            0
+          ]
+        }
+      },
+      {
+        "name": "deluxe HOLD freezes pixels",
+        "passed": true,
+        "detail": {
+          "before": 3776423406,
+          "after": 3776423406
+        }
+      },
+      {
+        "name": "deluxe HOLD resize preserves needles",
+        "passed": true,
+        "detail": {
+          "before": [
+            0.6500018335067398,
+            0
+          ],
+          "after": [
+            0.6500018335067398,
+            0
+          ]
+        }
+      },
+      {
+        "name": "deluxe STOP zeroes targets and returns needles",
+        "passed": true,
+        "detail": {
+          "target": [
+            0,
+            0
+          ],
+          "needles": [
+            0,
+            0
+          ],
+          "source": "idle"
+        }
+      },
+      {
+        "name": "six measured nominal stereo reaches0VU",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.6501519595794343,
+            0.6501519595794343,
+            0.6501519595794343,
+            0.6501519594791084,
+            0.6501519594791084,
+            0.6501519594791084
+          ],
+          "needles": [
+            0.6500996950928274,
+            0.6500939853529671,
+            0.6500878196698494,
+            0.650099694910255,
+            0.6500939851316373,
+            0.6500878205773812
+          ],
+          "vintage": {
+            "theme": "six",
+            "width": 1280,
+            "height": 550,
+            "aspect": 2.327272727272727,
+            "calibration": 18,
+            "marks": [
+              [
+                -20,
+                0
+              ],
+              [
+                -10,
+                0.16
+              ],
+              [
+                -7,
+                0.24
+              ],
+              [
+                -5,
+                0.32
+              ],
+              [
+                -3,
+                0.44
+              ],
+              [
+                -2,
+                0.5
+              ],
+              [
+                -1,
+                0.57
+              ],
+              [
+                0,
+                0.65
+              ],
+              [
+                1,
+                0.74
+              ],
+              [
+                2,
+                0.83
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "channels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "target": [
+              0.6501519595794343,
+              0.6501519595794343,
+              0.6501519595794343,
+              0.6501519594791084,
+              0.6501519594791084,
+              0.6501519594791084
+            ],
+            "positions": [
+              0.6500996950928274,
+              0.6500939853529671,
+              0.6500878196698494,
+              0.650099694910255,
+              0.6500939851316373,
+              0.6500878205773812
+            ],
+            "renderer": "WebGL 3D needles"
+          },
+          "renderer": "WebGL 3D needles"
+        }
+      },
+      {
+        "name": "six actual GPU needles",
+        "passed": true,
+        "detail": "WebGL 3D needles"
+      },
+      {
+        "name": "six mono retains equal stereo levels",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.6499890882759738,
+            0.6499890882759738,
+            0.6499890882759738,
+            0.6499891541425351,
+            0.6499891541425351,
+            0.6499891541425351
+          ],
+          "needles": [
+            0.6500820407730621,
+            0.6501005658560584,
+            0.6501202246529943,
+            0.6500821729565914,
+            0.6501007350397969,
+            0.6501205906760652
+          ]
+        }
+      },
+      {
+        "name": "six silent left has no invented signal",
+        "passed": true,
+        "detail": {
+          "target": [
+            0,
+            0,
+            0,
+            0.6499507804045441,
+            0.6499507804045441,
+            0.6499507804045441
+          ],
+          "rawRms": [
+            0,
+            0.08900101589863717
+          ],
+          "needles": [
+            0,
+            0,
+            0,
+            0.6499994292121158,
+            0.6500129442365978,
+            0.6500210714176546
+          ]
+        }
+      },
+      {
+        "name": "six silent right has no invented signal",
+        "passed": true,
+        "detail": {
+          "target": [
+            0.6500319993808581,
+            0.6500319993808581,
+            0.6500319993808581,
+            0,
+            0,
+            0
+          ],
+          "rawRms": [
+            0.08900384622226991,
+            0
+          ],
+          "needles": [
+            0.6500749757857976,
+            0.6500697903542624,
+            0.6500530864220824,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "name": "six HOLD freezes pixels",
+        "passed": true,
+        "detail": {
+          "before": 48605370,
+          "after": 48605370
+        }
+      },
+      {
+        "name": "six HOLD resize preserves needles",
+        "passed": true,
+        "detail": {
+          "before": [
+            0.6498703581429318,
+            0.649888357611703,
+            0.6499262142569205,
+            0,
+            0,
+            0
+          ],
+          "after": [
+            0.6498703581429318,
+            0.649888357611703,
+            0.6499262142569205,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "name": "six STOP zeroes targets and returns needles",
+        "passed": true,
+        "detail": {
+          "target": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "needles": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "idle"
+        }
+      },
+      {
+        "name": "layout gold 1312x900",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.6666666666666665,
           "surface": {
             "x": 16,
-            "y": 77,
+            "y": 146,
             "width": 1280,
             "height": 480,
             "right": 1296,
-            "bottom": 557
+            "bottom": 626
           },
           "ratio": 2.6666666666666665,
           "outside": [],
@@ -413,27 +1278,352 @@
           "pairs": [],
           "viewport": {
             "width": 1312,
-            "height": 720
+            "height": 900
           },
           "document": {
             "width": 1312,
-            "height": 720
+            "height": 900
           }
         }
       },
       {
-        "name": "8:3 instrument and nonoverlapping visible controls 800x480",
+        "name": "layout blue 1312x900",
         "passed": true,
         "detail": {
+          "expectedRatio": 2.6666666666666665,
+          "surface": {
+            "x": 16,
+            "y": 146,
+            "width": 1280,
+            "height": 480,
+            "right": 1296,
+            "bottom": 626
+          },
+          "ratio": 2.6666666666666665,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 1312,
+            "height": 900
+          },
+          "document": {
+            "width": 1312,
+            "height": 900
+          }
+        }
+      },
+      {
+        "name": "layout waterfall 1312x900",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.6666666666666665,
+          "surface": {
+            "x": 16,
+            "y": 146,
+            "width": 1280,
+            "height": 480,
+            "right": 1296,
+            "bottom": 626
+          },
+          "ratio": 2.6666666666666665,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 1312,
+            "height": 900
+          },
+          "document": {
+            "width": 1312,
+            "height": 900
+          }
+        }
+      },
+      {
+        "name": "layout teal 1312x900",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.56,
+          "surface": {
+            "x": 16,
+            "y": 136,
+            "width": 1280,
+            "height": 500,
+            "right": 1296,
+            "bottom": 636
+          },
+          "ratio": 2.56,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 1312,
+            "height": 900
+          },
+          "document": {
+            "width": 1312,
+            "height": 900
+          }
+        }
+      },
+      {
+        "name": "layout amber 1312x900",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 3.3684210526315788,
+          "surface": {
+            "x": 16,
+            "y": 196,
+            "width": 1280,
+            "height": 380,
+            "right": 1296,
+            "bottom": 576
+          },
+          "ratio": 3.3684210526315788,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 1312,
+            "height": 900
+          },
+          "document": {
+            "width": 1312,
+            "height": 900
+          }
+        }
+      },
+      {
+        "name": "layout heritage 1312x900",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.098360655737705,
+          "surface": {
+            "x": 16,
+            "y": 81,
+            "width": 1280,
+            "height": 610,
+            "right": 1296,
+            "bottom": 691
+          },
+          "ratio": 2.098360655737705,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 1312,
+            "height": 900
+          },
+          "document": {
+            "width": 1312,
+            "height": 900
+          }
+        }
+      },
+      {
+        "name": "layout steel 1312x900",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.015748031496063,
+          "surface": {
+            "x": 16,
+            "y": 68.5,
+            "width": 1280,
+            "height": 635,
+            "right": 1296,
+            "bottom": 703.5
+          },
+          "ratio": 2.015748031496063,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 1312,
+            "height": 900
+          },
+          "document": {
+            "width": 1312,
+            "height": 900
+          }
+        }
+      },
+      {
+        "name": "layout deluxe 1312x900",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.9767441860465116,
+          "surface": {
+            "x": 16,
+            "y": 171,
+            "width": 1280,
+            "height": 430,
+            "right": 1296,
+            "bottom": 601
+          },
+          "ratio": 2.9767441860465116,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 1312,
+            "height": 900
+          },
+          "document": {
+            "width": 1312,
+            "height": 900
+          }
+        }
+      },
+      {
+        "name": "layout six 1312x900",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.327272727272727,
+          "surface": {
+            "x": 16,
+            "y": 111,
+            "width": 1280,
+            "height": 550,
+            "right": 1296,
+            "bottom": 661
+          },
+          "ratio": 2.327272727272727,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 1312,
+            "height": 900
+          },
+          "document": {
+            "width": 1312,
+            "height": 900
+          }
+        }
+      },
+      {
+        "name": "layout gold 800x480",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.6666666666666665,
+          "surface": {
+            "x": 26.671875,
+            "y": 12,
+            "width": 746.65625,
+            "height": 279.984375,
+            "right": 773.328125,
+            "bottom": 291.984375
+          },
+          "ratio": 2.6667782800379487,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "document": {
+            "width": 800,
+            "height": 480
+          }
+        }
+      },
+      {
+        "name": "layout blue 800x480",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.6666666666666665,
+          "surface": {
+            "x": 26.671875,
+            "y": 12,
+            "width": 746.65625,
+            "height": 279.984375,
+            "right": 773.328125,
+            "bottom": 291.984375
+          },
+          "ratio": 2.6667782800379487,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "document": {
+            "width": 800,
+            "height": 480
+          }
+        }
+      },
+      {
+        "name": "layout waterfall 800x480",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.6666666666666665,
+          "surface": {
+            "x": 26.671875,
+            "y": 12,
+            "width": 746.65625,
+            "height": 279.984375,
+            "right": 773.328125,
+            "bottom": 291.984375
+          },
+          "ratio": 2.6667782800379487,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "document": {
+            "width": 800,
+            "height": 480
+          }
+        }
+      },
+      {
+        "name": "layout teal 800x480",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.56,
+          "surface": {
+            "x": 41.59375,
+            "y": 12,
+            "width": 716.796875,
+            "height": 279.984375,
+            "right": 758.390625,
+            "bottom": 291.984375
+          },
+          "ratio": 2.560131703778113,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "document": {
+            "width": 800,
+            "height": 480
+          }
+        }
+      },
+      {
+        "name": "layout amber 800x480",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 3.3684210526315788,
           "surface": {
             "x": 12,
-            "y": 61,
+            "y": 36.8125,
             "width": 776,
-            "height": 291,
+            "height": 230.375,
             "right": 788,
-            "bottom": 352
+            "bottom": 267.1875
           },
-          "ratio": 2.6666666666666665,
+          "ratio": 3.3684210526315788,
           "outside": [],
           "overlap": [],
           "pairs": [],
@@ -448,16 +1638,125 @@
         }
       },
       {
-        "name": "8:3 instrument and nonoverlapping visible controls 390x844",
+        "name": "layout heritage 800x480",
         "passed": true,
         "detail": {
+          "expectedRatio": 2.098360655737705,
+          "surface": {
+            "x": 106.234375,
+            "y": 12,
+            "width": 587.53125,
+            "height": 279.984375,
+            "right": 693.765625,
+            "bottom": 291.984375
+          },
+          "ratio": 2.0984429934706177,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "document": {
+            "width": 800,
+            "height": 480
+          }
+        }
+      },
+      {
+        "name": "layout steel 800x480",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.015748031496063,
+          "surface": {
+            "x": 117.796875,
+            "y": 12,
+            "width": 564.40625,
+            "height": 279.984375,
+            "right": 682.203125,
+            "bottom": 291.984375
+          },
+          "ratio": 2.0158490987220268,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "document": {
+            "width": 800,
+            "height": 480
+          }
+        }
+      },
+      {
+        "name": "layout deluxe 800x480",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.9767441860465116,
+          "surface": {
+            "x": 12,
+            "y": 21.65625,
+            "width": 776,
+            "height": 260.6875,
+            "right": 788,
+            "bottom": 282.34375
+          },
+          "ratio": 2.9767441860465116,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "document": {
+            "width": 800,
+            "height": 480
+          }
+        }
+      },
+      {
+        "name": "layout six 800x480",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.327272727272727,
+          "surface": {
+            "x": 74.1875,
+            "y": 12,
+            "width": 651.625,
+            "height": 279.984375,
+            "right": 725.8125,
+            "bottom": 291.984375
+          },
+          "ratio": 2.3273620179697527,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "document": {
+            "width": 800,
+            "height": 480
+          }
+        }
+      },
+      {
+        "name": "layout gold 390x844",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.6666666666666665,
           "surface": {
             "x": 8,
-            "y": 269.578125,
+            "y": 238.078125,
             "width": 374,
             "height": 140.25,
             "right": 382,
-            "bottom": 409.828125
+            "bottom": 378.328125
           },
           "ratio": 2.6666666666666665,
           "outside": [],
@@ -474,16 +1773,233 @@
         }
       },
       {
-        "name": "8:3 instrument and nonoverlapping visible controls 320x640",
+        "name": "layout blue 390x844",
         "passed": true,
         "detail": {
+          "expectedRatio": 2.6666666666666665,
           "surface": {
             "x": 8,
-            "y": 180.703125,
+            "y": 238.078125,
+            "width": 374,
+            "height": 140.25,
+            "right": 382,
+            "bottom": 378.328125
+          },
+          "ratio": 2.6666666666666665,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      },
+      {
+        "name": "layout waterfall 390x844",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.6666666666666665,
+          "surface": {
+            "x": 8,
+            "y": 238.078125,
+            "width": 374,
+            "height": 140.25,
+            "right": 382,
+            "bottom": 378.328125
+          },
+          "ratio": 2.6666666666666665,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      },
+      {
+        "name": "layout teal 390x844",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.56,
+          "surface": {
+            "x": 8,
+            "y": 235.15625,
+            "width": 374,
+            "height": 146.09375,
+            "right": 382,
+            "bottom": 381.25
+          },
+          "ratio": 2.56,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      },
+      {
+        "name": "layout amber 390x844",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 3.3684210526315788,
+          "surface": {
+            "x": 8,
+            "y": 252.6875,
+            "width": 374,
+            "height": 111.03125,
+            "right": 382,
+            "bottom": 363.71875
+          },
+          "ratio": 3.3684210526315788,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      },
+      {
+        "name": "layout heritage 390x844",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.098360655737705,
+          "surface": {
+            "x": 8,
+            "y": 219.078125,
+            "width": 374,
+            "height": 178.234375,
+            "right": 382,
+            "bottom": 397.3125
+          },
+          "ratio": 2.098360655737705,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      },
+      {
+        "name": "layout steel 390x844",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.015748031496063,
+          "surface": {
+            "x": 8,
+            "y": 215.4375,
+            "width": 374,
+            "height": 185.53125,
+            "right": 382,
+            "bottom": 400.96875
+          },
+          "ratio": 2.0158329122452416,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      },
+      {
+        "name": "layout deluxe 390x844",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.9767441860465116,
+          "surface": {
+            "x": 8,
+            "y": 245.375,
+            "width": 374,
+            "height": 125.640625,
+            "right": 382,
+            "bottom": 371.015625
+          },
+          "ratio": 2.9767441860465116,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      },
+      {
+        "name": "layout six 390x844",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.327272727272727,
+          "surface": {
+            "x": 8,
+            "y": 227.84375,
+            "width": 374,
+            "height": 160.703125,
+            "right": 382,
+            "bottom": 388.546875
+          },
+          "ratio": 2.327272727272727,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      },
+      {
+        "name": "layout gold 320x640",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.6666666666666665,
+          "surface": {
+            "x": 8,
+            "y": 149.203125,
             "width": 304,
             "height": 114,
             "right": 312,
-            "bottom": 294.703125
+            "bottom": 263.203125
           },
           "ratio": 2.6666666666666665,
           "outside": [],
@@ -500,80 +2016,409 @@
         }
       },
       {
-        "name": "GOLD regression: nominal mono sine drives two equal 0 VU pointers",
+        "name": "layout blue 320x640",
         "passed": true,
         "detail": {
-          "target": {
-            "left": 0.7350239592373173,
-            "right": 0.7350239592393307
+          "expectedRatio": 2.6666666666666665,
+          "surface": {
+            "x": 8,
+            "y": 149.203125,
+            "width": 304,
+            "height": 114,
+            "right": 312,
+            "bottom": 263.203125
           },
-          "source": "file",
-          "renderer": "webgl"
-        }
-      },
-      {
-        "name": "BLUE regression: nominal sine maps to 0 dB graduation",
-        "passed": true,
-        "detail": {
-          "target": {
-            "left": 0.749985254421152,
-            "right": 0.749985254421152
+          "ratio": 2.6666666666666665,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 320,
+            "height": 640
           },
-          "source": "file",
-          "renderer": "webgl"
-        }
-      },
-      {
-        "name": "Canvas fallback renders same calibrated real spectrum",
-        "passed": true,
-        "detail": {
-          "renderer": "Canvas 2D fallback",
-          "historyRows": 23,
-          "historySeconds": 1.4499999999999988,
-          "peakHz": 1000.5729221150466,
-          "peakDb": -17.99989891052246,
-          "frameCount": 68,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
-        }
-      },
-      {
-        "name": "keyboard3 selects waterfall with crisp DPR2 backing",
-        "passed": true,
-        "detail": {
-          "mode": 2,
-          "backing": {
-            "width": 1552,
-            "height": 582,
-            "css": 776
+          "document": {
+            "width": 320,
+            "height": 640
           }
         }
       },
       {
-        "name": "32kHz context respects16kHz Nyquist and correct spectral frequencies",
+        "name": "layout waterfall 320x640",
         "passed": true,
         "detail": {
-          "sampleRate": 32000,
+          "expectedRatio": 2.6666666666666665,
+          "surface": {
+            "x": 8,
+            "y": 149.203125,
+            "width": 304,
+            "height": 114,
+            "right": 312,
+            "bottom": 263.203125
+          },
+          "ratio": 2.6666666666666665,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 320,
+            "height": 640
+          },
+          "document": {
+            "width": 320,
+            "height": 640
+          }
+        }
+      },
+      {
+        "name": "layout teal 320x640",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.56,
+          "surface": {
+            "x": 8,
+            "y": 146.828125,
+            "width": 304,
+            "height": 118.75,
+            "right": 312,
+            "bottom": 265.578125
+          },
+          "ratio": 2.56,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 320,
+            "height": 640
+          },
+          "document": {
+            "width": 320,
+            "height": 640
+          }
+        }
+      },
+      {
+        "name": "layout amber 320x640",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 3.3684210526315788,
+          "surface": {
+            "x": 8,
+            "y": 161.078125,
+            "width": 304,
+            "height": 90.25,
+            "right": 312,
+            "bottom": 251.328125
+          },
+          "ratio": 3.3684210526315788,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 320,
+            "height": 640
+          },
+          "document": {
+            "width": 320,
+            "height": 640
+          }
+        }
+      },
+      {
+        "name": "layout heritage 320x640",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.098360655737705,
+          "surface": {
+            "x": 8,
+            "y": 133.765625,
+            "width": 304,
+            "height": 144.875,
+            "right": 312,
+            "bottom": 278.640625
+          },
+          "ratio": 2.098360655737705,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 320,
+            "height": 640
+          },
+          "document": {
+            "width": 320,
+            "height": 640
+          }
+        }
+      },
+      {
+        "name": "layout steel 320x640",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.015748031496063,
+          "surface": {
+            "x": 8,
+            "y": 130.796875,
+            "width": 304,
+            "height": 150.8125,
+            "right": 312,
+            "bottom": 281.609375
+          },
+          "ratio": 2.015748031496063,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 320,
+            "height": 640
+          },
+          "document": {
+            "width": 320,
+            "height": 640
+          }
+        }
+      },
+      {
+        "name": "layout deluxe 320x640",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.9767441860465116,
+          "surface": {
+            "x": 8,
+            "y": 155.140625,
+            "width": 304,
+            "height": 102.125,
+            "right": 312,
+            "bottom": 257.265625
+          },
+          "ratio": 2.9767441860465116,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 320,
+            "height": 640
+          },
+          "document": {
+            "width": 320,
+            "height": 640
+          }
+        }
+      },
+      {
+        "name": "layout six 320x640",
+        "passed": true,
+        "detail": {
+          "expectedRatio": 2.327272727272727,
+          "surface": {
+            "x": 8,
+            "y": 140.890625,
+            "width": 304,
+            "height": 130.625,
+            "right": 312,
+            "bottom": 271.515625
+          },
+          "ratio": 2.327272727272727,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 320,
+            "height": 640
+          },
+          "document": {
+            "width": 320,
+            "height": 640
+          }
+        }
+      },
+      {
+        "name": "preserve gold reference calibration",
+        "passed": true,
+        "detail": {
+          "left": 0.7349265000636003,
+          "right": 0.7349264874835137
+        }
+      },
+      {
+        "name": "preserve blue reference calibration",
+        "passed": true,
+        "detail": {
+          "left": 0.7563893041405971,
+          "right": 0.7563893041405971
+        }
+      },
+      {
+        "name": "preserve waterfall measured1kHz",
+        "passed": true,
+        "detail": {
           "waterfall": {
             "renderer": "WebGL 3D surface",
-            "historyRows": 23,
-            "historySeconds": 1.4499999999999988,
-            "peakHz": 978.856636577204,
-            "peakDb": -17.999919891357422,
-            "frameCount": 67,
+            "historyRows": 27,
+            "historySeconds": 1.6833000000000031,
+            "peakHz": 1000.5729221150466,
+            "peakDb": -17.99989891052246,
+            "frameCount": 135,
             "active": true,
             "bins": 128,
             "floorDb": -55,
             "ceilingDb": 5,
-            "maxHz": 16000
+            "maxHz": 20000
           }
         }
       },
       {
-        "name": "no uncaught JavaScript, console or resource errors",
+        "name": "teal Canvas fallback calibrated",
+        "passed": true,
+        "detail": {
+          "renderer": "Canvas 2D fallback",
+          "target": [
+            0.6499589923493188,
+            0.649958982301975
+          ]
+        }
+      },
+      {
+        "name": "amber Canvas fallback calibrated",
+        "passed": true,
+        "detail": {
+          "renderer": "Canvas 2D fallback",
+          "target": [
+            0.6501688022884589,
+            0.65016879443976
+          ]
+        }
+      },
+      {
+        "name": "heritage Canvas fallback calibrated",
+        "passed": true,
+        "detail": {
+          "renderer": "Canvas 2D fallback",
+          "target": [
+            0.649935159413155,
+            0.6499351229179923
+          ]
+        }
+      },
+      {
+        "name": "steel Canvas fallback calibrated",
+        "passed": true,
+        "detail": {
+          "renderer": "Canvas 2D fallback",
+          "target": [
+            0.6499025942740785,
+            0.6499026006118256
+          ]
+        }
+      },
+      {
+        "name": "deluxe Canvas fallback calibrated",
+        "passed": true,
+        "detail": {
+          "renderer": "Canvas 2D fallback",
+          "target": [
+            0.6500160016928834,
+            0.6500159394377738
+          ]
+        }
+      },
+      {
+        "name": "six Canvas fallback calibrated",
+        "passed": true,
+        "detail": {
+          "renderer": "Canvas 2D fallback",
+          "target": [
+            0.6501083659670839,
+            0.6501083659670839,
+            0.6501083659670839,
+            0.650108374098088,
+            0.650108374098088,
+            0.650108374098088
+          ]
+        }
+      },
+      {
+        "name": "teal DPR2 crisp backing",
+        "passed": true,
+        "detail": {
+          "width": 1434,
+          "height": 560,
+          "cssWidth": 716.796875
+        }
+      },
+      {
+        "name": "amber DPR2 crisp backing",
+        "passed": true,
+        "detail": {
+          "width": 1552,
+          "height": 461,
+          "cssWidth": 776
+        }
+      },
+      {
+        "name": "heritage DPR2 crisp backing",
+        "passed": true,
+        "detail": {
+          "width": 1175,
+          "height": 560,
+          "cssWidth": 587.53125
+        }
+      },
+      {
+        "name": "steel DPR2 crisp backing",
+        "passed": true,
+        "detail": {
+          "width": 1129,
+          "height": 560,
+          "cssWidth": 564.40625
+        }
+      },
+      {
+        "name": "deluxe DPR2 crisp backing",
+        "passed": true,
+        "detail": {
+          "width": 1552,
+          "height": 521,
+          "cssWidth": 776
+        }
+      },
+      {
+        "name": "six DPR2 crisp backing",
+        "passed": true,
+        "detail": {
+          "width": 1303,
+          "height": 560,
+          "cssWidth": 651.625
+        }
+      },
+      {
+        "name": "fullscreen respects round native ratio and visible controls",
+        "passed": true,
+        "detail": {
+          "fullscreen": true,
+          "surface": {
+            "x": 106.234375,
+            "y": 12,
+            "width": 587.53125,
+            "height": 279.984375,
+            "right": 693.765625,
+            "bottom": 291.984375
+          },
+          "ratio": 2.0984429934706177,
+          "outside": [],
+          "overlap": [],
+          "pairs": [],
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "document": {
+            "width": 800,
+            "height": 480
+          }
+        }
+      },
+      {
+        "name": "no browser exceptions, console errors, missing resources",
         "passed": true,
         "detail": {
           "errors": [],
@@ -585,35 +2430,57 @@
     "errors": [],
     "consoleErrors": [],
     "responses": [],
-    "skips": [
-      {
-        "name": "file:// startup",
-        "reason": "Managed Chromium blocks local file URL navigation before app execution (ERR_BLOCKED_BY_ADMINISTRATOR)."
-      }
-    ],
-    "observations": [
-      {
-        "name": "software GL history capture rate after 4.8 seconds of broadband demo",
-        "state": {
-          "renderer": "WebGL 3D surface",
-          "historyRows": 68,
-          "historySeconds": 4.349800000000002,
-          "peakHz": 5938.629696404958,
-          "peakDb": -22.918121337890625,
-          "frameCount": 629,
-          "active": true,
-          "bins": 128,
-          "floorDb": -55,
-          "ceilingDb": 5,
-          "maxHz": 20000
-        }
-      }
-    ],
     "passed": true
   },
+  "six_motion": {
+    "passed": true,
+    "rising": {
+      "time": 401.8999999985099,
+      "targets": [
+        0.21036881012738823,
+        0.21036881012738823,
+        0.21036881012738823,
+        0.21036881012738823,
+        0.21036881012738823,
+        0.21036881012738823
+      ],
+      "positions": [
+        0.08221527926747144,
+        0.05379758986211523,
+        0.029887829834236566,
+        0.08221527926747144,
+        0.05379758986211523,
+        0.029887829834236566
+      ]
+    },
+    "settled": {
+      "time": 1001.8999999985099,
+      "targets": [
+        0.6500207729037287,
+        0.6500207729037287,
+        0.6500207729037287,
+        0.6500207729037287,
+        0.6500207729037287,
+        0.6500207729037287
+      ],
+      "positions": [
+        0.6499339140558645,
+        0.6499364333091416,
+        0.6500006798902673,
+        0.6499339140558645,
+        0.6499364333091416,
+        0.6500006798902673
+      ]
+    }
+  },
+  "needle_gpu": {
+    "custom_reference_plane": "1280x640",
+    "six_materials_rendered": true,
+    "eight_needles_vertices": 864,
+    "gold_blue_pixel_regression_at_dpr_1_and_2": "identical"
+  },
   "limitations": [
-    "Physical microphone and desktop capture still require validation on the user device.",
-    "Electron/Windows executable packaging was not run.",
-    "Local file startup was skipped because managed Chromium blocks file URLs before application execution; HTTP startup and all browser checks passed."
+    "Physical microphone and desktop capture require validation on the user device.",
+    "Windows launch and Electron/EXE packaging were not tested on this Linux host."
   ]
 }

@@ -1,5 +1,5 @@
-/* A small, dependency-free WebGL renderer for the two physical meter needles.
- * All dimensions are in the 1280 × 480 photographic reference plane. */
+/* A small, dependency-free WebGL renderer for physical meter needles.
+ * Coordinates use a configurable reference plane, defaulting to 1280 × 480. */
 (function (global) {
   'use strict';
 
@@ -14,10 +14,11 @@
     varying vec3 vNormal;
     varying vec3 vColour;
     varying vec3 vSurface;
+    uniform vec2 uHalfSize;
     void main() {
       // Orthographic projection keeps the pivot and tip exactly on the scale.
-      gl_Position = vec4(aPosition.x / 640.0 - 1.0,
-                         1.0 - aPosition.y / 240.0,
+      gl_Position = vec4(aPosition.x / uHalfSize.x - 1.0,
+                         1.0 - aPosition.y / uHalfSize.y,
                          -aPosition.z / 16.0, 1.0);
       vNormal = aNormal;
       vColour = aColour;
@@ -68,6 +69,29 @@
       gl_FragColor = vec4(colour, 1.0);
     }
   `;
+
+  const MATERIALS = {
+    cyan: {
+      enamel: [0.018, 0.38, 0.48, 0.12, 0.26, 0.07],
+      bevel: [0.23, 0.67, 0.72, 0.64, 0.24, 0.035],
+      side: [0.008, 0.066, 0.08, 0.25, 0.38, 0.0]
+    },
+    ivory: {
+      enamel: [0.65, 0.59, 0.35, 0.04, 0.34, 0.0],
+      bevel: [0.85, 0.77, 0.48, 0.36, 0.29, 0.0],
+      side: [0.19, 0.15, 0.068, 0.12, 0.43, 0.0]
+    },
+    black: {
+      enamel: [0.009, 0.012, 0.012, 0.10, 0.36, 0.0],
+      bevel: [0.052, 0.062, 0.064, 0.56, 0.31, 0.0],
+      side: [0.003, 0.004, 0.004, 0.08, 0.45, 0.0]
+    },
+    red: {
+      enamel: [0.63, 0.009, 0.004, 0.04, 0.29, 0.025],
+      bevel: [0.83, 0.10, 0.025, 0.50, 0.26, 0.025],
+      side: [0.19, 0.003, 0.002, 0.14, 0.38, 0.0]
+    }
+  };
 
   class MeterNeedle3D {
     constructor() {
@@ -132,6 +156,7 @@
           throw new Error('Needle shader linking failed');
         }
         this._program = program;
+        this._halfSize = gl.getUniformLocation(program, 'uHalfSize');
         this._buffer = gl.createBuffer();
         gl.useProgram(program);
         gl.bindBuffer(gl.ARRAY_BUFFER, this._buffer);
@@ -185,26 +210,34 @@
       if (length < start + 2) return;
       const dx = (tx - px) / length, dy = (ty - py) / length;
       const sx = -dy, sy = dx;
-      const halfWidth = blue ? 1.7 : 1.6;
-      // A hexagonal, tapering prism: broad red enamel, narrow polished bevels.
+      const defaultWidth = blue ? 1.7 : 1.6;
+      const customWidth = Number.isFinite(needle.width) && needle.width > 0;
+      const halfWidth = customWidth ? Math.min(5, Math.max(0.35, needle.width)) : defaultWidth;
+      const widthScale = customWidth ? halfWidth / defaultWidth : 1;
+      // A hexagonal, tapering prism: lacquered face and polished metal bevels.
       const profile = [[-1, 0.06], [-1, 0.45], [-0.78, 0.84],
                        [0.78, 0.84], [1, 0.45], [1, 0.06]];
       const rings = [
         { at: start, width: halfWidth, height: 1 },
-        { at: length - 16, width: 0.90, height: 0.75 },
-        { at: length - 1.5, width: 0.26, height: 0.30 },
-        { at: length, width: 0.15, height: 0.12 }
+        { at: Math.max(start, length - 16), width: 0.90 * widthScale, height: 0.75 },
+        { at: length - 1.5, width: 0.26 * widthScale, height: 0.30 },
+        { at: length, width: 0.15 * widthScale, height: 0.12 }
       ].map((ring) => profile.map(([cross, height]) => [
         px + dx * ring.at + sx * cross * ring.width,
         py + dy * ring.at + sy * cross * ring.width,
         0.12 + height * ring.height
       ]));
-      const enamel = blue ? [0.78, 0.048, 0.007, 0.04, 0.28, 0.20]
+      let enamel = blue ? [0.78, 0.048, 0.007, 0.04, 0.28, 0.20]
                           : [0.63, 0.009, 0.004, 0.04, 0.29, 0.025];
-      const bevel = blue ? [0.94, 0.37, 0.055, 0.64, 0.27, 0.12]
+      let bevel = blue ? [0.94, 0.37, 0.055, 0.64, 0.27, 0.12]
                          : [0.83, 0.10, 0.025, 0.50, 0.26, 0.025];
-      const side = blue ? [0.27, 0.010, 0.002, 0.16, 0.38, 0.04]
+      let side = blue ? [0.27, 0.010, 0.002, 0.16, 0.38, 0.04]
                         : [0.19, 0.003, 0.002, 0.14, 0.38, 0.0];
+      // Linear material values share the same physically lit bevel geometry.
+      // Unspecified material preserves the original Gold VU / Blue Peak finish.
+      if (Object.prototype.hasOwnProperty.call(MATERIALS, needle.material)) {
+        ({ enamel, bevel, side } = MATERIALS[needle.material]);
+      }
       for (let segment = 0; segment < rings.length - 1; segment++) {
         for (let face = 0; face < profile.length; face++) {
           const next = (face + 1) % profile.length;
@@ -224,15 +257,22 @@
       const gl = this.gl;
       if (!this.available || this._disposed || !gl || gl.isContextLost()) return null;
       const ratio = Math.min(2, Math.max(1, Number(options.pixelRatio) || 1));
-      const width = Math.round(WIDTH * ratio), height = Math.round(HEIGHT * ratio);
+      const referenceWidth = Number.isFinite(options.referenceWidth) && options.referenceWidth > 0
+        ? options.referenceWidth : WIDTH;
+      const referenceHeight = Number.isFinite(options.referenceHeight) && options.referenceHeight > 0
+        ? options.referenceHeight : HEIGHT;
+      const width = Math.max(1, Math.round(referenceWidth * ratio));
+      const height = Math.max(1, Math.round(referenceHeight * ratio));
       if (this.canvas.width !== width || this.canvas.height !== height) {
         this.canvas.width = width;
         this.canvas.height = height;
+        this.canvas.style.width = referenceWidth + 'px';
+        this.canvas.style.height = referenceHeight + 'px';
       }
       this._offset = 0;
-      // At most a stereo pair is required, keeping buffers bounded and reusable.
+      // Eight prisms fit in the fixed reusable vertex buffer (864 vertices).
       if (Array.isArray(needles)) {
-        for (const needle of needles.slice(0, 2)) {
+        for (const needle of needles.slice(0, 8)) {
           if (needle) this._needle(needle, options.theme === 'blue');
         }
       }
@@ -240,6 +280,7 @@
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
       if (this._offset) {
         gl.useProgram(this._program);
+        gl.uniform2f(this._halfSize, referenceWidth / 2, referenceHeight / 2);
         gl.bindBuffer(gl.ARRAY_BUFFER, this._buffer);
         gl.bufferSubData(gl.ARRAY_BUFFER, 0, this._vertices.subarray(0, this._offset));
         gl.drawArrays(gl.TRIANGLES, 0, this._offset / STRIDE);
