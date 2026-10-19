@@ -1,0 +1,58 @@
+{
+  "name": "audio-visualizer-pro-studio-reborn",
+  "productName": "Audio Visualizer Pro",
+  "version": "3.0.0",
+  "description": "Premium photoreal Hi-Fi audio visualizer with stereo live capture",
+  "author": "Audio Visualizer Pro Studio",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable zip",
+    "dist:linux": "electron-builder --linux AppImage",
+    "check": "node --check main.js && node --check app.js && node --check spectrum-engine.js && node --check spectrum-display.js && node --check hardware-renderers.js && node --check electronic-renderers.js && node --check modes250.js",
+    "test": "node --test tests/*.test.cjs",
+    "serve": "python3 -m http.server 8000 --bind 0.0.0.0"
+  },
+  "devDependencies": {
+    "electron": "^37.10.3",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.avpro.studio.reborn",
+    "productName": "Audio Visualizer Pro",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "styles.css",
+      "app.js",
+      "spectrum-engine.js",
+      "spectrum-display.js",
+      "hardware-renderers.js",
+      "electronic-renderers.js",
+      "modes250.js",
+      "main.js",
+      "assets/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        "portable",
+        "zip"
+      ],
+      "artifactName": "AudioVisualizerPro-StudioReborn-3.0.0-${arch}.${ext}",
+      "icon": "assets/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "AudioVideo",
+      "icon": "assets/icon.png"
+    }
+  }
+}

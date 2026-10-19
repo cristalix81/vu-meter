@@ -1,0 +1,332 @@
+{
+  "passed": true,
+  "dsp": {
+    "passed": 12,
+    "command": "npm test"
+  },
+  "audio_integration": {
+    "checks": [
+      {
+        "name": "initial source is idle, analyzer selected",
+        "passed": true,
+        "detail": {
+          "source": "idle",
+          "mode": 5
+        }
+      },
+      {
+        "name": "idle spectrum has no synthetic activity",
+        "passed": true,
+        "detail": -130
+      },
+      {
+        "name": "mono file is actual active audio",
+        "passed": true,
+        "detail": "file"
+      },
+      {
+        "name": "mono 1 kHz detected at calibrated level",
+        "passed": true,
+        "detail": {
+          "index": 36,
+          "hz": 1027.9393601543024,
+          "db": -6.000179290771484
+        }
+      },
+      {
+        "name": "mono upmix delivers equal left/right activity",
+        "passed": true,
+        "detail": [
+          1,
+          1
+        ]
+      },
+      {
+        "name": "equal stereo agrees with mono calibration",
+        "passed": true,
+        "detail": {
+          "mono": {
+            "index": 36,
+            "hz": 1027.9393601543024,
+            "db": -6.000179290771484
+          },
+          "stereo": {
+            "index": 36,
+            "hz": 1027.9393601543024,
+            "db": -6.000179290771484
+          }
+        }
+      },
+      {
+        "name": "stereo preserves independently panned tones",
+        "passed": true,
+        "detail": {
+          "left1k": -9.010478973388672,
+          "right3k": -9.010760307312012
+        }
+      },
+      {
+        "name": "demo uses explicit demo source cycle 1",
+        "passed": true,
+        "detail": {
+          "source": "demo",
+          "max": -27.75383758544922
+        }
+      },
+      {
+        "name": "file source reconnect cycle 1",
+        "passed": true,
+        "detail": {
+          "index": 36,
+          "hz": 1027.9393601543024,
+          "db": -6.0002121925354
+        }
+      },
+      {
+        "name": "demo uses explicit demo source cycle 2",
+        "passed": true,
+        "detail": {
+          "source": "demo",
+          "max": -26.736509323120117
+        }
+      },
+      {
+        "name": "file source reconnect cycle 2",
+        "passed": true,
+        "detail": {
+          "index": 36,
+          "hz": 1027.9393601543024,
+          "db": -6.000204086303711
+        }
+      },
+      {
+        "name": "microphone denial never starts demo",
+        "passed": true,
+        "detail": {
+          "source": "file",
+          "toast": "Микрофон: QA: microphone denied"
+        }
+      },
+      {
+        "name": "screen share cancellation never starts demo",
+        "passed": true,
+        "detail": {
+          "source": "file",
+          "toast": "Захват: QA: share cancelled"
+        }
+      },
+      {
+        "name": "silent PCM has zero input power with natural release",
+        "passed": true,
+        "detail": {
+          "rawPowerMax": 0,
+          "releasingDb": -52.24629592895508
+        }
+      },
+      {
+        "name": "all 256 modes render without runtime errors",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "spectrum canvas responds at 1920px",
+        "passed": true,
+        "detail": [
+          {
+            "width": 1400,
+            "height": 471,
+            "cssWidth": 1400,
+            "cssHeight": 471
+          }
+        ]
+      },
+      {
+        "name": "spectrum canvas responds at 900px",
+        "passed": true,
+        "detail": [
+          {
+            "width": 828,
+            "height": 539,
+            "cssWidth": 828,
+            "cssHeight": 539
+          }
+        ]
+      },
+      {
+        "name": "spectrum canvas responds at 390px",
+        "passed": true,
+        "detail": [
+          {
+            "width": 342,
+            "height": 324,
+            "cssWidth": 342,
+            "cssHeight": 324
+          }
+        ]
+      },
+      {
+        "name": "invalid file has visible error and no demo fallback",
+        "passed": true,
+        "detail": {
+          "source": "idle",
+          "toast": "Ошибка аудиофайла: Failed to load because no supported source was found."
+        }
+      },
+      {
+        "name": "no uncaught JS exceptions throughout integration",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "no browser console errors",
+        "passed": true,
+        "detail": []
+      }
+    ],
+    "events": {
+      "errors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    }
+  },
+  "appearance": {
+    "passed": true,
+    "mode_count": 256,
+    "family_count": 12,
+    "layout_count": 328,
+    "all_modes_seconds": 15.734157757,
+    "screenshots": 42,
+    "contact_sheet": "/tmp/avpro-qa/after-modes/contact-sheet.png",
+    "checks": [
+      {
+        "name": "initial analyzer idle and all250 collection modes loaded",
+        "passed": true,
+        "detail": {
+          "source": "idle",
+          "mode": 5,
+          "count": 250
+        }
+      },
+      {
+        "name": "all twelve renderer families represented",
+        "passed": true,
+        "detail": {
+          "vu": 6,
+          "bars": 7,
+          "osc": 9,
+          "wave": 11,
+          "circ": 12,
+          "mount": 13,
+          "part": 58,
+          "reel": 61,
+          "vinyl": 62,
+          "radio": 63,
+          "clock": 64,
+          "nixie": 206
+        }
+      },
+      {
+        "name": "all256 canvases contain substantial rendered pixels",
+        "passed": true,
+        "detail": {
+          "count": 256,
+          "blankModes": [],
+          "seconds": 15.73
+        }
+      },
+      {
+        "name": "all256 desktop layouts keep toolbar below drawing and canvas inside scene",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "all18 representative layouts fit at390×844",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "all18 representative layouts fit at800×480",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "all18 representative layouts fit at1920×480",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "all18 representative layouts fit at1440×900",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "reel transport visibly rotates while source active",
+        "passed": true,
+        "detail": {
+          "mode": 61,
+          "changed": true
+        }
+      },
+      {
+        "name": "reel transport is stationary after STOP",
+        "passed": true,
+        "detail": {
+          "mode": 61,
+          "sameCanvas": true,
+          "source": "idle"
+        }
+      },
+      {
+        "name": "vinyl transport visibly rotates while source active",
+        "passed": true,
+        "detail": {
+          "mode": 62,
+          "changed": true
+        }
+      },
+      {
+        "name": "vinyl transport is stationary after STOP",
+        "passed": true,
+        "detail": {
+          "mode": 62,
+          "sameCanvas": true,
+          "source": "idle"
+        }
+      }
+    ],
+    "final_resource_and_runtime_check": {
+      "errors": [],
+      "consoleErrors": [],
+      "failedResponses": []
+    },
+    "resolved_findings": [
+      "Initial all-mode traversal reported one favicon.ico 404 from the development server; explicit icon link fixed it. Fresh final navigation and representative renders have zero runtime/console/resource errors.",
+      "Reel TAKE UP/header collision fixed in final hardware module. Final800x480 screenshot visually confirmed clear separated label baselines.",
+      "All18 primary/family representative screenshots and8 responsive blue/reel screenshots refreshed after final renderer fixes; first two additionally refreshed after demo toast faded."
+    ],
+    "artifacts": {
+      "before_contact_sheet": "/tmp/avpro-qa/before-modes/contact-sheet.png",
+      "after_contact_sheet": "/tmp/avpro-qa/after-modes/contact-sheet.png",
+      "original_full_run_report": "/tmp/avpro-qa/after-modes/report.json"
+    }
+  },
+  "hardware_render_matrix": {
+    "passed": 192,
+    "families": [
+      "vu",
+      "nixie",
+      "reel",
+      "vinyl",
+      "clock",
+      "radio"
+    ],
+    "skins": 4,
+    "layouts": 4,
+    "analog_digital_variants": 2
+  },
+  "limitations": [
+    "Chromium browser testing; physical microphone/system-loopback capture needs validation on the user device.",
+    "Electron executable packaging not performed.",
+    "Digital calibration applies to SA-64; additional modes are visual representations of the shared audio frame."
+  ]
+}
