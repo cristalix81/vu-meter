@@ -1,4 +1,4 @@
-/* Stereo time-domain metering. No synthetic animation or FFT-derived levels. */
+/* Independent stereo time-domain meters and calibrated spectral analysis. */
 (function (root, factory) {
   'use strict';
   const api = factory();
@@ -8,6 +8,9 @@
   'use strict';
 
   const FFT_SIZE = 4096;
+  const SPECTRUM_FFT_SIZE = 32768;
+  const SPECTRUM_BANDS = 128;
+  const SPECTRUM_FLOOR = -90;
   const NOMINAL_SINE_PEAK = Math.pow(10, -18 / 20);
 
   function measure(samples) {
@@ -72,6 +75,84 @@
     return carrier / carrierRms * NOMINAL_SINE_PEAK / Math.SQRT2 * modulation;
   }
 
+  function renderBroadbandDemo(samples, sampleRate, channel = 0) {
+    // A deterministic ambient passage synthesized as real stereo PCM. Dense
+    // partials make broad musical formants instead of isolated equal test tones;
+    // each formant breathes and drifts independently above a quiet pink bed.
+    // The display still measures this signal through the browser's actual FFT.
+    let seed = channel ? 0x6d2b79f5 : 0x1f123bb5;
+    const random = () => {
+      seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5;
+      return (seed >>> 0) / 2147483648 - 1;
+    };
+    const duration = samples.length / sampleRate;
+    const voices = [];
+    const centers = [50, 120, 350, 1000, 6000, 12000];
+    const widths = [0.24, 0.19, 0.25, 0.22, 0.16, 0.16];
+    const strengths = [1.05, 1.3, 0.87, 0.66, 1.28, 0.9];
+    const upperHz = Math.min(20000, sampleRate * 0.47);
+    for (let i = 0; i < 128; i++) {
+      const frequency = Math.round((20 * Math.pow(upperHz / 20, (i + 0.5) / 128)) * duration) / duration;
+      let group = 0, distance = Infinity;
+      for (let g = 0; g < centers.length; g++) {
+        const delta = Math.abs(Math.log(frequency / centers[g]));
+        if (delta < distance) { group = g; distance = delta; }
+      }
+      const logOffset = Math.log(frequency / centers[group]);
+      const width = widths[group];
+      const variation = strengths[group] * (0.91 + 0.18 * (random() + 1) * 0.5);
+      const lowWeight = variation * Math.exp(-0.5 * Math.pow((logOffset + 0.075) / width, 2));
+      const highWeight = variation * Math.exp(-0.5 * Math.pow((logOffset - 0.075) / width, 2));
+      const phase = random() * Math.PI;
+      const step = 2 * Math.PI * frequency / sampleRate;
+      voices.push({ sin: Math.sin(phase), cos: Math.cos(phase),
+        stepSin: Math.sin(step), stepCos: Math.cos(step), lowWeight, highWeight, group });
+    }
+    // Six low-pass noise components approximate pink noise without an FFT or
+    // invented display levels. Pole time constants follow the actual rate.
+    const poles = [0.99886, 0.99332, 0.969, 0.8665, 0.55, -0.7616];
+    const weights = [0.0555179, 0.0750759, 0.153852, 0.3104856, 0.5329522, -0.016898];
+    const filters = new Float64Array(6);
+    const envelopes = new Float64Array(6);
+    const drifts = new Float64Array(6);
+    const adapted = poles.map(value => Math.sign(value) * Math.pow(Math.abs(value), 44100 / sampleRate));
+    let previousWhite = 0;
+    let power = 0, peak = 0;
+    for (let i = 0; i < samples.length; i++) {
+      const time = i / sampleRate;
+      const white = random();
+      let pink = white * 0.5362 + previousWhite * 0.115926;
+      for (let j = 0; j < filters.length; j++) {
+        filters[j] = adapted[j] * filters[j] + white * weights[j];
+        pink += filters[j];
+      }
+      previousWhite = white;
+      const rhythm = Math.pow(Math.max(0, Math.cos(2 * Math.PI * 2 * time + channel * 0.18)), 8);
+      for (let group = 0; group < centers.length; group++) {
+        const breath = 0.5 + 0.5 * Math.sin(2 * Math.PI * (2 + group % 3) * time / 8 + group * 1.15 + channel * 0.23);
+        envelopes[group] = 0.28 + 0.85 * breath * breath + (group < 2 ? rhythm * 0.45 : 0);
+        drifts[group] = 0.5 + 0.5 * Math.sin(2 * Math.PI * time / 8 + group * 1.7);
+      }
+      let carrier = 0;
+      for (const voice of voices) {
+        const weight = voice.lowWeight + (voice.highWeight - voice.lowWeight) * drifts[voice.group];
+        carrier += voice.sin * weight * envelopes[voice.group];
+        const nextSin = voice.sin * voice.stepCos + voice.cos * voice.stepSin;
+        voice.cos = voice.cos * voice.stepCos - voice.sin * voice.stepSin;
+        voice.sin = nextSin;
+      }
+      const loopFade = Math.min(1, i / (sampleRate * 0.012), (samples.length - 1 - i) / (sampleRate * 0.012));
+      const value = (carrier * 0.075 + pink * (0.016 + rhythm * 0.009)) * loopFade;
+      samples[i] = value;
+      power += value * value;
+      peak = Math.max(peak, Math.abs(value));
+    }
+    // Keep substantial analogue-style headroom, with no clipping or limiter.
+    const gain = Math.min(power ? 0.28 / Math.sqrt(power / samples.length) : 1, peak ? 0.93 / peak : 1);
+    for (let i = 0; i < samples.length; i++) samples[i] *= gain;
+    return samples;
+  }
+
   class StereoMeterAudio {
     constructor({ onState, onError } = {}) {
       this.onState = typeof onState === 'function' ? onState : function () {};
@@ -88,6 +169,10 @@
       this._fileToken = null;
       this._ballistics = new MeterBallistics();
       this._lastSample = 0;
+      this._spectrumEngine = null;
+      this._spectrumVersion = 0;
+      this._lastSpectrum = 0;
+      this._silentSpectrum = new Float32Array(SPECTRUM_BANDS).fill(SPECTRUM_FLOOR);
     }
 
     get sampleRate() { return this.context ? this.context.sampleRate : 0; }
@@ -151,7 +236,8 @@
       if (graph.bufferSource) {
         try { graph.bufferSource.stop(); } catch (_) { /* Already stopped. */ }
       }
-      for (const node of [graph.input, graph.stereo, graph.splitter, ...graph.analysers, graph.sink]) {
+      for (const node of [graph.input, graph.stereo, graph.splitter, ...graph.analysers,
+        ...(graph.spectralAnalysers || []), graph.sink]) {
         try { node.disconnect(); } catch (_) { /* A disconnected node is harmless. */ }
       }
       if (graph.source === 'file') this._clearFile();
@@ -179,6 +265,7 @@
       this.active = true;
       this._ballistics.reset();
       this._lastSample = 0;
+      this._resetSpectrum();
       if (graph.stream) {
         for (const track of graph.stream.getTracks()) {
           const ended = () => { if (this._graph === graph) this.stop(); };
@@ -190,7 +277,7 @@
       return true;
     }
 
-    async demo() {
+    async demo({ broadband = false } = {}) {
       const token = ++this._generation;
       try {
         const context = await this._ready();
@@ -198,12 +285,14 @@
         const buffer = context.createBuffer(2, context.sampleRate * 8, context.sampleRate);
         for (let channel = 0; channel < 2; channel++) {
           const samples = buffer.getChannelData(channel);
-          for (let i = 0; i < samples.length; i++) samples[i] = demoSample(i / context.sampleRate, channel);
+          if (broadband) renderBroadbandDemo(samples, context.sampleRate, channel);
+          else for (let i = 0; i < samples.length; i++) samples[i] = demoSample(i / context.sampleRate, channel);
         }
         const input = context.createBufferSource();
         input.buffer = buffer;
         input.loop = true;
-        const graph = this._createGraph(input, { source: 'demo', label: 'Стерео тест', bufferSource: input, monitor: false });
+        const graph = this._createGraph(input, { source: 'demo', label: broadband ? 'Широкополосный стерео тест' : 'Стерео тест',
+          bufferSource: input, monitor: false });
         input.start();
         return this._commit(graph, token);
       } catch (error) { return this._fail(error, token); }
@@ -229,6 +318,7 @@
           this.source = 'idle';
           this.label = '';
           this._ballistics.reset();
+          this._resetSpectrum();
           this._notify();
         } else this._clearFile();
         const url = URL.createObjectURL(file);
@@ -293,10 +383,60 @@
       this._clearFile();
       this._ballistics.reset();
       this._lastSample = 0;
+      this._resetSpectrum();
       this.active = false;
       this.source = 'idle';
       this.label = '';
       this._notify();
+    }
+
+    _resetSpectrum() {
+      ++this._spectrumVersion;
+      this._lastSpectrum = 0;
+      if (this._spectrumEngine) this._spectrumEngine.reset();
+    }
+
+    _prepareSpectrum(graph) {
+      if (!this._spectrumEngine || this._spectrumEngine.sampleRate !== this.sampleRate) {
+        // Resolve lazily so the existing meter can also run independently of
+        // the optional waterfall module (including CommonJS audio tests).
+        const Spectrum = typeof window !== 'undefined' && window.AVSpectrum
+          || (typeof module === 'object' && module.exports ? require('./spectrum-engine.js') : null);
+        if (!Spectrum) return false;
+        this._spectrumEngine = new Spectrum(this.sampleRate, {
+          fftSize: SPECTRUM_FFT_SIZE, bands: SPECTRUM_BANDS,
+          minHz: 20, maxHz: 20000, minDb: SPECTRUM_FLOOR,
+          attack: 0.035, release: 0.24
+        });
+      }
+      if (!graph.spectralAnalysers) {
+        graph.spectralAnalysers = [this.context.createAnalyser(), this.context.createAnalyser()];
+        graph.spectralBuffers = [new Float32Array(SPECTRUM_FFT_SIZE / 2), new Float32Array(SPECTRUM_FFT_SIZE / 2)];
+        graph.spectralAnalysers.forEach((analyser, channel) => {
+          analyser.fftSize = SPECTRUM_FFT_SIZE;
+          analyser.smoothingTimeConstant = 0;
+          graph.splitter.connect(analyser, channel);
+          analyser.connect(graph.sink);
+        });
+      }
+      return true;
+    }
+
+    spectrum(dt) {
+      const graph = this._graph;
+      const active = Boolean(graph && this.active && this.context && this.context.state === 'running');
+      let db = this._silentSpectrum;
+      if (active && this._prepareSpectrum(graph)) {
+        const now = typeof performance !== 'undefined' ? performance.now() / 1000 : Date.now() / 1000;
+        const seconds = Number.isFinite(dt) ? Math.max(0, dt)
+          : this._lastSpectrum ? Math.max(0, now - this._lastSpectrum) : 1 / 60;
+        this._lastSpectrum = now;
+        for (let channel = 0; channel < 2; channel++) {
+          graph.spectralAnalysers[channel].getFloatFrequencyData(graph.spectralBuffers[channel]);
+        }
+        db = this._spectrumEngine.update(graph.spectralBuffers[0], graph.spectralBuffers[1], seconds).db;
+      }
+      return { db, sampleRate: this.sampleRate, version: this._spectrumVersion, active, source: this.source };
     }
 
     sample(dt) {
@@ -314,5 +454,6 @@
     }
   }
 
-  return { StereoMeterAudio, MeterBallistics, measure, measureStereo, demoSample, NOMINAL_SINE_PEAK, FFT_SIZE };
+  return { StereoMeterAudio, MeterBallistics, measure, measureStereo, demoSample, renderBroadbandDemo,
+    NOMINAL_SINE_PEAK, FFT_SIZE, SPECTRUM_FFT_SIZE, SPECTRUM_BANDS };
 });

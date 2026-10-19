@@ -2,7 +2,8 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { StereoMeterAudio, measure, measureStereo, MeterBallistics, demoSample, NOMINAL_SINE_PEAK } = require('../audio-engine.js');
+const { StereoMeterAudio, measure, measureStereo, MeterBallistics, demoSample, renderBroadbandDemo,
+  NOMINAL_SINE_PEAK, FFT_SIZE, SPECTRUM_FFT_SIZE, SPECTRUM_BANDS } = require('../audio-engine.js');
 
 function near(actual, expected, tolerance = 1e-8) {
   assert.ok(Math.abs(actual - expected) <= tolerance, `${actual} != ${expected} (±${tolerance})`);
@@ -124,15 +125,31 @@ function fakeStream(tracks = [fakeTrack()]) {
 
 async function withBrowser(run) {
   const saved = new Map(['window', 'navigator', 'Audio', 'URL'].map(key => [key, Object.getOwnPropertyDescriptor(globalThis, key)]));
-  const state = { mediaElementSources: 0, revoked: [], elements: [], devices: {}, play: () => Promise.resolve() };
-  const node = () => ({ gain: { value: 1 }, connect() {}, disconnect() {} });
+  const state = { mediaElementSources: 0, revoked: [], elements: [], devices: {}, analysers: [], buffers: [],
+    frequencyReads: 0, timeReads: 0, play: () => Promise.resolve() };
+  const node = () => ({ gain: { value: 1 }, disconnected: false, connections: [],
+    connect(target) { this.connections.push(target); }, disconnect() { this.disconnected = true; } });
   class FakeContext {
     constructor() { this.state = 'running'; this.sampleRate = 4000; this.destination = node(); }
     async resume() { this.state = 'running'; }
     createGain() { return node(); }
     createChannelSplitter() { return node(); }
-    createAnalyser() { return { ...node(), getFloatTimeDomainData: samples => samples.fill(0) }; }
-    createBuffer(channels, frames) { return { getChannelData: () => new Float32Array(frames) }; }
+    createAnalyser() {
+      const analyser = { ...node(),
+        getFloatTimeDomainData(samples) { state.timeReads++; samples.fill(0); },
+        getFloatFrequencyData(samples) {
+          state.frequencyReads++;
+          samples.fill(-Infinity);
+          if (state.frequencyReader) state.frequencyReader(samples);
+        } };
+      state.analysers.push(analyser);
+      return analyser;
+    }
+    createBuffer(channels, frames) {
+      const buffers = Array.from({ length: channels }, () => new Float32Array(frames));
+      state.buffers.push(buffers);
+      return { getChannelData: channel => buffers[channel] };
+    }
     createBufferSource() { return { ...node(), start() {}, stop() {} }; }
     createMediaStreamSource() { return node(); }
     createMediaElementSource() { state.mediaElementSources++; return node(); }
@@ -267,5 +284,91 @@ test('a superseded pending file releases its URL even if the new capture is deni
     assert.deepEqual(state.revoked, ['blob:audio-1']);
     assert.equal(state.elements[0].paused, true);
     assert.equal(engine.source, 'idle');
+  });
+});
+
+test('spectrum is an optional independent FFT path and reuses all per-frame buffers', async () => {
+  await withBrowser(async state => {
+    const engine = new StereoMeterAudio();
+    const idle = engine.spectrum();
+    assert.equal(idle.db.length, 128);
+    assert.ok(idle.db.every(value => value === -90));
+    assert.equal(idle.active, false);
+    await engine.demo();
+    assert.equal(state.analysers.length, 2);
+    engine.sample(1 / 60);
+    assert.equal(state.frequencyReads, 0);
+    assert.ok(state.analysers.every(analyser => analyser.fftSize === FFT_SIZE));
+    state.frequencyReader = samples => { samples[8192] = -30; };
+    const first = engine.spectrum(0.1);
+    assert.equal(first.sampleRate, 4000);
+    assert.equal(first.active, true);
+    assert.equal(first.source, 'demo');
+    assert.equal(first.db.length, SPECTRUM_BANDS);
+    assert.equal(state.analysers.length, 4);
+    assert.equal(state.frequencyReads, 2);
+    assert.ok(state.analysers.slice(2).every(analyser => analyser.fftSize === SPECTRUM_FFT_SIZE));
+    assert.ok(state.analysers.every(analyser => analyser.smoothingTimeConstant === 0));
+    assert.ok(first.db.some(value => value > -90));
+    assert.equal(engine.spectrum(0.1).db, first.db);
+    engine.sample(1 / 60);
+    assert.equal(state.frequencyReads, 4);
+    assert.equal(state.timeReads, 4);
+    assert.ok(state.analysers.slice(0, 2).every(analyser => analyser.fftSize === 4096));
+    engine.stop();
+    assert.ok(state.analysers.every(analyser => analyser.disconnected));
+    const stopped = engine.spectrum();
+    assert.ok(stopped.db.every(value => value === -90));
+    assert.equal(stopped.active, false);
+    assert.equal(stopped.db, idle.db);
+  });
+});
+
+test('spectrum version resets history for repeated sources and Stop, while failed capture preserves it', async () => {
+  await withBrowser(async state => {
+    const engine = new StereoMeterAudio();
+    const initial = engine.spectrum().version;
+    await engine.demo();
+    state.frequencyReader = samples => { samples[8192] = -10; };
+    const first = engine.spectrum(1);
+    assert.ok(first.db.some(value => value > -30));
+    assert.ok(first.version > initial);
+    const firstAnalysers = state.analysers.slice();
+    await engine.demo();
+    state.frequencyReader = null;
+    const second = engine.spectrum(0);
+    assert.ok(second.version > first.version);
+    assert.equal(second.source, first.source);
+    assert.ok(second.db.every(value => value === -90));
+    assert.ok(firstAnalysers.every(analyser => analyser.disconnected));
+    state.devices.getUserMedia = async () => { throw Object.assign(new Error('denied'), { name: 'NotAllowedError' }); };
+    await assert.rejects(engine.mic(), /Доступ/);
+    assert.equal(engine.spectrum().version, second.version);
+    engine.stop();
+    assert.ok(engine.spectrum().version > second.version);
+  });
+});
+
+test('broadband demo synthesizes repeatable stereo PCM with headroom and stays silent at the output', async () => {
+  const samples = renderBroadbandDemo(new Float32Array(48000), 48000, 0);
+  const repeat = renderBroadbandDemo(new Float32Array(48000), 48000, 0);
+  const right = renderBroadbandDemo(new Float32Array(48000), 48000, 1);
+  assert.deepEqual(samples, repeat);
+  assert.notDeepEqual(samples, right);
+  const measurement = measure(samples);
+  assert.ok(measurement.rms > 0.15 && measurement.rms < 0.281);
+  assert.ok(measurement.peak <= 0.931);
+  assert.equal(samples[0], 0);
+  assert.equal(samples.at(-1), 0);
+  await withBrowser(async state => {
+    const engine = new StereoMeterAudio();
+    await engine.demo({ broadband: true });
+    assert.match(engine.label, /Широкополосный/);
+    assert.ok(state.buffers[0].every(channel => measure(channel).rms > 0));
+    const graph = engine._graph;
+    assert.equal(graph.monitor, false);
+    assert.equal(graph.sink.gain.value, 0);
+    assert.ok(!graph.stereo.connections.includes(engine.context.destination));
+    engine.stop();
   });
 });

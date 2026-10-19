@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0c0e">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; media-src 'self' blob:; connect-src 'none'">
-  <title>AV PRO · Gold VU / Blue Peak</title>
+  <title>AV PRO · Stereo Meters / 3D Waterfall</title>
   <link rel="icon" href="assets/icon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="needle-3d.js" defer></script>
   <script src="reference-meters.js" defer></script>
+  <script src="spectral-waterfall.js" defer></script>
+  <script src="spectrum-engine.js" defer></script>
   <script src="audio-engine.js" defer></script>
   <script src="app.js" defer></script>
 </head>
@@ -23,6 +25,7 @@
       <div class="theme-controls" role="group" aria-label="Оформление и тип измерения">
         <button class="theme-button" data-theme="gold" id="theme-gold" aria-pressed="true" title="Золотой VU (1)"><i class="theme-light"></i>GOLD <span>VU</span></button>
         <button class="theme-button" data-theme="blue" id="theme-blue" aria-pressed="false" title="Синий пиковый индикатор (2)"><i class="theme-light"></i>BLUE <span>PEAK</span></button>
+        <button class="theme-button" data-theme="waterfall" id="theme-waterfall" aria-pressed="false" title="Объёмный спектральный водопад (3)"><i class="theme-light"></i>3D <span>WATERFALL</span></button>
       </div>
       <div class="source-controls" role="group" aria-label="Источник звука">
         <span class="source-status" id="source-status" role="status"><i></i><span id="source-label">НЕТ СИГНАЛА</span></span>
@@ -33,11 +36,11 @@
         <button id="stop" title="Отключить источник (Esc)">STOP</button>
       </div>
       <div class="view-controls" role="group" aria-label="Экран">
-        <button id="hold" aria-pressed="false" title="Заморозить стрелки (пробел)">HOLD</button>
+        <button id="hold" aria-pressed="false" title="Заморозить изображение (пробел)">HOLD</button>
         <button id="fullscreen" title="Полный экран (F)" aria-label="Полный экран">⛶</button>
       </div>
     </nav>
-    <footer class="caption"><span>AV PRO <b>STEREO METERS</b></span><span id="meter-description">GOLD VU · 0 VU = −18 dBFS</span><span class="channel-legend">LEFT / RIGHT</span></footer>
+    <footer class="caption"><span>AV PRO <b>AUDIO INSTRUMENTS</b></span><span id="meter-description">GOLD VU · 0 VU = −18 dBFS</span><span class="channel-legend" id="channel-legend">LEFT / RIGHT</span></footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <input id="file-input" type="file" accept="audio/*" hidden>
   </main>

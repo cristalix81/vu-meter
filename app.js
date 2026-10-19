@@ -1,11 +1,12 @@
 'use strict';
-/* Two photographed stereo instruments, one actual audio measurement path. */
+/* Photo-matched instruments and a live spectral waterfall. */
 (() => {
   const $ = id => document.getElementById(id);
-  const themes = ['gold', 'blue'];
+  const themes = ['gold', 'blue', 'waterfall'];
   const descriptions = {
     gold: 'GOLD VU · 0 VU = −18 dBFS',
-    blue: 'BLUE PEAK · 0 dB = −18 dBFS'
+    blue: 'BLUE PEAK · 0 dB = −18 dBFS',
+    waterfall: '3D SPECTRAL WATERFALL · 20 Hz—20 kHz · dBFS'
   };
   const sourceNames = { idle: 'НЕТ СИГНАЛА', demo: 'ТЕСТОВЫЙ СИГНАЛ', file: 'АУДИОФАЙЛ', mic: 'МИКРОФОН', system: 'СИСТЕМНЫЙ ЗВУК' };
   let mode = 0;
@@ -17,6 +18,8 @@
   let audioFrame = { rms: [0, 0], peak: [0, 0], rawRms: [0, 0], rawPeak: [0, 0], active: false, source: 'idle', sampleRate: 0 };
   let target = { left: 0, right: 0 };
   const meter = new window.ReferenceMeters($('meter-canvas'), { theme: 'gold' });
+  const waterfall = new window.SpectralWaterfall($('meter-canvas'));
+  let spectrumFrame = { spectrum: new Float32Array(128).fill(-100), sampleRate: 0, version: 0, active: false, source: 'idle' };
   function resizeCanvas() {
     const canvas = $('meter-canvas');
     const bounds = canvas.getBoundingClientRect();
@@ -26,7 +29,10 @@
     if (canvas.width !== width || canvas.height !== height) {
       canvas.width = width;
       canvas.height = height;
-      if (loaded) meter.draw(meter.getNeedlePositions(), 0);
+      if (loaded) {
+        if (mode === 2) waterfall.draw(spectrumFrame, 0);
+        else meter.draw(meter.getNeedlePositions(), 0);
+      }
     }
   }
   const sizeObserver = new ResizeObserver(resizeCanvas);
@@ -53,6 +59,7 @@
     $('source-label').textContent = sourceNames[source];
     $('source-status').title = state.label || sourceNames[source];
     ['file', 'system', 'mic', 'demo'].forEach(id => $(id).setAttribute('aria-pressed', String(source === id)));
+    waterfall.reset();
     setHold(false);
   }
 
@@ -75,25 +82,36 @@
   }
 
   async function setMode(index) {
-    mode = ((Math.trunc(index) % 2) + 2) % 2;
+    if (!Number.isFinite(index)) return;
+    const previousMode = mode;
+    mode = ((Math.trunc(index) % themes.length) + themes.length) % themes.length;
     const theme = themes[mode];
     document.body.dataset.theme = theme;
-    $('theme-gold').setAttribute('aria-pressed', String(mode === 0));
-    $('theme-blue').setAttribute('aria-pressed', String(mode === 1));
+    themes.forEach((name, i) => $('theme-' + name).setAttribute('aria-pressed', String(mode === i)));
     $('meter-description').textContent = descriptions[theme];
     $('meter-canvas').setAttribute('aria-label', mode === 0
       ? 'Золотой стереоиндикатор VU с двумя подвижными стрелками'
-      : 'Синий хромированный пиковый стереоиндикатор с двумя подвижными стрелками');
+      : mode === 1 ? 'Синий хромированный пиковый стереоиндикатор с двумя подвижными стрелками'
+        : 'Радужный объёмный спектральный водопад: частота, уровень dBFS и история звука');
+    $('channel-legend').textContent = mode === 2 ? 'L + R · SPECTRUM' : 'LEFT / RIGHT';
     setHold(false);
-    try { await meter.setTheme(theme); }
+    elapsed = 0;
+    if (mode === 2) {
+      waterfall.reset();
+      if (loaded) waterfall.draw(spectrumFrame, 0);
+    }
+    if (audioFrame.source === 'demo' && (previousMode === 2) !== (mode === 2)) run(startDemo);
+    try { if (mode !== 2) await meter.setTheme(theme); }
     catch (error) { toast('Не удалось загрузить оформление: ' + error.message); }
   }
 
   // Errors are reported by the engine's onError; catch to avoid rejected events.
   function run(operation) { Promise.resolve().then(operation).catch(() => {}); }
+  function startDemo() { return audio.demo({ broadband: mode === 2 }); }
   $('theme-gold').addEventListener('click', () => setMode(0));
   $('theme-blue').addEventListener('click', () => setMode(1));
-  $('demo').addEventListener('click', () => run(() => audio.demo()));
+  $('theme-waterfall').addEventListener('click', () => setMode(2));
+  $('demo').addEventListener('click', () => run(startDemo));
   $('mic').addEventListener('click', () => run(() => audio.mic()));
   $('system').addEventListener('click', () => run(() => audio.system()));
   $('stop').addEventListener('click', () => audio.stop());
@@ -115,8 +133,9 @@
     const key = event.key.toLowerCase();
     if (key === '1' || key === 'home') { event.preventDefault(); setMode(0); }
     else if (key === '2') { event.preventDefault(); setMode(1); }
-    else if (key === 'arrowleft' || key === 'arrowright') { event.preventDefault(); setMode(mode + 1); }
-    else if (key === 'd') run(() => audio.demo());
+    else if (key === '3') { event.preventDefault(); setMode(2); }
+    else if (key === 'arrowleft' || key === 'arrowright') { event.preventDefault(); setMode(mode + (key === 'arrowleft' ? -1 : 1)); }
+    else if (key === 'd') run(startDemo);
     else if (key === 's') run(() => audio.system());
     else if (key === 'f') $('fullscreen').click();
     else if (key === 'escape') audio.stop();
@@ -130,21 +149,27 @@
     audioFrame = audio.sample(dt);
     elapsed += dt;
     if (loaded && !held && elapsed >= 1 / 60) {
-      const theme = themes[mode];
-      const values = mode === 0 ? audioFrame.rms.map(value => value * Math.SQRT2) : audioFrame.peak;
-      const positions = values.map(value => position(value > 1e-10 ? 20 * Math.log10(value) + 18 : -Infinity, theme));
-      target = { left: positions[0], right: positions[1] };
-      meter.draw(target, elapsed);
+      if (mode === 2) {
+        const measured = audio.spectrum(elapsed);
+        spectrumFrame = { spectrum: measured.db, sampleRate: measured.sampleRate, version: measured.version, active: measured.active, source: measured.source };
+        waterfall.draw(spectrumFrame, elapsed);
+      } else {
+        const theme = themes[mode];
+        const values = mode === 0 ? audioFrame.rms.map(value => value * Math.SQRT2) : audioFrame.peak;
+        const positions = values.map(value => position(value > 1e-10 ? 20 * Math.log10(value) + 18 : -Infinity, theme));
+        target = { left: positions[0], right: positions[1] };
+        meter.draw(target, elapsed);
+      }
       elapsed = 0;
     } else if (held) elapsed = 0;
     requestAnimationFrame(animate);
   }
-  meter.ready.then(() => {
+  Promise.all([meter.ready, waterfall.ready]).then(() => {
     loaded = true;
     $('loading').hidden = true;
     meter.draw(target, 0);
   }).catch(error => {
-    $('loading').textContent = 'Не удалось загрузить прибор. Проверьте файлы в папке assets.';
+      $('loading').textContent = 'Не удалось загрузить прибор. Проверьте файлы в папке assets.';
     toast(error.message);
   });
   updateSource({ source: 'idle', active: false });
@@ -157,7 +182,7 @@
     getSource: () => audioFrame.source,
     getLevels: () => [target.left, target.right],
     getNeedles: () => meter.getNeedlePositions(),
-    getState: () => ({ ...audioFrame, mode, theme: themes[mode], held, loaded, renderer: meter.getRenderer(), target: { ...target }, needles: meter.getNeedlePositions() }),
+    getState: () => ({ ...audioFrame, mode, theme: themes[mode], held, loaded, renderer: mode === 2 ? waterfall.getState().renderer : meter.getRenderer(), target: { ...target }, needles: meter.getNeedlePositions(), waterfall: waterfall.getState() }),
     setMode
   };
 })();

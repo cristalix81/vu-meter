@@ -5,7 +5,7 @@ const path = require('node:path');
 function createWindow(){
   const win = new BrowserWindow({
     width: 1400, height: 650, minWidth: 700, minHeight: 350,
-    title: 'AV PRO — Gold VU / Blue Peak',
+    title: 'AV PRO — Stereo Meters / 3D Waterfall',
     backgroundColor: '#020711', autoHideMenuBar: true,
     webPreferences: {
       contextIsolation: true, nodeIntegration: false, sandbox: true,
