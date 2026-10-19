@@ -1,8 +1,8 @@
 {
   "name": "audio-visualizer-pro-studio-reborn",
   "productName": "Audio Visualizer Pro",
-  "version": "3.0.0",
-  "description": "Premium photoreal Hi-Fi audio visualizer with stereo live capture",
+  "version": "4.0.0",
+  "description": "Photo-matched Gold VU and Blue Peak stereo instruments with WebGL needles",
   "author": "Audio Visualizer Pro Studio",
   "license": "UNLICENSED",
   "private": true,
@@ -11,7 +11,7 @@
     "start": "electron .",
     "dist": "electron-builder --win portable zip",
     "dist:linux": "electron-builder --linux AppImage",
-    "check": "node --check main.js && node --check app.js && node --check spectrum-engine.js && node --check spectrum-display.js && node --check hardware-renderers.js && node --check electronic-renderers.js && node --check modes250.js",
+    "check": "node --check main.js && node --check app.js && node --check audio-engine.js && node --check needle-3d.js && node --check reference-meters.js",
     "test": "node --test tests/*.test.cjs",
     "serve": "python3 -m http.server 8000 --bind 0.0.0.0"
   },
@@ -29,11 +29,9 @@
       "index.html",
       "styles.css",
       "app.js",
-      "spectrum-engine.js",
-      "spectrum-display.js",
-      "hardware-renderers.js",
-      "electronic-renderers.js",
-      "modes250.js",
+      "audio-engine.js",
+      "needle-3d.js",
+      "reference-meters.js",
       "main.js",
       "assets/**/*",
       "package.json"
@@ -44,7 +42,7 @@
         "portable",
         "zip"
       ],
-      "artifactName": "AudioVisualizerPro-StudioReborn-3.0.0-${arch}.${ext}",
+      "artifactName": "AudioVisualizerPro-StereoMeters-4.0.0-${arch}.${ext}",
       "icon": "assets/icon.ico"
     },
     "linux": {

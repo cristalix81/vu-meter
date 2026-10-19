@@ -17,5 +17,5 @@ if not defined BROWSER (
  pause
  exit /b 1
 )
-start "Audio Visualizer Pro" "%BROWSER%" --app="%APPURL%" --window-size=1920,480 --new-window
+start "Audio Visualizer Pro" "%BROWSER%" --app="%APPURL%" --window-size=1400,650 --new-window
 exit /b 0

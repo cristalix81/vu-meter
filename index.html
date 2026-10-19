@@ -1,63 +1,45 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#202825">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; media-src 'self' blob:; connect-src 'none'">
-<title>AV PRO · Instrument Collection</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" href="assets/icon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0e">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; media-src 'self' blob:; connect-src 'none'">
+  <title>AV PRO · Gold VU / Blue Peak</title>
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="needle-3d.js" defer></script>
+  <script src="reference-meters.js" defer></script>
+  <script src="audio-engine.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
-<body>
-<main class="stage" id="stage" aria-label="Audio Visualizer Pro">
-  <section class="scene" id="scene-blue" aria-label="Blue Studio VU"><canvas id="primary-blue" class="full-canvas" role="img" aria-label="Стереоприбор с синей шкалой и живыми стрелками"></canvas></section>
-  <section class="scene" id="scene-gold" aria-label="Vintage Gold VU"><canvas id="primary-gold" class="full-canvas" role="img" aria-label="Стрелочный стереоприбор с тёплой бумажной шкалой"></canvas></section>
-  <section class="scene" id="scene-copper" aria-label="Copper Valve VU"><canvas id="primary-copper" class="full-canvas" role="img" aria-label="Стрелочный прибор с медной отделкой"></canvas></section>
-  <section class="scene" id="scene-waterfall" aria-label="Спектр во времени"><canvas id="waterfall" class="full-canvas" role="img" aria-label="Трёхмерная история измеренного спектра"></canvas></section>
-  <section class="scene" id="scene-scope" aria-label="Двухканальный осциллограф"><canvas id="scope" class="full-canvas" role="img" aria-label="Осциллограммы левого и правого каналов с фиксированным масштабом"></canvas></section>
-  <section class="scene" id="scene-spectrum" aria-label="Измерительный спектроанализатор">
-    <div class="spectrum-chassis">
-      <i class="screw screw-tl" aria-hidden="true"></i><i class="screw screw-tr" aria-hidden="true"></i><i class="screw screw-bl" aria-hidden="true"></i><i class="screw screw-br" aria-hidden="true"></i>
-      <header class="instrument-heading">
-        <div class="instrument-brand"><span class="brand-symbol" aria-hidden="true">∿</span><div>AV PRO <span class="instrument-model">SA–64</span><p>REAL-TIME SPECTRUM ANALYZER</p></div></div>
-        <div class="instrument-spec">STEREO POWER <span>20 Hz — 20 kHz · LOG</span></div>
-      </header>
-      <div class="measurements" aria-label="Показания прибора">
-        <div><span class="readout-label">ИСТОЧНИК</span><output id="input-readout">НЕТ СИГНАЛА</output></div>
-        <div><span class="readout-label">ПИК ПОЛОСЫ</span><output id="frequency-readout">— <small>Hz</small></output></div>
-        <div><span class="readout-label">УРОВЕНЬ ПОЛОСЫ</span><output id="band-readout">−∞ <small>dBFS</small></output></div>
-        <div class="stereo-readout"><span class="readout-label">ВХОД · SAMPLE PEAK</span><output><span>L <b id="left-readout">−∞</b></span><span>R <b id="right-readout">−∞</b></span><small>dBFS</small></output></div>
-        <div class="overload" id="overload" aria-label="Перегрузка входа"><i></i>CLIP</div>
-      </div>
-      <div class="spectrum-display">
-        <canvas id="spectrum-canvas" role="img" aria-label="Спектр: 64 логарифмические полосы, частота в герцах, мощность в dBFS. Белые метки показывают удерживаемые пики."></canvas>
-        <span class="display-id">FFT / BLACKMAN</span><span class="display-state" id="display-state">NO SIGNAL</span>
-      </div>
-      <div class="instrument-settings">
-        <div class="setting-group"><label for="response">ОТКЛИК</label><select id="response"><option value="fast">FAST · 35 / 320 ms</option><option value="slow">SLOW · 100 / 1000 ms</option></select></div>
-        <div class="setting-group"><label for="reference">ВЕРХ ШКАЛЫ</label><select id="reference"><option value="0">0 dBFS</option><option value="-20">−20 dBFS</option><option value="-40">−40 dBFS</option></select></div>
-        <button id="hold" class="instrument-button" aria-pressed="false" title="Заморозить показания (пробел)">HOLD</button>
-        <button id="reset-peaks" class="instrument-button" title="Сбросить удержанные пики">RESET PEAK</button>
-        <span class="fft-info" id="fft-info">FFT 32768 · 90 dB RANGE</span>
-      </div>
+<body data-theme="gold">
+  <main class="device" id="stage" aria-label="Стереоиндикатор AV PRO">
+    <div class="instrument" id="instrument">
+      <canvas id="meter-canvas" role="img" aria-label="Золотой стереоиндикатор VU с двумя подвижными стрелками"></canvas>
+      <div class="loading" id="loading" role="status">Подготовка приборов…</div>
     </div>
-  </section>
-  <section class="scene" id="scene-extra" aria-label="250 modes"><canvas id="extra" class="viz-canvas"></canvas></section>
-  <nav class="toolbar" aria-label="Управление">
-    <div class="identity"><span class="identity-mark">AV</span><label class="sr-only" for="mode-select">Режим отображения</label><select id="mode-select"></select><span id="mode-name" hidden>SA-64</span><span class="mode-index" id="mode-index">06 / 256</span></div>
-    <div class="tools"><span class="status" id="status"><i class="status-light"></i>IDLE</span><button id="previous" title="Предыдущий режим (←)">‹</button><button id="next" title="Следующий режим (→)">›</button><button id="stop" title="Отключить источник звука">STOP</button><button id="demo" title="Тестовый сигнал без воспроизведения">DEMO</button><button id="system" title="Захват системного звука">SYSTEM AUDIO</button><button id="mic" title="Захват микрофона">MIC</button><button id="file" title="Воспроизвести аудиофайл">FILE</button><button id="fullscreen" title="Полный экран (F)">⛶</button></div>
-  </nav>
-  <div class="info" id="info">← → MODE &nbsp;·&nbsp; D DEMO &nbsp;·&nbsp; S SYSTEM AUDIO &nbsp;·&nbsp; F FULLSCREEN</div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <input id="file-input" type="file" accept="audio/*" hidden>
-  <audio id="player" preload="auto" loop hidden></audio>
-</main>
-<script src="hardware-renderers.js"></script>
-<script src="electronic-renderers.js"></script>
-<script src="modes250.js"></script>
-<script src="spectrum-engine.js"></script>
-<script src="spectrum-display.js"></script>
-<script src="app.js"></script>
+    <nav class="control-deck" aria-label="Управление прибором">
+      <div class="theme-controls" role="group" aria-label="Оформление и тип измерения">
+        <button class="theme-button" data-theme="gold" id="theme-gold" aria-pressed="true" title="Золотой VU (1)"><i class="theme-light"></i>GOLD <span>VU</span></button>
+        <button class="theme-button" data-theme="blue" id="theme-blue" aria-pressed="false" title="Синий пиковый индикатор (2)"><i class="theme-light"></i>BLUE <span>PEAK</span></button>
+      </div>
+      <div class="source-controls" role="group" aria-label="Источник звука">
+        <span class="source-status" id="source-status" role="status"><i></i><span id="source-label">НЕТ СИГНАЛА</span></span>
+        <button id="file" title="Воспроизвести аудиофайл">FILE</button>
+        <button id="system" title="Захватить звук вкладки или экрана (S)">SYSTEM</button>
+        <button id="mic" title="Подключить микрофон">MIC</button>
+        <button id="demo" title="Тестовый сигнал без воспроизведения (D)">DEMO</button>
+        <button id="stop" title="Отключить источник (Esc)">STOP</button>
+      </div>
+      <div class="view-controls" role="group" aria-label="Экран">
+        <button id="hold" aria-pressed="false" title="Заморозить стрелки (пробел)">HOLD</button>
+        <button id="fullscreen" title="Полный экран (F)" aria-label="Полный экран">⛶</button>
+      </div>
+    </nav>
+    <footer class="caption"><span>AV PRO <b>STEREO METERS</b></span><span id="meter-description">GOLD VU · 0 VU = −18 dBFS</span><span class="channel-legend">LEFT / RIGHT</span></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <input id="file-input" type="file" accept="audio/*" hidden>
+  </main>
 </body>
 </html>

@@ -1,332 +1,1175 @@
 {
   "passed": true,
-  "dsp": {
-    "passed": 12,
-    "command": "npm test"
-  },
-  "audio_integration": {
+  "audio_unit_tests": 16,
+  "audio_test_command": "npm test",
+  "browser_integration": {
     "checks": [
       {
-        "name": "initial source is idle, analyzer selected",
+        "name": "starts on GOLD with disconnected input",
         "passed": true,
         "detail": {
           "source": "idle",
-          "mode": 5
+          "active": false,
+          "label": "",
+          "sampleRate": 0,
+          "rms": [
+            0,
+            0
+          ],
+          "peak": [
+            0,
+            0
+          ],
+          "rawRms": [
+            0,
+            0
+          ],
+          "rawPeak": [
+            0,
+            0
+          ],
+          "mode": 0,
+          "theme": "gold",
+          "held": false,
+          "loaded": true,
+          "target": {
+            "left": 0,
+            "right": 0
+          },
+          "needles": {
+            "left": 0,
+            "right": 0
+          },
+          "levels": [
+            0,
+            0
+          ]
         }
       },
       {
-        "name": "idle spectrum has no synthetic activity",
+        "name": "mode chooser contains exactly two designs",
         "passed": true,
-        "detail": -130
+        "detail": 2
       },
       {
-        "name": "mono file is actual active audio",
+        "name": "GOLD photo ratio and controls fit1440×900",
+        "passed": true,
+        "detail": {
+          "surface": {
+            "x": 16,
+            "y": 143,
+            "width": 1408,
+            "height": 528,
+            "right": 1424,
+            "bottom": 671
+          },
+          "ratio": 2.6666666666666665,
+          "natural": null,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "controls": [
+            {
+              "id": "theme-gold",
+              "x": 38,
+              "y": 694,
+              "width": 104,
+              "height": 29,
+              "right": 142,
+              "bottom": 723
+            },
+            {
+              "id": "theme-blue",
+              "x": 148,
+              "y": 694,
+              "width": 104,
+              "height": 29,
+              "right": 252,
+              "bottom": 723
+            },
+            {
+              "id": "file",
+              "x": 971.140625,
+              "y": 694,
+              "width": 50.078125,
+              "height": 29,
+              "right": 1021.21875,
+              "bottom": 723
+            },
+            {
+              "id": "system",
+              "x": 1027.21875,
+              "y": 694,
+              "width": 70.71875,
+              "height": 29,
+              "right": 1097.9375,
+              "bottom": 723
+            },
+            {
+              "id": "mic",
+              "x": 1103.9375,
+              "y": 694,
+              "width": 46.140625,
+              "height": 29,
+              "right": 1150.078125,
+              "bottom": 723
+            },
+            {
+              "id": "demo",
+              "x": 1156.078125,
+              "y": 694,
+              "width": 58.40625,
+              "height": 29,
+              "right": 1214.484375,
+              "bottom": 723
+            },
+            {
+              "id": "stop",
+              "x": 1220.484375,
+              "y": 694,
+              "width": 55.453125,
+              "height": 29,
+              "right": 1275.9375,
+              "bottom": 723
+            },
+            {
+              "id": "hold",
+              "x": 1302.9375,
+              "y": 694,
+              "width": 56.734375,
+              "height": 29,
+              "right": 1359.671875,
+              "bottom": 723
+            },
+            {
+              "id": "fullscreen",
+              "x": 1365.671875,
+              "y": 694,
+              "width": 36.328125,
+              "height": 29,
+              "right": 1402,
+              "bottom": 723
+            }
+          ],
+          "overlaps": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "BLUE photo ratio and controls fit1440×900",
+        "passed": true,
+        "detail": {
+          "surface": {
+            "x": 16,
+            "y": 143,
+            "width": 1408,
+            "height": 528,
+            "right": 1424,
+            "bottom": 671
+          },
+          "ratio": 2.6666666666666665,
+          "natural": null,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "controls": [
+            {
+              "id": "theme-gold",
+              "x": 38,
+              "y": 694,
+              "width": 104,
+              "height": 29,
+              "right": 142,
+              "bottom": 723
+            },
+            {
+              "id": "theme-blue",
+              "x": 148,
+              "y": 694,
+              "width": 104,
+              "height": 29,
+              "right": 252,
+              "bottom": 723
+            },
+            {
+              "id": "file",
+              "x": 971.140625,
+              "y": 694,
+              "width": 50.078125,
+              "height": 29,
+              "right": 1021.21875,
+              "bottom": 723
+            },
+            {
+              "id": "system",
+              "x": 1027.21875,
+              "y": 694,
+              "width": 70.71875,
+              "height": 29,
+              "right": 1097.9375,
+              "bottom": 723
+            },
+            {
+              "id": "mic",
+              "x": 1103.9375,
+              "y": 694,
+              "width": 46.140625,
+              "height": 29,
+              "right": 1150.078125,
+              "bottom": 723
+            },
+            {
+              "id": "demo",
+              "x": 1156.078125,
+              "y": 694,
+              "width": 58.40625,
+              "height": 29,
+              "right": 1214.484375,
+              "bottom": 723
+            },
+            {
+              "id": "stop",
+              "x": 1220.484375,
+              "y": 694,
+              "width": 55.453125,
+              "height": 29,
+              "right": 1275.9375,
+              "bottom": 723
+            },
+            {
+              "id": "hold",
+              "x": 1302.9375,
+              "y": 694,
+              "width": 56.734375,
+              "height": 29,
+              "right": 1359.671875,
+              "bottom": 723
+            },
+            {
+              "id": "fullscreen",
+              "x": 1365.671875,
+              "y": 694,
+              "width": 36.328125,
+              "height": 29,
+              "right": 1402,
+              "bottom": 723
+            }
+          ],
+          "overlaps": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "GOLD photo ratio and controls fit1920×480",
+        "passed": true,
+        "detail": {
+          "surface": {
+            "x": 460,
+            "y": 19,
+            "width": 1000,
+            "height": 375,
+            "right": 1460,
+            "bottom": 394
+          },
+          "ratio": 2.6666666666666665,
+          "natural": null,
+          "viewport": {
+            "width": 1920,
+            "height": 480
+          },
+          "controls": [
+            {
+              "id": "theme-gold",
+              "x": 479,
+              "y": 410,
+              "width": 88,
+              "height": 26,
+              "right": 567,
+              "bottom": 436
+            },
+            {
+              "id": "theme-blue",
+              "x": 573,
+              "y": 410,
+              "width": 95.1875,
+              "height": 26,
+              "right": 668.1875,
+              "bottom": 436
+            },
+            {
+              "id": "file",
+              "x": 1068.265625,
+              "y": 410,
+              "width": 41.671875,
+              "height": 26,
+              "right": 1109.9375,
+              "bottom": 436
+            },
+            {
+              "id": "system",
+              "x": 1115.9375,
+              "y": 410,
+              "width": 60.25,
+              "height": 26,
+              "right": 1176.1875,
+              "bottom": 436
+            },
+            {
+              "id": "mic",
+              "x": 1182.1875,
+              "y": 410,
+              "width": 38.125,
+              "height": 26,
+              "right": 1220.3125,
+              "bottom": 436
+            },
+            {
+              "id": "demo",
+              "x": 1226.3125,
+              "y": 410,
+              "width": 49.171875,
+              "height": 26,
+              "right": 1275.484375,
+              "bottom": 436
+            },
+            {
+              "id": "stop",
+              "x": 1281.484375,
+              "y": 410,
+              "width": 46.515625,
+              "height": 26,
+              "right": 1328,
+              "bottom": 436
+            },
+            {
+              "id": "hold",
+              "x": 1351,
+              "y": 410,
+              "width": 47.671875,
+              "height": 26,
+              "right": 1398.671875,
+              "bottom": 436
+            },
+            {
+              "id": "fullscreen",
+              "x": 1404.671875,
+              "y": 410,
+              "width": 36.328125,
+              "height": 26,
+              "right": 1441,
+              "bottom": 436
+            }
+          ],
+          "overlaps": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "BLUE photo ratio and controls fit1920×480",
+        "passed": true,
+        "detail": {
+          "surface": {
+            "x": 460,
+            "y": 19,
+            "width": 1000,
+            "height": 375,
+            "right": 1460,
+            "bottom": 394
+          },
+          "ratio": 2.6666666666666665,
+          "natural": null,
+          "viewport": {
+            "width": 1920,
+            "height": 480
+          },
+          "controls": [
+            {
+              "id": "theme-gold",
+              "x": 479,
+              "y": 410,
+              "width": 88,
+              "height": 26,
+              "right": 567,
+              "bottom": 436
+            },
+            {
+              "id": "theme-blue",
+              "x": 573,
+              "y": 410,
+              "width": 95.1875,
+              "height": 26,
+              "right": 668.1875,
+              "bottom": 436
+            },
+            {
+              "id": "file",
+              "x": 1068.265625,
+              "y": 410,
+              "width": 41.671875,
+              "height": 26,
+              "right": 1109.9375,
+              "bottom": 436
+            },
+            {
+              "id": "system",
+              "x": 1115.9375,
+              "y": 410,
+              "width": 60.25,
+              "height": 26,
+              "right": 1176.1875,
+              "bottom": 436
+            },
+            {
+              "id": "mic",
+              "x": 1182.1875,
+              "y": 410,
+              "width": 38.125,
+              "height": 26,
+              "right": 1220.3125,
+              "bottom": 436
+            },
+            {
+              "id": "demo",
+              "x": 1226.3125,
+              "y": 410,
+              "width": 49.171875,
+              "height": 26,
+              "right": 1275.484375,
+              "bottom": 436
+            },
+            {
+              "id": "stop",
+              "x": 1281.484375,
+              "y": 410,
+              "width": 46.515625,
+              "height": 26,
+              "right": 1328,
+              "bottom": 436
+            },
+            {
+              "id": "hold",
+              "x": 1351,
+              "y": 410,
+              "width": 47.671875,
+              "height": 26,
+              "right": 1398.671875,
+              "bottom": 436
+            },
+            {
+              "id": "fullscreen",
+              "x": 1404.671875,
+              "y": 410,
+              "width": 36.328125,
+              "height": 26,
+              "right": 1441,
+              "bottom": 436
+            }
+          ],
+          "overlaps": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "GOLD photo ratio and controls fit800×480",
+        "passed": true,
+        "detail": {
+          "surface": {
+            "x": 12,
+            "y": 61,
+            "width": 776,
+            "height": 291,
+            "right": 788,
+            "bottom": 352
+          },
+          "ratio": 2.6666666666666665,
+          "natural": null,
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "controls": [
+            {
+              "id": "theme-gold",
+              "x": 114.03125,
+              "y": 368,
+              "width": 88,
+              "height": 26,
+              "right": 202.03125,
+              "bottom": 394
+            },
+            {
+              "id": "theme-blue",
+              "x": 208.03125,
+              "y": 368,
+              "width": 95.1875,
+              "height": 26,
+              "right": 303.21875,
+              "bottom": 394
+            },
+            {
+              "id": "file",
+              "x": 313.21875,
+              "y": 368,
+              "width": 41.671875,
+              "height": 26,
+              "right": 354.890625,
+              "bottom": 394
+            },
+            {
+              "id": "system",
+              "x": 360.890625,
+              "y": 368,
+              "width": 60.25,
+              "height": 26,
+              "right": 421.140625,
+              "bottom": 394
+            },
+            {
+              "id": "mic",
+              "x": 427.140625,
+              "y": 368,
+              "width": 38.125,
+              "height": 26,
+              "right": 465.265625,
+              "bottom": 394
+            },
+            {
+              "id": "demo",
+              "x": 471.265625,
+              "y": 368,
+              "width": 49.171875,
+              "height": 26,
+              "right": 520.4375,
+              "bottom": 394
+            },
+            {
+              "id": "stop",
+              "x": 526.4375,
+              "y": 368,
+              "width": 46.515625,
+              "height": 26,
+              "right": 572.953125,
+              "bottom": 394
+            },
+            {
+              "id": "hold",
+              "x": 595.953125,
+              "y": 368,
+              "width": 47.671875,
+              "height": 26,
+              "right": 643.625,
+              "bottom": 394
+            },
+            {
+              "id": "fullscreen",
+              "x": 649.625,
+              "y": 368,
+              "width": 36.328125,
+              "height": 26,
+              "right": 685.953125,
+              "bottom": 394
+            }
+          ],
+          "overlaps": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "BLUE photo ratio and controls fit800×480",
+        "passed": true,
+        "detail": {
+          "surface": {
+            "x": 12,
+            "y": 61,
+            "width": 776,
+            "height": 291,
+            "right": 788,
+            "bottom": 352
+          },
+          "ratio": 2.6666666666666665,
+          "natural": null,
+          "viewport": {
+            "width": 800,
+            "height": 480
+          },
+          "controls": [
+            {
+              "id": "theme-gold",
+              "x": 114.03125,
+              "y": 368,
+              "width": 88,
+              "height": 26,
+              "right": 202.03125,
+              "bottom": 394
+            },
+            {
+              "id": "theme-blue",
+              "x": 208.03125,
+              "y": 368,
+              "width": 95.1875,
+              "height": 26,
+              "right": 303.21875,
+              "bottom": 394
+            },
+            {
+              "id": "file",
+              "x": 313.21875,
+              "y": 368,
+              "width": 41.671875,
+              "height": 26,
+              "right": 354.890625,
+              "bottom": 394
+            },
+            {
+              "id": "system",
+              "x": 360.890625,
+              "y": 368,
+              "width": 60.25,
+              "height": 26,
+              "right": 421.140625,
+              "bottom": 394
+            },
+            {
+              "id": "mic",
+              "x": 427.140625,
+              "y": 368,
+              "width": 38.125,
+              "height": 26,
+              "right": 465.265625,
+              "bottom": 394
+            },
+            {
+              "id": "demo",
+              "x": 471.265625,
+              "y": 368,
+              "width": 49.171875,
+              "height": 26,
+              "right": 520.4375,
+              "bottom": 394
+            },
+            {
+              "id": "stop",
+              "x": 526.4375,
+              "y": 368,
+              "width": 46.515625,
+              "height": 26,
+              "right": 572.953125,
+              "bottom": 394
+            },
+            {
+              "id": "hold",
+              "x": 595.953125,
+              "y": 368,
+              "width": 47.671875,
+              "height": 26,
+              "right": 643.625,
+              "bottom": 394
+            },
+            {
+              "id": "fullscreen",
+              "x": 649.625,
+              "y": 368,
+              "width": 36.328125,
+              "height": 26,
+              "right": 685.953125,
+              "bottom": 394
+            }
+          ],
+          "overlaps": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "GOLD photo ratio and controls fit390×844",
+        "passed": true,
+        "detail": {
+          "surface": {
+            "x": 8,
+            "y": 269.578125,
+            "width": 374,
+            "height": 140.25,
+            "right": 382,
+            "bottom": 409.828125
+          },
+          "ratio": 2.6666666666666665,
+          "natural": null,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "controls": [
+            {
+              "id": "theme-gold",
+              "x": 67,
+              "y": 430.828125,
+              "width": 125,
+              "height": 29,
+              "right": 192,
+              "bottom": 459.828125
+            },
+            {
+              "id": "theme-blue",
+              "x": 198,
+              "y": 430.828125,
+              "width": 125,
+              "height": 29,
+              "right": 323,
+              "bottom": 459.828125
+            },
+            {
+              "id": "file",
+              "x": 62.125,
+              "y": 469.828125,
+              "width": 43.671875,
+              "height": 29,
+              "right": 105.796875,
+              "bottom": 498.828125
+            },
+            {
+              "id": "system",
+              "x": 110.796875,
+              "y": 469.828125,
+              "width": 62.25,
+              "height": 29,
+              "right": 173.046875,
+              "bottom": 498.828125
+            },
+            {
+              "id": "mic",
+              "x": 178.046875,
+              "y": 469.828125,
+              "width": 40.125,
+              "height": 29,
+              "right": 218.171875,
+              "bottom": 498.828125
+            },
+            {
+              "id": "demo",
+              "x": 223.171875,
+              "y": 469.828125,
+              "width": 51.171875,
+              "height": 29,
+              "right": 274.34375,
+              "bottom": 498.828125
+            },
+            {
+              "id": "stop",
+              "x": 279.34375,
+              "y": 469.828125,
+              "width": 48.515625,
+              "height": 29,
+              "right": 327.859375,
+              "bottom": 498.828125
+            },
+            {
+              "id": "hold",
+              "x": 149.5,
+              "y": 508.828125,
+              "width": 49.671875,
+              "height": 29,
+              "right": 199.171875,
+              "bottom": 537.828125
+            },
+            {
+              "id": "fullscreen",
+              "x": 204.171875,
+              "y": 508.828125,
+              "width": 36.328125,
+              "height": 29,
+              "right": 240.5,
+              "bottom": 537.828125
+            }
+          ],
+          "overlaps": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "BLUE photo ratio and controls fit390×844",
+        "passed": true,
+        "detail": {
+          "surface": {
+            "x": 8,
+            "y": 269.578125,
+            "width": 374,
+            "height": 140.25,
+            "right": 382,
+            "bottom": 409.828125
+          },
+          "ratio": 2.6666666666666665,
+          "natural": null,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "controls": [
+            {
+              "id": "theme-gold",
+              "x": 67,
+              "y": 430.828125,
+              "width": 125,
+              "height": 29,
+              "right": 192,
+              "bottom": 459.828125
+            },
+            {
+              "id": "theme-blue",
+              "x": 198,
+              "y": 430.828125,
+              "width": 125,
+              "height": 29,
+              "right": 323,
+              "bottom": 459.828125
+            },
+            {
+              "id": "file",
+              "x": 62.125,
+              "y": 469.828125,
+              "width": 43.671875,
+              "height": 29,
+              "right": 105.796875,
+              "bottom": 498.828125
+            },
+            {
+              "id": "system",
+              "x": 110.796875,
+              "y": 469.828125,
+              "width": 62.25,
+              "height": 29,
+              "right": 173.046875,
+              "bottom": 498.828125
+            },
+            {
+              "id": "mic",
+              "x": 178.046875,
+              "y": 469.828125,
+              "width": 40.125,
+              "height": 29,
+              "right": 218.171875,
+              "bottom": 498.828125
+            },
+            {
+              "id": "demo",
+              "x": 223.171875,
+              "y": 469.828125,
+              "width": 51.171875,
+              "height": 29,
+              "right": 274.34375,
+              "bottom": 498.828125
+            },
+            {
+              "id": "stop",
+              "x": 279.34375,
+              "y": 469.828125,
+              "width": 48.515625,
+              "height": 29,
+              "right": 327.859375,
+              "bottom": 498.828125
+            },
+            {
+              "id": "hold",
+              "x": 149.5,
+              "y": 508.828125,
+              "width": 49.671875,
+              "height": 29,
+              "right": 199.171875,
+              "bottom": 537.828125
+            },
+            {
+              "id": "fullscreen",
+              "x": 204.171875,
+              "y": 508.828125,
+              "width": 36.328125,
+              "height": 29,
+              "right": 240.5,
+              "bottom": 537.828125
+            }
+          ],
+          "overlaps": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "previous wraps GOLD to BLUE",
+        "passed": true,
+        "detail": 1
+      },
+      {
+        "name": "next wraps BLUE to GOLD",
+        "passed": true,
+        "detail": 0
+      },
+      {
+        "name": "nominal mono file drives both channels equally",
+        "passed": true,
+        "detail": {
+          "source": "file",
+          "levels": [
+            0.7350066627140834,
+            0.7350066619810001
+          ]
+        }
+      },
+      {
+        "name": "mono upmix agrees with same-tone stereo",
+        "passed": true,
+        "detail": {
+          "mono": [
+            0.7350066627140834,
+            0.7350066619810001
+          ],
+          "stereo": [
+            0.7349018978708163,
+            0.7349018967067772
+          ]
+        }
+      },
+      {
+        "name": "stereo separation preserves silent right input",
+        "passed": true,
+        "detail": {
+          "source": "file",
+          "levels": [
+            0.7349045379845508,
+            0
+          ]
+        }
+      },
+      {
+        "name": "DEMO is explicit active source cycle0",
+        "passed": true,
+        "detail": {
+          "source": "demo",
+          "active": true,
+          "label": "Стерео тест",
+          "sampleRate": 44100,
+          "rms": [
+            0.11425495961252653,
+            0.10910676851672188
+          ],
+          "peak": [
+            0.1721247452618512,
+            0.17041053968328027
+          ],
+          "rawRms": [
+            0.11587854076310869,
+            0.10726488373160831
+          ],
+          "rawPeak": [
+            0.1721622496843338,
+            0.16139177978038788
+          ],
+          "mode": 0,
+          "theme": "gold",
+          "held": false,
+          "loaded": true,
+          "target": {
+            "left": 0.8253250491368951,
+            "right": 0.8086389091883706
+          },
+          "needles": {
+            "left": 0.8182811296986982,
+            "right": 0.8159912941822806
+          },
+          "levels": [
+            0.8253250491368951,
+            0.8086389091883706
+          ]
+        }
+      },
+      {
+        "name": "file reconnect succeeds cycle0",
         "passed": true,
         "detail": "file"
       },
       {
-        "name": "mono 1 kHz detected at calibrated level",
+        "name": "DEMO is explicit active source cycle1",
         "passed": true,
         "detail": {
-          "index": 36,
-          "hz": 1027.9393601543024,
-          "db": -6.000179290771484
-        }
-      },
-      {
-        "name": "mono upmix delivers equal left/right activity",
-        "passed": true,
-        "detail": [
-          1,
-          1
-        ]
-      },
-      {
-        "name": "equal stereo agrees with mono calibration",
-        "passed": true,
-        "detail": {
-          "mono": {
-            "index": 36,
-            "hz": 1027.9393601543024,
-            "db": -6.000179290771484
+          "source": "demo",
+          "active": true,
+          "label": "Стерео тест",
+          "sampleRate": 44100,
+          "rms": [
+            0.11434954374120065,
+            0.10886738561154378
+          ],
+          "peak": [
+            0.17223726002500425,
+            0.17032469491174443
+          ],
+          "rawRms": [
+            0.11559910192857714,
+            0.10691055025953061
+          ],
+          "rawPeak": [
+            0.17227286100387573,
+            0.16094303131103516
+          ],
+          "mode": 0,
+          "theme": "gold",
+          "held": false,
+          "loaded": true,
+          "target": {
+            "left": 0.8256245282729878,
+            "right": 0.8078439929516847
           },
-          "stereo": {
-            "index": 36,
-            "hz": 1027.9393601543024,
-            "db": -6.000179290771484
-          }
+          "needles": {
+            "left": 0.8187641498487227,
+            "right": 0.8152023149442842
+          },
+          "levels": [
+            0.8256245282729878,
+            0.8078439929516847
+          ]
         }
       },
       {
-        "name": "stereo preserves independently panned tones",
+        "name": "file reconnect succeeds cycle1",
+        "passed": true,
+        "detail": "file"
+      },
+      {
+        "name": "denied microphone never substitutes DEMO",
+        "passed": true,
+        "detail": "file"
+      },
+      {
+        "name": "cancelled share never substitutes DEMO",
+        "passed": true,
+        "detail": "file"
+      },
+      {
+        "name": "real synthetic MediaStream is measured as microphone",
         "passed": true,
         "detail": {
-          "left1k": -9.010478973388672,
-          "right3k": -9.010760307312012
+          "source": "mic",
+          "active": true,
+          "label": "Микрофон / линейный вход",
+          "sampleRate": 44100,
+          "rms": [
+            0.08902265779564926,
+            0.08902265779564926
+          ],
+          "peak": [
+            0.12589183449739624,
+            0.12589183449739624
+          ],
+          "rawRms": [
+            0.08897671791778392,
+            0.08897671791778392
+          ],
+          "rawPeak": [
+            0.12589183449745178,
+            0.12589183449745178
+          ],
+          "mode": 0,
+          "theme": "gold",
+          "held": false,
+          "loaded": true,
+          "target": {
+            "left": 0.7350129616265582,
+            "right": 0.7350129616265582
+          },
+          "needles": {
+            "left": 0.7349845576146791,
+            "right": 0.7349845576146791
+          },
+          "levels": [
+            0.7350129616265582,
+            0.7350129616265582
+          ]
         }
       },
       {
-        "name": "demo uses explicit demo source cycle 1",
-        "passed": true,
-        "detail": {
-          "source": "demo",
-          "max": -27.75383758544922
-        }
-      },
-      {
-        "name": "file source reconnect cycle 1",
-        "passed": true,
-        "detail": {
-          "index": 36,
-          "hz": 1027.9393601543024,
-          "db": -6.0002121925354
-        }
-      },
-      {
-        "name": "demo uses explicit demo source cycle 2",
-        "passed": true,
-        "detail": {
-          "source": "demo",
-          "max": -26.736509323120117
-        }
-      },
-      {
-        "name": "file source reconnect cycle 2",
-        "passed": true,
-        "detail": {
-          "index": 36,
-          "hz": 1027.9393601543024,
-          "db": -6.000204086303711
-        }
-      },
-      {
-        "name": "microphone denial never starts demo",
-        "passed": true,
-        "detail": {
-          "source": "file",
-          "toast": "Микрофон: QA: microphone denied"
-        }
-      },
-      {
-        "name": "screen share cancellation never starts demo",
-        "passed": true,
-        "detail": {
-          "source": "file",
-          "toast": "Захват: QA: share cancelled"
-        }
-      },
-      {
-        "name": "silent PCM has zero input power with natural release",
-        "passed": true,
-        "detail": {
-          "rawPowerMax": 0,
-          "releasingDb": -52.24629592895508
-        }
-      },
-      {
-        "name": "all 256 modes render without runtime errors",
-        "passed": true,
-        "detail": []
-      },
-      {
-        "name": "spectrum canvas responds at 1920px",
-        "passed": true,
-        "detail": [
-          {
-            "width": 1400,
-            "height": 471,
-            "cssWidth": 1400,
-            "cssHeight": 471
-          }
-        ]
-      },
-      {
-        "name": "spectrum canvas responds at 900px",
-        "passed": true,
-        "detail": [
-          {
-            "width": 828,
-            "height": 539,
-            "cssWidth": 828,
-            "cssHeight": 539
-          }
-        ]
-      },
-      {
-        "name": "spectrum canvas responds at 390px",
-        "passed": true,
-        "detail": [
-          {
-            "width": 342,
-            "height": 324,
-            "cssWidth": 342,
-            "cssHeight": 324
-          }
-        ]
-      },
-      {
-        "name": "invalid file has visible error and no demo fallback",
+        "name": "STOP releases microphone track and clears measured levels",
         "passed": true,
         "detail": {
           "source": "idle",
-          "toast": "Ошибка аудиофайла: Failed to load because no supported source was found."
+          "track": "ended",
+          "levels": [
+            0,
+            0
+          ]
         }
       },
       {
-        "name": "no uncaught JS exceptions throughout integration",
+        "name": "invalid file returns to idle without demo fallback",
+        "passed": true,
+        "detail": "idle"
+      },
+      {
+        "name": "old catalog modules and unrelated assets removed",
         "passed": true,
         "detail": []
       },
       {
-        "name": "no browser console errors",
+        "name": "all final localHTML references exist",
         "passed": true,
-        "detail": []
+        "detail": {
+          "refs": [
+            "assets/icon.png",
+            "styles.css",
+            "needle-3d.js",
+            "reference-meters.js",
+            "audio-engine.js",
+            "app.js"
+          ],
+          "missing": []
+        }
+      },
+      {
+        "name": "no JavaScript, console or resource errors",
+        "passed": true,
+        "detail": {
+          "errors": [],
+          "consoleErrors": [],
+          "failedResponses": []
+        }
       }
     ],
-    "events": {
-      "errors": [],
-      "consoleErrors": [],
-      "consoleWarnings": []
-    }
+    "errors": [],
+    "consoleErrors": [],
+    "failedResponses": [],
+    "screens": [
+      "/tmp/two-meter-qa/gold-1440x900.png",
+      "/tmp/two-meter-qa/blue-1440x900.png",
+      "/tmp/two-meter-qa/gold-1920x480.png",
+      "/tmp/two-meter-qa/blue-1920x480.png",
+      "/tmp/two-meter-qa/gold-800x480.png",
+      "/tmp/two-meter-qa/blue-800x480.png",
+      "/tmp/two-meter-qa/gold-390x844.png",
+      "/tmp/two-meter-qa/blue-390x844.png"
+    ]
   },
-  "appearance": {
+  "rendering_controls": {
     "passed": true,
-    "mode_count": 256,
-    "family_count": 12,
-    "layout_count": 328,
-    "all_modes_seconds": 15.734157757,
-    "screenshots": 42,
-    "contact_sheet": "/tmp/avpro-qa/after-modes/contact-sheet.png",
     "checks": [
-      {
-        "name": "initial analyzer idle and all250 collection modes loaded",
-        "passed": true,
-        "detail": {
-          "source": "idle",
-          "mode": 5,
-          "count": 250
-        }
-      },
-      {
-        "name": "all twelve renderer families represented",
-        "passed": true,
-        "detail": {
-          "vu": 6,
-          "bars": 7,
-          "osc": 9,
-          "wave": 11,
-          "circ": 12,
-          "mount": 13,
-          "part": 58,
-          "reel": 61,
-          "vinyl": 62,
-          "radio": 63,
-          "clock": 64,
-          "nixie": 206
-        }
-      },
-      {
-        "name": "all256 canvases contain substantial rendered pixels",
-        "passed": true,
-        "detail": {
-          "count": 256,
-          "blankModes": [],
-          "seconds": 15.73
-        }
-      },
-      {
-        "name": "all256 desktop layouts keep toolbar below drawing and canvas inside scene",
-        "passed": true,
-        "detail": []
-      },
-      {
-        "name": "all18 representative layouts fit at390×844",
-        "passed": true,
-        "detail": []
-      },
-      {
-        "name": "all18 representative layouts fit at800×480",
-        "passed": true,
-        "detail": []
-      },
-      {
-        "name": "all18 representative layouts fit at1920×480",
-        "passed": true,
-        "detail": []
-      },
-      {
-        "name": "all18 representative layouts fit at1440×900",
-        "passed": true,
-        "detail": []
-      },
-      {
-        "name": "reel transport visibly rotates while source active",
-        "passed": true,
-        "detail": {
-          "mode": 61,
-          "changed": true
-        }
-      },
-      {
-        "name": "reel transport is stationary after STOP",
-        "passed": true,
-        "detail": {
-          "mode": 61,
-          "sameCanvas": true,
-          "source": "idle"
-        }
-      },
-      {
-        "name": "vinyl transport visibly rotates while source active",
-        "passed": true,
-        "detail": {
-          "mode": 62,
-          "changed": true
-        }
-      },
-      {
-        "name": "vinyl transport is stationary after STOP",
-        "passed": true,
-        "detail": {
-          "mode": 62,
-          "sameCanvas": true,
-          "source": "idle"
-        }
-      }
+      "actual integrated WebGL path",
+      "DPR2 backing and photo aspect",
+      "HOLD freezes pixels while live audio metering continues",
+      "HOLD preserves pointer geometry during resize",
+      "release HOLD resumes animation",
+      "BLUE nominal -18dBFS sine maps to 0dB graduation",
+      "3D prism produces visible pixels without GL error",
+      "no-WebGL Canvas fallback remains live",
+      "no uncaught rendering errors"
     ],
-    "final_resource_and_runtime_check": {
-      "errors": [],
-      "consoleErrors": [],
-      "failedResponses": []
+    "backing": {
+      "w": 2816,
+      "h": 1056,
+      "css": 1408
     },
-    "resolved_findings": [
-      "Initial all-mode traversal reported one favicon.ico 404 from the development server; explicit icon link fixed it. Fresh final navigation and representative renders have zero runtime/console/resource errors.",
-      "Reel TAKE UP/header collision fixed in final hardware module. Final800x480 screenshot visually confirmed clear separated label baselines.",
-      "All18 primary/family representative screenshots and8 responsive blue/reel screenshots refreshed after final renderer fixes; first two additionally refreshed after demo toast faded."
-    ],
-    "artifacts": {
-      "before_contact_sheet": "/tmp/avpro-qa/before-modes/contact-sheet.png",
-      "after_contact_sheet": "/tmp/avpro-qa/after-modes/contact-sheet.png",
-      "original_full_run_report": "/tmp/avpro-qa/after-modes/report.json"
+    "pixelCounts": {
+      "lit": 626,
+      "error": 0
     }
-  },
-  "hardware_render_matrix": {
-    "passed": 192,
-    "families": [
-      "vu",
-      "nixie",
-      "reel",
-      "vinyl",
-      "clock",
-      "radio"
-    ],
-    "skins": 4,
-    "layouts": 4,
-    "analog_digital_variants": 2
   },
   "limitations": [
-    "Chromium browser testing; physical microphone/system-loopback capture needs validation on the user device.",
-    "Electron executable packaging not performed.",
-    "Digital calibration applies to SA-64; additional modes are visual representations of the shared audio frame."
+    "Physical microphone and system loopback depend on browser/OS permissions; synthetic stream capture and cleanup paths were tested.",
+    "Electron EXE/AppImage not built.",
+    "Photographic panels plus calibrated dynamic overlays recreate the references; this is not a certified analogue instrument."
   ]
 }

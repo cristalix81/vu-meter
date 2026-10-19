@@ -4,8 +4,8 @@ const path = require('node:path');
 
 function createWindow(){
   const win = new BrowserWindow({
-    width: 1536, height: 470, minWidth: 900, minHeight: 300,
-    title: 'Audio Visualizer Pro — Studio Reborn',
+    width: 1400, height: 650, minWidth: 700, minHeight: 350,
+    title: 'AV PRO — Gold VU / Blue Peak',
     backgroundColor: '#020711', autoHideMenuBar: true,
     webPreferences: {
       contextIsolation: true, nodeIntegration: false, sandbox: true,
