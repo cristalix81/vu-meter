@@ -1,0 +1,1807 @@
+{
+  "timestamp": "2026-10-30T16:20:16.538Z",
+  "checks": [
+    {
+      "name": "app oldskin presentation AEG",
+      "passed": true,
+      "detail": {
+        "id": "bundle-a324e75ef4eae5c6",
+        "index": 12,
+        "name": "AEG",
+        "originalExact": true,
+        "originalSha256": "136dc83ca7a1c52d2fd8f247457aa2964b4ea7b2693a50d2b1db69c9ab57ac90",
+        "baselineSha256": "136dc83ca7a1c52d2fd8f247457aa2964b4ea7b2693a50d2b1db69c9ab57ac90",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+          "id": "bundle-a324e75ef4eae5c6",
+          "channelOffset": 972,
+          "kind": "paper",
+          "palette": "warm",
+          "embeddedFrame": true,
+          "silhouette": false,
+          "lightRGB": [
+            255,
+            235,
+            195
+          ],
+          "stats": {
+            "mean": 0.37916827979526346,
+            "centerMean": 0.5412905959176767,
+            "contrast": 0.22262154266601056,
+            "brightFraction": 0.3548437622366669,
+            "darkFraction": 0.009554389537160311,
+            "chroma": 0.15722759931759156,
+            "edgeMean": 0.13027748213304294,
+            "samples": 12769
+          },
+          "treatment": {
+            "glass": 1,
+            "light": 1,
+            "contact": 0.42,
+            "rim": 0.24
+          },
+          "width": 900,
+          "height": 900
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation Accuphase-A75 2-edited",
+      "passed": true,
+      "detail": {
+        "id": "bundle-b3e1abd5c4243a30",
+        "index": 15,
+        "name": "Accuphase-A75 2-edited",
+        "originalExact": true,
+        "originalSha256": "e7e4a6994f701cee3967660441e2e72443e55d7edf15254e33b48e550cea75ed",
+        "baselineSha256": "e7e4a6994f701cee3967660441e2e72443e55d7edf15254e33b48e550cea75ed",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184",
+          "id": "bundle-b3e1abd5c4243a30",
+          "channelOffset": 4104,
+          "kind": "dark",
+          "palette": "neutral",
+          "embeddedFrame": false,
+          "silhouette": false,
+          "lightRGB": [
+            239,
+            246,
+            243
+          ],
+          "stats": {
+            "mean": 0.10427433783584762,
+            "centerMean": 0.11923343514260842,
+            "contrast": 0.143651437028533,
+            "brightFraction": 0.07300925925925926,
+            "darkFraction": 0.6449074074074074,
+            "chroma": 0.005283950617283957,
+            "edgeMean": 0.07245011932000106,
+            "samples": 21600
+          },
+          "treatment": {
+            "glass": 0.62,
+            "light": 0.62,
+            "contact": 1,
+            "rim": 1
+          },
+          "width": 600,
+          "height": 144
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation Cupper Weston big-edited",
+      "passed": true,
+      "detail": {
+        "id": "bundle-e3892867cdbe3638",
+        "index": 32,
+        "name": "Cupper Weston big-edited",
+        "originalExact": true,
+        "originalSha256": "0fe1e79ce5fe64bc5192b3328dd7b11cf2af071ce60f62645bfc0bf1b020a078",
+        "baselineSha256": "0fe1e79ce5fe64bc5192b3328dd7b11cf2af071ce60f62645bfc0bf1b020a078",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:f0f677e7e0890b039d798a288a8c2582bed14f5570eca8e1b520f7927baed2d9",
+          "id": "bundle-e3892867cdbe3638",
+          "channelOffset": 4104,
+          "kind": "paper",
+          "palette": "warm",
+          "embeddedFrame": true,
+          "silhouette": true,
+          "lightRGB": [
+            255,
+            235,
+            195
+          ],
+          "stats": {
+            "mean": 0.30928393997758047,
+            "centerMean": 0.5010589052344286,
+            "contrast": 0.29632646289419007,
+            "brightFraction": 0.29441502166586425,
+            "darkFraction": 0.42410929224843524,
+            "chroma": 0.2747130099030361,
+            "edgeMean": 0.07500922449076469,
+            "samples": 16616
+          },
+          "treatment": {
+            "glass": 1,
+            "light": 1,
+            "contact": 0.42,
+            "rim": 0.24
+          },
+          "width": 800,
+          "height": 740
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation Dorrough Model 40 AES EBU2-edited",
+      "passed": true,
+      "detail": {
+        "id": "bundle-08e1acfa4ed09c1d",
+        "index": 34,
+        "name": "Dorrough Model 40 AES EBU2-edited",
+        "originalExact": true,
+        "originalSha256": "359d602ec53f8660ad7d0b8f0862119e81af42329ac541b54a7f22eba460b6a8",
+        "baselineSha256": "359d602ec53f8660ad7d0b8f0862119e81af42329ac541b54a7f22eba460b6a8",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:c25976e9a8b723c9f86230f01a5f8a28a86d321a19176fad52836cb62d12556b",
+          "id": "bundle-08e1acfa4ed09c1d",
+          "channelOffset": 4104,
+          "kind": "electronic",
+          "palette": "neutral",
+          "embeddedFrame": true,
+          "silhouette": false,
+          "lightRGB": [
+            239,
+            246,
+            243
+          ],
+          "stats": {
+            "mean": 0.11340816597167039,
+            "centerMean": 0.05642608340683472,
+            "contrast": 0.15357083374949526,
+            "brightFraction": 0.009728506787330317,
+            "darkFraction": 0.6046003016591251,
+            "chroma": 0.047668648153080764,
+            "edgeMean": 0.2704721633883307,
+            "samples": 13260
+          },
+          "treatment": {
+            "glass": 0.28,
+            "light": 0.34,
+            "contact": 0.42,
+            "rim": 0.24
+          },
+          "width": 585,
+          "height": 204
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation Hickok_HD (mod DarkOne)-edited",
+      "passed": true,
+      "detail": {
+        "id": "bundle-90e2bd12864b5555",
+        "index": 43,
+        "name": "Hickok_HD (mod DarkOne)-edited",
+        "originalExact": true,
+        "originalSha256": "d0f8cd3e832614bc6d553817e7b20cae7445c6264a8e0ebe0aa8edc1bc449213",
+        "baselineSha256": "d0f8cd3e832614bc6d553817e7b20cae7445c6264a8e0ebe0aa8edc1bc449213",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:3c4327e02ce0e96683dd5447043213cb29891e0190846dced33ab2d10f45ffc2",
+          "id": "bundle-90e2bd12864b5555",
+          "channelOffset": 4104,
+          "kind": "paper",
+          "palette": "warm",
+          "embeddedFrame": true,
+          "silhouette": false,
+          "lightRGB": [
+            255,
+            235,
+            195
+          ],
+          "stats": {
+            "mean": 0.28619550032932967,
+            "centerMean": 0.4707727042177637,
+            "contrast": 0.30819471361720086,
+            "brightFraction": 0.26098191214470284,
+            "darkFraction": 0.1330749354005168,
+            "chroma": 0.19674469270909534,
+            "edgeMean": 0.08451147537063564,
+            "samples": 15480
+          },
+          "treatment": {
+            "glass": 1,
+            "light": 1,
+            "contact": 0.42,
+            "rim": 0.24
+          },
+          "width": 900,
+          "height": 836
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation MCINTOSH MPM4000-edited",
+      "passed": true,
+      "detail": {
+        "id": "bundle-2fae466702a5c36b",
+        "index": 48,
+        "name": "MCINTOSH MPM4000-edited",
+        "originalExact": true,
+        "originalSha256": "66369380e487a50bc29e258a42601592a9be7145a9b04356c242923cea5fc968",
+        "baselineSha256": "66369380e487a50bc29e258a42601592a9be7145a9b04356c242923cea5fc968",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:280c11a5b705068422753966c4c29898a0894aa63646eaff4877cf9e61a06e09",
+          "id": "bundle-2fae466702a5c36b",
+          "channelOffset": 4104,
+          "kind": "paper",
+          "palette": "cool",
+          "embeddedFrame": true,
+          "silhouette": false,
+          "lightRGB": [
+            211,
+            234,
+            255
+          ],
+          "stats": {
+            "mean": 0.5980536543747483,
+            "centerMean": 0.6993287469897667,
+            "contrast": 0.2335671692047425,
+            "brightFraction": 0.7963176064441887,
+            "darkFraction": 0.0967982129560685,
+            "chroma": 0.7741778522821259,
+            "edgeMean": 0.32184405692822143,
+            "samples": 14773
+          },
+          "treatment": {
+            "glass": 1,
+            "light": 1,
+            "contact": 0.42,
+            "rim": 0.24
+          },
+          "width": 561,
+          "height": 235
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation NAGRA KUDELSKI III-edited",
+      "passed": true,
+      "detail": {
+        "id": "bundle-aa9227a5a2bd6528",
+        "index": 58,
+        "name": "NAGRA KUDELSKI III-edited",
+        "originalExact": true,
+        "originalSha256": "2bb24f5b8bca03e80afcf8b080f551027c8685e5e9ea2d90a21d333652cc30b7",
+        "baselineSha256": "2bb24f5b8bca03e80afcf8b080f551027c8685e5e9ea2d90a21d333652cc30b7",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:7a67e820e8b6cd0cacbdead65ff1edd1bb97784fc046ff16f15660953125be6d",
+          "id": "bundle-aa9227a5a2bd6528",
+          "channelOffset": 4104,
+          "kind": "paper",
+          "palette": "cool",
+          "embeddedFrame": false,
+          "silhouette": false,
+          "lightRGB": [
+            211,
+            234,
+            255
+          ],
+          "stats": {
+            "mean": 0.529363835093977,
+            "centerMean": 0.4997504041496358,
+            "contrast": 0.19643312113040687,
+            "brightFraction": 0.5952094366875301,
+            "darkFraction": 0.033883004333172845,
+            "chroma": 0.1320241770275647,
+            "edgeMean": 0.5747060515419771,
+            "samples": 16616
+          },
+          "treatment": {
+            "glass": 1,
+            "light": 1,
+            "contact": 1,
+            "rim": 1
+          },
+          "width": 400,
+          "height": 371
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation New Green Eye Classic",
+      "passed": true,
+      "detail": {
+        "id": "bundle-c08f850c93d3eea6",
+        "index": 62,
+        "name": "New Green Eye Classic",
+        "originalExact": true,
+        "originalSha256": "5573584efbfdd7f58fcb842ba9fc800e77d07c7535afe7251dddde3b93786418",
+        "baselineSha256": "5573584efbfdd7f58fcb842ba9fc800e77d07c7535afe7251dddde3b93786418",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:6f1604cbb8c2b13f6cc41087d147174a7f232e5c2a2d9885d0181602276faa8a",
+          "id": "bundle-c08f850c93d3eea6",
+          "channelOffset": 972,
+          "kind": "paper",
+          "palette": "warm",
+          "embeddedFrame": false,
+          "silhouette": false,
+          "lightRGB": [
+            255,
+            235,
+            195
+          ],
+          "stats": {
+            "mean": 0.5336746526394875,
+            "centerMean": 0.5164565872952164,
+            "contrast": 0.1722386870711659,
+            "brightFraction": 0.5619871794871795,
+            "darkFraction": 0,
+            "chroma": 0.1442001005530194,
+            "edgeMean": 0.5673212104933312,
+            "samples": 15600
+          },
+          "treatment": {
+            "glass": 1,
+            "light": 1,
+            "contact": 1,
+            "rim": 1
+          },
+          "width": 600,
+          "height": 648
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation Phaostron Aircraft-edited",
+      "passed": true,
+      "detail": {
+        "id": "bundle-35ce41664777d4dd",
+        "index": 70,
+        "name": "Phaostron Aircraft-edited",
+        "originalExact": true,
+        "originalSha256": "4451aff1aa04e421d9baec1540d08e7a12825cc531f06ec0389621b28c5d2596",
+        "baselineSha256": "4451aff1aa04e421d9baec1540d08e7a12825cc531f06ec0389621b28c5d2596",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:d10e0e3f191efa87a1655657f15dd87d9d1f74e5c71192494e5a57eececd7974",
+          "id": "bundle-35ce41664777d4dd",
+          "channelOffset": 4104,
+          "kind": "dark",
+          "palette": "warm",
+          "embeddedFrame": true,
+          "silhouette": true,
+          "lightRGB": [
+            255,
+            235,
+            195
+          ],
+          "stats": {
+            "mean": 0.12438297489239142,
+            "centerMean": 0.16409774058803267,
+            "contrast": 0.19351239658336977,
+            "brightFraction": 0.048866605465715696,
+            "darkFraction": 0.5847044700233034,
+            "chroma": 0.06182154522707684,
+            "edgeMean": 0.022695710278211254,
+            "samples": 14161
+          },
+          "treatment": {
+            "glass": 0.62,
+            "light": 0.62,
+            "contact": 0.42,
+            "rim": 0.24
+          },
+          "width": 710,
+          "height": 710
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation Tube",
+      "passed": true,
+      "detail": {
+        "id": "bundle-8333539cd086095a",
+        "index": 88,
+        "name": "Tube",
+        "originalExact": true,
+        "originalSha256": "132269d5dadc3fdf6cafe1fc414b50d92333fadb0b472941b88175133a9eb5a4",
+        "baselineSha256": "132269d5dadc3fdf6cafe1fc414b50d92333fadb0b472941b88175133a9eb5a4",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:df3c1641fcfd51c0dc28cf326205460488757874f3cb373de98f394da9fbd621",
+          "id": "bundle-8333539cd086095a",
+          "channelOffset": 972,
+          "kind": "dark",
+          "palette": "warm",
+          "embeddedFrame": false,
+          "silhouette": false,
+          "lightRGB": [
+            255,
+            235,
+            195
+          ],
+          "stats": {
+            "mean": 0.092562977263244,
+            "centerMean": 0.07718428905950935,
+            "contrast": 0.09494541393183202,
+            "brightFraction": 0.004840425531914894,
+            "darkFraction": 0.48101063829787233,
+            "chroma": 0.04359762202753191,
+            "edgeMean": 0.13453873993052626,
+            "samples": 18800
+          },
+          "treatment": {
+            "glass": 0.62,
+            "light": 0.62,
+            "contact": 1,
+            "rim": 1
+          },
+          "width": 400,
+          "height": 188
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation VU A",
+      "passed": true,
+      "detail": {
+        "id": "bundle-5ea42e6d1cd8858c",
+        "index": 93,
+        "name": "VU A",
+        "originalExact": true,
+        "originalSha256": "276c153f864016750c8b31e235f81f3c6dd8020fa647289ac768de3e07317e49",
+        "baselineSha256": "276c153f864016750c8b31e235f81f3c6dd8020fa647289ac768de3e07317e49",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:aa52ad6cb8045e70a6a5bc24daf185c383fc65b8749161d5d0ed80d8cec168f6",
+          "id": "bundle-5ea42e6d1cd8858c",
+          "channelOffset": 972,
+          "kind": "paper",
+          "palette": "warm",
+          "embeddedFrame": true,
+          "silhouette": true,
+          "lightRGB": [
+            255,
+            235,
+            195
+          ],
+          "stats": {
+            "mean": 0.26328150764920977,
+            "centerMean": 0.48288220570051144,
+            "contrast": 0.321281170480277,
+            "brightFraction": 0.22623626373626374,
+            "darkFraction": 0.4971153846153846,
+            "chroma": 0.26407509157510073,
+            "edgeMean": 0.001636344512938387,
+            "samples": 14560
+          },
+          "treatment": {
+            "glass": 1,
+            "light": 1,
+            "contact": 0.42,
+            "rim": 0.24
+          },
+          "width": 800,
+          "height": 451
+        }
+      }
+    },
+    {
+      "name": "app oldskin presentation vidality",
+      "passed": true,
+      "detail": {
+        "id": "bundle-a88a4f8c62b008d7",
+        "index": 121,
+        "name": "vidality",
+        "originalExact": true,
+        "originalSha256": "c0b2889ff6373bdc4e1bd3e7d7ec3c4552403542d35b5455035d1c45eac5c3c8",
+        "baselineSha256": "c0b2889ff6373bdc4e1bd3e7d7ec3c4552403542d35b5455035d1c45eac5c3c8",
+        "studioDiffers": true,
+        "profile": {
+          "identity": "sha256:fc3867985c4089019fe632484016c56d876bbb42e56592efff179e922b740edc",
+          "id": "bundle-a88a4f8c62b008d7",
+          "channelOffset": 972,
+          "kind": "paper",
+          "palette": "neutral",
+          "embeddedFrame": true,
+          "silhouette": false,
+          "lightRGB": [
+            239,
+            246,
+            243
+          ],
+          "stats": {
+            "mean": 0.7153210862154984,
+            "centerMean": 0.7993118108207473,
+            "contrast": 0.16226019624236618,
+            "brightFraction": 0.8382913806254767,
+            "darkFraction": 0,
+            "chroma": 0.05237704817728283,
+            "edgeMean": 0.4728956730762306,
+            "samples": 14421
+          },
+          "treatment": {
+            "glass": 1,
+            "light": 1,
+            "contact": 0.42,
+            "rim": 0.24
+          },
+          "width": 1770,
+          "height": 396
+        }
+      }
+    },
+    {
+      "name": "per-SHA optical settings restore independently between BIN skins",
+      "passed": true,
+      "detail": {
+        "first": {
+          "diag": {
+            "enabled": false,
+            "mode": "original",
+            "signature": "original/19/76/eco",
+            "builds": 19,
+            "hits": 107,
+            "cacheEntries": 0,
+            "cacheBytes": 0,
+            "maxEntries": 8,
+            "maxBytes": 25165824,
+            "profiles": [
+              {
+                "identity": "sha256:6f1604cbb8c2b13f6cc41087d147174a7f232e5c2a2d9885d0181602276faa8a",
+                "id": "bundle-c08f850c93d3eea6",
+                "channelOffset": 24829741,
+                "kind": "paper",
+                "palette": "warm",
+                "embeddedFrame": false,
+                "silhouette": false,
+                "lightRGB": [
+                  255,
+                  235,
+                  195
+                ],
+                "stats": {
+                  "mean": 0.5293186877325181,
+                  "centerMean": 0.514540299609602,
+                  "contrast": 0.1675918125191976,
+                  "brightFraction": 0.5561538461538461,
+                  "darkFraction": 0,
+                  "chroma": 0.15421920563094435,
+                  "edgeMean": 0.5600301915328844,
+                  "samples": 15600
+                },
+                "treatment": {
+                  "glass": 1,
+                  "light": 1,
+                  "contact": 1,
+                  "rim": 1
+                },
+                "width": 600,
+                "height": 648
+              },
+              {
+                "identity": "sha256:d10e0e3f191efa87a1655657f15dd87d9d1f74e5c71192494e5a57eececd7974",
+                "id": "bundle-35ce41664777d4dd",
+                "channelOffset": 4104,
+                "kind": "dark",
+                "palette": "warm",
+                "embeddedFrame": true,
+                "silhouette": true,
+                "lightRGB": [
+                  255,
+                  235,
+                  195
+                ],
+                "stats": {
+                  "mean": 0.12438297489239142,
+                  "centerMean": 0.16409774058803267,
+                  "contrast": 0.19351239658336977,
+                  "brightFraction": 0.048866605465715696,
+                  "darkFraction": 0.5847044700233034,
+                  "chroma": 0.06182154522707684,
+                  "edgeMean": 0.022695710278211254,
+                  "samples": 14161
+                },
+                "treatment": {
+                  "glass": 0.62,
+                  "light": 0.62,
+                  "contact": 0.42,
+                  "rim": 0.24
+                },
+                "width": 710,
+                "height": 710
+              },
+              {
+                "identity": "sha256:df3c1641fcfd51c0dc28cf326205460488757874f3cb373de98f394da9fbd621",
+                "id": "bundle-8333539cd086095a",
+                "channelOffset": 972,
+                "kind": "dark",
+                "palette": "warm",
+                "embeddedFrame": false,
+                "silhouette": false,
+                "lightRGB": [
+                  255,
+                  235,
+                  195
+                ],
+                "stats": {
+                  "mean": 0.092562977263244,
+                  "centerMean": 0.07718428905950935,
+                  "contrast": 0.09494541393183202,
+                  "brightFraction": 0.004840425531914894,
+                  "darkFraction": 0.48101063829787233,
+                  "chroma": 0.04359762202753191,
+                  "edgeMean": 0.13453873993052626,
+                  "samples": 18800
+                },
+                "treatment": {
+                  "glass": 0.62,
+                  "light": 0.62,
+                  "contact": 1,
+                  "rim": 1
+                },
+                "width": 400,
+                "height": 188
+              },
+              {
+                "identity": "sha256:df3c1641fcfd51c0dc28cf326205460488757874f3cb373de98f394da9fbd621",
+                "id": "bundle-8333539cd086095a",
+                "channelOffset": 4526684,
+                "kind": "dark",
+                "palette": "warm",
+                "embeddedFrame": false,
+                "silhouette": false,
+                "lightRGB": [
+                  255,
+                  235,
+                  195
+                ],
+                "stats": {
+                  "mean": 0.08991867459323846,
+                  "centerMean": 0.0753505482538343,
+                  "contrast": 0.09227838838559835,
+                  "brightFraction": 0.004734042553191489,
+                  "darkFraction": 0.47664893617021276,
+                  "chroma": 0.04247329995827869,
+                  "edgeMean": 0.13015692705193402,
+                  "samples": 18800
+                },
+                "treatment": {
+                  "glass": 0.62,
+                  "light": 0.62,
+                  "contact": 1,
+                  "rim": 1
+                },
+                "width": 400,
+                "height": 188
+              },
+              {
+                "identity": "sha256:aa52ad6cb8045e70a6a5bc24daf185c383fc65b8749161d5d0ed80d8cec168f6",
+                "id": "bundle-5ea42e6d1cd8858c",
+                "channelOffset": 972,
+                "kind": "paper",
+                "palette": "warm",
+                "embeddedFrame": true,
+                "silhouette": true,
+                "lightRGB": [
+                  255,
+                  235,
+                  195
+                ],
+                "stats": {
+                  "mean": 0.26328150764920977,
+                  "centerMean": 0.48288220570051144,
+                  "contrast": 0.321281170480277,
+                  "brightFraction": 0.22623626373626374,
+                  "darkFraction": 0.4971153846153846,
+                  "chroma": 0.26407509157510073,
+                  "edgeMean": 0.001636344512938387,
+                  "samples": 14560
+                },
+                "treatment": {
+                  "glass": 1,
+                  "light": 1,
+                  "contact": 0.42,
+                  "rim": 0.24
+                },
+                "width": 800,
+                "height": 451
+              },
+              {
+                "identity": "sha256:fc3867985c4089019fe632484016c56d876bbb42e56592efff179e922b740edc",
+                "id": "bundle-a88a4f8c62b008d7",
+                "channelOffset": 972,
+                "kind": "paper",
+                "palette": "neutral",
+                "embeddedFrame": true,
+                "silhouette": false,
+                "lightRGB": [
+                  239,
+                  246,
+                  243
+                ],
+                "stats": {
+                  "mean": 0.7153210862154984,
+                  "centerMean": 0.7993118108207473,
+                  "contrast": 0.16226019624236618,
+                  "brightFraction": 0.8382913806254767,
+                  "darkFraction": 0,
+                  "chroma": 0.05237704817728283,
+                  "edgeMean": 0.4728956730762306,
+                  "samples": 14421
+                },
+                "treatment": {
+                  "glass": 1,
+                  "light": 1,
+                  "contact": 0.42,
+                  "rim": 0.24
+                },
+                "width": 1770,
+                "height": 396
+              },
+              {
+                "identity": "sha256:fc3867985c4089019fe632484016c56d876bbb42e56592efff179e922b740edc",
+                "id": "bundle-a88a4f8c62b008d7",
+                "channelOffset": 7494299,
+                "kind": "metal",
+                "palette": "cool",
+                "embeddedFrame": false,
+                "silhouette": false,
+                "lightRGB": [
+                  211,
+                  234,
+                  255
+                ],
+                "stats": {
+                  "mean": 0.4801797019793804,
+                  "centerMean": 0.48761766346635255,
+                  "contrast": 0.09134436778425718,
+                  "brightFraction": 0.2099673202614379,
+                  "darkFraction": 0,
+                  "chroma": 0.04911630724779935,
+                  "edgeMean": 0.4102683305212089,
+                  "samples": 13464
+                },
+                "treatment": {
+                  "glass": 1,
+                  "light": 1,
+                  "contact": 1,
+                  "rim": 1
+                },
+                "width": 136,
+                "height": 396
+              },
+              {
+                "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+                "id": "bundle-a324e75ef4eae5c6",
+                "channelOffset": 972,
+                "kind": "paper",
+                "palette": "warm",
+                "embeddedFrame": true,
+                "silhouette": false,
+                "lightRGB": [
+                  255,
+                  235,
+                  195
+                ],
+                "stats": {
+                  "mean": 0.37916827979526346,
+                  "centerMean": 0.5412905959176767,
+                  "contrast": 0.22262154266601056,
+                  "brightFraction": 0.3548437622366669,
+                  "darkFraction": 0.009554389537160311,
+                  "chroma": 0.15722759931759156,
+                  "edgeMean": 0.13027748213304294,
+                  "samples": 12769
+                },
+                "treatment": {
+                  "glass": 1,
+                  "light": 1,
+                  "contact": 0.42,
+                  "rim": 0.24
+                },
+                "width": 900,
+                "height": 900
+              }
+            ]
+          },
+          "profiles": {
+            "version": 1,
+            "profiles": {
+              "sha256:679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:f0f677e7e0890b039d798a288a8c2582bed14f5570eca8e1b520f7927baed2d9": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:c25976e9a8b723c9f86230f01a5f8a28a86d321a19176fad52836cb62d12556b": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:3c4327e02ce0e96683dd5447043213cb29891e0190846dced33ab2d10f45ffc2": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:280c11a5b705068422753966c4c29898a0894aa63646eaff4877cf9e61a06e09": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:7a67e820e8b6cd0cacbdead65ff1edd1bb97784fc046ff16f15660953125be6d": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:6f1604cbb8c2b13f6cc41087d147174a7f232e5c2a2d9885d0181602276faa8a": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:d10e0e3f191efa87a1655657f15dd87d9d1f74e5c71192494e5a57eececd7974": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:df3c1641fcfd51c0dc28cf326205460488757874f3cb373de98f394da9fbd621": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:aa52ad6cb8045e70a6a5bc24daf185c383fc65b8749161d5d0ed80d8cec168f6": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:fc3867985c4089019fe632484016c56d876bbb42e56592efff179e922b740edc": {
+                "illumination": 65,
+                "glass": 28,
+                "quality": "auto",
+                "enhanced": false
+              },
+              "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2": {
+                "illumination": 19,
+                "glass": 76,
+                "quality": "eco",
+                "enhanced": false
+              }
+            }
+          }
+        },
+        "second": "original/65/28/auto",
+        "restored": {
+          "enabled": false,
+          "mode": "original",
+          "signature": "original/19/76/eco",
+          "builds": 19,
+          "hits": 107,
+          "cacheEntries": 0,
+          "cacheBytes": 0,
+          "maxEntries": 8,
+          "maxBytes": 25165824,
+          "profiles": [
+            {
+              "identity": "sha256:d10e0e3f191efa87a1655657f15dd87d9d1f74e5c71192494e5a57eececd7974",
+              "id": "bundle-35ce41664777d4dd",
+              "channelOffset": 4104,
+              "kind": "dark",
+              "palette": "warm",
+              "embeddedFrame": true,
+              "silhouette": true,
+              "lightRGB": [
+                255,
+                235,
+                195
+              ],
+              "stats": {
+                "mean": 0.12438297489239142,
+                "centerMean": 0.16409774058803267,
+                "contrast": 0.19351239658336977,
+                "brightFraction": 0.048866605465715696,
+                "darkFraction": 0.5847044700233034,
+                "chroma": 0.06182154522707684,
+                "edgeMean": 0.022695710278211254,
+                "samples": 14161
+              },
+              "treatment": {
+                "glass": 0.62,
+                "light": 0.62,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 710,
+              "height": 710
+            },
+            {
+              "identity": "sha256:df3c1641fcfd51c0dc28cf326205460488757874f3cb373de98f394da9fbd621",
+              "id": "bundle-8333539cd086095a",
+              "channelOffset": 972,
+              "kind": "dark",
+              "palette": "warm",
+              "embeddedFrame": false,
+              "silhouette": false,
+              "lightRGB": [
+                255,
+                235,
+                195
+              ],
+              "stats": {
+                "mean": 0.092562977263244,
+                "centerMean": 0.07718428905950935,
+                "contrast": 0.09494541393183202,
+                "brightFraction": 0.004840425531914894,
+                "darkFraction": 0.48101063829787233,
+                "chroma": 0.04359762202753191,
+                "edgeMean": 0.13453873993052626,
+                "samples": 18800
+              },
+              "treatment": {
+                "glass": 0.62,
+                "light": 0.62,
+                "contact": 1,
+                "rim": 1
+              },
+              "width": 400,
+              "height": 188
+            },
+            {
+              "identity": "sha256:df3c1641fcfd51c0dc28cf326205460488757874f3cb373de98f394da9fbd621",
+              "id": "bundle-8333539cd086095a",
+              "channelOffset": 4526684,
+              "kind": "dark",
+              "palette": "warm",
+              "embeddedFrame": false,
+              "silhouette": false,
+              "lightRGB": [
+                255,
+                235,
+                195
+              ],
+              "stats": {
+                "mean": 0.08991867459323846,
+                "centerMean": 0.0753505482538343,
+                "contrast": 0.09227838838559835,
+                "brightFraction": 0.004734042553191489,
+                "darkFraction": 0.47664893617021276,
+                "chroma": 0.04247329995827869,
+                "edgeMean": 0.13015692705193402,
+                "samples": 18800
+              },
+              "treatment": {
+                "glass": 0.62,
+                "light": 0.62,
+                "contact": 1,
+                "rim": 1
+              },
+              "width": 400,
+              "height": 188
+            },
+            {
+              "identity": "sha256:aa52ad6cb8045e70a6a5bc24daf185c383fc65b8749161d5d0ed80d8cec168f6",
+              "id": "bundle-5ea42e6d1cd8858c",
+              "channelOffset": 972,
+              "kind": "paper",
+              "palette": "warm",
+              "embeddedFrame": true,
+              "silhouette": true,
+              "lightRGB": [
+                255,
+                235,
+                195
+              ],
+              "stats": {
+                "mean": 0.26328150764920977,
+                "centerMean": 0.48288220570051144,
+                "contrast": 0.321281170480277,
+                "brightFraction": 0.22623626373626374,
+                "darkFraction": 0.4971153846153846,
+                "chroma": 0.26407509157510073,
+                "edgeMean": 0.001636344512938387,
+                "samples": 14560
+              },
+              "treatment": {
+                "glass": 1,
+                "light": 1,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 800,
+              "height": 451
+            },
+            {
+              "identity": "sha256:fc3867985c4089019fe632484016c56d876bbb42e56592efff179e922b740edc",
+              "id": "bundle-a88a4f8c62b008d7",
+              "channelOffset": 972,
+              "kind": "paper",
+              "palette": "neutral",
+              "embeddedFrame": true,
+              "silhouette": false,
+              "lightRGB": [
+                239,
+                246,
+                243
+              ],
+              "stats": {
+                "mean": 0.7153210862154984,
+                "centerMean": 0.7993118108207473,
+                "contrast": 0.16226019624236618,
+                "brightFraction": 0.8382913806254767,
+                "darkFraction": 0,
+                "chroma": 0.05237704817728283,
+                "edgeMean": 0.4728956730762306,
+                "samples": 14421
+              },
+              "treatment": {
+                "glass": 1,
+                "light": 1,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 1770,
+              "height": 396
+            },
+            {
+              "identity": "sha256:fc3867985c4089019fe632484016c56d876bbb42e56592efff179e922b740edc",
+              "id": "bundle-a88a4f8c62b008d7",
+              "channelOffset": 7494299,
+              "kind": "metal",
+              "palette": "cool",
+              "embeddedFrame": false,
+              "silhouette": false,
+              "lightRGB": [
+                211,
+                234,
+                255
+              ],
+              "stats": {
+                "mean": 0.4801797019793804,
+                "centerMean": 0.48761766346635255,
+                "contrast": 0.09134436778425718,
+                "brightFraction": 0.2099673202614379,
+                "darkFraction": 0,
+                "chroma": 0.04911630724779935,
+                "edgeMean": 0.4102683305212089,
+                "samples": 13464
+              },
+              "treatment": {
+                "glass": 1,
+                "light": 1,
+                "contact": 1,
+                "rim": 1
+              },
+              "width": 136,
+              "height": 396
+            },
+            {
+              "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+              "id": "bundle-a324e75ef4eae5c6",
+              "channelOffset": 972,
+              "kind": "paper",
+              "palette": "warm",
+              "embeddedFrame": true,
+              "silhouette": false,
+              "lightRGB": [
+                255,
+                235,
+                195
+              ],
+              "stats": {
+                "mean": 0.37916827979526346,
+                "centerMean": 0.5412905959176767,
+                "contrast": 0.22262154266601056,
+                "brightFraction": 0.3548437622366669,
+                "darkFraction": 0.009554389537160311,
+                "chroma": 0.15722759931759156,
+                "edgeMean": 0.13027748213304294,
+                "samples": 12769
+              },
+              "treatment": {
+                "glass": 1,
+                "light": 1,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 900,
+              "height": 900
+            },
+            {
+              "identity": "sha256:679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184",
+              "id": "bundle-b3e1abd5c4243a30",
+              "channelOffset": 4104,
+              "kind": "dark",
+              "palette": "neutral",
+              "embeddedFrame": false,
+              "silhouette": false,
+              "lightRGB": [
+                239,
+                246,
+                243
+              ],
+              "stats": {
+                "mean": 0.10427433783584762,
+                "centerMean": 0.11923343514260842,
+                "contrast": 0.143651437028533,
+                "brightFraction": 0.07300925925925926,
+                "darkFraction": 0.6449074074074074,
+                "chroma": 0.005283950617283957,
+                "edgeMean": 0.07245011932000106,
+                "samples": 21600
+              },
+              "treatment": {
+                "glass": 0.62,
+                "light": 0.62,
+                "contact": 1,
+                "rim": 1
+              },
+              "width": 600,
+              "height": 144
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "original mode disables optical finish while preserving global brightness",
+      "passed": true,
+      "detail": {
+        "light": true,
+        "glass": true,
+        "quality": true,
+        "brightness": false
+      }
+    },
+    {
+      "name": "BIN controls fit small instrument display and describe source correctly",
+      "passed": true,
+      "detail": {
+        "rect": {
+          "x": 358,
+          "y": 10,
+          "width": 430,
+          "height": 460,
+          "top": 10,
+          "right": 788,
+          "bottom": 470,
+          "left": 358
+        },
+        "title": "Обработка отображения; исходный BIN и шкала сохраняются. Оформление запоминается отдельно для этого скина.",
+        "sliders": [
+          {
+            "id": "atelier-bin-enhanced",
+            "disabled": false,
+            "rect": {
+              "x": 387,
+              "y": 194.78125,
+              "width": 15,
+              "height": 15,
+              "top": 194.78125,
+              "right": 402,
+              "bottom": 209.78125,
+              "left": 387
+            }
+          },
+          {
+            "id": "atelier-brightness",
+            "disabled": false,
+            "rect": {
+              "x": 376,
+              "y": 255.78125,
+              "width": 394,
+              "height": 18,
+              "top": 255.78125,
+              "right": 770,
+              "bottom": 273.78125,
+              "left": 376
+            }
+          },
+          {
+            "id": "atelier-illumination",
+            "disabled": false,
+            "rect": {
+              "x": 376,
+              "y": 304.78125,
+              "width": 394,
+              "height": 18,
+              "top": 304.78125,
+              "right": 770,
+              "bottom": 322.78125,
+              "left": 376
+            }
+          },
+          {
+            "id": "atelier-glass",
+            "disabled": false,
+            "rect": {
+              "x": 376,
+              "y": 353.78125,
+              "width": 394,
+              "height": 18,
+              "top": 353.78125,
+              "right": 770,
+              "bottom": 371.78125,
+              "left": 376
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "restart retains existing BIN and its optical settings",
+      "passed": true,
+      "detail": {
+        "theme": "bundle-a324e75ef4eae5c6",
+        "diag": {
+          "enabled": true,
+          "mode": "studio",
+          "signature": "studio/19/76/eco",
+          "builds": 1,
+          "hits": 7,
+          "cacheEntries": 1,
+          "cacheBytes": 1401856,
+          "maxEntries": 8,
+          "maxBytes": 25165824,
+          "profiles": [
+            {
+              "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+              "id": "bundle-a324e75ef4eae5c6",
+              "channelOffset": 972,
+              "kind": "paper",
+              "palette": "warm",
+              "embeddedFrame": true,
+              "silhouette": false,
+              "lightRGB": [
+                255,
+                235,
+                195
+              ],
+              "stats": {
+                "mean": 0.37916827979526346,
+                "centerMean": 0.5412905959176767,
+                "contrast": 0.22262154266601056,
+                "brightFraction": 0.3548437622366669,
+                "darkFraction": 0.009554389537160311,
+                "chroma": 0.15722759931759156,
+                "edgeMean": 0.13027748213304294,
+                "samples": 12769
+              },
+              "treatment": {
+                "glass": 1,
+                "light": 1,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 900,
+              "height": 900
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "app optical integration has no uncaught errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "records": [
+    {
+      "id": "bundle-a324e75ef4eae5c6",
+      "index": 12,
+      "name": "AEG",
+      "originalExact": true,
+      "originalSha256": "136dc83ca7a1c52d2fd8f247457aa2964b4ea7b2693a50d2b1db69c9ab57ac90",
+      "baselineSha256": "136dc83ca7a1c52d2fd8f247457aa2964b4ea7b2693a50d2b1db69c9ab57ac90",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+        "id": "bundle-a324e75ef4eae5c6",
+        "channelOffset": 972,
+        "kind": "paper",
+        "palette": "warm",
+        "embeddedFrame": true,
+        "silhouette": false,
+        "lightRGB": [
+          255,
+          235,
+          195
+        ],
+        "stats": {
+          "mean": 0.37916827979526346,
+          "centerMean": 0.5412905959176767,
+          "contrast": 0.22262154266601056,
+          "brightFraction": 0.3548437622366669,
+          "darkFraction": 0.009554389537160311,
+          "chroma": 0.15722759931759156,
+          "edgeMean": 0.13027748213304294,
+          "samples": 12769
+        },
+        "treatment": {
+          "glass": 1,
+          "light": 1,
+          "contact": 0.42,
+          "rim": 0.24
+        },
+        "width": 900,
+        "height": 900
+      }
+    },
+    {
+      "id": "bundle-b3e1abd5c4243a30",
+      "index": 15,
+      "name": "Accuphase-A75 2-edited",
+      "originalExact": true,
+      "originalSha256": "e7e4a6994f701cee3967660441e2e72443e55d7edf15254e33b48e550cea75ed",
+      "baselineSha256": "e7e4a6994f701cee3967660441e2e72443e55d7edf15254e33b48e550cea75ed",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184",
+        "id": "bundle-b3e1abd5c4243a30",
+        "channelOffset": 4104,
+        "kind": "dark",
+        "palette": "neutral",
+        "embeddedFrame": false,
+        "silhouette": false,
+        "lightRGB": [
+          239,
+          246,
+          243
+        ],
+        "stats": {
+          "mean": 0.10427433783584762,
+          "centerMean": 0.11923343514260842,
+          "contrast": 0.143651437028533,
+          "brightFraction": 0.07300925925925926,
+          "darkFraction": 0.6449074074074074,
+          "chroma": 0.005283950617283957,
+          "edgeMean": 0.07245011932000106,
+          "samples": 21600
+        },
+        "treatment": {
+          "glass": 0.62,
+          "light": 0.62,
+          "contact": 1,
+          "rim": 1
+        },
+        "width": 600,
+        "height": 144
+      }
+    },
+    {
+      "id": "bundle-e3892867cdbe3638",
+      "index": 32,
+      "name": "Cupper Weston big-edited",
+      "originalExact": true,
+      "originalSha256": "0fe1e79ce5fe64bc5192b3328dd7b11cf2af071ce60f62645bfc0bf1b020a078",
+      "baselineSha256": "0fe1e79ce5fe64bc5192b3328dd7b11cf2af071ce60f62645bfc0bf1b020a078",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:f0f677e7e0890b039d798a288a8c2582bed14f5570eca8e1b520f7927baed2d9",
+        "id": "bundle-e3892867cdbe3638",
+        "channelOffset": 4104,
+        "kind": "paper",
+        "palette": "warm",
+        "embeddedFrame": true,
+        "silhouette": true,
+        "lightRGB": [
+          255,
+          235,
+          195
+        ],
+        "stats": {
+          "mean": 0.30928393997758047,
+          "centerMean": 0.5010589052344286,
+          "contrast": 0.29632646289419007,
+          "brightFraction": 0.29441502166586425,
+          "darkFraction": 0.42410929224843524,
+          "chroma": 0.2747130099030361,
+          "edgeMean": 0.07500922449076469,
+          "samples": 16616
+        },
+        "treatment": {
+          "glass": 1,
+          "light": 1,
+          "contact": 0.42,
+          "rim": 0.24
+        },
+        "width": 800,
+        "height": 740
+      }
+    },
+    {
+      "id": "bundle-08e1acfa4ed09c1d",
+      "index": 34,
+      "name": "Dorrough Model 40 AES EBU2-edited",
+      "originalExact": true,
+      "originalSha256": "359d602ec53f8660ad7d0b8f0862119e81af42329ac541b54a7f22eba460b6a8",
+      "baselineSha256": "359d602ec53f8660ad7d0b8f0862119e81af42329ac541b54a7f22eba460b6a8",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:c25976e9a8b723c9f86230f01a5f8a28a86d321a19176fad52836cb62d12556b",
+        "id": "bundle-08e1acfa4ed09c1d",
+        "channelOffset": 4104,
+        "kind": "electronic",
+        "palette": "neutral",
+        "embeddedFrame": true,
+        "silhouette": false,
+        "lightRGB": [
+          239,
+          246,
+          243
+        ],
+        "stats": {
+          "mean": 0.11340816597167039,
+          "centerMean": 0.05642608340683472,
+          "contrast": 0.15357083374949526,
+          "brightFraction": 0.009728506787330317,
+          "darkFraction": 0.6046003016591251,
+          "chroma": 0.047668648153080764,
+          "edgeMean": 0.2704721633883307,
+          "samples": 13260
+        },
+        "treatment": {
+          "glass": 0.28,
+          "light": 0.34,
+          "contact": 0.42,
+          "rim": 0.24
+        },
+        "width": 585,
+        "height": 204
+      }
+    },
+    {
+      "id": "bundle-90e2bd12864b5555",
+      "index": 43,
+      "name": "Hickok_HD (mod DarkOne)-edited",
+      "originalExact": true,
+      "originalSha256": "d0f8cd3e832614bc6d553817e7b20cae7445c6264a8e0ebe0aa8edc1bc449213",
+      "baselineSha256": "d0f8cd3e832614bc6d553817e7b20cae7445c6264a8e0ebe0aa8edc1bc449213",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:3c4327e02ce0e96683dd5447043213cb29891e0190846dced33ab2d10f45ffc2",
+        "id": "bundle-90e2bd12864b5555",
+        "channelOffset": 4104,
+        "kind": "paper",
+        "palette": "warm",
+        "embeddedFrame": true,
+        "silhouette": false,
+        "lightRGB": [
+          255,
+          235,
+          195
+        ],
+        "stats": {
+          "mean": 0.28619550032932967,
+          "centerMean": 0.4707727042177637,
+          "contrast": 0.30819471361720086,
+          "brightFraction": 0.26098191214470284,
+          "darkFraction": 0.1330749354005168,
+          "chroma": 0.19674469270909534,
+          "edgeMean": 0.08451147537063564,
+          "samples": 15480
+        },
+        "treatment": {
+          "glass": 1,
+          "light": 1,
+          "contact": 0.42,
+          "rim": 0.24
+        },
+        "width": 900,
+        "height": 836
+      }
+    },
+    {
+      "id": "bundle-2fae466702a5c36b",
+      "index": 48,
+      "name": "MCINTOSH MPM4000-edited",
+      "originalExact": true,
+      "originalSha256": "66369380e487a50bc29e258a42601592a9be7145a9b04356c242923cea5fc968",
+      "baselineSha256": "66369380e487a50bc29e258a42601592a9be7145a9b04356c242923cea5fc968",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:280c11a5b705068422753966c4c29898a0894aa63646eaff4877cf9e61a06e09",
+        "id": "bundle-2fae466702a5c36b",
+        "channelOffset": 4104,
+        "kind": "paper",
+        "palette": "cool",
+        "embeddedFrame": true,
+        "silhouette": false,
+        "lightRGB": [
+          211,
+          234,
+          255
+        ],
+        "stats": {
+          "mean": 0.5980536543747483,
+          "centerMean": 0.6993287469897667,
+          "contrast": 0.2335671692047425,
+          "brightFraction": 0.7963176064441887,
+          "darkFraction": 0.0967982129560685,
+          "chroma": 0.7741778522821259,
+          "edgeMean": 0.32184405692822143,
+          "samples": 14773
+        },
+        "treatment": {
+          "glass": 1,
+          "light": 1,
+          "contact": 0.42,
+          "rim": 0.24
+        },
+        "width": 561,
+        "height": 235
+      }
+    },
+    {
+      "id": "bundle-aa9227a5a2bd6528",
+      "index": 58,
+      "name": "NAGRA KUDELSKI III-edited",
+      "originalExact": true,
+      "originalSha256": "2bb24f5b8bca03e80afcf8b080f551027c8685e5e9ea2d90a21d333652cc30b7",
+      "baselineSha256": "2bb24f5b8bca03e80afcf8b080f551027c8685e5e9ea2d90a21d333652cc30b7",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:7a67e820e8b6cd0cacbdead65ff1edd1bb97784fc046ff16f15660953125be6d",
+        "id": "bundle-aa9227a5a2bd6528",
+        "channelOffset": 4104,
+        "kind": "paper",
+        "palette": "cool",
+        "embeddedFrame": false,
+        "silhouette": false,
+        "lightRGB": [
+          211,
+          234,
+          255
+        ],
+        "stats": {
+          "mean": 0.529363835093977,
+          "centerMean": 0.4997504041496358,
+          "contrast": 0.19643312113040687,
+          "brightFraction": 0.5952094366875301,
+          "darkFraction": 0.033883004333172845,
+          "chroma": 0.1320241770275647,
+          "edgeMean": 0.5747060515419771,
+          "samples": 16616
+        },
+        "treatment": {
+          "glass": 1,
+          "light": 1,
+          "contact": 1,
+          "rim": 1
+        },
+        "width": 400,
+        "height": 371
+      }
+    },
+    {
+      "id": "bundle-c08f850c93d3eea6",
+      "index": 62,
+      "name": "New Green Eye Classic",
+      "originalExact": true,
+      "originalSha256": "5573584efbfdd7f58fcb842ba9fc800e77d07c7535afe7251dddde3b93786418",
+      "baselineSha256": "5573584efbfdd7f58fcb842ba9fc800e77d07c7535afe7251dddde3b93786418",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:6f1604cbb8c2b13f6cc41087d147174a7f232e5c2a2d9885d0181602276faa8a",
+        "id": "bundle-c08f850c93d3eea6",
+        "channelOffset": 972,
+        "kind": "paper",
+        "palette": "warm",
+        "embeddedFrame": false,
+        "silhouette": false,
+        "lightRGB": [
+          255,
+          235,
+          195
+        ],
+        "stats": {
+          "mean": 0.5336746526394875,
+          "centerMean": 0.5164565872952164,
+          "contrast": 0.1722386870711659,
+          "brightFraction": 0.5619871794871795,
+          "darkFraction": 0,
+          "chroma": 0.1442001005530194,
+          "edgeMean": 0.5673212104933312,
+          "samples": 15600
+        },
+        "treatment": {
+          "glass": 1,
+          "light": 1,
+          "contact": 1,
+          "rim": 1
+        },
+        "width": 600,
+        "height": 648
+      }
+    },
+    {
+      "id": "bundle-35ce41664777d4dd",
+      "index": 70,
+      "name": "Phaostron Aircraft-edited",
+      "originalExact": true,
+      "originalSha256": "4451aff1aa04e421d9baec1540d08e7a12825cc531f06ec0389621b28c5d2596",
+      "baselineSha256": "4451aff1aa04e421d9baec1540d08e7a12825cc531f06ec0389621b28c5d2596",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:d10e0e3f191efa87a1655657f15dd87d9d1f74e5c71192494e5a57eececd7974",
+        "id": "bundle-35ce41664777d4dd",
+        "channelOffset": 4104,
+        "kind": "dark",
+        "palette": "warm",
+        "embeddedFrame": true,
+        "silhouette": true,
+        "lightRGB": [
+          255,
+          235,
+          195
+        ],
+        "stats": {
+          "mean": 0.12438297489239142,
+          "centerMean": 0.16409774058803267,
+          "contrast": 0.19351239658336977,
+          "brightFraction": 0.048866605465715696,
+          "darkFraction": 0.5847044700233034,
+          "chroma": 0.06182154522707684,
+          "edgeMean": 0.022695710278211254,
+          "samples": 14161
+        },
+        "treatment": {
+          "glass": 0.62,
+          "light": 0.62,
+          "contact": 0.42,
+          "rim": 0.24
+        },
+        "width": 710,
+        "height": 710
+      }
+    },
+    {
+      "id": "bundle-8333539cd086095a",
+      "index": 88,
+      "name": "Tube",
+      "originalExact": true,
+      "originalSha256": "132269d5dadc3fdf6cafe1fc414b50d92333fadb0b472941b88175133a9eb5a4",
+      "baselineSha256": "132269d5dadc3fdf6cafe1fc414b50d92333fadb0b472941b88175133a9eb5a4",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:df3c1641fcfd51c0dc28cf326205460488757874f3cb373de98f394da9fbd621",
+        "id": "bundle-8333539cd086095a",
+        "channelOffset": 972,
+        "kind": "dark",
+        "palette": "warm",
+        "embeddedFrame": false,
+        "silhouette": false,
+        "lightRGB": [
+          255,
+          235,
+          195
+        ],
+        "stats": {
+          "mean": 0.092562977263244,
+          "centerMean": 0.07718428905950935,
+          "contrast": 0.09494541393183202,
+          "brightFraction": 0.004840425531914894,
+          "darkFraction": 0.48101063829787233,
+          "chroma": 0.04359762202753191,
+          "edgeMean": 0.13453873993052626,
+          "samples": 18800
+        },
+        "treatment": {
+          "glass": 0.62,
+          "light": 0.62,
+          "contact": 1,
+          "rim": 1
+        },
+        "width": 400,
+        "height": 188
+      }
+    },
+    {
+      "id": "bundle-5ea42e6d1cd8858c",
+      "index": 93,
+      "name": "VU A",
+      "originalExact": true,
+      "originalSha256": "276c153f864016750c8b31e235f81f3c6dd8020fa647289ac768de3e07317e49",
+      "baselineSha256": "276c153f864016750c8b31e235f81f3c6dd8020fa647289ac768de3e07317e49",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:aa52ad6cb8045e70a6a5bc24daf185c383fc65b8749161d5d0ed80d8cec168f6",
+        "id": "bundle-5ea42e6d1cd8858c",
+        "channelOffset": 972,
+        "kind": "paper",
+        "palette": "warm",
+        "embeddedFrame": true,
+        "silhouette": true,
+        "lightRGB": [
+          255,
+          235,
+          195
+        ],
+        "stats": {
+          "mean": 0.26328150764920977,
+          "centerMean": 0.48288220570051144,
+          "contrast": 0.321281170480277,
+          "brightFraction": 0.22623626373626374,
+          "darkFraction": 0.4971153846153846,
+          "chroma": 0.26407509157510073,
+          "edgeMean": 0.001636344512938387,
+          "samples": 14560
+        },
+        "treatment": {
+          "glass": 1,
+          "light": 1,
+          "contact": 0.42,
+          "rim": 0.24
+        },
+        "width": 800,
+        "height": 451
+      }
+    },
+    {
+      "id": "bundle-a88a4f8c62b008d7",
+      "index": 121,
+      "name": "vidality",
+      "originalExact": true,
+      "originalSha256": "c0b2889ff6373bdc4e1bd3e7d7ec3c4552403542d35b5455035d1c45eac5c3c8",
+      "baselineSha256": "c0b2889ff6373bdc4e1bd3e7d7ec3c4552403542d35b5455035d1c45eac5c3c8",
+      "studioDiffers": true,
+      "profile": {
+        "identity": "sha256:fc3867985c4089019fe632484016c56d876bbb42e56592efff179e922b740edc",
+        "id": "bundle-a88a4f8c62b008d7",
+        "channelOffset": 972,
+        "kind": "paper",
+        "palette": "neutral",
+        "embeddedFrame": true,
+        "silhouette": false,
+        "lightRGB": [
+          239,
+          246,
+          243
+        ],
+        "stats": {
+          "mean": 0.7153210862154984,
+          "centerMean": 0.7993118108207473,
+          "contrast": 0.16226019624236618,
+          "brightFraction": 0.8382913806254767,
+          "darkFraction": 0,
+          "chroma": 0.05237704817728283,
+          "edgeMean": 0.4728956730762306,
+          "samples": 14421
+        },
+        "treatment": {
+          "glass": 1,
+          "light": 1,
+          "contact": 0.42,
+          "rim": 0.24
+        },
+        "width": 1770,
+        "height": 396
+      }
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

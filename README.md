@@ -1,20 +1,33 @@
-# Настольный VU-meter 4.2.41
+# Настольный VU-meter 4.3.0 · ATELIER
 
-Обновление предоставленной Windows/Electron-программы 4.2.40: непрерывное
-измерение PCM, проверяемые VU/PPM, отдельная калибровка BIN, сохранённый вход
-и экран, настройка автозапуска. **Исходники:** [desktop](desktop/README_4.2.41_RU.md).
+Четыре оригинальных прибора: IVORY, PLATINUM, NOCTURNE и HERITAGE.
+Послойные корпуса и стекло, векторные шкалы, отдельные непрерывные стрелки
+с тенями, настройка света и отражений. Для всех 123 BIN-скинов добавлено
+адаптивное оформление стекла, света и корпуса, качественное масштабирование
+и отдельные настройки каждого скина. Сохранены непрерывное измерение PCM,
+раздельные VU/PPM, калибровка BIN, вход, монитор, профили и макропульт.
+**Исходники и инструкция:** [desktop](desktop/README_4.3.0_RU.md).
 
-- **[Полная готовая программа — ZIP, 462 МиБ](https://github.com/cristalix81/vu-meter/raw/main/releases/AudioVisualizerPro-Desktop-VU-4.2.41.zip)**:
-  EXE, необходимые библиотеки и все 123 скина. Распакуйте и запустите
+- **[Полная готовая программа 4.3.0 — ZIP](https://github.com/cristalix81/vu-meter/raw/main/releases/AudioVisualizerPro-Desktop-VU-4.3.0.zip)**:
+  EXE, необходимые библиотеки, четыре авторских прибора и все 123 BIN-скина. Распакуйте и запустите
   `Audio Visualizer Pro.exe`. Предыдущая версия не требуется.
-- [Обновление 4.2.40 → 4.2.41](releases/AudioVisualizerPro-Update-4.2.41.zip):
-  закройте программу, распакуйте ZIP и запустите `UPDATE_PROGRAM.cmd`.
-- [Отдельный архив исходников](releases/AudioVisualizerPro-Source-4.2.41.zip).
-- [Отчёт проверок](desktop/audit/validation-report.json).
+- [Отдельный архив исходников 4.3.0](releases/AudioVisualizerPro-Source-4.3.0.zip).
+- [Отчёт проверок 4.3.0](desktop/audit/validation-4.3.0.json): 108 Node-тестов,
+  все 123 BIN в пяти положениях, проверки профилей, оформления и 4K.
+- [Предыдущая полная версия 4.2.41](https://github.com/cristalix81/vu-meter/raw/main/releases/AudioVisualizerPro-Desktop-VU-4.2.41.zip).
 
-BIN-коллекция в репозиторий не добавлялась. Установщик собран без подписи;
-его установку/удаление, аппаратные аудиовходы и сон нужно проверить на Windows 10/11.
-Ранее созданная браузерная версия сохранена ниже.
+Полный ZIP хранится через Git LFS. Коллекция BIN входит в этот ZIP.
+Программа не подписана; реальные аудиоустройства, сон, несколько мониторов
+и установку/удаление нужно дополнительно проверить на Windows 10/11.
+
+![ATELIER · IVORY](desktop/audit/atelier-ivory.png)
+![ATELIER · NOCTURNE](desktop/audit/atelier-nocturne.png)
+![ATELIER · HERITAGE](desktop/audit/atelier-heritage.png)
+![Коллекция BIN с адаптивным оформлением](desktop/audit/bin-collection.png)
+
+[Сравнение исходных и улучшенных BIN-скинов](desktop/audit/bin-before-after.png).
+
+Ниже сохранена документация отдельной, ранее созданной браузерной версии.
 
 # AV PRO · Reference Instrument Collection
 

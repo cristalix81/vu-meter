@@ -1,0 +1,2 @@
+ff7cab87646cef74ed00e8c4361ad9fab15f935ea86d127b2e2c94f647e7c1c8  AudioVisualizerPro-Desktop-VU-4.3.0.zip
+35354939ce4ef5c16d664274a3e51cee07d18a2718e7a3e881ebada0280d5e75  AudioVisualizerPro-Source-4.3.0.zip

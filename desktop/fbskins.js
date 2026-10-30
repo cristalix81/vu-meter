@@ -229,6 +229,18 @@
       this.manifest = global.FBSkinManifest || []; this.cache = new Map(); this.skin = null; this.token = 0;
       this.lastPaint = null;
       this.scaleCalibration = null;
+      this.presentation = global.BinPresentation ? new global.BinPresentation() : null;
+    }
+    setAppearance(value) {
+      this.lastPaint = null;
+      return this.presentation?.setAppearance({ ...value, binFinish: value?.enhanced === false ? 'original' : 'studio' });
+    }
+    getAppearance() {
+      const appearance = this.presentation?.appearance;
+      return appearance ? { ...appearance, enhanced: appearance.binFinish !== 'original' } : { illumination:65, glass:28, quality:'auto', enhanced:true };
+    }
+    getPresentationProfile() {
+      return this.presentation && this.skin ? this.presentation.getProfile(this.skin.views[0], this.skin) : null;
     }
     get entries() { return this.manifest; }
     find(id) { return this.manifest.find(entry => entry.id === id); }
@@ -420,6 +432,7 @@
         frame: view.needleFrame, framePosition: view.needleFrame / Math.max(1, view.panel.n - 1),
         target: view.needle.target ?? 0, drive: view.needle.drive }));
       return { repair: skin.repair?.kind || null, cachedSkins: this.cache?.size || 0, fingerprint: skin.fingerprint, calibrationStatus: this.scaleCalibration?.status(skin.fingerprint) || 'bin-default-unverified',
+        presentation: this.presentation?.getDiagnostics() || null,
         channels, positions: channels.map(channel => channel.position), targets: channels.map(channel => channel.target),
         frameIndices: channels.map(channel => channel.frame), framePositions: channels.map(channel => channel.framePosition) };
     }
@@ -472,18 +485,24 @@
       g.fillStyle = skin.backgroundColor || skin.edge; g.fillRect(0, 0, W, H);
       g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'low';          // D3DTEXF_LINEAR, no mip levels
       let x0 = 0, y0 = 0;
+      const rectangles = [];
       layout.segments.forEach((segment, ch) => {
         const view = segment.view, dx = Math.round(x0 * sx), dy = Math.round(y0 * sy);
         const dw = skin.vertical ? W : Math.round((x0 + segment.width) * sx) - dx;
         const dh = skin.vertical ? Math.round((y0 + segment.height) * sy) - dy : H;
-        g.drawImage(view.canvas, 0, 0, view.w, view.h, dx, dy, dw, dh);
+        const rect = { x:dx, y:dy, width:dw, height:dh };
+        rectangles.push(rect);
+        if (this.presentation) this.presentation.drawSource(g, view.canvas, view, dx, dy, dw, dh, skin);
+        else g.drawImage(view.canvas, 0, 0, view.w, view.h, dx, dy, dw, dh);
         if (skin.vertical) { y0 += segment.height; if (ch === 0) y0 += layout.gap; }
         else { x0 += segment.width; if (ch === 0) x0 += layout.gap; }
       });
       if (skin.repair) {
         const segment = layout.segments[0], dw = skin.vertical ? W : Math.round(segment.width * sx), dh = skin.vertical ? Math.round(segment.height * sy) : H;
-        g.drawImage(skin.repair.canvas, 0, 0, skin.repair.canvas.width, skin.repair.canvas.height, 0, 0, dw, dh);
+        if (this.presentation) this.presentation.drawSource(g, skin.repair.canvas, skin.views[0], 0, 0, dw, dh, skin);
+        else g.drawImage(skin.repair.canvas, 0, 0, skin.repair.canvas.width, skin.repair.canvas.height, 0, 0, dw, dh);
       }
+      if (this.presentation) rectangles.forEach((rect, ch) => this.presentation.drawOverlay(g, skin.views[ch], rect.x, rect.y, rect.width, rect.height, skin));
       this.lastPaint = { skin, width: W, height: H };
     }
   }

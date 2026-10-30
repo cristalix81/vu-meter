@@ -143,7 +143,7 @@ handleIPC('avpro:skins:list-bundled', async () => {
       if (!stat.isFile() || !stat.size || stat.size > 100*1024*1024) continue;
       const id = 'bundle-' + crypto.createHash('sha256').update(file.toLowerCase()).digest('hex').slice(0,16);
       bundledSkinPaths.set(id, full);
-      items.push({ id, name: path.basename(file, path.extname(file)).slice(0,100) || file });
+      items.push({ id, name: path.basename(file, path.extname(file)).slice(0,100) || file, bytes:stat.size });
     } catch (_) {}
   }
   return items;

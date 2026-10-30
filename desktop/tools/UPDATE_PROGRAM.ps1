@@ -6,7 +6,10 @@ try {
   $BundleDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
   $Manifest = Get-Content -LiteralPath (Join-Path $BundleDirectory 'update-manifest.json') -Raw -Encoding UTF8 | ConvertFrom-Json
   $Payload = Join-Path $BundleDirectory 'payload\app.asar'
-  if ($Manifest.product -ne 'Audio Visualizer Pro' -or $Manifest.version -ne '4.2.41' -or $Manifest.baseVersion -ne '4.2.40') { throw 'Unexpected update manifest.' }
+  if ($Manifest.product -ne 'Audio Visualizer Pro' -or $Manifest.version -notmatch '^\d{1,3}\.\d{1,3}\.\d{1,3}$' -or $Manifest.baseVersion -notin @('4.2.40','4.2.41')) { throw 'Unexpected update manifest.' }
+  foreach ($Digest in @($Manifest.baseAppSha256,$Manifest.newAppSha256,$Manifest.windowsExeSha256)) {
+    if ($Digest -notmatch '^[a-f0-9]{64}$') { throw 'Invalid checksum in update manifest.' }
+  }
   if ((Get-Item -LiteralPath $Payload).Length -ne $Manifest.bytes -or (FileHash $Payload) -ne $Manifest.newAppSha256) { throw 'Update payload checksum is invalid. Download the complete update again.' }
   if (-not $InstallDirectory) {
     # A copied update may be placed inside the existing application directory.
@@ -16,7 +19,7 @@ try {
     else {
       Add-Type -AssemblyName System.Windows.Forms
       $Picker = New-Object System.Windows.Forms.OpenFileDialog
-      $Picker.Title = 'Select the existing Audio Visualizer Pro.exe (version 4.2.40)'
+      $Picker.Title = 'Select Audio Visualizer Pro.exe (version ' + $Manifest.baseVersion + ')'
       $Picker.Filter = 'Audio Visualizer Pro|Audio Visualizer Pro.exe'
       $Picker.CheckFileExists = $true
       if ($Picker.ShowDialog() -ne [System.Windows.Forms.DialogResult]::OK) { Write-Host 'Update cancelled. No changes made.'; exit 0 }
@@ -28,16 +31,16 @@ try {
   $InstalledAsar = Join-Path $InstallDirectory 'resources\app.asar'
   if (-not (Test-Path -LiteralPath $Executable -PathType Leaf) -or -not (Test-Path -LiteralPath $InstalledAsar -PathType Leaf)) { throw 'The selected directory is not the existing portable application.' }
   $CurrentHash = FileHash $InstalledAsar
-  if ($CurrentHash -eq $Manifest.newAppSha256) { Write-Host 'Version 4.2.41 is already installed.'; exit 0 }
-  if ($CurrentHash -ne $Manifest.baseAppSha256) { throw 'This update is for the original 4.2.40 app.asar. The installed file differs; it was left unchanged.' }
+  if ($CurrentHash -eq $Manifest.newAppSha256) { Write-Host ('Version ' + $Manifest.version + ' is already installed.'); exit 0 }
+  if ($CurrentHash -ne $Manifest.baseAppSha256) { throw ('This update requires the verified ' + $Manifest.baseVersion + ' app.asar. The installed file differs; it was left unchanged.') }
   $Running = @(Get-Process -Name ([System.IO.Path]::GetFileNameWithoutExtension($Executable)) -ErrorAction SilentlyContinue | Where-Object { $_.Path -and [string]::Equals($_.Path, $Executable, [System.StringComparison]::OrdinalIgnoreCase) })
   if ($Running.Count) { throw 'Close Audio Visualizer Pro before updating, then run UPDATE_PROGRAM.cmd again.' }
-  if ((FileHash $Executable) -ne $Manifest.windowsExeSha256) { throw 'The executable differs from the supplied 4.2.40 release. It was left unchanged.' }
+  if ((FileHash $Executable) -ne $Manifest.windowsExeSha256) { throw 'The executable differs from the verified base release. It was left unchanged.' }
   $Resources = Split-Path -Parent $InstalledAsar
   $Stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
   $BackupDirectory = Join-Path $InstallDirectory 'UpdateBackup'
   New-Item -ItemType Directory -Path $BackupDirectory -Force | Out-Null
-  $Backup = Join-Path $BackupDirectory ('app-4.2.40-' + $Stamp + '-' + [Guid]::NewGuid().ToString('N').Substring(0,6) + '.asar')
+  $Backup = Join-Path $BackupDirectory ('app-' + $Manifest.baseVersion + '-' + $Stamp + '-' + [Guid]::NewGuid().ToString('N').Substring(0,6) + '.asar')
   Copy-Item -LiteralPath $InstalledAsar -Destination $Backup -ErrorAction Stop
   if ((FileHash $Backup) -ne $CurrentHash) { throw 'Backup verification failed. Update stopped.' }
   $Temporary = Join-Path $Resources ('app.asar.update-' + [Guid]::NewGuid().ToString('N'))

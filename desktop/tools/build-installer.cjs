@@ -12,7 +12,8 @@ function filesIn(root,relative=''){
   }
   return files;
 }
-function scriptFor(portable,destination,version='4.2.41'){
+function scriptFor(portable,destination,version=require('../package.json').version){
+  if (!/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(version)) throw Error('Invalid installer version');
   portable=path.resolve(portable);destination=path.resolve(destination);
   const files=filesIn(portable);
   for(const required of ['Audio Visualizer Pro.exe','resources/app.asar'])if(!files.includes(required))throw Error('Incomplete portable input: '+required);

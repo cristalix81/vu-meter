@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0c0e">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'">
-  <title>AV PRO · User BIN VU Meter</title>
+  <title>AV PRO · Atelier Audio Instruments</title>
   <link rel="icon" href="assets/icon.png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="atelier-experience.css">
   <script src="spectral-waterfall.js" defer></script>
   <script src="spectrum-engine.js" defer></script>
   <script src="meter-ballistics.js" defer></script>
@@ -16,8 +17,12 @@
   <script src="skin-calibration.js" defer></script>
   <script src="bin-look.js" defer></script>
   <script src="skin-repairs.js" defer></script>
+  <script src="bin-presentation.js" defer></script>
   <script src="fbskins.js" defer></script>
+  <script src="atelier-meter.js" defer></script>
+  <script src="atelier-experience.js" defer></script>
   <script src="skin-creator.js" defer></script>
+  <script src="bin-catalog.js" defer></script>
   <script src="app.js" defer></script>
   <script src="instrument-settings.js" defer></script>
 </head>
@@ -25,7 +30,7 @@
   <main class="device" id="stage" aria-label="Стереоиндикатор AV PRO">
     <div class="instrument" id="instrument">
       <canvas id="ambient" width="160" height="40" aria-hidden="true"></canvas>
-<canvas id="meter-canvas" role="img" aria-label="Золотой стереоиндикатор VU с двумя подвижными стрелками"></canvas>
+<canvas id="meter-canvas" role="img" aria-label="Стереоиндикатор VU с независимыми стрелками"></canvas>
       <div class="loading" id="loading" role="status">Подготовка приборов…</div>
     </div>
       
@@ -68,7 +73,7 @@
   <small>Экспорт включает идентификаторы и названия аудиоустройств, настройки и калибровки, без аудиозаписей и BIN-файлов. Проверьте содержимое перед передачей профиля другим людям.</small>
 </dialog>
 <dialog class="skin-dialog" id="skin-dialog" aria-label="Каталог приборов и скинов">
-  <header class="catalog-header"><div><strong>КАТАЛОГ ПРИБОРОВ</strong><small>Массовое добавление и удаление BIN; исходники пользовательских скинов можно отправить в Корзину</small></div><div class="catalog-actions"><button id="skin-select-toggle" type="button" aria-pressed="false">ВЫБРАТЬ</button><button id="skin-select-all" type="button" hidden>ВЫБРАТЬ ВСЕ</button><button id="skin-batch-delete" type="button" hidden disabled>УДАЛИТЬ (0)</button><button id="skin-import" type="button" title="Выбрать и добавить сразу несколько BIN-файлов">＋ ДОБАВИТЬ BIN-ФАЙЛЫ</button><button id="catalog-close" type="button" aria-label="Закрыть">×</button></div></header>
+  <header class="catalog-header"><div><strong>КАТАЛОГ ПРИБОРОВ</strong><small>Авторская коллекция ATELIER · спектр · ваша библиотека BIN</small></div><div class="catalog-actions"><button id="skin-select-toggle" type="button" aria-pressed="false">ВЫБРАТЬ</button><button id="skin-select-all" type="button" hidden>ВЫБРАТЬ ВСЕ</button><button id="skin-batch-delete" type="button" hidden disabled>УДАЛИТЬ (0)</button><button id="skin-import" type="button" title="Выбрать и добавить сразу несколько BIN-файлов">＋ ДОБАВИТЬ BIN-ФАЙЛЫ</button><button id="catalog-close" type="button" aria-label="Закрыть">×</button></div></header>
   <button id="skin-create-open" type="button" title="Создать BIN-скин из изображения циферблата">＋ СОЗДАТЬ СКИН ИЗ ИЗОБРАЖЕНИЯ</button>
   <div id="skin-grid" class="skin-grid"></div>
 </dialog>

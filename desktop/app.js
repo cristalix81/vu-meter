@@ -1,5 +1,5 @@
 'use strict';
-/* Photo-matched instruments and a live spectral waterfall. */
+/* Author-built layered instruments, the BIN library, and a live spectrum. */
 (() => {
   const $ = id => document.getElementById(id);
   const kioskDisplay = new URLSearchParams(location.search).get('kiosk') === '1';
@@ -28,7 +28,9 @@
   let hiddenSkinIds = new Set();
   try { hiddenSkinIds = new Set(JSON.parse(localStorage.getItem(HIDDEN_SKINS_KEY) || '[]')); } catch (_) {}
   let skinEntries = [...(window.FBSkinManifest || [])].filter(entry => !hiddenSkinIds.has(entry.id));
-  const themes = ['waterfall'];
+  const atelierThemes = window.AtelierMeter.THEMES;
+  const themes = ['waterfall', ...atelierThemes.map(theme => theme.id)];
+  const atelierDescriptions = Object.fromEntries(atelierThemes.map(theme => [theme.id, `${theme.name} · ${theme.subtitle}`]));
   const LAST_SKIN_KEY = 'avpro-last-skin-id';
   // Display alignment only: neither the input signal nor Windows recording level is changed.
   let meterTrimDb = Number(localStorage.getItem('avpro-meter-trim-db') ?? 0);
@@ -121,7 +123,7 @@
     if (!setMeterTrimDb(meterTrimDb - steps)) return;
     showHud(1800);
   }, { passive: false });
-  const descriptions = { waterfall: 'STEREO SPECTRUM · 20 Hz—20 kHz · dBFS' };
+  const descriptions = { waterfall: 'STEREO SPECTRUM · 20 Hz—20 kHz · dBFS', ...atelierDescriptions };
   const sourceNames = { idle: 'НЕТ СИГНАЛА', demo: 'ТЕСТОВЫЙ СИГНАЛ', input: 'АУДИОВХОД' };
   let previousAudioState = { source: 'idle', active: false };
   let lastSignalAt = 0;
@@ -162,10 +164,13 @@
     try { localStorage.setItem('avpro-always-on-top', String(alwaysOnTop)); } catch (_) {}
   }
   const isSkinMode = index => index >= themes.length;
+  const isAtelierMode = index => Boolean(atelierThemes.some(theme => theme.id === themes[index]));
+  const activeInstrumentId = () => isSkinMode(mode) ? skinEntries[mode - themes.length]?.id : themes[mode];
   const rememberedInitialIndex = skinEntries.findIndex(entry => entry.id === localStorage.getItem(LAST_SKIN_KEY));
-  let mode = rememberedInitialIndex >= 0 ? themes.length + rememberedInitialIndex : 0;
-  if (isSkinMode(mode)) document.body.dataset.theme = 'skins';
-  let currentRatio = 8 / 3;
+  const rememberedTheme = themes.indexOf(localStorage.getItem(LAST_SKIN_KEY));
+  let mode = rememberedInitialIndex >= 0 ? themes.length + rememberedInitialIndex : rememberedTheme >= 0 ? rememberedTheme : 1;
+  document.body.dataset.theme = isSkinMode(mode) ? 'skins' : isAtelierMode(mode) ? 'atelier' : themes[mode];
+  let currentRatio = isAtelierMode(mode) ? 2.35 : 4;
   let loaded = false;
   let toastTimer;
   let lastTime = 0;
@@ -175,6 +180,28 @@
   let target = { left: 0, right: 0 };
   const waterfall = new window.SpectralWaterfall($('meter-canvas'));
   const skins = new window.FoobarSkins($('meter-canvas'));
+  const atelier = new window.AtelierMeter($('meter-canvas'));
+  atelier.setAppearance({ ...window.AtelierExperience.readAppearance(localStorage), exposure: 100 });
+  let atelierExperience = null;
+  function drawCurrentInstrument(dt = 0) {
+    if (isSkinMode(mode)) skins.draw(meterFrameWithTrim(audioFrame), dt);
+    else if (isAtelierMode(mode)) atelier.draw(meterFrameWithTrim(audioFrame), dt);
+    else waterfall.draw(spectrumFrame, dt);
+  }
+  function updateSkinRoom() {
+    if (!isSkinMode(mode) || !skins.skin) return;
+    const material = skins.getPresentationProfile(), appearance = skins.getAppearance();
+    const accent = material?.palette === 'warm' ? '#d9bb8d' : material?.palette === 'cool' ? '#a9c8db' : '#b9cac4';
+    const room = $('instrument').style;
+    room.setProperty('--skin-light', accent);
+    const edge = normalizeColor(skins.skin.backgroundColor || skins.getBackgroundBaseColor());
+    const rgb = [1,3,5].map(index => parseInt(edge.slice(index,index+2),16));
+    const roomScale = Math.min(1, 38 / Math.max(1, ...rgb));
+    room.setProperty('--skin-edge', '#' + rgb.map(value => Math.round(value * roomScale).toString(16).padStart(2,'0')).join(''));
+    document.body.style.setProperty('--accent', accent);
+    document.body.dataset.binMaterial = material?.kind || 'neutral';
+    document.body.dataset.binEnhanced = String(appearance.enhanced);
+  }
   const skinSpacingControls = $('skin-edit-controls'), skinSpacingInput = $('skin-spacing'), skinSpacingValue = $('skin-spacing-value'), skinSpacingSave = $('skin-spacing-save'), skinSpacingReset = $('skin-spacing-reset');
   const SKIN_VIEW_KEY = 'avpro-skin-view-by-id';
   let skinViewById = {};
@@ -197,24 +224,25 @@
     $('skin-view-y-value').value = `${activeSkinView.y}%`; $('skin-view-y-value').textContent = `${activeSkinView.y}%`;
   }
   function saveSkinViewFromControls() {
-    if (!skins.skin) return;
+    const id = activeInstrumentId();
+    if (!id || (!isSkinMode(mode) && !isAtelierMode(mode))) return;
     activeSkinView = { scale: Math.max(70, Math.min(150, Number(skinViewScale.value) || 100)),
       x: Math.max(-20, Math.min(20, Number(skinViewX.value) || 0)),
       y: Math.max(-20, Math.min(20, Number(skinViewY.value) || 0)) };
-    const id = skins.skin.id; skinViewById[id] = { ...activeSkinView };
+    skinViewById[id] = { ...activeSkinView };
     try { localStorage.setItem(SKIN_VIEW_KEY, JSON.stringify(skinViewById)); } catch (_) {}
-    loadSkinView(id); resizeCanvas(); skins.lastPaint = null; skins.draw(meterFrameWithTrim(audioFrame), 0);
+    loadSkinView(id); resizeCanvas(); skins.lastPaint = null; drawCurrentInstrument();
   }
-  function openSkinViewEditor() { if (!skins.skin) return; loadSkinView(skins.skin.id); skinViewDialog.showModal(); showHud(30000); }
+  function openSkinViewEditor() { if (!isSkinMode(mode) && !isAtelierMode(mode)) return; loadSkinView(activeInstrumentId()); skinViewDialog.showModal(); showHud(30000); }
   skinViewOpen.addEventListener('click', openSkinViewEditor);
   $('skin-view-close').addEventListener('click', () => skinViewDialog.close());
   $('skin-view-done').addEventListener('click', () => skinViewDialog.close());
   [skinViewScale, skinViewX, skinViewY].forEach(input => input.addEventListener('input', saveSkinViewFromControls));
   $('skin-view-reset').addEventListener('click', () => {
-    if (!skins.skin) return;
-    delete skinViewById[skins.skin.id];
+    if (!isSkinMode(mode) && !isAtelierMode(mode)) return;
+    delete skinViewById[activeInstrumentId()];
     try { localStorage.setItem(SKIN_VIEW_KEY, JSON.stringify(skinViewById)); } catch (_) {}
-    loadSkinView(skins.skin.id); resizeCanvas(); skins.lastPaint = null; skins.draw(meterFrameWithTrim(audioFrame), 0);
+    loadSkinView(activeInstrumentId()); resizeCanvas(); skins.lastPaint = null; drawCurrentInstrument();
   });
   skinViewDialog.addEventListener('click', event => { if (event.target === skinViewDialog) skinViewDialog.close(); });
   const SKIN_BACKGROUND_KEY = 'avpro-skin-background-by-id';
@@ -227,6 +255,7 @@
     if (!skins.skin) return;
     const normalized = color === null ? null : normalizeColor(color), id = skins.skin.id;
     skins.setBackgroundColor(normalized);
+    updateSkinRoom();
     skins.lastPaint = null;
     skins.draw(meterFrameWithTrim(audioFrame), 0);
     if (persist) {
@@ -314,14 +343,15 @@
     const box = $('instrument').getBoundingClientRect(), canvas = $('meter-canvas');
     let width = box.width, height = box.height;
     if (width / height > currentRatio) width = height * currentRatio; else height = width / currentRatio;
-    const scale = isSkinMode(mode) ? activeSkinView.scale / 100 * (stageStyle==='showroom'?0.94:1) : 1;
+    const meterMode = isSkinMode(mode) || isAtelierMode(mode);
+    const scale = meterMode ? activeSkinView.scale / 100 * (stageStyle==='showroom'?0.94:1) : 1;
     width *= scale; height *= scale;
     // Whole device pixels everywhere: source artwork remains sharp and keeps its exact aspect ratio.
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     const deviceW = Math.max(2, Math.round(width * dpr)), deviceH = Math.max(2, Math.round(height * dpr));
     canvas.style.width = deviceW / dpr + 'px'; canvas.style.height = deviceH / dpr + 'px';
-    canvas.style.left = Math.round(((box.width * (1 + (isSkinMode(mode) ? activeSkinView.x / 50 : 0)) * dpr - deviceW) / 2)) / dpr + 'px';
-    canvas.style.top = Math.round(((box.height * (1 + (isSkinMode(mode) ? activeSkinView.y / 50 : 0)) * dpr - deviceH) / 2)) / dpr + 'px';
+    canvas.style.left = Math.round(((box.width * (1 + (meterMode ? activeSkinView.x / 50 : 0)) * dpr - deviceW) / 2)) / dpr + 'px';
+    canvas.style.top = Math.round(((box.height * (1 + (meterMode ? activeSkinView.y / 50 : 0)) * dpr - deviceH) / 2)) / dpr + 'px';
     canvas.style.transform = 'none';
   }
   function resizeCanvas() {
@@ -329,13 +359,25 @@
     const canvas = $('meter-canvas');
     const bounds = canvas.getBoundingClientRect();
     const ratio = Math.min(2, window.devicePixelRatio || 1);
-    const width = Math.max(2, Math.round(bounds.width * ratio));
-    const height = Math.max(2, Math.round(bounds.height * ratio));
+    if (isAtelierMode(mode)) {
+      const previousWidth = canvas.width, previousHeight = canvas.height;
+      atelier.resize(bounds.width, bounds.height, ratio);
+      if (loaded && (previousWidth !== canvas.width || previousHeight !== canvas.height)) drawCurrentInstrument();
+      return;
+    }
+    let width = Math.max(2, Math.round(bounds.width * ratio));
+    let height = Math.max(2, Math.round(bounds.height * ratio));
+    if (isSkinMode(mode)) {
+      const quality = skins.getAppearance().quality;
+      const budget = quality === 'eco' ? 2.1e6 : quality === 'high' ? 9e6 : 6.4e6;
+      const scale = Math.min(1, Math.sqrt(budget / (width * height)));
+      width = Math.max(2, Math.round(width * scale)); height = Math.max(2, Math.round(height * scale));
+    }
     if (canvas.width !== width || canvas.height !== height) {
       canvas.width = width;
       canvas.height = height;
       if (loaded) {
-        if (isSkinMode(mode)) skins.draw(meterFrameWithTrim(audioFrame), 0);
+        if (isSkinMode(mode) || isAtelierMode(mode)) drawCurrentInstrument();
         else if (themes[mode] === 'waterfall') waterfall.draw(spectrumFrame, 0);
       }
     }
@@ -368,7 +410,8 @@
     const active = document.activeElement;
     // A parked pointer must not keep the drawers open forever: hover only counts while the mouse is moving.
     const hovering = performance.now() - hud.lastMove < 2500 && ($('hud-top').matches(':hover') || $('hud-bottom').matches(':hover'));
-    return hud.pinned || hovering || Boolean(active && active.matches('select'));
+    const keyboardFocus = active instanceof Element && active.closest('.hud') && active.matches(':focus-visible');
+    return hud.pinned || hovering || anyDialogOpen() || keyboardFocus || Boolean(active && active.matches('select,input,textarea'));
   }
   function showHud(duration = 3800) {
     document.body.classList.add('hud-on');
@@ -513,7 +556,7 @@
       const thumb = document.createElement('canvas'); thumb.width = 480; thumb.height = 140;
       const ctx = thumb.getContext('2d'); ctx.fillStyle = skin.edge || '#080808'; ctx.fillRect(0, 0, thumb.width, thumb.height);
       skin.views.forEach((view, index) => {
-        const zero = Math.max(0, Math.min(view.panel.n - 1, Number(view.panel.zero) || 0));
+        const zero = Math.round(window.FoobarSkins.level(view.panel, Math.pow(10,-18/20)) * (view.panel.n - 1));
         view.update(zero, view.panel.lamp ? zero : -1);
         if (skin.vertical) drawPreviewFit(ctx, view, 0, index * 70, 480, 70);
         else drawPreviewFit(ctx, view, index * 240, 0, 240, 140);
@@ -552,7 +595,12 @@
       }
     }, 40);
   }
+  const atelierPreviewCache = new Map();
   function previewSource(entry, builtin) {
+    if (atelierThemes.some(theme => theme.id === entry.id)) {
+      if (!atelierPreviewCache.has(entry.id)) atelierPreviewCache.set(entry.id, window.AtelierMeter.makeThumbnail(entry.id));
+      return atelierPreviewCache.get(entry.id);
+    }
     if (entry.user) return entry.preview || skinPreviewCache.get(entry.id) || '';
     if (!builtin) return 'skins/' + entry.id + '/thumb.webp';
     return entry.id === 'waterfall' ? 'assets/waterfall-chassis.jpg' : catalogPreviewPlaceholder;
@@ -562,7 +610,10 @@
     if (!item || !item.id || hiddenSkinIds.has(item.id) || skinEntries.some(entry=>entry.id===item.id) || pendingUserSkinIds.has(item.id)) return false;
     pendingUserSkinIds.add(item.id);
     try {
-      const entry={id:item.id,name:item.name,layout:item.layout||'h',edge:item.edge||'#080808',panels:[],user:true,bundle:Boolean(item.bundle),bin:item.bin,preview:item.preview||skinPreviewCache.get(item.id)||''};
+      const bundledPreview = item.bundle ? window.BinCatalog?.[item.id] : null;
+      const verifiedPreview = bundledPreview && (!item.bytes || item.bytes === bundledPreview.bytes) ? bundledPreview : null;
+      const entry={id:item.id,name:item.name,layout:item.layout||'h',edge:item.edge||'#080808',panels:[],user:true,bundle:Boolean(item.bundle),bin:item.bin,
+        preview:verifiedPreview?.preview||item.preview||skinPreviewCache.get(item.id)||'', previewFingerprint:verifiedPreview?.fingerprint||null};
       skins.manifest.push(entry);
       skinEntries.push(entry);
       return true;
@@ -570,18 +621,29 @@
   }
   function rebuildCatalog() {
     grid.replaceChildren();
-    const all = themes.map((id,i)=>({id,name:descriptions[id].split(' · ')[0],mode:i,builtin:true})).concat(skinEntries.map(entry=>({ ...entry, mode:themes.length+skinEntries.indexOf(entry), builtin:false })));
+    const all = atelierThemes.map(entry=>({...entry,mode:themes.indexOf(entry.id),builtin:true,atelier:true}))
+      .concat([{id:'waterfall',name:'SPECTRAL WATERFALL',mode:0,builtin:true}])
+      .concat(skinEntries.map(entry=>({ ...entry, mode:themes.length+skinEntries.indexOf(entry), builtin:false })));
+    let previousGroup = '';
     all.forEach(entry => {
+      const group = entry.atelier ? 'ATELIER · Авторская коллекция' : entry.builtin ? 'Спектральный анализ' : 'Библиотека BIN';
+      if (group !== previousGroup) {
+        const heading = document.createElement('h3'); heading.className = 'atelier-catalog-heading'; heading.textContent = group;
+        grid.append(heading); previousGroup = group;
+      }
       const card=document.createElement('article'); card.className='catalog-card';
+      card.dataset.skinId = entry.id;
+      if (entry.atelier) card.classList.add('is-atelier');
+      if (entry.mode === mode) card.classList.add('is-active');
       const choose=document.createElement('button'); choose.className='catalog-choice'; choose.type='button';
       const preview=previewSource(entry,entry.builtin), needsPreview=Boolean(entry.user&&!preview);
       const image=preview||needsPreview?new Image():null;
       if(image){image.src=preview||catalogPreviewPlaceholder;image.alt='';if(needsPreview){image.dataset.skinId=entry.id;image.classList.add('preview-pending');image.title='Превью будет автоматически подготовлено из BIN-файла.';}image.onerror=()=>{image.style.display='none'};}
       const label=document.createElement('span'); label.textContent=entry.name;
-      const detail=document.createElement('small'); detail.textContent=entry.builtin?'3D СПЕКТРОАНАЛИЗАТОР':entry.type==='builtin-bin'?'ВСТРОЕННЫЙ · BIN':entry.id.startsWith('user-')?'ПОЛЬЗОВАТЕЛЬСКИЙ · BIN':'FOOBAR2000 · BIN';
+      const detail=document.createElement('small'); detail.textContent=entry.atelier ? `ATELIER · ${entry.subtitle}` : entry.builtin?'3D СПЕКТРОАНАЛИЗАТОР':entry.type==='builtin-bin'?'ВСТРОЕННЫЙ · BIN':entry.id.startsWith('user-')?'ПОЛЬЗОВАТЕЛЬСКИЙ · BIN':'FOOBAR2000 · BIN';
       if(image)choose.append(image);
       label.textContent = entry.user && !entry.preview ? 'BIN · ' + entry.name : entry.name;
-      choose.append(label,detail); choose.addEventListener('click',()=>{if(bulkSelectionMode){toggleSkinSelection(entry.id);return;}setMode(entry.mode);dialog.close();}); card.append(choose);
+      choose.append(label,detail); choose.setAttribute('aria-pressed', String(entry.mode === mode)); choose.addEventListener('click',()=>{if(bulkSelectionMode){if(!entry.builtin)toggleSkinSelection(entry.id);return;}run(()=>setMode(entry.mode));dialog.close();}); card.append(choose);
       if(!entry.builtin&&bulkSelectionMode){const select=document.createElement('button');select.className='skin-select';select.type='button';select.textContent=selectedSkinIds.has(entry.id)?'✓':'';select.setAttribute('aria-pressed',String(selectedSkinIds.has(entry.id)));select.title=selectedSkinIds.has(entry.id)?'Снять выбор':'Выбрать скин';select.setAttribute('aria-label',(selectedSkinIds.has(entry.id)?'Снять выбор':'Выбрать')+' '+entry.name);select.addEventListener('click',event=>{event.stopPropagation();toggleSkinSelection(entry.id);});card.append(select);if(selectedSkinIds.has(entry.id))card.classList.add('is-selected');}
       if(!entry.builtin){const remove=document.createElement('button');remove.className='skin-delete';remove.type='button';remove.textContent=entry.id.startsWith('user-')?'Удалить':'Убрать';remove.title=entry.id.startsWith('user-')?'Удалить пользовательский BIN-файл с диска':'Убрать этот скин из каталога (файл приложения не удаляется)';remove.setAttribute('aria-label',(entry.id.startsWith('user-')?'Удалить':'Убрать из каталога')+' скин '+entry.name);remove.addEventListener('click',ev=>{ev.stopPropagation();card.classList.remove('delete-menu-open');removeCatalogSkin(entry.id);});card.append(remove);}
       grid.append(card);
@@ -858,17 +920,28 @@
     if (!Number.isFinite(index)) return;
     const previousMode = mode, total = themes.length + skinEntries.length;
     mode = ((Math.trunc(index) % total) + total) % total;
-    const skinMode = isSkinMode(mode), theme = skinMode ? 'skins' : themes[mode], isWaterfall = theme === 'waterfall';
-    document.body.dataset.theme = theme;
+    const skinMode = isSkinMode(mode), theme = skinMode ? 'skins' : themes[mode], isWaterfall = theme === 'waterfall', atelierMode = isAtelierMode(mode);
+    document.body.dataset.theme = atelierMode ? 'atelier' : theme;
+    if (atelierMode) document.body.dataset.atelier = theme; else delete document.body.dataset.atelier;
+    if (atelierMode) document.body.style.setProperty('--accent', atelierThemes.find(entry => entry.id === theme).accent);
+    else document.body.style.removeProperty('--accent');
     markSkin();
     try { localStorage.setItem('avpro-mode', String(mode)); } catch (_) {}
-    if (skinMode) { try { localStorage.setItem(LAST_SKIN_KEY, skinEntries[mode - themes.length].id); } catch (_) {} }
+    try { localStorage.setItem(LAST_SKIN_KEY, activeInstrumentId()); } catch (_) {}
     $('meter-description').textContent = describeMode();
-    $('meter-canvas').setAttribute('aria-label', skinMode ? 'BIN-скин: ' + describeMode() : 'Радужный объёмный спектроанализатор: частота, уровень dBFS и история звука');
+    $('meter-canvas').setAttribute('aria-label', skinMode ? 'BIN-скин: ' + describeMode() : atelierMode ? `Авторский стереоприбор ${describeMode()}. Независимые стрелки левого и правого каналов.` : 'Радужный объёмный спектроанализатор: частота, уровень dBFS и история звука');
     $('channel-legend').textContent = isWaterfall ? 'L + R · SPECTRUM' : 'LEFT / RIGHT';
     skinSpacingControls.hidden = true;
-    if (!skinMode) { $('instrument').style.background = ''; $('skin-background-open').hidden = true; $('skin-view-open').hidden = true; }
-    if (!skinMode) currentRatio = 4;   // the waterfall is vector art: fills the full 4:1 stage
+    if (!skinMode) { $('instrument').style.background = ''; $('skin-background-open').hidden = true; $('skin-view-open').hidden = true;
+      delete document.body.dataset.binMaterial; delete document.body.dataset.binEnhanced;
+      $('instrument').style.removeProperty('--skin-light'); $('instrument').style.removeProperty('--skin-edge'); }
+    if (!skinMode) currentRatio = atelierMode ? atelier.ratio : 4;
+    if (atelierMode) {
+      atelier.setTheme(theme);
+      loadSkinView(theme);
+      $('skin-view-open').hidden = false;
+      $('loading').hidden = true;
+    }
     elapsed = 0;
     if (isWaterfall) {
       waterfall.reset();
@@ -888,9 +961,13 @@
         }
         const skin = await skins.select(activeEntry.id);
         if (activeEntry.user) activeEntry.bin = null;
+        if (activeEntry.previewFingerprint && activeEntry.previewFingerprint !== skin.fingerprint) {
+          activeEntry.preview = ''; activeEntry.previewFingerprint = null; skinPreviewCache.delete(activeEntry.id);
+        }
         if (activeEntry.user && !activeEntry.preview) await ensureSkinPreview(activeEntry, skin);
         loading.hidden = true;
         if (mode !== wanted) return;
+        skins.setAppearance(window.AtelierExperience.readBinAppearance(localStorage, skin.fingerprint));
         const panelCount = skin.basePanels?.length || 0;
         const canAdjust = panelCount >= 1 && panelCount <= 2 && typeof skins.applySpread === 'function';
         skinSpacingControls.hidden = !canAdjust;
@@ -903,14 +980,20 @@
         updateSpreadSaveState();
         const savedBackgroundColor = skinBackgroundById[skin.id] ? normalizeColor(skinBackgroundById[skin.id]) : null;
         skins.setBackgroundColor(savedBackgroundColor);
+        updateSkinRoom();
         backgroundInput.value = savedBackgroundColor || skins.getBackgroundBaseColor();
         $('skin-background-open').hidden = false;
         currentRatio = skins.ratio;
         loadSkinView(skin.id);
         $('skin-view-open').hidden = false;
-      } else if (theme === 'waterfall' && loaded) waterfall.draw(spectrumFrame, 0);
+      } else if (loaded) drawCurrentInstrument();
       fitDevice();
       resizeCanvas();
+      // A mode switch can leave an unchanged-size canvas; force its own renderer to repaint.
+      skins.lastPaint = null;
+      atelier.lastPaint = '';
+      if (loaded) drawCurrentInstrument();
+      atelierExperience?.refresh();
     }
     catch (error) { $('loading').hidden = true; toast('Не удалось загрузить оформление: ' + error.message); }
   }
@@ -1424,9 +1507,8 @@
   });
   window.addEventListener('pagehide', () => {
     cancelInputReconnect(true); audio.stop('pagehide');
-    if (isSkinMode(mode) && skinEntries[mode - themes.length]) {
-      try { localStorage.setItem(LAST_SKIN_KEY, skinEntries[mode - themes.length].id); } catch (_) {}
-    }
+    // setMode persists every selection. A profile has already written its
+    // target here; saving the outgoing skin would overwrite that target.
   });
 
   function amplitudeDb(amplitude) { return Number.isFinite(amplitude) && amplitude > 0 ? 20 * Math.log10(amplitude) : -Infinity; }
@@ -1553,7 +1635,7 @@
     if(profiles.some(item=>item.id===selected))profileSelect.value=selected;
     for(const id of ['profile-apply','profile-export','profile-delete'])$(id).disabled=!profileSelect.value;
   }
-  function captureProfileData(){return{mode:mode,skinId:isSkinMode(mode)?skinEntries[mode-themes.length]?.id||'':localStorage.getItem(LAST_SKIN_KEY)||'',referenceDb:calibrationReferenceDb,trimDb:meterTrimDb,needleDrive,stageStyle,compactMode,alwaysOnTop,skinViewById,skinBackgroundById,skinSpreadById,rotation:{enabled:rotationEnabled,order:rotationOrder.value,interval:Number(rotationInterval.value)||30},inputDevice:{id:activeInputDeviceId,label:activeInputDeviceLabel||audioFrame.label||'',groupId:activeInputGroupId},inputCalibrations:inputCalibrationById,ballistics:ballisticConfig(audio.getBallistics()),skinScales:scaleCalibration.exportData(),usbBindings,powerAction:usbPowerAction.value,globalBindings:globalShortcutBindings,display1920x480:true}}
+  function captureProfileData(){return{mode:mode,skinId:activeInstrumentId()||'',referenceDb:calibrationReferenceDb,trimDb:meterTrimDb,needleDrive,stageStyle,compactMode,alwaysOnTop,skinViewById,skinBackgroundById,skinSpreadById,atelierAppearance:window.AtelierExperience.readAppearance(localStorage),binAppearance:window.AtelierExperience.readBinProfiles(localStorage),displayBrightness,rotation:{enabled:rotationEnabled,order:rotationOrder.value,interval:Number(rotationInterval.value)||30},inputDevice:{id:activeInputDeviceId,label:activeInputDeviceLabel||audioFrame.label||'',groupId:activeInputGroupId},inputCalibrations:inputCalibrationById,ballistics:ballisticConfig(audio.getBallistics()),skinScales:scaleCalibration.exportData(),usbBindings,powerAction:usbPowerAction.value,globalBindings:globalShortcutBindings,display1920x480:true}}
   function validateProfile(raw){if(!raw||raw.version!==1||!raw.data||typeof raw.data!=='object'||Array.isArray(raw.data)||JSON.stringify(raw).length>524288)throw new Error('Файл не является корректным профилем AV Pro версии 1 или превышает 512 KB.');const d=raw.data;if(!Number.isFinite(d.referenceDb)||!validReferences.includes(d.referenceDb)||!Number.isFinite(d.trimDb)||d.trimDb< -24||d.trimDb>12||!['vu','ppm'].includes(d.needleDrive)||!['flush','showroom'].includes(d.stageStyle)||!d.usbBindings||typeof d.usbBindings!=='object'||Array.isArray(d.usbBindings)||!d.inputCalibrations||typeof d.inputCalibrations!=='object'||Array.isArray(d.inputCalibrations))throw new Error('В профиле найдены недопустимые или повреждённые настройки.');for(const [action,token]of Object.entries(d.usbBindings))if(!Object.hasOwn(defaultBindings,action)||typeof token!=='string'||token.length>100)throw new Error('Некорректная привязка клавиатуры в профиле.');if(d.globalBindings&&typeof d.globalBindings!=='object')throw new Error('Некорректные глобальные привязки в профиле.');if(d.ballistics)window.AVMeterDSP.configuration(d.ballistics);if(d.skinScales)window.SkinCalibration.validateData(d.skinScales);if(d.inputDevice&&(!['undefined','string'].includes(typeof d.inputDevice.id)||String(d.inputDevice.id||'').length>1024))throw new Error('Некорректный аудиовход в профиле.');return{id:typeof raw.id==='string'&&raw.id.length<100?raw.id:cryptoRandomId(),name:String(raw.name||'Импортированный профиль').slice(0,64),version:1,data:d}}
   function cryptoRandomId(){return 'p-'+Math.random().toString(36).slice(2,12)}
   $('profile-open').addEventListener('click',()=>{renderProfiles();profileDialog.showModal();showHud(30000)});
@@ -1598,6 +1680,9 @@
       [USB_POWER_ACTION_KEY]: validPowerActions.has(d.powerAction) ? d.powerAction : 'reset', [GLOBAL_BINDINGS_KEY]: JSON.stringify(d.globalBindings || {})
     };
     if (d.skinId) values[LAST_SKIN_KEY] = d.skinId;
+    if (d.atelierAppearance) values['avpro-atelier-appearance-v1'] = JSON.stringify(window.AtelierExperience.normalizeAppearance(d.atelierAppearance));
+    if (d.binAppearance) values[window.AtelierExperience.BIN_STORAGE_KEY] = JSON.stringify(window.AtelierExperience.normalizeBinProfiles(d.binAppearance));
+    if (Number.isFinite(d.displayBrightness)) values[DISPLAY_BRIGHTNESS_KEY] = String(Math.max(30, Math.min(120, Math.round(d.displayBrightness / 5) * 5)));
     if (d.ballistics) values[BALLISTICS_KEY] = JSON.stringify(d.ballistics);
     const previous = Object.fromEntries(Object.keys(values).map(key => [key, localStorage.getItem(key)]));
     const oldScales = scaleCalibration.exportData();
@@ -1669,6 +1754,8 @@
     if (loaded) {
       if (isSkinMode(mode)) {
         skins.draw(meterFrameWithTrim(audioFrame), dt);
+      } else if (isAtelierMode(mode)) {
+        atelier.draw(meterFrameWithTrim(audioFrame), dt);
       } else if (themes[mode] === 'waterfall') {
         spectrumElapsed += dt;
         if (spectrumFrame.version === 0 || spectrumElapsed >= 0.065 || spectrumFrame.active !== audioFrame.active || spectrumFrame.source !== audioFrame.source) {
@@ -1680,7 +1767,7 @@
       }
       elapsed = 0;
     }
-    if (loaded && now - lastAmbient > 33) { lastAmbient = now; paintAmbient(); }
+    if (loaded && !isSkinMode(mode) && now - lastAmbient > 33) { lastAmbient = now; paintAmbient(); }
   }
   Promise.all([waterfall.ready]).then(async () => {
     loaded = true;
@@ -1694,11 +1781,12 @@
       } catch(error) { console.warn('Не удалось загрузить BIN-скины',error); }
     }
     rebuildCatalog();
-    let savedMode = 0;
+    let savedMode = 1;
     const rememberedSkinId = localStorage.getItem(LAST_SKIN_KEY);
     if (rememberedSkinId) {
       const rememberedIndex = skinEntries.findIndex(entry => entry.id === rememberedSkinId);
       if (rememberedIndex >= 0) savedMode = themes.length + rememberedIndex;
+      else if (themes.includes(rememberedSkinId)) savedMode = themes.indexOf(rememberedSkinId);
     }
     await setMode(savedMode);
     $('loading').hidden = true;
@@ -1760,16 +1848,19 @@
     },
     getSource: () => audioFrame.source,
     getMeterSettings: () => ({ referenceDb: calibrationReferenceDb, trimDb: meterTrimDb, effectiveOffsetDb: effectiveCalibrationDb(), inputCorrectionDb:activeInputCorrectionDb(), needleDrive, clipping: clipLatched.slice(), heldPeaks: heldPeaks.slice(), compactMode, alwaysOnTop, stageStyle, skinView: { ...activeSkinView } }),
-    getLevels: () => isSkinMode(mode) ? skins.getNeedlePositions() : [target.left, target.right],
-    getNeedles: () => isSkinMode(mode) ? skins.getNeedlePositions() : [],
+    getLevels: () => isSkinMode(mode) ? skins.getNeedlePositions() : isAtelierMode(mode) ? atelier.getNeedlePositions() : [target.left, target.right],
+    getNeedles: () => isSkinMode(mode) ? skins.getNeedlePositions() : isAtelierMode(mode) ? atelier.getNeedlePositions() : [],
+    getAtelierDiagnostics: () => atelier.getDiagnostics(),
+    getBinPresentationDiagnostics: () => skins.presentation?.getDiagnostics() || null,
     getState: () => ({ ...audioFrame, mode, theme: isSkinMode(mode)?skinEntries[mode-themes.length].id:themes[mode], loaded,
-      renderer: themes[mode]==='waterfall' ? waterfall.getState().renderer : 'Foobar BIN renderer',
-      target: isSkinMode(mode) ? skins.getNeedlePositions() : { ...target },
-      needles: isSkinMode(mode) ? skins.getNeedlePositions() : [],
+      renderer: themes[mode]==='waterfall' ? waterfall.getState().renderer : isAtelierMode(mode) ? 'ATELIER layered vector renderer' : 'Foobar BIN renderer',
+      target: isSkinMode(mode) ? skins.getNeedlePositions() : isAtelierMode(mode) ? atelier.getNeedlePositions() : { ...target },
+      needles: isSkinMode(mode) ? skins.getNeedlePositions() : isAtelierMode(mode) ? atelier.getNeedlePositions() : [],
+      atelier: isAtelierMode(mode) ? atelier.getDiagnostics() : null,
       waterfall: waterfall.getState(), rendered: skins.getRenderState?.() || null,
       reconnect: { armed: inputReconnectArmed, stoppedByUser, suspended: inputReconnectSuspended },
       scalePreview: scalePreviewPositions?.slice() || null }),
-    getSkinGeometry: () => skins.skin ? { id: skins.skin.id, width: skins.skin.width, height: skins.skin.height, panels: skins.skin.panels.map(panel => ({ w: panel.w, h: panel.h, n: panel.n, zero: panel.zero, flags: panel.flags, lamp: Boolean(panel.lamp) })) } : null,
+    getSkinGeometry: () => isSkinMode(mode) && skins.skin ? { id: skins.skin.id, width: skins.skin.width, height: skins.skin.height, panels: skins.skin.panels.map(panel => ({ w: panel.w, h: panel.h, n: panel.n, zero: panel.zero, flags: panel.flags, lamp: Boolean(panel.lamp) })) } : null,
     getSpreadDiagnostics: () => ({ mode, isSkinMode: isSkinMode(mode), hidden: skinSpacingControls.hidden, value: skinSpacingInput.value, percentText: skinSpacingValue.textContent, skinId: skins.skin?.id || null, hasTransform: typeof skins.applySpread === 'function', panelCount: skins.skin?.basePanels?.length || 0 }),
     getRotationState: () => ({ running: Boolean(rotationTimer), order: rotationOrder.value, intervalSeconds: Number(rotationInterval.value), currentSkinId: isSkinMode(mode) ? skinEntries[mode - themes.length]?.id : null }),
     getProfileIds: () => readProfiles().map(profile=>profile.id),
@@ -1784,14 +1875,16 @@
         localStorage.setItem(BALLISTICS_KEY, JSON.stringify(ballisticConfig(result)));
         return result;
       },
-      getScaleInfo: () => { const info = skins.getScaleInfo?.(); return info ? { ...info, name: skins.skin?.name || skins.skin?.id } : null; },
+      getScaleInfo: () => { const info = isSkinMode(mode) ? skins.getScaleInfo?.() : null; return info ? { ...info, name: skins.skin?.name || skins.skin?.id } : null; },
       async saveScale(profile, expectedFingerprint) {
+        if (!isSkinMode(mode)) throw new Error('Калибровка по изображению доступна для выбранного BIN-скина.');
         const info = skins.getScaleInfo();
         if (!info?.fingerprint || (expectedFingerprint && expectedFingerprint !== info.fingerprint)) throw new Error('Выбранный скин изменился. Откройте калибровку заново.');
         await persistScaleChange(() => scaleCalibration.set(info.fingerprint, profile));
         return skins.getScaleInfo();
       },
       async resetScale() {
+        if (!isSkinMode(mode)) return;
         const info = skins.getScaleInfo(); if (!info?.fingerprint) return;
         await persistScaleChange(() => scaleCalibration.remove(info.fingerprint));
       },
@@ -1815,4 +1908,18 @@
       getCompatibility: () => window.avproHost?.getCompatibility?.() || Promise.resolve({ supported: false, warnings: ['Проверка настольной среды доступна в Electron.'] })
     }
   };
+  atelierExperience = window.AtelierExperience.init({
+    themes: atelierThemes,
+    getState: () => ({ themeId: isAtelierMode(mode) ? themes[mode] : null,
+      appearance: isSkinMode(mode) ? skins.getAppearance() : atelier.appearance,
+      binSkin: isSkinMode(mode) && skins.skin ? { id:skins.skin.id, name:skins.skin.name, fingerprint:skins.skin.fingerprint, kind:skins.getPresentationProfile()?.kind } : null }),
+    setAppearance: value => {
+      if (isSkinMode(mode)) { skins.setAppearance(value); updateSkinRoom(); } else atelier.setAppearance({ ...value, exposure: 100 });
+      if (loaded && (isSkinMode(mode) || isAtelierMode(mode))) { resizeCanvas(); drawCurrentInstrument(); }
+    },
+    selectTheme: id => { const index = themes.indexOf(id); if (index >= 0) return setMode(index); },
+    showHud,
+    getBrightness: () => displayBrightness,
+    setBrightness: value => setDisplayBrightness(value)
+  });
 })();

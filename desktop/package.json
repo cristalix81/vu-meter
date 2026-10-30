@@ -1,8 +1,8 @@
 {
   "name": "audio-visualizer-pro-studio-reborn",
   "productName": "Audio Visualizer Pro",
-  "version": "4.2.41",
-  "description": "Desktop VU meter with instrument startup, independent skin-scale calibration and testable audio ballistics",
+  "version": "4.3.0",
+  "description": "Desktop VU instrument with original layered vector meters, realistic needles, adjustable lighting and independent skin calibration",
   "author": "Audio Visualizer Pro Studio",
   "license": "UNLICENSED",
   "private": true,

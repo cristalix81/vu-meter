@@ -9,6 +9,6 @@ test('installer removes only the files it installed and its login entry, retaini
   const script=scriptFor(root,path.join(root,'..','setup.exe'));
   assert.match(script,/RequestExecutionLevel user/);assert.match(script,/WriteUninstaller/);assert.match(script,/AudioVisualizerProInstrument/);
   assert.match(script,/Delete "\$INSTDIR\\Skins\\Dollar\$\$Name.bin"/);assert.doesNotMatch(script,/RMDir \/r/);assert.doesNotMatch(script,/Delete.*\$APPDATA/);
-  assert.match(script,/VIProductVersion "4\.2\.41\.0"/);
+  assert.match(script,/VIProductVersion "4\.3\.0\.0"/);
  }finally{fs.rmSync(root,{recursive:true,force:true});}
 });

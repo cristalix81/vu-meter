@@ -1,0 +1,2931 @@
+{
+  "timestamp": "2026-10-30T16:24:20.516Z",
+  "scope": "Chromium Linux software rendering; timings are observations, not Windows hardware claims",
+  "passed": false,
+  "checks": [
+    {
+      "name": "cached finish and source LRU remain bounded Light",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 1,
+        "cacheBytes": 6000000,
+        "decodedCache": 1,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "4K live render completes without expensive layer rebuild Light",
+      "passed": false,
+      "detail": {
+        "id": "bundle-f6689bd367442ad2",
+        "name": "Light",
+        "width": 3840,
+        "height": 1280,
+        "coldMs": 85,
+        "medianMs": 5.399999998509884,
+        "p95Ms": 415.5,
+        "cacheBuildsDuringMeasuredDraw": 0,
+        "diagnostics": {
+          "enabled": true,
+          "mode": "studio",
+          "signature": "studio/65/28/high",
+          "builds": 1,
+          "hits": 91,
+          "cacheEntries": 1,
+          "cacheBytes": 6000000,
+          "maxEntries": 8,
+          "maxBytes": 25165824,
+          "profiles": [
+            {
+              "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+              "id": "bundle-f6689bd367442ad2",
+              "channelOffset": 972,
+              "kind": "paper",
+              "palette": "warm",
+              "embeddedFrame": true,
+              "silhouette": false,
+              "lightRGB": [
+                255,
+                235,
+                195
+              ],
+              "stats": {
+                "mean": 0.3457637730718918,
+                "centerMean": 0.5508740520352294,
+                "contrast": 0.293332481707383,
+                "brightFraction": 0.22893333333333332,
+                "darkFraction": 0.299,
+                "chroma": 0.4660196078431551,
+                "edgeMean": 0.03107942974758983,
+                "samples": 15000
+              },
+              "treatment": {
+                "glass": 1,
+                "light": 1,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 1500,
+              "height": 1000
+            }
+          ]
+        },
+        "decodedCache": 1
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded blu sector",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 2,
+        "cacheBytes": 11146000,
+        "decodedCache": 2,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "4K live render completes without expensive layer rebuild blu sector",
+      "passed": false,
+      "detail": {
+        "id": "bundle-83ab431ec6c5a1c9",
+        "name": "blu sector",
+        "width": 3840,
+        "height": 1028,
+        "coldMs": 72.90000000223517,
+        "medianMs": 6.900000002235174,
+        "p95Ms": 393.30000000074506,
+        "cacheBuildsDuringMeasuredDraw": 0,
+        "diagnostics": {
+          "enabled": true,
+          "mode": "studio",
+          "signature": "studio/65/28/high",
+          "builds": 2,
+          "hits": 182,
+          "cacheEntries": 2,
+          "cacheBytes": 11146000,
+          "maxEntries": 8,
+          "maxBytes": 25165824,
+          "profiles": [
+            {
+              "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+              "id": "bundle-f6689bd367442ad2",
+              "channelOffset": 972,
+              "kind": "paper",
+              "palette": "warm",
+              "embeddedFrame": true,
+              "silhouette": false,
+              "lightRGB": [
+                255,
+                235,
+                195
+              ],
+              "stats": {
+                "mean": 0.3457637730718918,
+                "centerMean": 0.5508740520352294,
+                "contrast": 0.293332481707383,
+                "brightFraction": 0.22893333333333332,
+                "darkFraction": 0.299,
+                "chroma": 0.4660196078431551,
+                "edgeMean": 0.03107942974758983,
+                "samples": 15000
+              },
+              "treatment": {
+                "glass": 1,
+                "light": 1,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 1500,
+              "height": 1000
+            },
+            {
+              "identity": "sha256:87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+              "id": "bundle-83ab431ec6c5a1c9",
+              "channelOffset": 972,
+              "kind": "dark",
+              "palette": "cool",
+              "embeddedFrame": true,
+              "silhouette": true,
+              "lightRGB": [
+                211,
+                234,
+                255
+              ],
+              "stats": {
+                "mean": 0.02726028120070482,
+                "centerMean": 0.03857788209934199,
+                "contrast": 0.10933464368517405,
+                "brightFraction": 0.008083948698017878,
+                "darkFraction": 0.8873688301593471,
+                "chroma": 0.061996753617887104,
+                "edgeMean": 0.023795546162576755,
+                "samples": 12865
+              },
+              "treatment": {
+                "glass": 0.62,
+                "light": 0.62,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 1550,
+              "height": 830
+            }
+          ]
+        },
+        "decodedCache": 2
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded br sector+",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 3,
+        "cacheBytes": 16292000,
+        "decodedCache": 3,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "4K live render completes without expensive layer rebuild br sector+",
+      "passed": false,
+      "detail": {
+        "id": "bundle-beb47a586c397beb",
+        "name": "br sector+",
+        "width": 3840,
+        "height": 1028,
+        "coldMs": 66.80000000074506,
+        "medianMs": 4.5,
+        "p95Ms": 307.19999999925494,
+        "cacheBuildsDuringMeasuredDraw": 0,
+        "diagnostics": {
+          "enabled": true,
+          "mode": "studio",
+          "signature": "studio/65/28/high",
+          "builds": 3,
+          "hits": 273,
+          "cacheEntries": 3,
+          "cacheBytes": 16292000,
+          "maxEntries": 8,
+          "maxBytes": 25165824,
+          "profiles": [
+            {
+              "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+              "id": "bundle-f6689bd367442ad2",
+              "channelOffset": 972,
+              "kind": "paper",
+              "palette": "warm",
+              "embeddedFrame": true,
+              "silhouette": false,
+              "lightRGB": [
+                255,
+                235,
+                195
+              ],
+              "stats": {
+                "mean": 0.3457637730718918,
+                "centerMean": 0.5508740520352294,
+                "contrast": 0.293332481707383,
+                "brightFraction": 0.22893333333333332,
+                "darkFraction": 0.299,
+                "chroma": 0.4660196078431551,
+                "edgeMean": 0.03107942974758983,
+                "samples": 15000
+              },
+              "treatment": {
+                "glass": 1,
+                "light": 1,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 1500,
+              "height": 1000
+            },
+            {
+              "identity": "sha256:87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+              "id": "bundle-83ab431ec6c5a1c9",
+              "channelOffset": 972,
+              "kind": "dark",
+              "palette": "cool",
+              "embeddedFrame": true,
+              "silhouette": true,
+              "lightRGB": [
+                211,
+                234,
+                255
+              ],
+              "stats": {
+                "mean": 0.02726028120070482,
+                "centerMean": 0.03857788209934199,
+                "contrast": 0.10933464368517405,
+                "brightFraction": 0.008083948698017878,
+                "darkFraction": 0.8873688301593471,
+                "chroma": 0.061996753617887104,
+                "edgeMean": 0.023795546162576755,
+                "samples": 12865
+              },
+              "treatment": {
+                "glass": 0.62,
+                "light": 0.62,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 1550,
+              "height": 830
+            },
+            {
+              "identity": "sha256:b304631dced4b155d6ea44ad4882586b7498a2ade70c2b234cc89302f00adb8d",
+              "id": "bundle-beb47a586c397beb",
+              "channelOffset": 972,
+              "kind": "dark",
+              "palette": "neutral",
+              "embeddedFrame": true,
+              "silhouette": true,
+              "lightRGB": [
+                239,
+                246,
+                243
+              ],
+              "stats": {
+                "mean": 0.042824727860207294,
+                "centerMean": 0.06800713052299176,
+                "contrast": 0.1405354514434639,
+                "brightFraction": 0.014457831325301205,
+                "darkFraction": 0.8707345511076564,
+                "chroma": 0.013704914534799549,
+                "edgeMean": 0.023795546162576755,
+                "samples": 12865
+              },
+              "treatment": {
+                "glass": 0.62,
+                "light": 0.62,
+                "contact": 0.42,
+                "rim": 0.24
+              },
+              "width": 1550,
+              "height": 830
+            }
+          ]
+        },
+        "decodedCache": 3
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded New D’Agostino two",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 4,
+        "cacheBytes": 21132000,
+        "decodedCache": 3,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded Nagra Light",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 4,
+        "cacheBytes": 19326304,
+        "decodedCache": 3,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded AEG",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 5,
+        "cacheBytes": 22566304,
+        "decodedCache": 3,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded Accuphase-A75 2-edited",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 6,
+        "cacheBytes": 22911904,
+        "decodedCache": 3,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded Dorrough Model 40 AES EBU2-edited",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 7,
+        "cacheBytes": 23389264,
+        "decodedCache": 3,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded Hickok_HD (mod DarkOne)-edited",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 7,
+        "cacheBytes": 21252864,
+        "decodedCache": 3,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded MCINTOSH MPM4000-edited",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 8,
+        "cacheBytes": 21780204,
+        "decodedCache": 3,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded New Green Eye Classic",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 8,
+        "cacheBytes": 14904604,
+        "decodedCache": 3,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "cached finish and source LRU remain bounded vidality",
+      "passed": true,
+      "detail": {
+        "cacheEntries": 8,
+        "cacheBytes": 10489404,
+        "decodedCache": 3,
+        "buildsDuringFrames": 0
+      }
+    },
+    {
+      "name": "style switches flush a stationary full frame and restore identical pixels",
+      "passed": true,
+      "detail": {
+        "enhanced": "dd923519e13fdd103afd3b6af9f160960d8a9a82b66d501ea2232b7c09157ce2",
+        "original": "962be17dc5e0834233b5aecc7836d5a44912c498da8c3a304f71fee0a95954a6",
+        "restored": "dd923519e13fdd103afd3b6af9f160960d8a9a82b66d501ea2232b7c09157ce2",
+        "tinted": "ce17e05cf620f1aa07122868e6f721448283983f75adf7b1b280ff35e8390437",
+        "backgroundRestored": "dd923519e13fdd103afd3b6af9f160960d8a9a82b66d501ea2232b7c09157ce2",
+        "needles": [
+          0.62,
+          0.41
+        ],
+        "frames": [
+          149,
+          98
+        ]
+      }
+    },
+    {
+      "name": "background edit and reset repaint without altering independent positions",
+      "passed": true,
+      "detail": {
+        "enhanced": "dd923519e13fdd103afd3b6af9f160960d8a9a82b66d501ea2232b7c09157ce2",
+        "original": "962be17dc5e0834233b5aecc7836d5a44912c498da8c3a304f71fee0a95954a6",
+        "restored": "dd923519e13fdd103afd3b6af9f160960d8a9a82b66d501ea2232b7c09157ce2",
+        "tinted": "ce17e05cf620f1aa07122868e6f721448283983f75adf7b1b280ff35e8390437",
+        "backgroundRestored": "dd923519e13fdd103afd3b6af9f160960d8a9a82b66d501ea2232b7c09157ce2",
+        "needles": [
+          0.62,
+          0.41
+        ],
+        "frames": [
+          149,
+          98
+        ]
+      }
+    },
+    {
+      "name": "different content hashes keep distinct finish regardless of display name",
+      "passed": true,
+      "detail": {
+        "a": {
+          "illumination": 12,
+          "glass": 91,
+          "quality": "eco",
+          "enhanced": false
+        },
+        "b": {
+          "illumination": 87,
+          "glass": 15,
+          "quality": "high",
+          "enhanced": true
+        }
+      }
+    },
+    {
+      "name": "perf, cache and repaint probes have no uncaught errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "observations": [
+    {
+      "id": "bundle-f6689bd367442ad2",
+      "name": "Light",
+      "width": 3840,
+      "height": 1280,
+      "coldMs": 85,
+      "medianMs": 5.399999998509884,
+      "p95Ms": 415.5,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 1,
+        "hits": 91,
+        "cacheEntries": 1,
+        "cacheBytes": 6000000,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+            "id": "bundle-f6689bd367442ad2",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.3457637730718918,
+              "centerMean": 0.5508740520352294,
+              "contrast": 0.293332481707383,
+              "brightFraction": 0.22893333333333332,
+              "darkFraction": 0.299,
+              "chroma": 0.4660196078431551,
+              "edgeMean": 0.03107942974758983,
+              "samples": 15000
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1500,
+            "height": 1000
+          }
+        ]
+      },
+      "decodedCache": 1
+    },
+    {
+      "id": "bundle-83ab431ec6c5a1c9",
+      "name": "blu sector",
+      "width": 3840,
+      "height": 1028,
+      "coldMs": 72.90000000223517,
+      "medianMs": 6.900000002235174,
+      "p95Ms": 393.30000000074506,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 2,
+        "hits": 182,
+        "cacheEntries": 2,
+        "cacheBytes": 11146000,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+            "id": "bundle-f6689bd367442ad2",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.3457637730718918,
+              "centerMean": 0.5508740520352294,
+              "contrast": 0.293332481707383,
+              "brightFraction": 0.22893333333333332,
+              "darkFraction": 0.299,
+              "chroma": 0.4660196078431551,
+              "edgeMean": 0.03107942974758983,
+              "samples": 15000
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1500,
+            "height": 1000
+          },
+          {
+            "identity": "sha256:87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+            "id": "bundle-83ab431ec6c5a1c9",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.02726028120070482,
+              "centerMean": 0.03857788209934199,
+              "contrast": 0.10933464368517405,
+              "brightFraction": 0.008083948698017878,
+              "darkFraction": 0.8873688301593471,
+              "chroma": 0.061996753617887104,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          }
+        ]
+      },
+      "decodedCache": 2
+    },
+    {
+      "id": "bundle-beb47a586c397beb",
+      "name": "br sector+",
+      "width": 3840,
+      "height": 1028,
+      "coldMs": 66.80000000074506,
+      "medianMs": 4.5,
+      "p95Ms": 307.19999999925494,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 3,
+        "hits": 273,
+        "cacheEntries": 3,
+        "cacheBytes": 16292000,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+            "id": "bundle-f6689bd367442ad2",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.3457637730718918,
+              "centerMean": 0.5508740520352294,
+              "contrast": 0.293332481707383,
+              "brightFraction": 0.22893333333333332,
+              "darkFraction": 0.299,
+              "chroma": 0.4660196078431551,
+              "edgeMean": 0.03107942974758983,
+              "samples": 15000
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1500,
+            "height": 1000
+          },
+          {
+            "identity": "sha256:87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+            "id": "bundle-83ab431ec6c5a1c9",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.02726028120070482,
+              "centerMean": 0.03857788209934199,
+              "contrast": 0.10933464368517405,
+              "brightFraction": 0.008083948698017878,
+              "darkFraction": 0.8873688301593471,
+              "chroma": 0.061996753617887104,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:b304631dced4b155d6ea44ad4882586b7498a2ade70c2b234cc89302f00adb8d",
+            "id": "bundle-beb47a586c397beb",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.042824727860207294,
+              "centerMean": 0.06800713052299176,
+              "contrast": 0.1405354514434639,
+              "brightFraction": 0.014457831325301205,
+              "darkFraction": 0.8707345511076564,
+              "chroma": 0.013704914534799549,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          }
+        ]
+      },
+      "decodedCache": 3
+    },
+    {
+      "id": "bundle-15c40754c40b8cf0",
+      "name": "New D’Agostino two",
+      "width": 3840,
+      "height": 1920,
+      "coldMs": 52.80000000074506,
+      "medianMs": null,
+      "p95Ms": null,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 4,
+        "hits": 274,
+        "cacheEntries": 4,
+        "cacheBytes": 21132000,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+            "id": "bundle-f6689bd367442ad2",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.3457637730718918,
+              "centerMean": 0.5508740520352294,
+              "contrast": 0.293332481707383,
+              "brightFraction": 0.22893333333333332,
+              "darkFraction": 0.299,
+              "chroma": 0.4660196078431551,
+              "edgeMean": 0.03107942974758983,
+              "samples": 15000
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1500,
+            "height": 1000
+          },
+          {
+            "identity": "sha256:87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+            "id": "bundle-83ab431ec6c5a1c9",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.02726028120070482,
+              "centerMean": 0.03857788209934199,
+              "contrast": 0.10933464368517405,
+              "brightFraction": 0.008083948698017878,
+              "darkFraction": 0.8873688301593471,
+              "chroma": 0.061996753617887104,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:b304631dced4b155d6ea44ad4882586b7498a2ade70c2b234cc89302f00adb8d",
+            "id": "bundle-beb47a586c397beb",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.042824727860207294,
+              "centerMean": 0.06800713052299176,
+              "contrast": 0.1405354514434639,
+              "brightFraction": 0.014457831325301205,
+              "darkFraction": 0.8707345511076564,
+              "chroma": 0.013704914534799549,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:646b0e43ea233b782be77b21939e8bfbc56e545ab749c257b65f6908a23e2dbe",
+            "id": "bundle-15c40754c40b8cf0",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.42262323583196915,
+              "centerMean": 0.6358275899904651,
+              "contrast": 0.32665706085116736,
+              "brightFraction": 0.4725361887765219,
+              "darkFraction": 0.27681935355938925,
+              "chroma": 0.1123229118469981,
+              "edgeMean": 0.04005990121634709,
+              "samples": 15129
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1100,
+            "height": 1100
+          }
+        ]
+      },
+      "decodedCache": 3
+    },
+    {
+      "id": "bundle-32f518f2e316b0a6",
+      "name": "Nagra Light",
+      "width": 3840,
+      "height": 1920,
+      "coldMs": 30.200000002980232,
+      "medianMs": null,
+      "p95Ms": null,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 5,
+        "hits": 275,
+        "cacheEntries": 4,
+        "cacheBytes": 19326304,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+            "id": "bundle-f6689bd367442ad2",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.3457637730718918,
+              "centerMean": 0.5508740520352294,
+              "contrast": 0.293332481707383,
+              "brightFraction": 0.22893333333333332,
+              "darkFraction": 0.299,
+              "chroma": 0.4660196078431551,
+              "edgeMean": 0.03107942974758983,
+              "samples": 15000
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1500,
+            "height": 1000
+          },
+          {
+            "identity": "sha256:87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+            "id": "bundle-83ab431ec6c5a1c9",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.02726028120070482,
+              "centerMean": 0.03857788209934199,
+              "contrast": 0.10933464368517405,
+              "brightFraction": 0.008083948698017878,
+              "darkFraction": 0.8873688301593471,
+              "chroma": 0.061996753617887104,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:b304631dced4b155d6ea44ad4882586b7498a2ade70c2b234cc89302f00adb8d",
+            "id": "bundle-beb47a586c397beb",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.042824727860207294,
+              "centerMean": 0.06800713052299176,
+              "contrast": 0.1405354514434639,
+              "brightFraction": 0.014457831325301205,
+              "darkFraction": 0.8707345511076564,
+              "chroma": 0.013704914534799549,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:646b0e43ea233b782be77b21939e8bfbc56e545ab749c257b65f6908a23e2dbe",
+            "id": "bundle-15c40754c40b8cf0",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.42262323583196915,
+              "centerMean": 0.6358275899904651,
+              "contrast": 0.32665706085116736,
+              "brightFraction": 0.4725361887765219,
+              "darkFraction": 0.27681935355938925,
+              "chroma": 0.1123229118469981,
+              "edgeMean": 0.04005990121634709,
+              "samples": 15129
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1100,
+            "height": 1100
+          },
+          {
+            "identity": "sha256:b6663e171e08932e9184ce3c5831255e5ef93afa7180797daa2d32085d37750e",
+            "id": "bundle-32f518f2e316b0a6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.45875460310563276,
+              "centerMean": 0.6712889999270023,
+              "contrast": 0.3497423574976272,
+              "brightFraction": 0.5536318867343798,
+              "darkFraction": 0.31078793474915356,
+              "chroma": 0.25238957386585487,
+              "edgeMean": 0.031648049155145914,
+              "samples": 12996
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1024,
+            "height": 1024
+          }
+        ]
+      },
+      "decodedCache": 3
+    },
+    {
+      "id": "bundle-a324e75ef4eae5c6",
+      "name": "AEG",
+      "width": 3840,
+      "height": 1920,
+      "coldMs": 34.100000001490116,
+      "medianMs": null,
+      "p95Ms": null,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 6,
+        "hits": 276,
+        "cacheEntries": 5,
+        "cacheBytes": 22566304,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+            "id": "bundle-f6689bd367442ad2",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.3457637730718918,
+              "centerMean": 0.5508740520352294,
+              "contrast": 0.293332481707383,
+              "brightFraction": 0.22893333333333332,
+              "darkFraction": 0.299,
+              "chroma": 0.4660196078431551,
+              "edgeMean": 0.03107942974758983,
+              "samples": 15000
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1500,
+            "height": 1000
+          },
+          {
+            "identity": "sha256:87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+            "id": "bundle-83ab431ec6c5a1c9",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.02726028120070482,
+              "centerMean": 0.03857788209934199,
+              "contrast": 0.10933464368517405,
+              "brightFraction": 0.008083948698017878,
+              "darkFraction": 0.8873688301593471,
+              "chroma": 0.061996753617887104,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:b304631dced4b155d6ea44ad4882586b7498a2ade70c2b234cc89302f00adb8d",
+            "id": "bundle-beb47a586c397beb",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.042824727860207294,
+              "centerMean": 0.06800713052299176,
+              "contrast": 0.1405354514434639,
+              "brightFraction": 0.014457831325301205,
+              "darkFraction": 0.8707345511076564,
+              "chroma": 0.013704914534799549,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:646b0e43ea233b782be77b21939e8bfbc56e545ab749c257b65f6908a23e2dbe",
+            "id": "bundle-15c40754c40b8cf0",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.42262323583196915,
+              "centerMean": 0.6358275899904651,
+              "contrast": 0.32665706085116736,
+              "brightFraction": 0.4725361887765219,
+              "darkFraction": 0.27681935355938925,
+              "chroma": 0.1123229118469981,
+              "edgeMean": 0.04005990121634709,
+              "samples": 15129
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1100,
+            "height": 1100
+          },
+          {
+            "identity": "sha256:b6663e171e08932e9184ce3c5831255e5ef93afa7180797daa2d32085d37750e",
+            "id": "bundle-32f518f2e316b0a6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.45875460310563276,
+              "centerMean": 0.6712889999270023,
+              "contrast": 0.3497423574976272,
+              "brightFraction": 0.5536318867343798,
+              "darkFraction": 0.31078793474915356,
+              "chroma": 0.25238957386585487,
+              "edgeMean": 0.031648049155145914,
+              "samples": 12996
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+            "id": "bundle-a324e75ef4eae5c6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.37916827979526346,
+              "centerMean": 0.5412905959176767,
+              "contrast": 0.22262154266601056,
+              "brightFraction": 0.3548437622366669,
+              "darkFraction": 0.009554389537160311,
+              "chroma": 0.15722759931759156,
+              "edgeMean": 0.13027748213304294,
+              "samples": 12769
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 900,
+            "height": 900
+          }
+        ]
+      },
+      "decodedCache": 3
+    },
+    {
+      "id": "bundle-b3e1abd5c4243a30",
+      "name": "Accuphase-A75 2-edited",
+      "width": 3840,
+      "height": 461,
+      "coldMs": 6.800000000745058,
+      "medianMs": null,
+      "p95Ms": null,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 7,
+        "hits": 277,
+        "cacheEntries": 6,
+        "cacheBytes": 22911904,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+            "id": "bundle-f6689bd367442ad2",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.3457637730718918,
+              "centerMean": 0.5508740520352294,
+              "contrast": 0.293332481707383,
+              "brightFraction": 0.22893333333333332,
+              "darkFraction": 0.299,
+              "chroma": 0.4660196078431551,
+              "edgeMean": 0.03107942974758983,
+              "samples": 15000
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1500,
+            "height": 1000
+          },
+          {
+            "identity": "sha256:87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+            "id": "bundle-83ab431ec6c5a1c9",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.02726028120070482,
+              "centerMean": 0.03857788209934199,
+              "contrast": 0.10933464368517405,
+              "brightFraction": 0.008083948698017878,
+              "darkFraction": 0.8873688301593471,
+              "chroma": 0.061996753617887104,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:b304631dced4b155d6ea44ad4882586b7498a2ade70c2b234cc89302f00adb8d",
+            "id": "bundle-beb47a586c397beb",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.042824727860207294,
+              "centerMean": 0.06800713052299176,
+              "contrast": 0.1405354514434639,
+              "brightFraction": 0.014457831325301205,
+              "darkFraction": 0.8707345511076564,
+              "chroma": 0.013704914534799549,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:646b0e43ea233b782be77b21939e8bfbc56e545ab749c257b65f6908a23e2dbe",
+            "id": "bundle-15c40754c40b8cf0",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.42262323583196915,
+              "centerMean": 0.6358275899904651,
+              "contrast": 0.32665706085116736,
+              "brightFraction": 0.4725361887765219,
+              "darkFraction": 0.27681935355938925,
+              "chroma": 0.1123229118469981,
+              "edgeMean": 0.04005990121634709,
+              "samples": 15129
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1100,
+            "height": 1100
+          },
+          {
+            "identity": "sha256:b6663e171e08932e9184ce3c5831255e5ef93afa7180797daa2d32085d37750e",
+            "id": "bundle-32f518f2e316b0a6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.45875460310563276,
+              "centerMean": 0.6712889999270023,
+              "contrast": 0.3497423574976272,
+              "brightFraction": 0.5536318867343798,
+              "darkFraction": 0.31078793474915356,
+              "chroma": 0.25238957386585487,
+              "edgeMean": 0.031648049155145914,
+              "samples": 12996
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+            "id": "bundle-a324e75ef4eae5c6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.37916827979526346,
+              "centerMean": 0.5412905959176767,
+              "contrast": 0.22262154266601056,
+              "brightFraction": 0.3548437622366669,
+              "darkFraction": 0.009554389537160311,
+              "chroma": 0.15722759931759156,
+              "edgeMean": 0.13027748213304294,
+              "samples": 12769
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 900,
+            "height": 900
+          },
+          {
+            "identity": "sha256:679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184",
+            "id": "bundle-b3e1abd5c4243a30",
+            "channelOffset": 4104,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.10427433783584762,
+              "centerMean": 0.11923343514260842,
+              "contrast": 0.143651437028533,
+              "brightFraction": 0.07300925925925926,
+              "darkFraction": 0.6449074074074074,
+              "chroma": 0.005283950617283957,
+              "edgeMean": 0.07245011932000106,
+              "samples": 21600
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 600,
+            "height": 144
+          }
+        ]
+      },
+      "decodedCache": 3
+    },
+    {
+      "id": "bundle-08e1acfa4ed09c1d",
+      "name": "Dorrough Model 40 AES EBU2-edited",
+      "width": 3840,
+      "height": 670,
+      "coldMs": 12,
+      "medianMs": null,
+      "p95Ms": null,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 8,
+        "hits": 278,
+        "cacheEntries": 7,
+        "cacheBytes": 23389264,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+            "id": "bundle-f6689bd367442ad2",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.3457637730718918,
+              "centerMean": 0.5508740520352294,
+              "contrast": 0.293332481707383,
+              "brightFraction": 0.22893333333333332,
+              "darkFraction": 0.299,
+              "chroma": 0.4660196078431551,
+              "edgeMean": 0.03107942974758983,
+              "samples": 15000
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1500,
+            "height": 1000
+          },
+          {
+            "identity": "sha256:87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+            "id": "bundle-83ab431ec6c5a1c9",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.02726028120070482,
+              "centerMean": 0.03857788209934199,
+              "contrast": 0.10933464368517405,
+              "brightFraction": 0.008083948698017878,
+              "darkFraction": 0.8873688301593471,
+              "chroma": 0.061996753617887104,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:b304631dced4b155d6ea44ad4882586b7498a2ade70c2b234cc89302f00adb8d",
+            "id": "bundle-beb47a586c397beb",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.042824727860207294,
+              "centerMean": 0.06800713052299176,
+              "contrast": 0.1405354514434639,
+              "brightFraction": 0.014457831325301205,
+              "darkFraction": 0.8707345511076564,
+              "chroma": 0.013704914534799549,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:646b0e43ea233b782be77b21939e8bfbc56e545ab749c257b65f6908a23e2dbe",
+            "id": "bundle-15c40754c40b8cf0",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.42262323583196915,
+              "centerMean": 0.6358275899904651,
+              "contrast": 0.32665706085116736,
+              "brightFraction": 0.4725361887765219,
+              "darkFraction": 0.27681935355938925,
+              "chroma": 0.1123229118469981,
+              "edgeMean": 0.04005990121634709,
+              "samples": 15129
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1100,
+            "height": 1100
+          },
+          {
+            "identity": "sha256:b6663e171e08932e9184ce3c5831255e5ef93afa7180797daa2d32085d37750e",
+            "id": "bundle-32f518f2e316b0a6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.45875460310563276,
+              "centerMean": 0.6712889999270023,
+              "contrast": 0.3497423574976272,
+              "brightFraction": 0.5536318867343798,
+              "darkFraction": 0.31078793474915356,
+              "chroma": 0.25238957386585487,
+              "edgeMean": 0.031648049155145914,
+              "samples": 12996
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+            "id": "bundle-a324e75ef4eae5c6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.37916827979526346,
+              "centerMean": 0.5412905959176767,
+              "contrast": 0.22262154266601056,
+              "brightFraction": 0.3548437622366669,
+              "darkFraction": 0.009554389537160311,
+              "chroma": 0.15722759931759156,
+              "edgeMean": 0.13027748213304294,
+              "samples": 12769
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 900,
+            "height": 900
+          },
+          {
+            "identity": "sha256:679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184",
+            "id": "bundle-b3e1abd5c4243a30",
+            "channelOffset": 4104,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.10427433783584762,
+              "centerMean": 0.11923343514260842,
+              "contrast": 0.143651437028533,
+              "brightFraction": 0.07300925925925926,
+              "darkFraction": 0.6449074074074074,
+              "chroma": 0.005283950617283957,
+              "edgeMean": 0.07245011932000106,
+              "samples": 21600
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 600,
+            "height": 144
+          },
+          {
+            "identity": "sha256:c25976e9a8b723c9f86230f01a5f8a28a86d321a19176fad52836cb62d12556b",
+            "id": "bundle-08e1acfa4ed09c1d",
+            "channelOffset": 4104,
+            "kind": "electronic",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.11340816597167039,
+              "centerMean": 0.05642608340683472,
+              "contrast": 0.15357083374949526,
+              "brightFraction": 0.009728506787330317,
+              "darkFraction": 0.6046003016591251,
+              "chroma": 0.047668648153080764,
+              "edgeMean": 0.2704721633883307,
+              "samples": 13260
+            },
+            "treatment": {
+              "glass": 0.28,
+              "light": 0.34,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 585,
+            "height": 204
+          }
+        ]
+      },
+      "decodedCache": 3
+    },
+    {
+      "id": "bundle-90e2bd12864b5555",
+      "name": "Hickok_HD (mod DarkOne)-edited",
+      "width": 3840,
+      "height": 1783,
+      "coldMs": 53.20000000298023,
+      "medianMs": null,
+      "p95Ms": null,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 9,
+        "hits": 279,
+        "cacheEntries": 7,
+        "cacheBytes": 21252864,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+            "id": "bundle-83ab431ec6c5a1c9",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.02726028120070482,
+              "centerMean": 0.03857788209934199,
+              "contrast": 0.10933464368517405,
+              "brightFraction": 0.008083948698017878,
+              "darkFraction": 0.8873688301593471,
+              "chroma": 0.061996753617887104,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:b304631dced4b155d6ea44ad4882586b7498a2ade70c2b234cc89302f00adb8d",
+            "id": "bundle-beb47a586c397beb",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.042824727860207294,
+              "centerMean": 0.06800713052299176,
+              "contrast": 0.1405354514434639,
+              "brightFraction": 0.014457831325301205,
+              "darkFraction": 0.8707345511076564,
+              "chroma": 0.013704914534799549,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:646b0e43ea233b782be77b21939e8bfbc56e545ab749c257b65f6908a23e2dbe",
+            "id": "bundle-15c40754c40b8cf0",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.42262323583196915,
+              "centerMean": 0.6358275899904651,
+              "contrast": 0.32665706085116736,
+              "brightFraction": 0.4725361887765219,
+              "darkFraction": 0.27681935355938925,
+              "chroma": 0.1123229118469981,
+              "edgeMean": 0.04005990121634709,
+              "samples": 15129
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1100,
+            "height": 1100
+          },
+          {
+            "identity": "sha256:b6663e171e08932e9184ce3c5831255e5ef93afa7180797daa2d32085d37750e",
+            "id": "bundle-32f518f2e316b0a6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.45875460310563276,
+              "centerMean": 0.6712889999270023,
+              "contrast": 0.3497423574976272,
+              "brightFraction": 0.5536318867343798,
+              "darkFraction": 0.31078793474915356,
+              "chroma": 0.25238957386585487,
+              "edgeMean": 0.031648049155145914,
+              "samples": 12996
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+            "id": "bundle-a324e75ef4eae5c6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.37916827979526346,
+              "centerMean": 0.5412905959176767,
+              "contrast": 0.22262154266601056,
+              "brightFraction": 0.3548437622366669,
+              "darkFraction": 0.009554389537160311,
+              "chroma": 0.15722759931759156,
+              "edgeMean": 0.13027748213304294,
+              "samples": 12769
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 900,
+            "height": 900
+          },
+          {
+            "identity": "sha256:679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184",
+            "id": "bundle-b3e1abd5c4243a30",
+            "channelOffset": 4104,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.10427433783584762,
+              "centerMean": 0.11923343514260842,
+              "contrast": 0.143651437028533,
+              "brightFraction": 0.07300925925925926,
+              "darkFraction": 0.6449074074074074,
+              "chroma": 0.005283950617283957,
+              "edgeMean": 0.07245011932000106,
+              "samples": 21600
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 600,
+            "height": 144
+          },
+          {
+            "identity": "sha256:c25976e9a8b723c9f86230f01a5f8a28a86d321a19176fad52836cb62d12556b",
+            "id": "bundle-08e1acfa4ed09c1d",
+            "channelOffset": 4104,
+            "kind": "electronic",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.11340816597167039,
+              "centerMean": 0.05642608340683472,
+              "contrast": 0.15357083374949526,
+              "brightFraction": 0.009728506787330317,
+              "darkFraction": 0.6046003016591251,
+              "chroma": 0.047668648153080764,
+              "edgeMean": 0.2704721633883307,
+              "samples": 13260
+            },
+            "treatment": {
+              "glass": 0.28,
+              "light": 0.34,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 585,
+            "height": 204
+          },
+          {
+            "identity": "sha256:3c4327e02ce0e96683dd5447043213cb29891e0190846dced33ab2d10f45ffc2",
+            "id": "bundle-90e2bd12864b5555",
+            "channelOffset": 4104,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.28619550032932967,
+              "centerMean": 0.4707727042177637,
+              "contrast": 0.30819471361720086,
+              "brightFraction": 0.26098191214470284,
+              "darkFraction": 0.1330749354005168,
+              "chroma": 0.19674469270909534,
+              "edgeMean": 0.08451147537063564,
+              "samples": 15480
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 900,
+            "height": 836
+          }
+        ]
+      },
+      "decodedCache": 3
+    },
+    {
+      "id": "bundle-2fae466702a5c36b",
+      "name": "MCINTOSH MPM4000-edited",
+      "width": 3840,
+      "height": 804,
+      "coldMs": 17.199999999254942,
+      "medianMs": null,
+      "p95Ms": null,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 10,
+        "hits": 280,
+        "cacheEntries": 8,
+        "cacheBytes": 21780204,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:b304631dced4b155d6ea44ad4882586b7498a2ade70c2b234cc89302f00adb8d",
+            "id": "bundle-beb47a586c397beb",
+            "channelOffset": 972,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.042824727860207294,
+              "centerMean": 0.06800713052299176,
+              "contrast": 0.1405354514434639,
+              "brightFraction": 0.014457831325301205,
+              "darkFraction": 0.8707345511076564,
+              "chroma": 0.013704914534799549,
+              "edgeMean": 0.023795546162576755,
+              "samples": 12865
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1550,
+            "height": 830
+          },
+          {
+            "identity": "sha256:646b0e43ea233b782be77b21939e8bfbc56e545ab749c257b65f6908a23e2dbe",
+            "id": "bundle-15c40754c40b8cf0",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.42262323583196915,
+              "centerMean": 0.6358275899904651,
+              "contrast": 0.32665706085116736,
+              "brightFraction": 0.4725361887765219,
+              "darkFraction": 0.27681935355938925,
+              "chroma": 0.1123229118469981,
+              "edgeMean": 0.04005990121634709,
+              "samples": 15129
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1100,
+            "height": 1100
+          },
+          {
+            "identity": "sha256:b6663e171e08932e9184ce3c5831255e5ef93afa7180797daa2d32085d37750e",
+            "id": "bundle-32f518f2e316b0a6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.45875460310563276,
+              "centerMean": 0.6712889999270023,
+              "contrast": 0.3497423574976272,
+              "brightFraction": 0.5536318867343798,
+              "darkFraction": 0.31078793474915356,
+              "chroma": 0.25238957386585487,
+              "edgeMean": 0.031648049155145914,
+              "samples": 12996
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+            "id": "bundle-a324e75ef4eae5c6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.37916827979526346,
+              "centerMean": 0.5412905959176767,
+              "contrast": 0.22262154266601056,
+              "brightFraction": 0.3548437622366669,
+              "darkFraction": 0.009554389537160311,
+              "chroma": 0.15722759931759156,
+              "edgeMean": 0.13027748213304294,
+              "samples": 12769
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 900,
+            "height": 900
+          },
+          {
+            "identity": "sha256:679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184",
+            "id": "bundle-b3e1abd5c4243a30",
+            "channelOffset": 4104,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.10427433783584762,
+              "centerMean": 0.11923343514260842,
+              "contrast": 0.143651437028533,
+              "brightFraction": 0.07300925925925926,
+              "darkFraction": 0.6449074074074074,
+              "chroma": 0.005283950617283957,
+              "edgeMean": 0.07245011932000106,
+              "samples": 21600
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 600,
+            "height": 144
+          },
+          {
+            "identity": "sha256:c25976e9a8b723c9f86230f01a5f8a28a86d321a19176fad52836cb62d12556b",
+            "id": "bundle-08e1acfa4ed09c1d",
+            "channelOffset": 4104,
+            "kind": "electronic",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.11340816597167039,
+              "centerMean": 0.05642608340683472,
+              "contrast": 0.15357083374949526,
+              "brightFraction": 0.009728506787330317,
+              "darkFraction": 0.6046003016591251,
+              "chroma": 0.047668648153080764,
+              "edgeMean": 0.2704721633883307,
+              "samples": 13260
+            },
+            "treatment": {
+              "glass": 0.28,
+              "light": 0.34,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 585,
+            "height": 204
+          },
+          {
+            "identity": "sha256:3c4327e02ce0e96683dd5447043213cb29891e0190846dced33ab2d10f45ffc2",
+            "id": "bundle-90e2bd12864b5555",
+            "channelOffset": 4104,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.28619550032932967,
+              "centerMean": 0.4707727042177637,
+              "contrast": 0.30819471361720086,
+              "brightFraction": 0.26098191214470284,
+              "darkFraction": 0.1330749354005168,
+              "chroma": 0.19674469270909534,
+              "edgeMean": 0.08451147537063564,
+              "samples": 15480
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 900,
+            "height": 836
+          },
+          {
+            "identity": "sha256:280c11a5b705068422753966c4c29898a0894aa63646eaff4877cf9e61a06e09",
+            "id": "bundle-2fae466702a5c36b",
+            "channelOffset": 4104,
+            "kind": "paper",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.5980536543747483,
+              "centerMean": 0.6993287469897667,
+              "contrast": 0.2335671692047425,
+              "brightFraction": 0.7963176064441887,
+              "darkFraction": 0.0967982129560685,
+              "chroma": 0.7741778522821259,
+              "edgeMean": 0.32184405692822143,
+              "samples": 14773
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 561,
+            "height": 235
+          }
+        ]
+      },
+      "decodedCache": 3
+    },
+    {
+      "id": "bundle-c08f850c93d3eea6",
+      "name": "New Green Eye Classic",
+      "width": 3840,
+      "height": 2074,
+      "coldMs": 44.80000000074506,
+      "medianMs": null,
+      "p95Ms": null,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 12,
+        "hits": 280,
+        "cacheEntries": 8,
+        "cacheBytes": 14904604,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:b6663e171e08932e9184ce3c5831255e5ef93afa7180797daa2d32085d37750e",
+            "id": "bundle-32f518f2e316b0a6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": true,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.45875460310563276,
+              "centerMean": 0.6712889999270023,
+              "contrast": 0.3497423574976272,
+              "brightFraction": 0.5536318867343798,
+              "darkFraction": 0.31078793474915356,
+              "chroma": 0.25238957386585487,
+              "edgeMean": 0.031648049155145914,
+              "samples": 12996
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "identity": "sha256:6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+            "id": "bundle-a324e75ef4eae5c6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.37916827979526346,
+              "centerMean": 0.5412905959176767,
+              "contrast": 0.22262154266601056,
+              "brightFraction": 0.3548437622366669,
+              "darkFraction": 0.009554389537160311,
+              "chroma": 0.15722759931759156,
+              "edgeMean": 0.13027748213304294,
+              "samples": 12769
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 900,
+            "height": 900
+          },
+          {
+            "identity": "sha256:679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184",
+            "id": "bundle-b3e1abd5c4243a30",
+            "channelOffset": 4104,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.10427433783584762,
+              "centerMean": 0.11923343514260842,
+              "contrast": 0.143651437028533,
+              "brightFraction": 0.07300925925925926,
+              "darkFraction": 0.6449074074074074,
+              "chroma": 0.005283950617283957,
+              "edgeMean": 0.07245011932000106,
+              "samples": 21600
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 600,
+            "height": 144
+          },
+          {
+            "identity": "sha256:c25976e9a8b723c9f86230f01a5f8a28a86d321a19176fad52836cb62d12556b",
+            "id": "bundle-08e1acfa4ed09c1d",
+            "channelOffset": 4104,
+            "kind": "electronic",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.11340816597167039,
+              "centerMean": 0.05642608340683472,
+              "contrast": 0.15357083374949526,
+              "brightFraction": 0.009728506787330317,
+              "darkFraction": 0.6046003016591251,
+              "chroma": 0.047668648153080764,
+              "edgeMean": 0.2704721633883307,
+              "samples": 13260
+            },
+            "treatment": {
+              "glass": 0.28,
+              "light": 0.34,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 585,
+            "height": 204
+          },
+          {
+            "identity": "sha256:3c4327e02ce0e96683dd5447043213cb29891e0190846dced33ab2d10f45ffc2",
+            "id": "bundle-90e2bd12864b5555",
+            "channelOffset": 4104,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.28619550032932967,
+              "centerMean": 0.4707727042177637,
+              "contrast": 0.30819471361720086,
+              "brightFraction": 0.26098191214470284,
+              "darkFraction": 0.1330749354005168,
+              "chroma": 0.19674469270909534,
+              "edgeMean": 0.08451147537063564,
+              "samples": 15480
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 900,
+            "height": 836
+          },
+          {
+            "identity": "sha256:280c11a5b705068422753966c4c29898a0894aa63646eaff4877cf9e61a06e09",
+            "id": "bundle-2fae466702a5c36b",
+            "channelOffset": 4104,
+            "kind": "paper",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.5980536543747483,
+              "centerMean": 0.6993287469897667,
+              "contrast": 0.2335671692047425,
+              "brightFraction": 0.7963176064441887,
+              "darkFraction": 0.0967982129560685,
+              "chroma": 0.7741778522821259,
+              "edgeMean": 0.32184405692822143,
+              "samples": 14773
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 561,
+            "height": 235
+          },
+          {
+            "identity": "sha256:6f1604cbb8c2b13f6cc41087d147174a7f232e5c2a2d9885d0181602276faa8a",
+            "id": "bundle-c08f850c93d3eea6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.5336746526394875,
+              "centerMean": 0.5164565872952164,
+              "contrast": 0.1722386870711659,
+              "brightFraction": 0.5619871794871795,
+              "darkFraction": 0,
+              "chroma": 0.1442001005530194,
+              "edgeMean": 0.5673212104933312,
+              "samples": 15600
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 600,
+            "height": 648
+          },
+          {
+            "identity": "sha256:6f1604cbb8c2b13f6cc41087d147174a7f232e5c2a2d9885d0181602276faa8a",
+            "id": "bundle-c08f850c93d3eea6",
+            "channelOffset": 24829741,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.5293186877325181,
+              "centerMean": 0.514540299609602,
+              "contrast": 0.1675918125191976,
+              "brightFraction": 0.5561538461538461,
+              "darkFraction": 0,
+              "chroma": 0.15421920563094435,
+              "edgeMean": 0.5600301915328844,
+              "samples": 15600
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 600,
+            "height": 648
+          }
+        ]
+      },
+      "decodedCache": 3
+    },
+    {
+      "id": "bundle-a88a4f8c62b008d7",
+      "name": "vidality",
+      "width": 3840,
+      "height": 798,
+      "coldMs": 41.100000001490116,
+      "medianMs": null,
+      "p95Ms": null,
+      "cacheBuildsDuringMeasuredDraw": 0,
+      "diagnostics": {
+        "enabled": true,
+        "mode": "studio",
+        "signature": "studio/65/28/high",
+        "builds": 14,
+        "hits": 280,
+        "cacheEntries": 8,
+        "cacheBytes": 10489404,
+        "maxEntries": 8,
+        "maxBytes": 25165824,
+        "profiles": [
+          {
+            "identity": "sha256:679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184",
+            "id": "bundle-b3e1abd5c4243a30",
+            "channelOffset": 4104,
+            "kind": "dark",
+            "palette": "neutral",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.10427433783584762,
+              "centerMean": 0.11923343514260842,
+              "contrast": 0.143651437028533,
+              "brightFraction": 0.07300925925925926,
+              "darkFraction": 0.6449074074074074,
+              "chroma": 0.005283950617283957,
+              "edgeMean": 0.07245011932000106,
+              "samples": 21600
+            },
+            "treatment": {
+              "glass": 0.62,
+              "light": 0.62,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 600,
+            "height": 144
+          },
+          {
+            "identity": "sha256:c25976e9a8b723c9f86230f01a5f8a28a86d321a19176fad52836cb62d12556b",
+            "id": "bundle-08e1acfa4ed09c1d",
+            "channelOffset": 4104,
+            "kind": "electronic",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.11340816597167039,
+              "centerMean": 0.05642608340683472,
+              "contrast": 0.15357083374949526,
+              "brightFraction": 0.009728506787330317,
+              "darkFraction": 0.6046003016591251,
+              "chroma": 0.047668648153080764,
+              "edgeMean": 0.2704721633883307,
+              "samples": 13260
+            },
+            "treatment": {
+              "glass": 0.28,
+              "light": 0.34,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 585,
+            "height": 204
+          },
+          {
+            "identity": "sha256:3c4327e02ce0e96683dd5447043213cb29891e0190846dced33ab2d10f45ffc2",
+            "id": "bundle-90e2bd12864b5555",
+            "channelOffset": 4104,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.28619550032932967,
+              "centerMean": 0.4707727042177637,
+              "contrast": 0.30819471361720086,
+              "brightFraction": 0.26098191214470284,
+              "darkFraction": 0.1330749354005168,
+              "chroma": 0.19674469270909534,
+              "edgeMean": 0.08451147537063564,
+              "samples": 15480
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 900,
+            "height": 836
+          },
+          {
+            "identity": "sha256:280c11a5b705068422753966c4c29898a0894aa63646eaff4877cf9e61a06e09",
+            "id": "bundle-2fae466702a5c36b",
+            "channelOffset": 4104,
+            "kind": "paper",
+            "palette": "cool",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.5980536543747483,
+              "centerMean": 0.6993287469897667,
+              "contrast": 0.2335671692047425,
+              "brightFraction": 0.7963176064441887,
+              "darkFraction": 0.0967982129560685,
+              "chroma": 0.7741778522821259,
+              "edgeMean": 0.32184405692822143,
+              "samples": 14773
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 561,
+            "height": 235
+          },
+          {
+            "identity": "sha256:6f1604cbb8c2b13f6cc41087d147174a7f232e5c2a2d9885d0181602276faa8a",
+            "id": "bundle-c08f850c93d3eea6",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.5336746526394875,
+              "centerMean": 0.5164565872952164,
+              "contrast": 0.1722386870711659,
+              "brightFraction": 0.5619871794871795,
+              "darkFraction": 0,
+              "chroma": 0.1442001005530194,
+              "edgeMean": 0.5673212104933312,
+              "samples": 15600
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 600,
+            "height": 648
+          },
+          {
+            "identity": "sha256:6f1604cbb8c2b13f6cc41087d147174a7f232e5c2a2d9885d0181602276faa8a",
+            "id": "bundle-c08f850c93d3eea6",
+            "channelOffset": 24829741,
+            "kind": "paper",
+            "palette": "warm",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              255,
+              235,
+              195
+            ],
+            "stats": {
+              "mean": 0.5293186877325181,
+              "centerMean": 0.514540299609602,
+              "contrast": 0.1675918125191976,
+              "brightFraction": 0.5561538461538461,
+              "darkFraction": 0,
+              "chroma": 0.15421920563094435,
+              "edgeMean": 0.5600301915328844,
+              "samples": 15600
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 600,
+            "height": 648
+          },
+          {
+            "identity": "sha256:fc3867985c4089019fe632484016c56d876bbb42e56592efff179e922b740edc",
+            "id": "bundle-a88a4f8c62b008d7",
+            "channelOffset": 972,
+            "kind": "paper",
+            "palette": "neutral",
+            "embeddedFrame": true,
+            "silhouette": false,
+            "lightRGB": [
+              239,
+              246,
+              243
+            ],
+            "stats": {
+              "mean": 0.7153210862154984,
+              "centerMean": 0.7993118108207473,
+              "contrast": 0.16226019624236618,
+              "brightFraction": 0.8382913806254767,
+              "darkFraction": 0,
+              "chroma": 0.05237704817728283,
+              "edgeMean": 0.4728956730762306,
+              "samples": 14421
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 0.42,
+              "rim": 0.24
+            },
+            "width": 1770,
+            "height": 396
+          },
+          {
+            "identity": "sha256:fc3867985c4089019fe632484016c56d876bbb42e56592efff179e922b740edc",
+            "id": "bundle-a88a4f8c62b008d7",
+            "channelOffset": 7494299,
+            "kind": "metal",
+            "palette": "cool",
+            "embeddedFrame": false,
+            "silhouette": false,
+            "lightRGB": [
+              211,
+              234,
+              255
+            ],
+            "stats": {
+              "mean": 0.4801797019793804,
+              "centerMean": 0.48761766346635255,
+              "contrast": 0.09134436778425718,
+              "brightFraction": 0.2099673202614379,
+              "darkFraction": 0,
+              "chroma": 0.04911630724779935,
+              "edgeMean": 0.4102683305212089,
+              "samples": 13464
+            },
+            "treatment": {
+              "glass": 1,
+              "light": 1,
+              "contact": 1,
+              "rim": 1
+            },
+            "width": 136,
+            "height": 396
+          }
+        ]
+      },
+      "decodedCache": 3
+    }
+  ],
+  "errors": []
+}

@@ -81,10 +81,10 @@
     section.querySelectorAll('.instrument-scale input,.instrument-scale select,.instrument-scale button').forEach(element => {
       if (!['scale-export', 'scale-import', 'scale-import-file'].includes(element.id)) element.disabled = !active;
     });
-    $('scale-skin-name').textContent = active ? scaleInfo.name || 'BIN-скин' : 'Для калибровки выберите BIN-скин вместо спектра';
+    $('scale-skin-name').textContent = active ? scaleInfo.name || 'BIN-скин' : 'Калибровка по изображению — выберите BIN-скин';
     $('scale-status').textContent = scaleInfo?.status === 'custom-anchors'
       ? 'Личные опорные точки сохранены. Точность зависит от их выравнивания со шкалой.'
-      : 'По исходным данным BIN · опорные отметки ещё не выровнены вручную.';
+      : active ? 'По исходным данным BIN · опорные отметки ещё не выровнены вручную.' : 'У приборов ATELIER шкала и положение стрелки вычисляются из одной геометрии. Опорный уровень и баллистика настраиваются выше.';
     $('scale-anchor-rows').replaceChildren(); $('scale-preview-mark').replaceChildren();
     rows = [];
     if (!active) return;
