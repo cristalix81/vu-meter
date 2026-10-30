@@ -4,6 +4,9 @@
 измерение PCM, проверяемые VU/PPM, отдельная калибровка BIN, сохранённый вход
 и экран, настройка автозапуска. **Исходники:** [desktop](desktop/README_4.2.41_RU.md).
 
+- **[Полная готовая программа — ZIP, 462 МиБ](https://github.com/cristalix81/vu-meter/raw/main/releases/AudioVisualizerPro-Desktop-VU-4.2.41.zip)**:
+  EXE, необходимые библиотеки и все 123 скина. Распакуйте и запустите
+  `Audio Visualizer Pro.exe`. Предыдущая версия не требуется.
 - [Обновление 4.2.40 → 4.2.41](releases/AudioVisualizerPro-Update-4.2.41.zip):
   закройте программу, распакуйте ZIP и запустите `UPDATE_PROGRAM.cmd`.
 - [Отдельный архив исходников](releases/AudioVisualizerPro-Source-4.2.41.zip).
