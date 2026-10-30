@@ -1,0 +1,468 @@
+{
+  "version": "4.2.41",
+  "timestamp": "2026-10-30T11:45:10.967520+00:00",
+  "nodeTests": {
+    "passed": 88,
+    "failed": 0,
+    "skipped": 0
+  },
+  "syntaxJavaScriptFiles": 24,
+  "binStructure": {
+    "files": 123,
+    "panels": 147,
+    "needleFrames": 82135,
+    "failures": 0
+  },
+  "binRendering": {
+    "files": 123,
+    "positionsPerPanel": 5,
+    "roundtripAll": true,
+    "backgroundResetAll": true,
+    "authoredDefectsFound": [
+      "vidality.bin: empty right frames, repaired at runtime by exact SHA256"
+    ],
+    "intentionalSaturation": [
+      "pioneer_m-90_gr-edited.bin",
+      "pioneer_m-90_or-edited.bin"
+    ]
+  },
+  "browser": {
+    "integration": {
+      "passed": 39,
+      "failed": 0,
+      "errors": [],
+      "checks": [
+        {
+          "name": "restores exactly saved input with no demo or input-picker prompt",
+          "passed": true
+        },
+        {
+          "name": "all123 bundled BIN skins plus spectral mode are present",
+          "passed": true
+        },
+        {
+          "name": "real continuous PCM uses AudioWorklet rather than UI snapshots",
+          "passed": true
+        },
+        {
+          "name": "nominal real stereo sine has calibrated RMS and peak",
+          "passed": true
+        },
+        {
+          "name": "left-only PCM does not invent a right channel",
+          "passed": true
+        },
+        {
+          "name": "right-only PCM remains independent",
+          "passed": true
+        },
+        {
+          "name": "20Hz RMS keeps sine calibration without phase alias bias",
+          "passed": true
+        },
+        {
+          "name": "quiet music remains measurable without a hard gate",
+          "passed": true
+        },
+        {
+          "name": "instrument diagnostics expose configurable measured profiles",
+          "passed": true
+        },
+        {
+          "name": "ballistic profiles explicitly avoid false standards certification",
+          "passed": true
+        },
+        {
+          "name": "VU/PPM attack-return and quiet stability configure independently",
+          "passed": true
+        },
+        {
+          "name": "scale is keyed by original BIN content SHA256",
+          "passed": true
+        },
+        {
+          "name": "skin sidecar independently aligns nominal L and R zero frames",
+          "passed": true
+        },
+        {
+          "name": "invalid nonmonotonic scale rejects and preserves saved alignment",
+          "passed": true
+        },
+        {
+          "name": "a different BIN keeps separate unverified defaults",
+          "passed": true
+        },
+        {
+          "name": "returning to BIN restores its independent sidecar",
+          "passed": true
+        },
+        {
+          "name": "explicit scale preview moves both pointers without starting demo",
+          "passed": true
+        },
+        {
+          "name": "leaving preview restores real measured indication",
+          "passed": true
+        },
+        {
+          "name": "explicit STOP remains stopped across device and wake notifications",
+          "passed": true
+        },
+        {
+          "name": "DEMO is explicit and separate from saved-input recovery",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: AKAI 646",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: Accuphase-A75",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: Dorrough Model",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: NAGRA KUDELSKI",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: New Green Eye",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: UNIVERSAL AUDIO",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: Hickok",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: MCINTOSH",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: Phaostron Aircraft",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: VU A",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: AEG",
+          "passed": true
+        },
+        {
+          "name": "real BIN renders without geometry loss: Tube",
+          "passed": true
+        },
+        {
+          "name": "meter stays inside desktop viewport 1920x480",
+          "passed": true
+        },
+        {
+          "name": "meter stays inside desktop viewport 1920x1080",
+          "passed": true
+        },
+        {
+          "name": "meter stays inside desktop viewport 800x480",
+          "passed": true
+        },
+        {
+          "name": "disconnected saved device retries exact ID without demo or substitute",
+          "passed": true
+        },
+        {
+          "name": "device reconnect restores the same saved capture",
+          "passed": true
+        },
+        {
+          "name": "STOP during ballistic test cancels both immediate and delayed input restoration",
+          "passed": true
+        },
+        {
+          "name": "no uncaught JavaScript, console errors, or missing resources",
+          "passed": true
+        }
+      ]
+    },
+    "settingsAndRepair": {
+      "passed": 15,
+      "failed": 0,
+      "errors": [],
+      "checks": [
+        {
+          "name": "custom ballistics survive a complete page restart without response metadata corruption",
+          "passed": true
+        },
+        {
+          "name": "exact audited Vidality asset activates a bounded right-channel compatibility repair",
+          "passed": true
+        },
+        {
+          "name": "Vidality right PCM changes only the lower needle track",
+          "passed": true
+        },
+        {
+          "name": "Vidality left PCM changes only the upper needle track",
+          "passed": true
+        },
+        {
+          "name": "supplied BIN bytes remain unchanged after runtime repair",
+          "passed": true
+        },
+        {
+          "name": "catalog loads evict unused skin textures instead of retaining every BIN",
+          "passed": true
+        },
+        {
+          "name": "existing diagnostics contains startup, monitor, dynamics and skin scale controls",
+          "passed": true
+        },
+        {
+          "name": "calibration dialog includes a visible live dial preview",
+          "passed": true
+        },
+        {
+          "name": "real settings form configures the audio engine",
+          "passed": true
+        },
+        {
+          "name": "Escape closes diagnostics and scale preview while keeping the input running",
+          "passed": true
+        },
+        {
+          "name": "explicit global STOP works inside settings and cancels visual preview",
+          "passed": true
+        },
+        {
+          "name": "failed native sidecar persistence rolls back local calibration atomically",
+          "passed": true
+        },
+        {
+          "name": "profile backup preserves all scales and ballistics above legacy64KB size",
+          "passed": true
+        },
+        {
+          "name": "instrument settings remain scrollable and within a short desktop screen",
+          "passed": true
+        },
+        {
+          "name": "no new JavaScript errors",
+          "passed": true
+        }
+      ]
+    },
+    "isolatedContinuousPCM": {
+      "checks": [
+        {
+          "name": "actual AudioWorklet loads under script-self/connect-none CSP",
+          "passed": true,
+          "detail": {
+            "source": "demo",
+            "active": true,
+            "label": "ТЕСТ БАЛЛИСТИКИ · 1 kHz · −18 / −12 dBFS PK",
+            "sampleRate": 44100,
+            "contextState": "running",
+            "measurementPath": "audio-worklet",
+            "measurementWarning": "",
+            "deviceSampleRate": 44100,
+            "channels": 2,
+            "captureSettings": null,
+            "rms": [
+              0.08901777703437502,
+              0.08901777706267129
+            ],
+            "peak": [
+              0.11711226431213446,
+              0.11713107430525527
+            ],
+            "ppm": [
+              0.12393561689616245,
+              0.12394095037231756
+            ],
+            "rawRms": [
+              0.08901946963921459,
+              0.08901946952938973
+            ],
+            "rawPeak": [
+              0.12589174509048462,
+              0.1258925348520279
+            ],
+            "noiseRms": [
+              0,
+              0
+            ],
+            "noiseDbfs": [
+              null,
+              null
+            ],
+            "noiseEstimateKind": "minimum measured 50 ms RMS over approximately 8 s; not an isolated acoustic noise measurement",
+            "measurementSequence": 119,
+            "measurementAudioTime": 1.1900226757369614,
+            "needleStability": 0
+          }
+        },
+        {
+          "name": "actual measured−18dBFS test tone aligns0VU",
+          "passed": true,
+          "detail": {
+            "rms": [
+              0.08901777703437502,
+              0.08901777706267129
+            ],
+            "vu": -0.0001651470943713207
+          }
+        },
+        {
+          "name": "1ms burst survives350ms blocked UI thread with real PCM",
+          "passed": true,
+          "detail": {
+            "rawPeak": [
+              0.8999937176704407,
+              0.8999937176704407
+            ],
+            "ppm": [
+              0.08691706619014083,
+              0.08691706619014083
+            ],
+            "audioTime": 0.5601814058956917
+          }
+        },
+        {
+          "name": "quiet100dBFS tone remains measurable with maximum stability",
+          "passed": true,
+          "detail": {
+            "db": -99.99999487909939,
+            "stability": 1,
+            "rawRms": [
+              7.071065927243724e-06,
+              7.071065927243724e-06
+            ]
+          }
+        },
+        {
+          "name": "Stop clears continuous meter without late source replacement",
+          "passed": true,
+          "detail": {
+            "source": "idle",
+            "active": false,
+            "label": "",
+            "sampleRate": 44100,
+            "contextState": "running",
+            "measurementPath": "audio-worklet",
+            "measurementWarning": "",
+            "deviceSampleRate": 0,
+            "channels": 0,
+            "captureSettings": null,
+            "rms": [
+              0,
+              0
+            ],
+            "peak": [
+              0,
+              0
+            ],
+            "ppm": [
+              0,
+              0
+            ],
+            "rawRms": [
+              0,
+              0
+            ],
+            "rawPeak": [
+              0,
+              0
+            ],
+            "noiseRms": null,
+            "noiseDbfs": null,
+            "noiseEstimateKind": "unavailable in snapshot fallback",
+            "needleStability": 1
+          }
+        },
+        {
+          "name": "no JavaScript or console errors",
+          "passed": true,
+          "detail": {
+            "errors": [],
+            "consoleErrors": []
+          }
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "passed": true
+    },
+    "savedInputIdentity": {
+      "passed": 5,
+      "failed": 0,
+      "checks": [
+        {
+          "name": "saved Windows default alias is resolved to the same physical input before capture",
+          "passed": true
+        },
+        {
+          "name": "unresolved default alias never captures a replacement default device",
+          "passed": true
+        },
+        {
+          "name": "shared audio-adapter group cannot replace a missing input with a differently named microphone",
+          "passed": true
+        },
+        {
+          "name": "explicit default selection persists the captured physical device and selects it in the picker",
+          "passed": true
+        },
+        {
+          "name": "no alias migration JavaScript errors",
+          "passed": true
+        }
+      ]
+    }
+  },
+  "nativeWindows": {
+    "execution": "not-run on Linux host",
+    "loginAndDisplays": "unit-tested with mocked Electron; actual Win10/11 validation required",
+    "updater": "built and statically inspected; Windows PowerShell execution not run",
+    "signing": "no Authenticode certificate supplied; unsigned"
+  },
+  "movementStepAt1kHz": [
+    {
+      "fps": 30,
+      "vu99Ms": 334.667,
+      "vuReturn20DbMs": 366.667,
+      "ppm90Ms": 33.333,
+      "ppmReturn20DbMs": 3468
+    },
+    {
+      "fps": 60,
+      "vu99Ms": 318.667,
+      "vuReturn20DbMs": 366.667,
+      "ppm90Ms": 52,
+      "ppmReturn20DbMs": 3468
+    },
+    {
+      "fps": 120,
+      "vu99Ms": 318.667,
+      "vuReturn20DbMs": 366.667,
+      "ppm90Ms": 44,
+      "ppmReturn20DbMs": 3460
+    }
+  ],
+  "standardsCompliance": "descriptive testable digital profiles, not IEC/ANSI certified",
+  "unchangedBundledBinsVerified": 123,
+  "installer": {
+    "built": true,
+    "format": "NSIS / Windows PE",
+    "bytes": 483211864,
+    "signed": false,
+    "installAndUninstallExecution": "not-run; requires Windows10/11",
+    "preservesUserData": true
+  },
+  "appAsarSha256": "1a7c4c36caedf33f0fd5fa9b0ab06a8157f41fa730528d7b4eeb28d30cc0fd1b"
+}

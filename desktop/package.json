@@ -1,0 +1,21 @@
+{
+  "name": "audio-visualizer-pro-studio-reborn",
+  "productName": "Audio Visualizer Pro",
+  "version": "4.2.41",
+  "description": "Desktop VU meter with instrument startup, independent skin-scale calibration and testable audio ballistics",
+  "author": "Audio Visualizer Pro Studio",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "check": "node tools/check-project.cjs",
+    "test": "node --test",
+    "pack:asar": "node tools/pack_asar.cjs pack . dist/app.asar",
+    "dist:win": "electron-builder --config tools/electron-builder.config.cjs --win --x64"
+  },
+  "devDependencies": {
+    "electron": "37.10.3",
+    "electron-builder": "26.0.12"
+  }
+}

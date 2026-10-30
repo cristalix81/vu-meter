@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0e">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'">
+  <title>AV PRO · User BIN VU Meter</title>
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="spectral-waterfall.js" defer></script>
+  <script src="spectrum-engine.js" defer></script>
+  <script src="meter-ballistics.js" defer></script>
+  <script src="audio-engine.js" defer></script>
+  <script src="fbbin.js" defer></script>
+  <script src="skin-calibration.js" defer></script>
+  <script src="bin-look.js" defer></script>
+  <script src="skin-repairs.js" defer></script>
+  <script src="fbskins.js" defer></script>
+  <script src="skin-creator.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="instrument-settings.js" defer></script>
+</head>
+<body data-theme="waterfall">
+  <main class="device" id="stage" aria-label="Стереоиндикатор AV PRO">
+    <div class="instrument" id="instrument">
+      <canvas id="ambient" width="160" height="40" aria-hidden="true"></canvas>
+<canvas id="meter-canvas" role="img" aria-label="Золотой стереоиндикатор VU с двумя подвижными стрелками"></canvas>
+      <div class="loading" id="loading" role="status">Подготовка приборов…</div>
+    </div>
+      
+    
+    
+    <div class="hud hud-top" id="hud-top">
+  <button class="catalog-trigger" id="catalog-open" type="button" aria-haspopup="dialog">☷ <span>ПРИБОРЫ И СКИНЫ</span></button>
+  <section class="meter-monitor" aria-label="Калиброванный контроль стереосигнала">
+    <div class="monitor-heading">
+      <div class="monitor-source"><span class="monitor-kicker">INPUT MONITOR</span><strong id="input-format">ВХОД НЕ ПОДКЛЮЧЁН</strong><span id="signal-state" class="signal-state">WAITING</span></div>
+      <label class="vu-reference">0 VU @ <select id="vu-reference" aria-label="Опорный уровень 0 VU"><option value="-24">−24</option><option value="-20">−20</option><option value="-18">−18</option><option value="-14">−14</option></select> dBFS PK sine</label>
+      <label class="needle-drive">СТРЕЛКА <select id="needle-drive" aria-label="Режим стрелок"><option value="vu">VU · RMS</option><option value="ppm">PPM · PEAK</option></select></label>
+      <button id="ballistics-test" type="button" title="Запустить контролируемый тест отклика стрелок">ТЕСТ БАЛЛИСТИКИ</button>
+      <div class="clip-summary"><button id="signal-check-open" type="button" title="Проверка каналов, уровня, тишины и клиппинга">ДИАГНОСТИКА</button><span id="clip-status">NO CLIP</span><button id="peak-reset" type="button" title="Сбросить peak hold и индикаторы клиппинга">СБРОС ПИКА</button></div>
+    </div>
+    <div class="monitor-lanes">
+      <div class="monitor-lane" data-channel="left"><b class="channel-mark">L</b><div class="monitor-track"><i id="bar-0"></i><b id="peak-marker-0" hidden></b></div><strong id="vu-0">— VU</strong><span id="rms-0">RMS — dBFS</span><span id="peak-0">PK −∞ dBFS</span><em id="clip-0">CLIP</em></div>
+      <div class="monitor-lane" data-channel="right"><b class="channel-mark">R</b><div class="monitor-track"><i id="bar-1"></i><b id="peak-marker-1" hidden></b></div><strong id="vu-1">— VU</strong><span id="rms-1">RMS — dBFS</span><span id="peak-1">PK −∞ dBFS</span><em id="clip-1">CLIP</em></div>
+    </div>
+  </section>
+</div>
+<dialog class="input-dialog instrument-tool-dialog" id="signal-check-dialog" aria-label="Диагностика аудиосигнала">
+  <header><strong>ДИАГНОСТИКА СИГНАЛА · LIVE</strong><button id="signal-check-close" type="button" aria-label="Закрыть">×</button></header>
+  <p>Показываются сырые уровни аудиовхода до TRIM и калибровочной поправки. Sample peak — пиковое PCM-значение в окне чтения, не true-peak и не измерение аналогового клиппинга до АЦП.</p>
+  <div class="diagnostic-overview"><span id="diagnostic-summary">ОЖИДАНИЕ ПОДКЛЮЧЕНИЯ</span><span id="diagnostic-format">—</span></div>
+  <div class="diagnostic-channels"><article><b>L</b><strong id="diagnostic-left">RMS — · PK —</strong><small id="diagnostic-left-status">Нет сигнала</small></article><article><b>R</b><strong id="diagnostic-right">RMS — · PK —</strong><small id="diagnostic-right-status">Нет сигнала</small></article></div>
+  <small id="diagnostic-advice">Подключите вход и подайте тестовый сигнал. Проверьте, что оба канала активны и нет перегрузки.</small>
+</dialog>
+<dialog class="input-dialog instrument-tool-dialog" id="input-calibration-dialog" aria-label="Калибровка выбранного аудиовхода">
+  <header><strong>КАЛИБРОВКА ТЕКУЩЕГО ВХОДА</strong><button id="input-calibration-close" type="button" aria-label="Закрыть">×</button></header>
+  <p>Подайте на выбранный вход известный непрерывный синус 1 kHz. Укажите его ожидаемый цифровой peak dBFS. Калибровка добавит только поправку отображения для этого аудиовхода; усиление Windows и сами аудиоданные не меняются. Это практическое цифровое выравнивание, не лабораторная калибровка в вольтах.</p>
+  <label class="input-picker">ОЖИДАЕМЫЙ УРОВЕНЬ СИНУСА <select id="calibration-tone-level"><option value="-24">−24 dBFS peak</option><option value="-20">−20 dBFS peak</option><option selected value="-18">−18 dBFS peak</option><option value="-14">−14 dBFS peak</option><option value="-12">−12 dBFS peak</option><option value="-6">−6 dBFS peak</option></select></label>
+  <div class="calibration-readout"><span id="calibration-device">Вход не подключён</span><strong id="calibration-live-level">Ожидается стабильный сигнал</strong><small id="calibration-result">Измерение усреднит 3 секунды устойчивого сигнала.</small></div>
+  <footer><button id="calibration-clear" type="button">СБРОСИТЬ ПОПРАВКУ ВХОДА</button><button id="calibration-start" type="button">НАЧАТЬ 3-СЕКУНДНОЕ ИЗМЕРЕНИЕ</button></footer>
+</dialog>
+<dialog class="skin-dialog profile-dialog" id="profile-dialog" aria-label="Профили и резервная копия настроек">
+  <header class="catalog-header"><div><strong>ПРОФИЛИ И РЕЗЕРВНАЯ КОПИЯ</strong><small>Скин, раскладка, TRIM, калибровка, вход, автосмена и привязки пульта</small></div><button id="profile-close" type="button" aria-label="Закрыть">×</button></header>
+  <div class="profile-toolbar"><label>СОХРАНЁННЫЙ ПРОФИЛЬ <select id="profile-select"><option value="">Нет профилей</option></select></label><button id="profile-save" type="button">СОХРАНИТЬ ТЕКУЩИЙ</button><button id="profile-apply" type="button" disabled>ПРИМЕНИТЬ</button><button id="profile-export" type="button" disabled>ЭКСПОРТ JSON</button><button id="profile-import" type="button">ИМПОРТ JSON</button><input id="profile-file" type="file" accept="application/json,.json" hidden><button id="profile-delete" type="button" disabled>УДАЛИТЬ</button></div>
+  <p>Профиль сохраняет вход, баллистику и отдельные калибровки шкал. После применения интерфейс перезапускается; сохранённый вход подключается в режиме прибора. STOP отменяет автоматическое восстановление до следующего явного подключения или нового запуска.</p>
+  <small>Экспорт включает идентификаторы и названия аудиоустройств, настройки и калибровки, без аудиозаписей и BIN-файлов. Проверьте содержимое перед передачей профиля другим людям.</small>
+</dialog>
+<dialog class="skin-dialog" id="skin-dialog" aria-label="Каталог приборов и скинов">
+  <header class="catalog-header"><div><strong>КАТАЛОГ ПРИБОРОВ</strong><small>Массовое добавление и удаление BIN; исходники пользовательских скинов можно отправить в Корзину</small></div><div class="catalog-actions"><button id="skin-select-toggle" type="button" aria-pressed="false">ВЫБРАТЬ</button><button id="skin-select-all" type="button" hidden>ВЫБРАТЬ ВСЕ</button><button id="skin-batch-delete" type="button" hidden disabled>УДАЛИТЬ (0)</button><button id="skin-import" type="button" title="Выбрать и добавить сразу несколько BIN-файлов">＋ ДОБАВИТЬ BIN-ФАЙЛЫ</button><button id="catalog-close" type="button" aria-label="Закрыть">×</button></div></header>
+  <button id="skin-create-open" type="button" title="Создать BIN-скин из изображения циферблата">＋ СОЗДАТЬ СКИН ИЗ ИЗОБРАЖЕНИЯ</button>
+  <div id="skin-grid" class="skin-grid"></div>
+</dialog>
+<dialog class="creator-dialog" id="skin-creator-dialog" aria-label="Создание BIN-скина из изображения">
+  <header><div><strong>МАСТЕР СОЗДАНИЯ BIN-СКИНА</strong><small>Изображение циферблата → рабочий стерео-VU прибор</small></div><button id="skin-creator-close" type="button" aria-label="Закрыть">×</button></header>
+  <p>Загрузите циферблат без подвижной стрелки, задайте ось и крайние углы хода. Для двойного прибора выберите изображение двух циферблатов рядом и нажмите кнопку добавления второго прибора: левую и правую половины BIN будут управляться отдельно каналами L/R. Используйте изображения, на которые у вас есть права.</p>
+  <div class="creator-source"><label>ФАЙЛ ИЗОБРАЖЕНИЯ <input id="creator-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp"></label><div class="creator-url"><input id="creator-url" type="url" placeholder="https://сайт/циферблат.png" aria-label="HTTPS-ссылка на изображение"><button id="creator-download" type="button">СКАЧАТЬ ПО ССЫЛКЕ</button></div></div>
+  <div class="creator-mode"><button id="creator-dual-toggle" type="button" aria-pressed="false">＋ ДОБАВИТЬ ВТОРОЙ ПРИБОР / СТРЕЛКУ</button><small id="creator-mode-help">Один циферблат будет использоваться для обоих стереоканалов.</small></div>
+  <div class="creator-preview-wrap"><canvas id="creator-preview" width="400" height="250" aria-label="Просмотр циферблата; щёлкните, чтобы отметить ось стрелки"></canvas><span id="creator-image-hint">Сначала загрузите изображение циферблата</span></div>
+  <div class="creator-controls">
+    <label>НАЗВАНИЕ <input id="creator-name" type="text" maxlength="80" value="Мой VU Meter"></label>
+    <label>УГОЛ ВЛЕВО <output id="creator-start-value">−140°</output><input id="creator-start" type="range" min="-180" max="180" value="-140"></label>
+    <label>УГОЛ ВПРАВО <output id="creator-end-value">−40°</output><input id="creator-end" type="range" min="-180" max="180" value="-40"></label>
+    <label>ДЛИНА СТРЕЛКИ <output id="creator-length-value">42%</output><input id="creator-length" type="range" min="10" max="90" value="42"></label>
+    <label>ТОЛЩИНА <output id="creator-width-value">0.8%</output><input id="creator-width" type="range" min="2" max="40" value="8"></label>
+    <label>ЦВЕТ СТРЕЛКИ <input id="creator-color" type="color" value="#c83224"></label>
+    <label>ПОЛОЖЕНИЕ 0 VU <output id="creator-zero-value">78%</output><input id="creator-zero" type="range" min="55" max="95" value="78"></label>
+    <label>КАДРОВ СТРЕЛКИ <select id="creator-frames"><option>41</option><option selected>61</option><option>81</option><option>101</option></select></label>
+  </div>
+  <div class="creator-bottom"><small id="creator-status">Подсказка: точка поворота — центр крепления стрелки на картинке.</small><div><button id="creator-preview-toggle" type="button" disabled>ПРОВЕРИТЬ ХОД</button><button id="creator-save" type="button" disabled>СОЗДАТЬ BIN-СКИН</button></div></div>
+</dialog>
+<dialog class="view-dialog" id="skin-view-dialog" aria-label="Масштаб и положение текущего скина">
+  <header><strong>РАСКЛАДКА СКИНА</strong><button id="skin-view-close" type="button" aria-label="Закрыть">×</button></header>
+  <p>Настройка применяется только к отображению: исходный BIN-файл и механика стрелок не изменяются. Параметры сохраняются отдельно для каждого скина.</p>
+  <div class="view-adjustments">
+    <label for="skin-view-scale"><span>МАСШТАБ</span><output id="skin-view-scale-value">100%</output></label><input id="skin-view-scale" type="range" min="70" max="150" step="1" value="100" aria-label="Масштаб скина">
+    <label for="skin-view-x"><span>ПО ГОРИЗОНТАЛИ</span><output id="skin-view-x-value">0%</output></label><input id="skin-view-x" type="range" min="-20" max="20" step="1" value="0" aria-label="Горизонтальное положение скина">
+    <label for="skin-view-y"><span>ПО ВЕРТИКАЛИ</span><output id="skin-view-y-value">0%</output></label><input id="skin-view-y" type="range" min="-20" max="20" step="1" value="0" aria-label="Вертикальное положение скина">
+  </div>
+  <footer><button id="skin-view-reset" type="button">ПО ЦЕНТРУ · 100%</button><button id="skin-view-done" type="button">ГОТОВО</button></footer>
+</dialog>
+<dialog class="background-dialog" id="skin-background-dialog" aria-label="Редактор фона внутри текущего BIN-скина">
+  <header><strong>ЦВЕТ ФОНА ПРИБОРОВ</strong><button id="skin-background-close" type="button" aria-label="Закрыть">×</button></header>
+  <label class="background-picker">ФОН BIN-СКИНА ВОКРУГ ЦИФЕРБЛАТОВ <input id="skin-background-color" type="color" value="#080808"></label>
+  <footer><button id="skin-background-reset" type="button">ИСХОДНЫЙ ЦВЕТ</button><button id="skin-background-apply" type="button">ГОТОВО</button></footer>
+</dialog>
+<dialog class="input-dialog usb-remote-dialog" id="usb-remote-dialog" aria-label="Настройка USB-кнопок и энкодера">
+  <header><strong>USB-ПУЛЬТ · КЛАВИШИ И ЭНКОДЕР</strong><button id="usb-remote-close" type="button" aria-label="Закрыть">×</button></header>
+  <p>Устройство должно определяться Windows как клавиатура. Нажмите «НАЗНАЧИТЬ», затем нажмите нужную кнопку или поверните энкодер в нужную сторону. Макропад должен передавать обычные клавиши; мультимедийная громкость Windows может не поступать в приложение.</p>
+  <div class="usb-bindings" id="usb-bindings">
+    <div class="usb-binding"><span>Предыдущий скин</span><button type="button" data-bind="skinPrev">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="skinPrev" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>Следующий скин</span><button type="button" data-bind="skinNext">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="skinNext" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>Вкл. / выкл. автосмену</span><button type="button" data-bind="autoRotation">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="autoRotation" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>TRIM −0,5 dB</span><button type="button" data-bind="trimDown">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="trimDown" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>TRIM +0,5 dB</span><button type="button" data-bind="trimUp">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="trimUp" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>Сброс TRIM в 0 dB</span><button type="button" data-bind="resetTrim">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="resetTrim" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>DEMO</span><button type="button" data-bind="demo">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="demo" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>STOP</span><button type="button" data-bind="stop">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="stop" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>Выбор аудиовхода</span><button type="button" data-bind="input">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="input" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>Полный экран</span><button type="button" data-bind="fullscreen">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="fullscreen" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>Компактный режим</span><button type="button" data-bind="compact">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="compact" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+    <div class="usb-binding"><span>Кнопка энкодера</span><button type="button" data-bind="encoderPress">НЕ НАЗНАЧЕНО</button><button type="button" data-global-bind="encoderPress" title="Необязательное глобальное сочетание клавиш">GLOBAL</button></div>
+  </div>
+  <label class="usb-power-choice">ДЕЙСТВИЕ НА КНОПКУ ЭНКОДЕРА
+    <select id="usb-power-action">
+      <option value="reset">Безопасно: сброс TRIM в 0 dB</option>
+      <option value="sleep">Короткое нажатие: сон Windows</option>
+      <option value="shutdown">Короткое нажатие: выключение с подтверждением</option>
+      <option value="sleep-shutdown">Короткое: сон · удержание 0,8 с: выключение с подтверждением</option>
+    </select>
+  </label>
+  <small>После полного выключения Windows приложение не может включить ПК. Пробуждение USB-клавиатурой из сна зависит от Windows, BIOS/UEFI и настройки USB Wake. Выключение откладывается на 30 секунд и требует подтверждения; отмена — командой shutdown /a. Глобальные сочетания требуют Ctrl/Alt/Shift/Win и могут конфликтовать с другими программами; отдельные клавиши остаются локальными.</small>
+  <footer><button id="usb-bindings-reset" type="button">СБРОСИТЬ ПРИВЯЗКИ</button><button id="usb-remote-done" type="button">ГОТОВО</button></footer>
+</dialog>
+<dialog class="input-dialog" id="input-dialog" aria-label="Выбор входа звука">
+  <header><strong>ВЫБОР ВХОДА ЗВУКА</strong><button id="input-close" type="button" aria-label="Закрыть">×</button></header>
+  <p>Показываются аудиовходы Windows: микрофон и LINE IN, USB-аудиокарты, гарнитуры, веб-камеры и виртуальные входы. Первый выбранный источник подключается после «ПОДКЛЮЧИТЬ» и сохраняется. При следующих запусках программа подключает сохранённый вход автоматически и пытается восстановить его после сна Windows или переподключения устройства; на другой источник молча не переключается.</p>
+  <label class="input-picker">УСТРОЙСТВО <select id="audio-input-device" aria-label="Выберите вход микрофона или линейный вход"><option value="">Загрузка аудиовходов…</option></select></label>
+  <footer><button id="input-calibration-open" type="button">КАЛИБРОВКА ВХОДА</button><button id="input-refresh" type="button">ОБНОВИТЬ СПИСОК ВСЕХ ВХОДОВ</button><button id="input-connect" type="button">ПОДКЛЮЧИТЬ</button></footer>
+  <small id="input-hint">Подключается только выбранный вход. После первого успешного подключения он запускается автоматически при старте программы.</small>
+</dialog>
+<div class="hud hud-bottom" id="hud-bottom">
+<section class="skin-rotation-controls" id="skin-rotation-controls" aria-label="Автоматическая смена скинов">
+      <label for="skin-rotation-order">АВТОСМЕНА</label>
+      <select id="skin-rotation-order" aria-label="Порядок смены скинов"><option value="sequential">ПО ПОРЯДКУ</option><option value="random">СЛУЧАЙНО</option></select>
+      <label for="skin-rotation-interval">ИНТЕРВАЛ, СЕК</label>
+      <input id="skin-rotation-interval" type="number" min="5" max="86400" step="1" value="30" aria-label="Интервал смены в секундах">
+      <button id="skin-rotation-toggle" type="button" aria-pressed="false">ЗАПУСТИТЬ</button>
+    </section>
+<section class="skin-edit-controls" id="skin-edit-controls" aria-label="Настройка расстояния между BIN-панелями" hidden>
+      <div class="spacing-control"><label for="skin-spacing"><span>СЖАТЬ ← РАССТОЯНИЕ → РАЗДВИНУТЬ</span><output id="skin-spacing-value">0%</output></label><input id="skin-spacing" type="range" min="-100" max="100" step="1" value="0" aria-label="Сжать или раздвинуть приборы"></div>
+      <button id="skin-spacing-reset" type="button" title="Вернуть исходное расположение приборов">ИСХОДНОЕ</button>
+      <button id="skin-spacing-save" type="button" disabled title="Сохранить раздвинутый вариант отдельным пользовательским BIN">СОХРАНИТЬ BIN</button>
+    </section>
+<nav class="control-deck" aria-label="Управление прибором">
+      <div class="source-controls" role="group" aria-label="Источник звука">
+        <span class="source-status" id="source-status" role="status"><i></i><span id="source-label">НЕТ СИГНАЛА</span></span>
+        <button id="input-open" title="Выбрать любое доступное устройство аудиозахвата Windows">ВЫБОР ВХОДА</button>
+        <span class="trim-status" id="trim-status" title="Чувствительность стрелок. Колесо мыши над приборами">TRIM 0 dB</span>
+        <button id="demo" title="Запустить беззвучный тест стрелок и индикаторов (D)">DEMO</button>
+        <button id="stop" title="Остановить захват (Esc)">STOP</button>
+      </div>
+      <div class="view-controls" role="group" aria-label="Экран">
+        <button id="skin-view-open" type="button" hidden title="Масштаб и положение скина">РАЗМЕР / ПОЗИЦИЯ</button>
+        <button id="skin-background-open" type="button" hidden title="Изменить цвет фона текущего скина">ЦВЕТ ФОНА</button>
+        <button id="compact-toggle" type="button" aria-pressed="false" title="Компактный экран 1920 × 480">КОМПАКТ</button>
+        <button id="always-on-top" type="button" aria-pressed="true" title="Закрепить поверх остальных окон">ПОВЕРХ ✓</button>
+        <button id="fullscreen" title="Полный экран (двойной щелчок)" aria-label="Полный экран">⛶</button>
+        <button id="usb-remote-open" type="button" title="Настроить USB-кнопки и энкодер">USB-ПУЛЬТ</button>
+        <button id="profile-open" type="button" title="Профили и резервная копия настроек">ПРОФИЛИ</button>
+        <button id="stage-style-toggle" type="button" title="Переключить кино-рамку и полноэкранный вывод">SHOWROOM</button>
+      </div>
+    </nav>
+<footer class="caption"><span>AV PRO <b>AUDIO INSTRUMENTS</b></span><span id="meter-description">GOLD VU · 0 VU = −18 dBFS PK sine</span><span class="channel-legend" id="channel-legend">LEFT / RIGHT</span></footer>
+</div>
+    <div class="clip-alert" id="clip-alert" role="alert" hidden>CLIP · ПЕРЕГРУЗКА ВХОДА</div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+  <aside class="window-size-readout" id="window-size-readout" aria-label="Текущий размер области окна приложения" title="Яркость изображения прибора: Ctrl+Alt+↑ / Ctrl+Alt+↓ · сброс: Ctrl+Alt+0">
+    <span>ОБЛАСТЬ ОКНА</span><strong id="window-size-css">— × — CSS px</strong>
+    <small id="window-size-physical">Физический эквивалент: — × — px</small>
+  </aside>
+</body>
+</html>

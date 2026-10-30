@@ -1,0 +1,2144 @@
+{
+  "files": 123,
+  "panels": 147,
+  "needleFrames": 82135,
+  "structuralFailures": [],
+  "records": [
+    {
+      "name": "02-edited.bin",
+      "bytes": 2911546,
+      "sha256": "7d1a79284f967ff61ffa3acb4856abf3191a93a1fa543d4b9780ff534039ebb3",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1000,
+          "h": 500,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "03_onv-edited.bin",
+      "bytes": 2063996,
+      "sha256": "6a6e50a69d54b7078f4681b84452d7cb30ee4e42b06ed4deb921917f2f8d183d",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 711,
+          "h": 378,
+          "n": 200,
+          "zero": 126,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "06_onv-edited.bin",
+      "bytes": 1523790,
+      "sha256": "0d60b39d26c4f82fb965cd7e0e0ef4aebd7dcaf11c4c80ce85bb7c7bfaf93ad7",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 400,
+          "h": 310,
+          "n": 201,
+          "zero": 113,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "08-5_onv-edited.bin",
+      "bytes": 4602473,
+      "sha256": "4f5e80ffa1a1e428d4394257b40caa7b58262ded2b87274632b88fa8282e059a",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1157,
+          "h": 639,
+          "n": 209,
+          "zero": 147,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "1._2.4.artistic blur.frameScratches03-edited.bin",
+      "bytes": 3640594,
+      "sha256": "0a6d8e6f6cf2af6732cb01fbc87e1391333c1b8c4d50e8f9c5f216a8b76e65e4",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 660,
+          "h": 306,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "1LE-edited.bin",
+      "bytes": 1653593,
+      "sha256": "dbb1754e38c8463d8487ce588decbc03d99d75c701e3086df7992ad9889826a9",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 400,
+          "h": 400,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "1skin-edited.bin",
+      "bytes": 5151460,
+      "sha256": "e614a7a3a6f8b646e75314bbe888c6cb675ff0fbdcadb196184142db65ba8754",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 800,
+          "n": 1024,
+          "zero": 513,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "2skin-edited.bin",
+      "bytes": 5164521,
+      "sha256": "96ecc803f07f7d7451c8a8c29ec22cfed09dd3691992ce42d3a040a312c69d23",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 708,
+          "h": 700,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "2vladj-edited.bin",
+      "bytes": 3494869,
+      "sha256": "b19199790f9d384f3091bab226f9cbab573bec96bb5299eacbbd0028acbf3e04",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 520,
+          "h": 500,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "5Q-edited.bin",
+      "bytes": 3819991,
+      "sha256": "b06b176a4b1fbf97594611aef1c62d8c919ae10caa00f1eb6ebd09e3972e87a4",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 578,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "7inch_3 (mod DarkOne)-edited.bin",
+      "bytes": 5846056,
+      "sha256": "3bba04a7c79283a94ef4a627ec0db2d5fab874ab4c0efab7c8993e2e96aed4e8",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 740,
+          "h": 371,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "7inch_3 mod antonyb v3-edited.bin",
+      "bytes": 6942605,
+      "sha256": "aa1fd24969752f25ca515ade8290c00d1f7425a06bef207dd67347eb183d3d01",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 740,
+          "h": 371,
+          "n": 211,
+          "zero": 133,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "AEG.bin",
+      "bytes": 11281210,
+      "sha256": "6c10f58fe734bd585aaba617bfb30249a138748bf20677efd6303423730ee3d2",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 900,
+          "h": 900,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "AKAI 646.bin",
+      "bytes": 5474033,
+      "sha256": "0ed9a9089bbab053e073cb69bd9264d48af1ec511a9721382529b9d92bf0042d",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 649,
+          "h": 312,
+          "n": 241,
+          "zero": 120,
+          "flags": 0
+        },
+        {
+          "w": 649,
+          "h": 312,
+          "n": 241,
+          "zero": 120,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Abstimmung_Unbekannt-edited.bin",
+      "bytes": 1064407,
+      "sha256": "f836826ba1179a378d0106a5ea58f03bec9b8a65038605c301c25825dda61268",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 557,
+          "h": 237,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Accuphase-A75 2-edited.bin",
+      "bytes": 2360052,
+      "sha256": "679af18be1c0e4ec1ffba2092c0d8132d0f1346075175f241f718ca6d600e184",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 144,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Allen Light Lamp HD1-edited.bin",
+      "bytes": 6006789,
+      "sha256": "ca28a8b739f6b8fbb62ce67f7ddb295ceb8f3c89046ae6d76b64e7c18a874c81",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 445,
+          "h": 447,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Altec 9440.bin",
+      "bytes": 5883458,
+      "sha256": "bbcb5424a2390125746c061a2220cb4c7f2cb01e9c6f31cbfe27143fae0170b8",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 800,
+          "h": 612,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 800,
+          "h": 612,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Ampex (for DarkOne)-edited.bin",
+      "bytes": 8068325,
+      "sha256": "a662c5f01003cf6ac12edd5467b0e6767371e2793fb3d00f349f4a6121942044",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 722,
+          "h": 650,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Ashdown Engineering.bin",
+      "bytes": 1268116,
+      "sha256": "ed52dca333b804d9cb74e7b91f28c8e5b703ab4f90d6ce55db8e88b515730863",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 418,
+          "h": 336,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Auric Flow.bin",
+      "bytes": 7292425,
+      "sha256": "ed79e4d5a96089ba1a9f410095c7674f1bb6760a5a7e65e127844da41a6a80ff",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1056,
+          "h": 992,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "BMW750-edited.bin",
+      "bytes": 3412861,
+      "sha256": "57fb027e72ac3b94387b387c7c4b7bbadfeab68fd604f9ecd2f273fb2fab6c69",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 400,
+          "h": 360,
+          "n": 205,
+          "zero": 129,
+          "flags": 0
+        },
+        {
+          "w": 400,
+          "h": 360,
+          "n": 205,
+          "zero": 129,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "BOSE 1801 (mod DarkOne)-edited.bin",
+      "bytes": 2632601,
+      "sha256": "55255f74663714220564ba9572fdf4be467a60d7fda677c455157cbe6c06d2fc",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 870,
+          "h": 404,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "BOSE w.bin",
+      "bytes": 3031402,
+      "sha256": "8d71536a0e17cb79aed6b85d72de97faac83d8a50702542ceab255a405f26a10",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 900,
+          "h": 434,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "BPL.bin",
+      "bytes": 13997571,
+      "sha256": "5b56980a1376d6c399d1fbd8dea15661c0b05a12f38026f8fb47fee9c8a9de8f",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 900,
+          "h": 900,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Black 2019-edited.bin",
+      "bytes": 1321293,
+      "sha256": "5efb9884f58044c21694b219d1c77b359b5b1777fe675dd2309ad23b455c6e4d",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 262,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Blue-2-edited.bin",
+      "bytes": 1161467,
+      "sha256": "2b78edabc15b492a2c15bf660a163c8f4b174334ef649b853a8b0a76f2516e1a",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 130,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Brocker Labs.bin",
+      "bytes": 2071391,
+      "sha256": "efbebfb0fe678af949b9f327fed6d8e6f9f978878875528d41727a69ddf8cbef",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 440,
+          "h": 320,
+          "n": 241,
+          "zero": 191,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Burlington 01.bin",
+      "bytes": 9572441,
+      "sha256": "a098f8f22e1599d2beeebe74655415c9c4527c0b05c896743cbaf29fd1923e20",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 800,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Classic101-edited.bin",
+      "bytes": 969465,
+      "sha256": "bfacec5a4dd29f81d98dd8f222fefaf1145c64c2801f275f173ba8b6722626eb",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 400,
+          "h": 251,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Coleman Audio-edited.bin",
+      "bytes": 3963842,
+      "sha256": "9926c62d4beecb8054fea72419735f2f01145a3afe16fcb7f7cd855de532f105",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 750,
+          "h": 375,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Crest Audio antonyb-edited.bin",
+      "bytes": 1110165,
+      "sha256": "bdd42f4fcad1e6f4035e4455537d23cb9fb03d49355478cba07de3b0b6c51d97",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 417,
+          "h": 231,
+          "n": 209,
+          "zero": 147,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Cupper Weston big-edited.bin",
+      "bytes": 7054453,
+      "sha256": "f0f677e7e0890b039d798a288a8c2582bed14f5570eca8e1b520f7927baed2d9",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 740,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Denon-edited.bin",
+      "bytes": 1440948,
+      "sha256": "389bba69b8c849128d23dea872ba9a9cdf5db6c1d9d5d5a17df335e328c4aefd",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 347,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Dorrough Model 40 AES EBU2-edited.bin",
+      "bytes": 3354323,
+      "sha256": "c25976e9a8b723c9f86230f01a5f8a28a86d321a19176fad52836cb62d12556b",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 585,
+          "h": 204,
+          "n": 1024,
+          "zero": 1024,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "D’Agostino 1.bin",
+      "bytes": 26147777,
+      "sha256": "c2b1ab8aa1e1334cecc31c51b7edfc7edb732078f68a2ce4eda08277624f21b9",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 600,
+          "h": 1200,
+          "n": 241,
+          "zero": 135,
+          "flags": 0
+        },
+        {
+          "w": 600,
+          "h": 1200,
+          "n": 241,
+          "zero": 135,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "FM-Stereo-edited.bin",
+      "bytes": 4573603,
+      "sha256": "a16631c8411c032815c667a03f4ce1ce0e97b8636b7a7dbb5ea7fc2f451aca16",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 780,
+          "h": 390,
+          "n": 1024,
+          "zero": 513,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Foxboro-edited.bin",
+      "bytes": 3771102,
+      "sha256": "d223346d9cf0023ef18991a2f107a8c7c06d1c4a93b1ffd0a62868c1e775de0b",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 410,
+          "h": 391,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "General Electric_HD (for DarkOne)-edited.bin",
+      "bytes": 6807543,
+      "sha256": "491e0e3af0c208e112d684528f1d1d97ae1e88867697aa9d41e75e2d2ddb828b",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 853,
+          "h": 820,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Grundig TK 248 HiFi-edited.bin",
+      "bytes": 1437350,
+      "sha256": "25a53a41d0f7e3caaf4319121dbe90d233f1c834b3a9e9ae1d98387e815aa9c1",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 646,
+          "h": 268,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "HBs-edited.bin",
+      "bytes": 3406966,
+      "sha256": "2297acda78602907459fec91ccf9fb62f403af69244d9977959d20eb61641859",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 500,
+          "h": 512,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Harmonizer.bin",
+      "bytes": 3194998,
+      "sha256": "a93a81610d79b8874852baa951a3fc950543b253df1babbc4723beff33e8f417",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 880,
+          "h": 700,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Hartmann & Braun 2 V2.0.bin",
+      "bytes": 16384358,
+      "sha256": "1721d580d038f294133b11eb94d50560f5dfa46b30903d04d880357b94e586eb",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1033,
+          "h": 991,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Hickok_HD (mod DarkOne)-edited.bin",
+      "bytes": 11332647,
+      "sha256": "3c4327e02ce0e96683dd5447043213cb29891e0190846dced33ab2d10f45ffc2",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 900,
+          "h": 836,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "JVC_D10.bin",
+      "bytes": 12752540,
+      "sha256": "db37addfd99b73fd393924d1aae2a601e858ba1edd355cf70d8834bd0a6133b1",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 900,
+          "h": 603,
+          "n": 241,
+          "zero": 107,
+          "flags": 0
+        },
+        {
+          "w": 900,
+          "h": 603,
+          "n": 241,
+          "zero": 107,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "LM 500.bin",
+      "bytes": 1518125,
+      "sha256": "9dee712cb94fdae1a46c4c44a828de549aeecf0981a4a346e0032d39cb9ba89a",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 420,
+          "h": 424,
+          "n": 241,
+          "zero": 76,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Light.bin",
+      "bytes": 9856553,
+      "sha256": "5ca253bb6720bb37ef92ac4ae59e53be29e8ff07a964ff690634559487418df3",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1500,
+          "h": 1000,
+          "n": 241,
+          "zero": 135,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "M358-edited.bin",
+      "bytes": 1406224,
+      "sha256": "2d8276767fb4cd126f9cc615e71fc1fe80a996413a6bd2bbd2208f953ce1eb11",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 420,
+          "h": 420,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "MCINTOSH MPM4000-edited.bin",
+      "bytes": 1089343,
+      "sha256": "280c11a5b705068422753966c4c29898a0894aa63646eaff4877cf9e61a06e09",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 561,
+          "h": 235,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "MIX.bin",
+      "bytes": 2588784,
+      "sha256": "daa236422322bd1183417893a59d89c8e1ccf4374911ad7396e842ab1fba0a6b",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 451,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Maidstone.bin",
+      "bytes": 11827136,
+      "sha256": "dd68a825cb310d4e4df994816e536f5a705edb327476766e997c6b462e109b36",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1020,
+          "h": 1020,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Marion Electrical.bin",
+      "bytes": 3947250,
+      "sha256": "eb3af1c8620cf83dd18f8f762d5635d806af3de6d487962f28c1b79d9ad31bea",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 540,
+          "h": 540,
+          "n": 241,
+          "zero": 135,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Metal (mod DarkOne)-edited.bin",
+      "bytes": 3068244,
+      "sha256": "e0bddcafce03cb156d43ba7e11908cf8b5bb70e65688ae6d5a946074cfaa5ff4",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 784,
+          "h": 406,
+          "n": 1024,
+          "zero": 513,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Mitsubishi (DO4 HD)2-edited.bin",
+      "bytes": 4061841,
+      "sha256": "0f93c4adf5f79567c5c4afc540020a335198026d59e4c0e1e90ff12cc1fd29f0",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 324,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Model 702 (2)-edited.bin",
+      "bytes": 1669476,
+      "sha256": "00cd7cd75d6ee9664cabaf075d2c2aee90b368bb00b09ec98eb45f1d7336f4d2",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 375,
+          "h": 270,
+          "n": 200,
+          "zero": 141,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Modern antonyb-edited.bin",
+      "bytes": 2131157,
+      "sha256": "6f76d7ebedba2767499b4cfac99be22ac021d2dea597e0bb39bb1d1cabc94467",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 500,
+          "h": 243,
+          "n": 212,
+          "zero": 150,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Moving Coil model 1013.bin",
+      "bytes": 4254087,
+      "sha256": "bac822a86b7f7769de405836cffc4648b10affdf8edb0b828f47f9ec8911337d",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 370,
+          "h": 460,
+          "n": 241,
+          "zero": 214,
+          "flags": 0
+        },
+        {
+          "w": 370,
+          "h": 460,
+          "n": 241,
+          "zero": 214,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "NAGRA 2.bin",
+      "bytes": 24244785,
+      "sha256": "9af08c39687ee8d2e257fb161716211ded7363b0959afc1e0ae23f4b3add0855",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 900,
+          "h": 1000,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 900,
+          "h": 1000,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "NAGRA KUDELSKI III-edited.bin",
+      "bytes": 2714532,
+      "sha256": "7a67e820e8b6cd0cacbdead65ff1edd1bb97784fc046ff16f15660953125be6d",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 400,
+          "h": 371,
+          "n": 1024,
+          "zero": 813,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Nagra Light.bin",
+      "bytes": 15990671,
+      "sha256": "b6663e171e08932e9184ce3c5831255e5ef93afa7180797daa2d32085d37750e",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1024,
+          "h": 1024,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Nagra snst.bin",
+      "bytes": 36243161,
+      "sha256": "5d693c4a843d5f0c2af0028aa037e873d7f9fa75a5c3b572a5e8f422d4f40cf2",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 800,
+          "h": 900,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 800,
+          "h": 900,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "New D’Agostino two.bin",
+      "bytes": 18202389,
+      "sha256": "646b0e43ea233b782be77b21939e8bfbc56e545ab749c257b65f6908a23e2dbe",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1100,
+          "h": 1100,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "New Green Eye Classic.bin",
+      "bytes": 50200795,
+      "sha256": "6f1604cbb8c2b13f6cc41087d147174a7f232e5c2a2d9885d0181602276faa8a",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 600,
+          "h": 648,
+          "n": 241,
+          "zero": 214,
+          "flags": 0
+        },
+        {
+          "w": 600,
+          "h": 648,
+          "n": 241,
+          "zero": 214,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "New Hi-End.bin",
+      "bytes": 41594992,
+      "sha256": "b5ae6dbf40c4c90d84765027172cb016626713d8cc06787009aa46614b469f35",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 550,
+          "h": 608,
+          "n": 241,
+          "zero": 214,
+          "flags": 0
+        },
+        {
+          "w": 550,
+          "h": 608,
+          "n": 241,
+          "zero": 214,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Nuclear-Electronics_HD (for DarkOne)-edited.bin",
+      "bytes": 9371704,
+      "sha256": "3185f874bfc51fc40f2e3aa6d708d30bb71d37e755f4d3d63eba64926d240628",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 959,
+          "h": 950,
+          "n": 1024,
+          "zero": 457,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Onkyo A15.bin",
+      "bytes": 5162762,
+      "sha256": "9c929499ba7ea1b908181e3b1ce63dcde44d18f05ae2c19ca5b08b8c6ad4b32b",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 700,
+          "h": 371,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 700,
+          "h": 371,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Onkyo1-edited.bin",
+      "bytes": 3703074,
+      "sha256": "70596b5437d1dcd7c92c8194a0363cb62257b12eea19c39d9c3ffaccec536e9e",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1068,
+          "h": 534,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Onkyo_M5000.bin",
+      "bytes": 5530185,
+      "sha256": "76e17c9ef66c14a3c4579b6ba55079be587ba87bb32bc68d9b05846183efcc40",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 900,
+          "h": 496,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 900,
+          "h": 496,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Orizzontale antonyb-edited.bin",
+      "bytes": 1477535,
+      "sha256": "c786224ce9dc67d098aca0bfb7c2a1551571f5934a22cc4441a5c99cc65c42cc",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 223,
+          "n": 212,
+          "zero": 150,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "PBN audio.bin",
+      "bytes": 20315691,
+      "sha256": "5228c3650e4db5785630e05a8cb091db23fa08500285ff92899ad5cdac9df716",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1140,
+          "h": 780,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Phaostron Aircraft-edited.bin",
+      "bytes": 3983843,
+      "sha256": "d10e0e3f191efa87a1655657f15dd87d9d1f74e5c71192494e5a57eececd7974",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 710,
+          "h": 710,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Philips.bin",
+      "bytes": 7167964,
+      "sha256": "24087e60ccf2efbef2afd44e317c86f324cd1ad0d5888f7787b43e3ba42cdafa",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 700,
+          "h": 700,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 700,
+          "h": 700,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Pifco All-In-One (mod DarkOne)-edited.bin",
+      "bytes": 1994007,
+      "sha256": "f18c5180fd56e40e26219e04c11173b068df966e6a7b2d4f4a68a38cefc5bf1f",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 550,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Power (mod DarkOne) by G121121-edited.bin",
+      "bytes": 2385204,
+      "sha256": "232c56095134728bc33fc39ffccfb29ba67232570aa548c47f18fe7a448779f7",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 810,
+          "h": 462,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Power.bin",
+      "bytes": 2780521,
+      "sha256": "e15763cdfdfee38561c3d2594c6c046a9793f01f6b9d582a430e9b5e9f91437f",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 450,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Realistic-edited.bin",
+      "bytes": 10911091,
+      "sha256": "8ba564f2bd874980e898a75c7a22cb58ffa2dd76815a4577e413d1c44f412375",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 765,
+          "h": 498,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "SAE_2.bin",
+      "bytes": 3461868,
+      "sha256": "83622c298c847db86a99b1dc913e792e73b7b2f96879919423179a91911a885e",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 287,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Sansui NEW 2 (mod DarkOne)-edited.bin",
+      "bytes": 6095807,
+      "sha256": "c86f47d4763131f9fc8b77a1fb5741c2dbe16ac57a5983a74c1d3cf5006c5eb7",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 960,
+          "h": 470,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Scott A6.bin",
+      "bytes": 5068297,
+      "sha256": "eece99871e9fada9947cf0e7f406c2910a4dbbc761055866ec0963169dd18103",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 640,
+          "h": 562,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 640,
+          "h": 562,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Sharp 2-edited.bin",
+      "bytes": 1631570,
+      "sha256": "6e265f3fbc1e485de81af07f66fe107eff5bf59c1a452fda6de34e0873f18010",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 130,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Simpson 182R 2-edited.bin",
+      "bytes": 6147224,
+      "sha256": "eeaabefe4f2f77b6922b2239db6990ae81e48b3d160d0c2c2e36af217ed53976",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 650,
+          "h": 650,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Simpson antonyb-edited.bin",
+      "bytes": 2829379,
+      "sha256": "d059deae8bdeed4995561a0ef1a6356d79184541745828c9153f324bb35bc126",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 416,
+          "n": 212,
+          "zero": 150,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "StarGazer-edited.bin",
+      "bytes": 9585144,
+      "sha256": "adc91a300ff1a6a013e2c12313494346a0e995db5701c0040983286936981de3",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 438,
+          "n": 405,
+          "zero": 128,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Sunfire.bin",
+      "bytes": 2313286,
+      "sha256": "3e61ca7fb15598adf8d1f84e911641ff0dc7988bf23584e7b8f574258440fea6",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 680,
+          "h": 360,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 450,
+          "h": 360,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "TCD440A-edited.bin",
+      "bytes": 985219,
+      "sha256": "e2ff81eb283ded7063e122a141a86a0d72e48bb6447a394d9ff0501fb60fc7f1",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 368,
+          "h": 303,
+          "n": 1024,
+          "zero": 457,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Teac AX501.bin",
+      "bytes": 7859746,
+      "sha256": "c0b16dfecfebdd0d5550af4adbf60d4b314f7fe90f046bfa905d98511a0d315a",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 900,
+          "h": 819,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 899,
+          "h": 819,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Teletronix 2 (for DarkOne)-edited.bin",
+      "bytes": 5127459,
+      "sha256": "2dea33bdbec91566eebd588547b330ab25f618167cce3d483bbb0b8e01746230",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 950,
+          "h": 542,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Threshold_T800D.bin",
+      "bytes": 9752174,
+      "sha256": "f65ce7252a4fda2c303c725eda46f76be7ceb835bf8a6a0803cc90f50a10ef3b",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 800,
+          "h": 364,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 800,
+          "h": 364,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Tube.bin",
+      "bytes": 9200928,
+      "sha256": "df3c1641fcfd51c0dc28cf326205460488757874f3cb373de98f394da9fbd621",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 400,
+          "h": 188,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 400,
+          "h": 188,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Twincom.bin",
+      "bytes": 10512475,
+      "sha256": "7c8cfca1015c30f3564f2b06807438de0339d43376bbfda99f62c2de16c58204",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 800,
+          "h": 586,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 800,
+          "h": 586,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "UNIVERSAL AUDIO 710.bin",
+      "bytes": 9411598,
+      "sha256": "6a4f799df7ac626a1a0ab8bf109212f6e71dee04f9e54be0a706873391d2b865",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1130,
+          "h": 648,
+          "n": 241,
+          "zero": 120,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Unknown (mod DarkOne)-edited.bin",
+      "bytes": 2722507,
+      "sha256": "c579d752881585139f4be783dc7322eead5277be7261812d8d0ec536ba8fd47a",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 900,
+          "h": 355,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "VOLTA.bin",
+      "bytes": 7997862,
+      "sha256": "a2dcea737b1cac36989727010eaaa2b1e130e0516cb0032734a656cdf6481199",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 750,
+          "h": 724,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "VU A.bin",
+      "bytes": 2587065,
+      "sha256": "aa52ad6cb8045e70a6a5bc24daf185c383fc65b8749161d5d0ed80d8cec168f6",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 451,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Vintage.bin",
+      "bytes": 3634356,
+      "sha256": "69fcb87f7038851e8155dd7d784a09900cb22401ed590c5b85dcfd2cc0c00380",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 500,
+          "h": 296,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 500,
+          "h": 296,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "Yamaha 3000.bin",
+      "bytes": 15650271,
+      "sha256": "ab75d194e2848ee56b56b676090a8fe6fddb3e81ecd06c35688d315c77d651be",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 848,
+          "h": 457,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 848,
+          "h": 457,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "acdc-edited.bin",
+      "bytes": 4335670,
+      "sha256": "1aa02b209c842c0c70905cd70e4d66bf5434b75d8f97752166983bd8532619ee",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 500,
+          "h": 500,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "atlas-edited.bin",
+      "bytes": 2291999,
+      "sha256": "2515e3fc191264c5ca300a204b1e9be4f4819f356dbcf84be3223967b13f70f4",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 600,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "blu sector.bin",
+      "bytes": 47279265,
+      "sha256": "87d6579bcf5f799b837a899a77bf065a82eb116fcee818637b14e366b3293cc4",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1550,
+          "h": 830,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "br sector+.bin",
+      "bytes": 15995890,
+      "sha256": "b304631dced4b155d6ea44ad4882586b7498a2ade70c2b234cc89302f00adb8d",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 1550,
+          "h": 830,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "brocker_black-edited.bin",
+      "bytes": 2097343,
+      "sha256": "18d42fb375acf0f82279aa68054f23bbd4d1fd611d9ed163e5ca113c9e4b0cd0",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 440,
+          "h": 320,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "bw-edited.bin",
+      "bytes": 3715808,
+      "sha256": "bdda25197714caa74da4126400938fd6d3c96efa23a80a17a26b1fa23496408d",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 540,
+          "h": 520,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "city.bin",
+      "bytes": 6526289,
+      "sha256": "21655b0700c43c2b4e55b5e66af1cba8878b83007d66ce03a6dac9bfad685aae",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 880,
+          "h": 880,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "dbx-edited.bin",
+      "bytes": 2238232,
+      "sha256": "9e7caedaeb88890a1be4805b88ce3a30bfaf73f1202da6dc16fa678ccf2b3f8d",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 500,
+          "h": 320,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "dbx2-edited.bin",
+      "bytes": 2219930,
+      "sha256": "cf6dd269b1a35fd0b9e31362da2f80e5f451377bd4cf62ebd0d56223f0e83316",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 500,
+          "h": 320,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "decibels-edited.bin",
+      "bytes": 6588728,
+      "sha256": "ab81afc455404e2f568732c366a7e1442d4c4bc4fcb852899765c98a22ce05e3",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 692,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "fake-edited.bin",
+      "bytes": 2658080,
+      "sha256": "2698deaf46fa184b31c0c79d81380ac6fe83e660ff369f6ff76431c7f2842fa6",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 440,
+          "h": 410,
+          "n": 1024,
+          "zero": 575,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "jewell-edited.bin",
+      "bytes": 2804102,
+      "sha256": "aac535a0165512de913e106d17d1f2782aa742f993c6307184308ee517cb2c51",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 400,
+          "h": 400,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "lamson_big-edited.bin",
+      "bytes": 8577774,
+      "sha256": "aa7124e8e25b0d11046c2d4dcdfa94be64be508793bfcf5e24802f2b3e8c2b77",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 840,
+          "h": 714,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "nagra-edited.bin",
+      "bytes": 1496799,
+      "sha256": "c86258df45615cf3c3f88d9118efc55bee3fe690b83d7f6889c7036c1ae9cf3c",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 470,
+          "h": 560,
+          "n": 1024,
+          "zero": 288,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "neutron-edited.bin",
+      "bytes": 1557395,
+      "sha256": "1e862a66b5c5eb4a2102f00d54495cfa91258b43c931c2cd2c97f96bf0a036b2",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 418,
+          "h": 325,
+          "n": 212,
+          "zero": 119,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "nnm 7.bin",
+      "bytes": 6914775,
+      "sha256": "a977e3d5887b3721a7bca6df4139fcc731e81e53f6fc63648747ba611d909335",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 800,
+          "h": 800,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "nnm1.bin",
+      "bytes": 11824661,
+      "sha256": "d2d6664c33f0ad4f777444d26653740fcb6e89d256eca8822042c96bcff01d08",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 900,
+          "h": 570,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 900,
+          "h": 570,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "nnm1v2.bin",
+      "bytes": 11837170,
+      "sha256": "8a8e01b55f9a00e2452c307740591a94a3949b7f4dbdba9118a680d0bcc8ffc7",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 900,
+          "h": 570,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        },
+        {
+          "w": 900,
+          "h": 570,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "phastron-edited.bin",
+      "bytes": 3203683,
+      "sha256": "1fb02171ddc8b257fa70ea3a94f46aa4bd28296c6f70f7892aa312dee3f41340",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 556,
+          "n": 209,
+          "zero": 147,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "pifco-edited.bin",
+      "bytes": 2055261,
+      "sha256": "81161715485261a5b71a96f54b7817f5acbc03a8fd2c4ca461754574ac92603a",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 600,
+          "h": 550,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "pioneer_m-90_gr-edited.bin",
+      "bytes": 11567758,
+      "sha256": "e067b8465f2f5a2203492157c43346a2ce7826f13ddb7546b98a26d7198f7795",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 545,
+          "h": 196,
+          "n": 1024,
+          "zero": 513,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "pioneer_m-90_or-edited.bin",
+      "bytes": 11174662,
+      "sha256": "d2ccd4481cdcced8d97db63ccb978d8f3df66ad1cdbae86fb98ace8e73eb0ae3",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 545,
+          "h": 196,
+          "n": 1024,
+          "zero": 513,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "skin-edited.bin",
+      "bytes": 5847209,
+      "sha256": "c0820dc21c9dc772a38ebcdff4f8bda1ba408ead4e2be0c3fa37dda31de4f59d",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 432,
+          "h": 261,
+          "n": 1024,
+          "zero": 646,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "skin-edited1.bin",
+      "bytes": 3662467,
+      "sha256": "c309235f09d045870d3bc312c66d3892f5fb44ce5934b0d73fcbb29e717a59c6",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 660,
+          "h": 306,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "sony-edited.bin",
+      "bytes": 5371742,
+      "sha256": "bd120f69f009ffafa19f14a5349f5350bc89e89909d73d919e1d377026c818c1",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 686,
+          "h": 300,
+          "n": 1024,
+          "zero": 724,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    },
+    {
+      "name": "vidality.bin",
+      "bytes": 7709964,
+      "sha256": "fc3867985c4089019fe632484016c56d876bbb42e56592efff179e922b740edc",
+      "panelCount": 2,
+      "panels": [
+        {
+          "w": 1770,
+          "h": 396,
+          "n": 241,
+          "zero": 135,
+          "flags": 0
+        },
+        {
+          "w": 136,
+          "h": 396,
+          "n": 241,
+          "zero": 135,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": "independent lower R track; exact-content repair, BIN unchanged"
+    },
+    {
+      "name": "vu meter 1.bin",
+      "bytes": 6073153,
+      "sha256": "8bbbc92c73595e5449f720cb9a375e72d56b125a9aee3d5d58dbe912e3aa1dac",
+      "panelCount": 1,
+      "panels": [
+        {
+          "w": 740,
+          "h": 740,
+          "n": 241,
+          "zero": 170,
+          "flags": 0
+        }
+      ],
+      "runtimeRepair": null
+    }
+  ]
+}
