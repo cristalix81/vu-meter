@@ -1,3 +1,17 @@
+# Скачать Spectral Gallery 4.5.0 для Windows
+
+**19 живых оформлений без стрелок.**
+
+- **[Полная программа ZIP — 199 МБ](https://github.com/cristalix81/vu-meter/raw/refs/heads/main/releases/AudioVisualizerPro-Spectral-4.5.0.zip)**
+- [Установщик Windows x64 — 199 МБ](https://github.com/cristalix81/vu-meter/raw/refs/heads/main/releases/AudioVisualizerPro-Spectral-Setup-4.5.0-x64.exe)
+- [Инструкция и сведения о проверках](releases/README-Spectral-4.5.0.md)
+
+Распакуйте всю папку и запустите `Audio Visualizer Pro.exe`. Предыдущая версия не требуется. Windows EXE пока не проверен на настоящем Windows-компьютере; сборка не подписана.
+
+Ниже сохранена документация предыдущих версий.
+
+---
+
 # Настольный VU-meter 4.3.0 · ATELIER
 
 Четыре оригинальных прибора: IVORY, PLATINUM, NOCTURNE и HERITAGE.

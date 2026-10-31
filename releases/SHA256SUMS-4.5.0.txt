@@ -1,0 +1,2 @@
+afe52ad2510779b3f289516b5ca195c4f1afa4d226d7b330e51dfedaed23d837  AudioVisualizerPro-Spectral-4.5.0.zip
+3e74f0674b4ba6669a08273464b23f2b95898f2874cc7c4c4f609680f60866d0  AudioVisualizerPro-Spectral-Setup-4.5.0-x64.exe
