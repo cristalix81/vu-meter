@@ -1,0 +1,589 @@
+{
+  "version": "4.3.1",
+  "baseVersion": "4.3.0",
+  "sourceCommit": "acb617f7f493bf487f274f7532de25e15bea0ebc",
+  "unitTests": {
+    "passed": 154,
+    "failed": 0,
+    "skipped": 0
+  },
+  "checks": {
+    "sourceControls": {
+      "summary": {
+        "passed": 74,
+        "failed": 0
+      },
+      "checks": [
+        {
+          "name": "143 modes retain original waterfall and all123 BIN",
+          "passed": true
+        },
+        {
+          "name": "13 actual drawing families registered",
+          "passed": true
+        },
+        {
+          "name": "Idle fresh launch has no automatic DEMO",
+          "passed": true
+        },
+        {
+          "name": "Idle clears waterfall",
+          "passed": true
+        },
+        {
+          "name": "Idle clears arctic-titanium",
+          "passed": true
+        },
+        {
+          "name": "Idle clears solar-bronze",
+          "passed": true
+        },
+        {
+          "name": "Idle clears aurora-obsidian",
+          "passed": true
+        },
+        {
+          "name": "Idle clears emerald-laboratory",
+          "passed": true
+        },
+        {
+          "name": "Idle clears pearl-ceramic",
+          "passed": true
+        },
+        {
+          "name": "Idle clears bordeaux-noir",
+          "passed": true
+        },
+        {
+          "name": "Idle clears opal-eclipse",
+          "passed": true
+        },
+        {
+          "name": "Idle clears prism-array",
+          "passed": true
+        },
+        {
+          "name": "Idle clears lissajous-glass",
+          "passed": true
+        },
+        {
+          "name": "Idle clears halo-spectrum",
+          "passed": true
+        },
+        {
+          "name": "Idle clears chromatic-ribbon",
+          "passed": true
+        },
+        {
+          "name": "Idle clears crystal-citadel",
+          "passed": true
+        },
+        {
+          "name": "Idle clears photon-loom",
+          "passed": true
+        },
+        {
+          "name": "Idle clears contour-atlas",
+          "passed": true
+        },
+        {
+          "name": "Idle clears mercury-tide",
+          "passed": true
+        },
+        {
+          "name": "Idle clears honeycomb-resonance",
+          "passed": true
+        },
+        {
+          "name": "Idle clears orbital-dust",
+          "passed": true
+        },
+        {
+          "name": "Idle clears dichroic-mosaic",
+          "passed": true
+        },
+        {
+          "name": "Idle clears resonant-membranes",
+          "passed": true
+        },
+        {
+          "name": "DEMO supplies finite real stereo PCM",
+          "passed": true
+        },
+        {
+          "name": "DEMO remains muted at destination gains",
+          "passed": true
+        },
+        {
+          "name": "Coherent paired PCM worklet path",
+          "passed": true
+        },
+        {
+          "name": "Native BIN representative bundle-1719785d03bab731",
+          "passed": true
+        },
+        {
+          "name": "Native BIN representative bundle-1843ddf58114b01b",
+          "passed": true
+        },
+        {
+          "name": "Native BIN representative bundle-c51cfeb5a18ba500",
+          "passed": true
+        },
+        {
+          "name": "Compact catalog fits screen",
+          "passed": true
+        },
+        {
+          "name": "Every one of143 catalog cards has an independent checkbox",
+          "passed": true
+        },
+        {
+          "name": "Selecting ten mixed checkboxes does not choose or close",
+          "passed": true
+        },
+        {
+          "name": "All local catalog previews loaded",
+          "passed": true
+        },
+        {
+          "name": "Sequential rotation traverses only ten selected modes and wraps",
+          "passed": true
+        },
+        {
+          "name": "Random rotation stays within selected ten and avoids repeats",
+          "passed": true
+        },
+        {
+          "name": "Manual catalog choice can choose an excluded mode",
+          "passed": true
+        },
+        {
+          "name": "Macropad starts rotation and immediately enters selected pool",
+          "passed": true
+        },
+        {
+          "name": "Real five-second timer advances only selected modes",
+          "passed": true
+        },
+        {
+          "name": "Macropad stops rotation",
+          "passed": true
+        },
+        {
+          "name": "Empty selection halts timer without stopping audio",
+          "passed": true
+        },
+        {
+          "name": "Macro cannot start empty pool",
+          "passed": true
+        },
+        {
+          "name": "Singleton pool holds its selected BIN",
+          "passed": true
+        },
+        {
+          "name": "Reload persists exact ten stable IDs",
+          "passed": true
+        },
+        {
+          "name": "Saved profile includes exact ten selected IDs",
+          "passed": true
+        },
+        {
+          "name": "Renderer JSON export serializes selected IDs (native file picker not tested)",
+          "passed": true
+        },
+        {
+          "name": "Real profile JSON import accepts selected IDs",
+          "passed": true
+        },
+        {
+          "name": "Applied imported profile restores its selected IDs after reload",
+          "passed": true
+        },
+        {
+          "name": "Old profile without selection remains compatible and keeps selection",
+          "passed": true
+        },
+        {
+          "name": "Actual graph silence fixture available",
+          "passed": true
+        },
+        {
+          "name": "Active digital silence has zero PCM and zero visualizer energy",
+          "passed": true
+        },
+        {
+          "name": "Explicit STOP authoritative",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history waterfall",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history arctic-titanium",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history solar-bronze",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history aurora-obsidian",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history emerald-laboratory",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history pearl-ceramic",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history bordeaux-noir",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history opal-eclipse",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history prism-array",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history lissajous-glass",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history halo-spectrum",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history chromatic-ribbon",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history crystal-citadel",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history photon-loom",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history contour-atlas",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history mercury-tide",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history honeycomb-resonance",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history orbital-dust",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history dichroic-mosaic",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history resonant-membranes",
+          "passed": true
+        },
+        {
+          "name": "No renderer exceptions",
+          "passed": true
+        },
+        {
+          "name": "No failed local resources",
+          "passed": true
+        },
+        {
+          "name": "No console errors",
+          "passed": true
+        }
+      ]
+    },
+    "idleAndSpectrogram": {
+      "summary": {
+        "passed": 22,
+        "failed": 0
+      },
+      "checks": [
+        {
+          "name": "Stopped screenshot contains no fabricated signal arctic-titanium",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal solar-bronze",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal aurora-obsidian",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal emerald-laboratory",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal pearl-ceramic",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal bordeaux-noir",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal opal-eclipse",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal prism-array",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal lissajous-glass",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal halo-spectrum",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal chromatic-ribbon",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal crystal-citadel",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal photon-loom",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal contour-atlas",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal mercury-tide",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal honeycomb-resonance",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal orbital-dust",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal dichroic-mosaic",
+          "passed": true
+        },
+        {
+          "name": "Stopped screenshot contains no fabricated signal resonant-membranes",
+          "passed": true
+        },
+        {
+          "name": "Chromatic ribbon live full-window hash differs from stopped after settled real history",
+          "passed": true
+        },
+        {
+          "name": "STOP removes accumulated real spectrogram history",
+          "passed": true
+        },
+        {
+          "name": "No renderer errors",
+          "passed": true
+        }
+      ]
+    },
+    "packedApplication": {
+      "summary": {
+        "passed": 35,
+        "failed": 0
+      },
+      "checks": [
+        {
+          "name": "Packed143 modes, nativewaterfall and123BIN",
+          "passed": true
+        },
+        {
+          "name": "Packed native original waterfall accumulates real history",
+          "passed": true
+        },
+        {
+          "name": "Packed live arctic-titanium",
+          "passed": true
+        },
+        {
+          "name": "Packed live solar-bronze",
+          "passed": true
+        },
+        {
+          "name": "Packed live aurora-obsidian",
+          "passed": true
+        },
+        {
+          "name": "Packed live emerald-laboratory",
+          "passed": true
+        },
+        {
+          "name": "Packed live pearl-ceramic",
+          "passed": true
+        },
+        {
+          "name": "Packed live bordeaux-noir",
+          "passed": true
+        },
+        {
+          "name": "Packed live opal-eclipse",
+          "passed": true
+        },
+        {
+          "name": "Packed live prism-array",
+          "passed": true
+        },
+        {
+          "name": "Packed live lissajous-glass",
+          "passed": true
+        },
+        {
+          "name": "Packed live halo-spectrum",
+          "passed": true
+        },
+        {
+          "name": "Packed live chromatic-ribbon",
+          "passed": true
+        },
+        {
+          "name": "Packed live crystal-citadel",
+          "passed": true
+        },
+        {
+          "name": "Packed live photon-loom",
+          "passed": true
+        },
+        {
+          "name": "Packed live contour-atlas",
+          "passed": true
+        },
+        {
+          "name": "Packed live mercury-tide",
+          "passed": true
+        },
+        {
+          "name": "Packed live honeycomb-resonance",
+          "passed": true
+        },
+        {
+          "name": "Packed live orbital-dust",
+          "passed": true
+        },
+        {
+          "name": "Packed live dichroic-mosaic",
+          "passed": true
+        },
+        {
+          "name": "Packed live resonant-membranes",
+          "passed": true
+        },
+        {
+          "name": "Packed actual BIN renders",
+          "passed": true
+        },
+        {
+          "name": "Packed exactten selection survives reload",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 0",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 1",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 2",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 3",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 4",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 5",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 6",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 7",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 8",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 9",
+          "passed": true
+        },
+        {
+          "name": "Packed rapid mode boundary afterSTOP staysidle withzero history",
+          "passed": true
+        },
+        {
+          "name": "No renderer errors",
+          "passed": true
+        }
+      ]
+    }
+  },
+  "preserved": {
+    "originalFilesExceptAsar": 211,
+    "binSkins": 123,
+    "electron": "37.10.3",
+    "nativeWaterfallRendererUnchanged": true,
+    "nativeWaterfallChassisUnchanged": true,
+    "windowsExecutableUnchanged": true
+  },
+  "appAsarSha256": "1447bd34f22e1986a811336e76e07a418e22f9d0b766b198cc817f1b6b49385f",
+  "catalog": {
+    "nativeWaterfall": 1,
+    "newVisualizers": 19,
+    "bin": 123,
+    "total": 143
+  },
+  "limitations": [
+    "Interactive QA used Linux Electron45 and softwareWebGL; the original shipping Windows Electron37.10.3 was preserved but not executed here.",
+    "Only explicit generated demo audio and controlled digital silence were exercised; physical capture, Windows audio drivers, sleep recovery, multiple monitors and DPI need Windows testing.",
+    "Profile JSON serialization/import was exercised; native download picker was bypassed in headless QA.",
+    "No new digital signature or installer is included."
+  ],
+  "zip": {
+    "bytes": 524890372,
+    "sha256": "52a134403dff702956f63b5861fbad508798414f68ec66ef2cb410ae7a80d83d",
+    "entries": 216,
+    "skinsBin": 123,
+    "crcVerified": true,
+    "appSha256": "1447bd34f22e1986a811336e76e07a418e22f9d0b766b198cc817f1b6b49385f"
+  }
+}
