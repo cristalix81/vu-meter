@@ -1,0 +1,1018 @@
+{
+  "version": "4.3.2",
+  "baseVersion": "4.3.0",
+  "sourceCommit": "355f6936b3569cff6e4c374fb4572851175f98f2",
+  "unitTests": {
+    "passed": 172,
+    "failed": 0,
+    "skipped": 0
+  },
+  "runtime": {
+    "originalWindowsElectron": "37.10.3",
+    "originalFilesPreservedExceptAsar": 211,
+    "binSkins": 123,
+    "nativeWaterfallUnchanged": true,
+    "nativeChassisUnchanged": true,
+    "newVisualizers": 19
+  },
+  "appAsar": {
+    "bytes": 43520988,
+    "sha256": "983df827d90167ec7dc4e5ba4358d4c28eda31e83192ce2ce0dee7da26c63788"
+  },
+  "zip": {
+    "bytes": 524897100,
+    "sha256": "b8a95a495c38d0c3bfdf9163e37247a8e340a61a08014bb6b7f620206d574707",
+    "entries": 216,
+    "skinsBin": 123,
+    "crcVerified": true,
+    "appSha256": "983df827d90167ec7dc4e5ba4358d4c28eda31e83192ce2ce0dee7da26c63788"
+  },
+  "checks": {
+    "packedControls": {
+      "summary": {
+        "passed": 74,
+        "failed": 0
+      },
+      "checks": [
+        {
+          "name": "143 modes retain original waterfall and all123 BIN",
+          "passed": true
+        },
+        {
+          "name": "13 actual drawing families registered",
+          "passed": true
+        },
+        {
+          "name": "Idle fresh launch has no automatic DEMO",
+          "passed": true
+        },
+        {
+          "name": "Idle clears waterfall",
+          "passed": true
+        },
+        {
+          "name": "Idle clears arctic-titanium",
+          "passed": true
+        },
+        {
+          "name": "Idle clears solar-bronze",
+          "passed": true
+        },
+        {
+          "name": "Idle clears aurora-obsidian",
+          "passed": true
+        },
+        {
+          "name": "Idle clears emerald-laboratory",
+          "passed": true
+        },
+        {
+          "name": "Idle clears pearl-ceramic",
+          "passed": true
+        },
+        {
+          "name": "Idle clears bordeaux-noir",
+          "passed": true
+        },
+        {
+          "name": "Idle clears opal-eclipse",
+          "passed": true
+        },
+        {
+          "name": "Idle clears prism-array",
+          "passed": true
+        },
+        {
+          "name": "Idle clears lissajous-glass",
+          "passed": true
+        },
+        {
+          "name": "Idle clears halo-spectrum",
+          "passed": true
+        },
+        {
+          "name": "Idle clears chromatic-ribbon",
+          "passed": true
+        },
+        {
+          "name": "Idle clears crystal-citadel",
+          "passed": true
+        },
+        {
+          "name": "Idle clears photon-loom",
+          "passed": true
+        },
+        {
+          "name": "Idle clears contour-atlas",
+          "passed": true
+        },
+        {
+          "name": "Idle clears mercury-tide",
+          "passed": true
+        },
+        {
+          "name": "Idle clears honeycomb-resonance",
+          "passed": true
+        },
+        {
+          "name": "Idle clears orbital-dust",
+          "passed": true
+        },
+        {
+          "name": "Idle clears dichroic-mosaic",
+          "passed": true
+        },
+        {
+          "name": "Idle clears resonant-membranes",
+          "passed": true
+        },
+        {
+          "name": "DEMO supplies finite real stereo PCM",
+          "passed": true
+        },
+        {
+          "name": "DEMO remains muted at destination gains",
+          "passed": true
+        },
+        {
+          "name": "Coherent paired PCM worklet path",
+          "passed": true
+        },
+        {
+          "name": "Native BIN representative bundle-1719785d03bab731",
+          "passed": true
+        },
+        {
+          "name": "Native BIN representative bundle-1843ddf58114b01b",
+          "passed": true
+        },
+        {
+          "name": "Native BIN representative bundle-c51cfeb5a18ba500",
+          "passed": true
+        },
+        {
+          "name": "Compact catalog fits screen",
+          "passed": true
+        },
+        {
+          "name": "Every one of143 catalog cards has an independent checkbox",
+          "passed": true
+        },
+        {
+          "name": "Selecting ten mixed checkboxes does not choose or close",
+          "passed": true
+        },
+        {
+          "name": "All local catalog previews loaded",
+          "passed": true
+        },
+        {
+          "name": "Sequential rotation traverses only ten selected modes and wraps",
+          "passed": true
+        },
+        {
+          "name": "Random rotation stays within selected ten and avoids repeats",
+          "passed": true
+        },
+        {
+          "name": "Manual catalog choice can choose an excluded mode",
+          "passed": true
+        },
+        {
+          "name": "Macropad starts rotation and immediately enters selected pool",
+          "passed": true
+        },
+        {
+          "name": "Real five-second timer advances only selected modes",
+          "passed": true
+        },
+        {
+          "name": "Macropad stops rotation",
+          "passed": true
+        },
+        {
+          "name": "Empty selection halts timer without stopping audio",
+          "passed": true
+        },
+        {
+          "name": "Macro cannot start empty pool",
+          "passed": true
+        },
+        {
+          "name": "Singleton pool holds its selected BIN",
+          "passed": true
+        },
+        {
+          "name": "Reload persists exact ten stable IDs",
+          "passed": true
+        },
+        {
+          "name": "Saved profile includes exact ten selected IDs",
+          "passed": true
+        },
+        {
+          "name": "Renderer JSON export serializes selected IDs (native file picker not tested)",
+          "passed": true
+        },
+        {
+          "name": "Real profile JSON import accepts selected IDs",
+          "passed": true
+        },
+        {
+          "name": "Applied imported profile restores its selected IDs after reload",
+          "passed": true
+        },
+        {
+          "name": "Old profile without selection remains compatible and keeps selection",
+          "passed": true
+        },
+        {
+          "name": "Actual graph silence fixture available",
+          "passed": true
+        },
+        {
+          "name": "Active digital silence has zero PCM and zero visualizer energy",
+          "passed": true
+        },
+        {
+          "name": "Explicit STOP authoritative",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history waterfall",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history arctic-titanium",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history solar-bronze",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history aurora-obsidian",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history emerald-laboratory",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history pearl-ceramic",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history bordeaux-noir",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history opal-eclipse",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history prism-array",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history lissajous-glass",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history halo-spectrum",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history chromatic-ribbon",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history crystal-citadel",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history photon-loom",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history contour-atlas",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history mercury-tide",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history honeycomb-resonance",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history orbital-dust",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history dichroic-mosaic",
+          "passed": true
+        },
+        {
+          "name": "STOP clears actual history resonant-membranes",
+          "passed": true
+        },
+        {
+          "name": "No renderer exceptions",
+          "passed": true
+        },
+        {
+          "name": "No failed local resources",
+          "passed": true
+        },
+        {
+          "name": "No console errors",
+          "passed": true
+        }
+      ]
+    },
+    "naturalCheckboxClicks": {
+      "summary": {
+        "passed": 5,
+        "failed": 0
+      },
+      "checks": [
+        {
+          "name": "All216checkboxes fullywithin cardbounds",
+          "passed": true
+        },
+        {
+          "name": "Natural mouse checkbox remains visible and independent card0",
+          "passed": true
+        },
+        {
+          "name": "Natural mouse checkbox remains visible and independent card19",
+          "passed": true
+        },
+        {
+          "name": "Natural mouse checkbox remains visible and independent card142",
+          "passed": true
+        },
+        {
+          "name": "No renderer exceptions",
+          "passed": true
+        }
+      ]
+    },
+    "packedSmoke": {
+      "summary": {
+        "passed": 35,
+        "failed": 0
+      },
+      "checks": [
+        {
+          "name": "Packed143 modes, nativewaterfall and123BIN",
+          "passed": true
+        },
+        {
+          "name": "Packed native original waterfall accumulates real history",
+          "passed": true
+        },
+        {
+          "name": "Packed live arctic-titanium",
+          "passed": true
+        },
+        {
+          "name": "Packed live solar-bronze",
+          "passed": true
+        },
+        {
+          "name": "Packed live aurora-obsidian",
+          "passed": true
+        },
+        {
+          "name": "Packed live emerald-laboratory",
+          "passed": true
+        },
+        {
+          "name": "Packed live pearl-ceramic",
+          "passed": true
+        },
+        {
+          "name": "Packed live bordeaux-noir",
+          "passed": true
+        },
+        {
+          "name": "Packed live opal-eclipse",
+          "passed": true
+        },
+        {
+          "name": "Packed live prism-array",
+          "passed": true
+        },
+        {
+          "name": "Packed live lissajous-glass",
+          "passed": true
+        },
+        {
+          "name": "Packed live halo-spectrum",
+          "passed": true
+        },
+        {
+          "name": "Packed live chromatic-ribbon",
+          "passed": true
+        },
+        {
+          "name": "Packed live crystal-citadel",
+          "passed": true
+        },
+        {
+          "name": "Packed live photon-loom",
+          "passed": true
+        },
+        {
+          "name": "Packed live contour-atlas",
+          "passed": true
+        },
+        {
+          "name": "Packed live mercury-tide",
+          "passed": true
+        },
+        {
+          "name": "Packed live honeycomb-resonance",
+          "passed": true
+        },
+        {
+          "name": "Packed live orbital-dust",
+          "passed": true
+        },
+        {
+          "name": "Packed live dichroic-mosaic",
+          "passed": true
+        },
+        {
+          "name": "Packed live resonant-membranes",
+          "passed": true
+        },
+        {
+          "name": "Packed actual BIN renders",
+          "passed": true
+        },
+        {
+          "name": "Packed exactten selection survives reload",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 0",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 1",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 2",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 3",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 4",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 5",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 6",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 7",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 8",
+          "passed": true
+        },
+        {
+          "name": "Packed selected-only rotation 9",
+          "passed": true
+        },
+        {
+          "name": "Packed rapid mode boundary afterSTOP staysidle withzero history",
+          "passed": true
+        },
+        {
+          "name": "No renderer errors",
+          "passed": true
+        }
+      ]
+    },
+    "packedCatalog216": {
+      "summary": {
+        "passed": 6,
+        "failed": 0
+      },
+      "checks": [
+        {
+          "name": "All216checkboxes fullywithin cardbounds",
+          "passed": true
+        },
+        {
+          "name": "Natural mouse checkbox remains visible and independent card0",
+          "passed": true
+        },
+        {
+          "name": "Natural mouse checkbox remains visible and independent card19",
+          "passed": true
+        },
+        {
+          "name": "Natural mouse checkbox remains visible and independent card142",
+          "passed": true
+        },
+        {
+          "name": "No renderer exceptions",
+          "passed": true
+        },
+        {
+          "name": "Sources remained frozen during this run",
+          "passed": true
+        }
+      ]
+    },
+    "packedHaloAdaptive": {
+      "summary": {
+        "passed": 6,
+        "failed": 0
+      },
+      "checks": [
+        {
+          "name": "Packed HALO uses actual measured DEMO frame",
+          "passed": true
+        },
+        {
+          "name": "Fast repeated HALO frame reuses central snapshot",
+          "passed": true
+        },
+        {
+          "name": "Slow HALO elapsed0.2 draws ring directly without an intermediate ring composite",
+          "passed": true
+        },
+        {
+          "name": "HALO returns to cached path with measured ring refreshed",
+          "passed": true
+        },
+        {
+          "name": "No renderer exceptions or console errors",
+          "passed": true
+        },
+        {
+          "name": "Packed source remained frozen",
+          "passed": true
+        }
+      ]
+    }
+  },
+  "performance": {
+    "commonNativeFixture": {
+      "fixture": "68-row warmup then240 animation callbacks at120Hz with native65ms history; completed timing includes a1pixel canvas readback flush; original/baseline and optimized engines use identical measured inputs.",
+      "cases": {
+        "native": {
+          "counts": {
+            "geometry": 30,
+            "drawImages": 120
+          },
+          "surface": {
+            "renderer": "WebGL 3D surface",
+            "historyRows": 68,
+            "historySeconds": 4.405000000000101,
+            "peakHz": 54.27798862416432,
+            "peakDb": -14.002355575561523,
+            "frameCount": 308,
+            "active": true,
+            "bins": 128,
+            "floorDb": -55,
+            "ceilingDb": 5,
+            "maxHz": 20000
+          },
+          "clock": 6.420000000000099,
+          "rows": 68,
+          "timing": {
+            "totalMs": 132.79999989271164,
+            "warmMedianMs": 0,
+            "warmP95Ms": 4.0999999940395355,
+            "completedMedianMs": 0,
+            "completedP95Ms": 115.80000001192093
+          }
+        },
+        "before": {
+          "counts": {
+            "geometry": 30,
+            "drawImages": 960
+          },
+          "surface": {
+            "renderer": "WebGL 3D surface",
+            "historyRows": 68,
+            "historySeconds": 4.405000000000101,
+            "peakHz": 54.27798862416432,
+            "peakDb": -14.002355575561523,
+            "frameCount": 308,
+            "active": true,
+            "bins": 128,
+            "floorDb": -55,
+            "ceilingDb": 5,
+            "maxHz": 20000
+          },
+          "clock": 6.420000000000099,
+          "rows": 68,
+          "timing": {
+            "totalMs": 243.80000001192093,
+            "warmMedianMs": 0.7000000178813934,
+            "warmP95Ms": 3.199999988079071,
+            "completedMedianMs": 37.69999998807907,
+            "completedP95Ms": 189.30000001192093
+          }
+        },
+        "after": {
+          "counts": {
+            "geometry": 30,
+            "drawImages": 124
+          },
+          "rendering": {
+            "calls": 308,
+            "paints": 98,
+            "reused": 210
+          },
+          "surface": {
+            "renderer": "WebGL 3D surface",
+            "historyRows": 68,
+            "historySeconds": 4.405000000000101,
+            "peakHz": 54.27798862416432,
+            "peakDb": -14.002355575561523,
+            "frameCount": 308,
+            "active": true,
+            "bins": 128,
+            "floorDb": -55,
+            "ceilingDb": 5,
+            "maxHz": 20000,
+            "captureCount": 98,
+            "geometryBuilds": 98,
+            "softwarePaints": 0
+          },
+          "clock": 6.420000000000099,
+          "rows": 68,
+          "timing": {
+            "totalMs": 121.59999996423721,
+            "warmMedianMs": 0.09999999403953552,
+            "warmP95Ms": 3.2999999821186066,
+            "completedMedianMs": 0.09999999403953552,
+            "completedP95Ms": 195.7999999821186
+          },
+          "benchmarkDrawImages": 120,
+          "countsNote": "drawImages includes four extra operations from the final forced-repaint appearance diagnostic; benchmark alone recorded120."
+        }
+      },
+      "pixelComparison": {
+        "differingChannels": 712771,
+        "maxDifference": 24,
+        "exact": false,
+        "meanAbsoluteDifferencePerColourChannel": 0.5765825737847222
+      },
+      "forcedPixelComparison": {
+        "differingChannels": 712771,
+        "maxDifference": 24
+      },
+      "sameHistory": true,
+      "sameClock": true,
+      "limitations": [
+        "Linux Electron45 / ANGLE SwiftShader, not the shipped Windows37 runtime or hardware GPU.",
+        "The completed-frame timings include synchronous canvas readback and are not application FPS.",
+        "Preserved baseline and optimized screenshots were visually reviewed; minor raster readback differences remain.",
+        "The final elapsedDt and seed regressions do not change the fixed-dt eager-engine benchmark path."
+      ]
+    },
+    "digitalOperationCounters": {
+      "prism": {
+        "before": {
+          "calls": 13757,
+          "gradients": 0,
+          "paths": 2433,
+          "lineSegments": 22,
+          "blits": 0
+        },
+        "after": {
+          "calls": 513,
+          "gradients": 0,
+          "paths": 73,
+          "lineSegments": 0,
+          "blits": 221
+        }
+      },
+      "halo": {
+        "before": {
+          "calls": 6563,
+          "gradients": 161,
+          "paths": 667,
+          "lineSegments": 3836,
+          "blits": 0
+        },
+        "after": {
+          "calls": 6,
+          "gradients": 0,
+          "paths": 0,
+          "lineSegments": 0,
+          "blits": 4
+        }
+      },
+      "lissajous": {
+        "before": {
+          "calls": 2197,
+          "gradients": 0,
+          "paths": 11,
+          "lineSegments": 2096,
+          "blits": 1
+        },
+        "after": {
+          "calls": 10,
+          "gradients": 0,
+          "paths": 0,
+          "lineSegments": 0,
+          "blits": 4
+        }
+      },
+      "spectrogram": {
+        "before": {
+          "calls": 37,
+          "gradients": 1,
+          "paths": 5,
+          "lineSegments": 5,
+          "blits": 1
+        },
+        "after": {
+          "calls": 37,
+          "gradients": 1,
+          "paths": 5,
+          "lineSegments": 5,
+          "blits": 1
+        }
+      }
+    },
+    "note": "Digital steady-frame counters describe fast reuse; final HALO also bypasses ring caching at elapsedDt>=0.03 and reuses its ring canvas on FFT refreshes.",
+    "sculptureComputation": {
+      "before": {
+        "crystal": {
+          "median": 4.775,
+          "p95": 6.485,
+          "gradients": 12270,
+          "uploads": 0
+        },
+        "photon": {
+          "median": 1.74,
+          "p95": 4.254,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "contour": {
+          "median": 0.512,
+          "p95": 1.928,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "mercury": {
+          "median": 0.461,
+          "p95": 0.747,
+          "gradients": 90,
+          "uploads": 0
+        },
+        "honeycomb": {
+          "median": 5.242,
+          "p95": 6.063,
+          "gradients": 23430,
+          "uploads": 0
+        },
+        "particles": {
+          "median": 3.353,
+          "p95": 4.986,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "mosaic": {
+          "median": 2.07,
+          "p95": 2.564,
+          "gradients": 10230,
+          "uploads": 0
+        },
+        "membranes": {
+          "median": 7.555,
+          "p95": 12.696,
+          "gradients": 30,
+          "uploads": 60
+        }
+      },
+      "after": {
+        "crystal": {
+          "median": 2.364,
+          "p95": 3.043,
+          "gradients": 12270,
+          "uploads": 0
+        },
+        "photon": {
+          "median": 1.915,
+          "p95": 2.217,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "contour": {
+          "median": 0.571,
+          "p95": 1.056,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "mercury": {
+          "median": 0.233,
+          "p95": 0.561,
+          "gradients": 90,
+          "uploads": 0
+        },
+        "honeycomb": {
+          "median": 2.445,
+          "p95": 5.127,
+          "gradients": 23430,
+          "uploads": 0
+        },
+        "particles": {
+          "median": 1.931,
+          "p95": 3.793,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "mosaic": {
+          "median": 0.773,
+          "p95": 1.657,
+          "gradients": 10230,
+          "uploads": 0
+        },
+        "membranes": {
+          "median": 0.039,
+          "p95": 0.073,
+          "gradients": 30,
+          "uploads": 0
+        }
+      },
+      "before-dynamic": {
+        "crystal": {
+          "median": 4.155,
+          "p95": 5.037,
+          "gradients": 12270,
+          "uploads": 0
+        },
+        "photon": {
+          "median": 1.632,
+          "p95": 3.722,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "contour": {
+          "median": 0.843,
+          "p95": 1.92,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "mercury": {
+          "median": 0.306,
+          "p95": 0.553,
+          "gradients": 90,
+          "uploads": 0
+        },
+        "honeycomb": {
+          "median": 4.965,
+          "p95": 5.387,
+          "gradients": 23430,
+          "uploads": 0
+        },
+        "particles": {
+          "median": 3.041,
+          "p95": 3.97,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "mosaic": {
+          "median": 1.889,
+          "p95": 2.647,
+          "gradients": 10230,
+          "uploads": 0
+        },
+        "membranes": {
+          "median": 6.985,
+          "p95": 11.268,
+          "gradients": 30,
+          "uploads": 60
+        }
+      },
+      "after-dynamic": {
+        "crystal": {
+          "median": 1.409,
+          "p95": 2.52,
+          "gradients": 12270,
+          "uploads": 0
+        },
+        "photon": {
+          "median": 0.963,
+          "p95": 1.41,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "contour": {
+          "median": 0.581,
+          "p95": 0.772,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "mercury": {
+          "median": 0.219,
+          "p95": 0.578,
+          "gradients": 90,
+          "uploads": 0
+        },
+        "honeycomb": {
+          "median": 1.241,
+          "p95": 1.65,
+          "gradients": 23430,
+          "uploads": 0
+        },
+        "particles": {
+          "median": 1.239,
+          "p95": 1.78,
+          "gradients": 30,
+          "uploads": 0
+        },
+        "mosaic": {
+          "median": 0.593,
+          "p95": 0.882,
+          "gradients": 10230,
+          "uploads": 0
+        },
+        "membranes": {
+          "median": 3.23,
+          "p95": 7.376,
+          "gradients": 30,
+          "uploads": 31
+        }
+      },
+      "parity": {
+        "crystal": {
+          "identical": true,
+          "beforeCalls": 16521,
+          "afterCalls": 16521
+        },
+        "photon": {
+          "identical": true,
+          "beforeCalls": 5109,
+          "afterCalls": 5109
+        },
+        "contour": {
+          "identical": true,
+          "beforeCalls": 8881,
+          "afterCalls": 8881
+        },
+        "mercury": {
+          "identical": true,
+          "beforeCalls": 4564,
+          "afterCalls": 4564
+        },
+        "honeycomb": {
+          "identical": true,
+          "beforeCalls": 25812,
+          "afterCalls": 25812
+        },
+        "particles": {
+          "identical": true,
+          "beforeCalls": 3185,
+          "afterCalls": 3185
+        },
+        "mosaic": {
+          "identical": true,
+          "beforeCalls": 10560,
+          "afterCalls": 10560
+        },
+        "membranes": {
+          "identical": true,
+          "beforeCalls": 52,
+          "afterCalls": 52
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Linux Electron45 with SwiftShader softwareWebGL and four-core CPU quota was used for interactive checks. Shipping Windows Electron37.10.3 is byte-preserved, but Windows hardware execution is not verified.",
+    "Operation counters and common deterministic fixtures show reduced redundant work; short app benchmark windows were noisy/CPU saturated and do not establish stable FPS or universal CPU reductions.",
+    "HALO uses the direct vector path on slow frames and one reusable cropped cached surface on faster frames.",
+    "Natural visibility checks used a 216-card layout replica; package has143 entries plus user imports.",
+    "Profile JSON serialization/import were exercised; native download picker bypassed in headless QA.",
+    "Real input drivers, sleep recovery, multiple displays and physical Windows DPI behavior require Windows testing."
+  ],
+  "packedChecks": {
+    "passed": 121,
+    "failed": 0
+  }
+}

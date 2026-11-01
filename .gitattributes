@@ -3,3 +3,4 @@ releases/AudioVisualizerPro-Desktop-VU-4.3.0.zip filter=lfs diff=lfs merge=lfs -
 releases/AudioVisualizerPro-Spectral-4.5.0.zip filter=lfs diff=lfs merge=lfs -text
 releases/AudioVisualizerPro-Spectral-Setup-4.5.0-x64.exe filter=lfs diff=lfs merge=lfs -text
 releases/AudioVisualizerPro-Desktop-VU-4.3.1.zip filter=lfs diff=lfs merge=lfs -text
+releases/AudioVisualizerPro-Desktop-VU-4.3.2.zip filter=lfs diff=lfs merge=lfs -text
